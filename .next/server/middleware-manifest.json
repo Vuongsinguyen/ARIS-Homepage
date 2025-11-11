@@ -1,0 +1,82 @@
+{
+  "version": 3,
+  "middleware": {
+    "/": {
+      "files": [
+        "server/edge/chunks/[root-of-the-server]__b0766c94._.js",
+        "server/edge/chunks/node_modules_10850f0a._.js",
+        "server/edge/chunks/turbopack-edge-wrapper_a3546008.js"
+      ],
+      "name": "middleware",
+      "page": "/",
+      "matchers": [
+        {
+          "regexp": "^(?:\\/(_next\\/data\\/[^/]{1,}))?(?:\\/(\\/?index|\\/?index\\\\.json))?[\\/#\\?]?$",
+          "originalSource": "/"
+        },
+        {
+          "regexp": "^(?:\\/(_next\\/data\\/[^/]{1,}))?(?:\\/(vi|en))(?:\\/((?:[^\\/#\\?]+?)(?:\\/(?:[^\\/#\\?]+?))*))?(\\\\.json)?[\\/#\\?]?$",
+          "originalSource": "/(vi|en)/:path*"
+        }
+      ],
+      "wasm": [],
+      "assets": [],
+      "env": {
+        "__NEXT_BUILD_ID": "aHPzMCvN2nLWEzUvQNwOr",
+        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "PlS6h4ZfBAlRaliXhywOcA2stog1OdUPlk3cLbLMEjU=",
+        "__NEXT_PREVIEW_MODE_ID": "e24b5a6b8c7f1b5bbe003f3e96541f3d",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "6fa093189fca35134cea8794403785ad876bfb977fe64d9dc35b09b8390db98d",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "cda0d31c2c3b1a6ca32a0d8b30416bf19a5a56e5c3f6097ce25e28962af70de6"
+      }
+    }
+  },
+  "sortedMiddleware": [
+    "/"
+  ],
+  "functions": {
+    "/opengraph-image/route": {
+      "files": [
+        "server/middleware-build-manifest.js",
+        "server/interception-route-rewrite-manifest.js",
+        "server/server-reference-manifest.js",
+        "server/app/opengraph-image/route_client-reference-manifest.js",
+        "server/edge/chunks/_next-internal_server_app_opengraph-image_route_actions_238d033d.js",
+        "server/edge/chunks/[root-of-the-server]__7e8dcf65._.js",
+        "server/edge/chunks/node_modules_next_dist_876cdf41._.js",
+        "server/edge/chunks/node_modules_next_dist_compiled_@vercel_og_16be1ace._.js",
+        "server/edge/chunks/turbopack-edge-wrapper_aac2e6bd.js"
+      ],
+      "name": "app/opengraph-image/route",
+      "page": "/opengraph-image/route",
+      "matchers": [
+        {
+          "regexp": "^/opengraph-image(?:/)?$",
+          "originalSource": "/opengraph-image"
+        }
+      ],
+      "wasm": [
+        {
+          "name": "wasm_fdb56e4cc5936d29",
+          "filePath": "server/edge/chunks/node_modules_next_dist_compiled_@vercel_og_resvg_23ace1ce.wasm"
+        },
+        {
+          "name": "wasm_1ccdc983b1fd9f87",
+          "filePath": "server/edge/chunks/node_modules_next_dist_compiled_@vercel_og_yoga_23ace1ce.wasm"
+        }
+      ],
+      "assets": [
+        {
+          "name": "server/edge/assets/noto-sans-v27-latin-regular.bdfa676c.ttf",
+          "filePath": "server/edge/assets/noto-sans-v27-latin-regular.bdfa676c.ttf"
+        }
+      ],
+      "env": {
+        "__NEXT_BUILD_ID": "aHPzMCvN2nLWEzUvQNwOr",
+        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "PlS6h4ZfBAlRaliXhywOcA2stog1OdUPlk3cLbLMEjU=",
+        "__NEXT_PREVIEW_MODE_ID": "e24b5a6b8c7f1b5bbe003f3e96541f3d",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "6fa093189fca35134cea8794403785ad876bfb977fe64d9dc35b09b8390db98d",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "cda0d31c2c3b1a6ca32a0d8b30416bf19a5a56e5c3f6097ce25e28962af70de6"
+      }
+    }
+  }
+}

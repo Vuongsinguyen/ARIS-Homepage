@@ -1,0 +1,46 @@
+{
+  "name": "aris-homepage",
+  "version": "1.0.0",
+  "description": "High-performance, multilingual website with SEO optimization and CMS",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "sanity": "sanity dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vuongsinguyen/ARIS-Homepage.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vuongsinguyen/ARIS-Homepage/issues"
+  },
+  "homepage": "https://github.com/Vuongsinguyen/ARIS-Homepage#readme",
+  "dependencies": {
+    "@sanity/client": "^7.12.1",
+    "@sanity/image-url": "^1.2.0",
+    "next": "^16.0.1",
+    "next-intl": "^4.5.0",
+    "next-sanity": "^11.6.5",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@sanity/vision": "^4.14.2",
+    "@tailwindcss/postcss": "^4.1.17",
+    "@types/node": "^24.10.0",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "autoprefixer": "^10.4.22",
+    "eslint": "^9.39.1",
+    "eslint-config-next": "^16.0.1",
+    "postcss": "^8.5.6",
+    "sanity": "^4.14.2",
+    "tailwindcss": "^4.1.17",
+    "typescript": "^5.9.3"
+  }
+}

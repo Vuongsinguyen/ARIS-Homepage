@@ -1,0 +1,10 @@
+{
+  "/[locale]/blog/page": "/[locale]/blog",
+  "/[locale]/page": "/[locale]",
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/api/posts/route": "/api/posts",
+  "/opengraph-image/route": "/opengraph-image",
+  "/robots.txt/route": "/robots.txt",
+  "/sitemap.xml/route": "/sitemap.xml"
+}

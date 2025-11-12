@@ -30,8 +30,8 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$sanity$2f$client$2f$dist$2f$index$2e$browser$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/node_modules/@sanity/client/dist/index.browser.js [app-rsc] (ecmascript) <locals>");
 ;
-const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '';
-const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || '';
+const projectId = ("TURBOPACK compile-time value", "your-project-id") || '';
+const dataset = ("TURBOPACK compile-time value", "production") || '';
 const isSanityConfigured = Boolean(projectId && projectId !== 'your-project-id');
 if (!isSanityConfigured) {
     // Helpful dev warning so the server logs indicate why requests will fail

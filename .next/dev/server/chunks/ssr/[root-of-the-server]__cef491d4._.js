@@ -178,22 +178,22 @@ async function LocaleLayout({ children, params }) {
                     children: children
                 }, void 0, false, {
                     fileName: "[project]/app/[locale]/layout.tsx",
-                    lineNumber: 68,
+                    lineNumber: 69,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/[locale]/layout.tsx",
-                lineNumber: 67,
+                lineNumber: 68,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/app/[locale]/layout.tsx",
-            lineNumber: 66,
+            lineNumber: 67,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/[locale]/layout.tsx",
-        lineNumber: 65,
+        lineNumber: 66,
         columnNumber: 5
     }, this);
 }

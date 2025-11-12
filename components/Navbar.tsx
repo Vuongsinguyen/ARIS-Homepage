@@ -23,29 +23,29 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <nav className="sticky top-0 z-50 bg-white dark:bg-black border-b border-gray-200 dark:border-gray-800 shadow-sm">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-14 items-center justify-between">
           {/* Logo */}
-          <Link href={`/${locale}`} className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <div className="w-8 h-8 bg-gradient-to-br from-primary to-blue-600 rounded-lg flex items-center justify-center text-white font-bold">
+          <Link href={`/${locale}`} className="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
+            <div className="w-7 h-7 bg-black dark:bg-white rounded flex items-center justify-center text-white dark:text-black font-bold text-sm">
               A
             </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+            <span className="text-lg font-bold text-black dark:text-white tracking-tight">
               ARIS
             </span>
           </Link>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden sm:flex items-center gap-0.5">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${
+                className={`px-3 py-2 text-sm font-medium rounded transition-colors ${
                   pathname === item.href
-                    ? 'bg-accent text-primary'
-                    : 'text-muted-foreground hover:text-foreground hover:bg-accent/50'
+                    ? 'text-black dark:text-white bg-gray-100 dark:bg-gray-900'
+                    : 'text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-900'
                 }`}
               >
                 {item.label}
@@ -54,34 +54,32 @@ export default function Navbar() {
           </div>
 
           {/* Right side - Desktop */}
-          <div className="hidden md:flex items-center gap-3">
-            {/* Language Switcher */}
-            <Link
-              href={pathname.replace(`/${locale}`, locale === 'en' ? '/vi' : '/en')}
-              className="flex items-center gap-2 px-3 py-2 text-sm font-medium rounded-md bg-secondary hover:bg-accent transition-colors"
-              title={locale === 'en' ? 'Switch to Vietnamese' : 'Switch to English'}
-            >
-              <span className="text-base">{locale === 'en' ? '🇻🇳' : '🇬🇧'}</span>
-              <span>{locale === 'en' ? 'VI' : 'EN'}</span>
-            </Link>
-
+          <div className="hidden sm:flex items-center gap-2">
             {/* Theme Selector */}
             <ThemeSelector />
+            
+            {/* CTA Button */}
+            <Link
+              href={`/${locale}/contact`}
+              className="ml-2 px-4 py-1.5 text-sm font-medium text-white bg-black dark:bg-white dark:text-black rounded hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
+            >
+              {t('contact')}
+            </Link>
           </div>
 
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-md hover:bg-accent transition-colors"
+            className="sm:hidden p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors"
             aria-label="Toggle menu"
             aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             ) : (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             )}
@@ -90,42 +88,30 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border animate-in slide-in-from-top-5 duration-200">
-            <div className="flex flex-col gap-1">
+          <div className="sm:hidden py-3 border-t border-gray-200 dark:border-gray-800">
+            <div className="flex flex-col gap-0.5">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-md transition-colors ${
+                  className={`flex items-center gap-3 px-4 py-2.5 text-sm font-medium rounded transition-colors ${
                     pathname === item.href
-                      ? 'bg-accent text-primary'
-                      : 'text-muted-foreground hover:text-foreground hover:bg-accent/50'
+                      ? 'text-black dark:text-white bg-gray-100 dark:bg-gray-900'
+                      : 'text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-900'
                   }`}
                 >
-                  <span className="text-lg">{item.icon}</span>
+                  <span className="text-base">{item.icon}</span>
                   <span>{item.label}</span>
                 </Link>
               ))}
               
               {/* Divider */}
-              <div className="h-px bg-border my-2"></div>
+              <div className="h-px bg-gray-200 dark:bg-gray-800 my-2"></div>
               
-              {/* Language & Theme in Mobile */}
+              {/* Theme in Mobile */}
               <div className="flex items-center justify-between px-4 py-2">
-                <span className="text-sm font-medium text-muted-foreground">Language</span>
-                <Link
-                  href={pathname.replace(`/${locale}`, locale === 'en' ? '/vi' : '/en')}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-2 px-3 py-1.5 text-sm font-medium rounded-md bg-secondary hover:bg-accent transition-colors"
-                >
-                  <span>{locale === 'en' ? '🇻🇳' : '🇬🇧'}</span>
-                  <span>{locale === 'en' ? 'Tiếng Việt' : 'English'}</span>
-                </Link>
-              </div>
-              
-              <div className="flex items-center justify-between px-4 py-2">
-                <span className="text-sm font-medium text-muted-foreground">Theme</span>
+                <span className="text-sm font-medium text-gray-600 dark:text-gray-400">Theme</span>
                 <ThemeSelector />
               </div>
             </div>

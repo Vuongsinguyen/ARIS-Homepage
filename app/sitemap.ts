@@ -27,7 +27,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
-      url: 'https://aris-homepage.com/vi/blog',
+      url: 'https://aris-homepage.com/ja',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: 'https://aris-homepage.com/ja/blog',
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.7,

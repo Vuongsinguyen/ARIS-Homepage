@@ -1,2 +1,21 @@
-[00:00:01.119] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:01.330] Server  LOG      ✓ Ready in 1025ms
+[00:00:00.828] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:00.960] Server  LOG      ✓ Ready in 678ms
+[00:00:06.841] Server  LOG      ○ Compiling /[locale]/blog ...
+[00:00:09.150] Server  WARN     ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+[00:00:09.214] Server  WARN    [sanity] NEXT_PUBLIC_SANITY_PROJECT_ID not set — Sanity client is disabled. Add a .env.local with your project ID and dataset to enable content fetching.
+[00:00:09.475] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:18:25.638] Server  LOG        Reload env: .env.local
+[00:18:25.730] Server  LOG        Reload env: .env.local
+[00:18:26.369] Server  WARN    [sanity] NEXT_PUBLIC_SANITY_PROJECT_ID not set — Sanity client is disabled. Add a .env.local with your project ID and dataset to enable content fetching.
+[00:18:26.379] Server  WARN     ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+[00:18:27.076] Server  WARN    [sanity] NEXT_PUBLIC_SANITY_PROJECT_ID not set — Sanity client is disabled. Add a .env.local with your project ID and dataset to enable content fetching.
+[00:18:27.086] Server  WARN     ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+[00:20:53.946] Server  LOG      ✓ Compiled in 73ms
+[00:21:19.418] Server  LOG      ✓ Compiled in 44ms
+[00:21:27.613] Server  WARN     ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+[00:21:48.302] Server  LOG      ✓ Compiled in 45ms
+[00:22:05.849] Server  LOG      ✓ Compiled in 65ms
+[00:22:16.901] Server  LOG      ✓ Compiled in 17ms
+[00:22:56.923] Server  LOG      ✓ Compiled in 53ms
+[00:23:20.346] Server  LOG      ✓ Compiled in 59ms
+[00:24:03.131] Server  WARN     ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase

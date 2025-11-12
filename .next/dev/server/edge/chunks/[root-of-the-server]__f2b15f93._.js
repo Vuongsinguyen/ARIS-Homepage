@@ -26,7 +26,8 @@ const __TURBOPACK__default__export__ = (0, __TURBOPACK__imported__module__$5b$pr
     // A list of all locales that are supported
     locales: [
         'en',
-        'vi'
+        'vi',
+        'ja'
     ],
     // Used when no locale matches
     defaultLocale: 'en'
@@ -35,7 +36,7 @@ const config = {
     // Match only internationalized pathnames
     matcher: [
         '/',
-        '/(vi|en)/:path*'
+        '/(vi|en|ja)/:path*'
     ]
 };
 }),

@@ -3,6 +3,8 @@ import {getMessages} from 'next-intl/server';
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import {Providers} from '@/components/providers';
+import TopBar from '@/components/TopBar';
+import Footer from '@/components/Footer';
 import "../globals.css";
 
 const inter = Inter({ subsets: ["latin", "vietnamese"] });
@@ -35,6 +37,13 @@ export const metadata: Metadata = {
     description: "High-performance, multilingual website with SEO optimization",
     images: ["/twitter-image.jpg"],
   },
+  alternates: {
+    languages: {
+      'en': '/en',
+      'vi': '/vi',
+      'ja': '/ja',
+    },
+  },
   robots: {
     index: true,
     follow: true,
@@ -66,7 +75,9 @@ export default async function LocaleLayout({
       <body className={inter.className}>
         <Providers>
           <NextIntlClientProvider messages={messages}>
+            <TopBar />
             {children}
+            <Footer />
           </NextIntlClientProvider>
         </Providers>
       </body>

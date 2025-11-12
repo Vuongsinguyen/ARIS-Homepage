@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 10, "column": 0}, "map": {"version":3,"sources":["file:///Users/Nguyen.vs/Documents/ARIS-Homepage/components/providers.tsx"],"sourcesContent":["'use client';\n\nimport {ThemeProvider} from 'next-themes';\n\nexport function Providers({children}: {children: React.ReactNode}) {\n  return (\n    <ThemeProvider\n      attribute=\"class\"\n      defaultTheme=\"system\"\n      enableSystem\n      disableTransitionOnChange\n    >\n      {children}\n    </ThemeProvider>\n  );\n}\n"],"names":[],"mappings":";;;;;AAEA;AAFA;;;AAIO,SAAS,UAAU,EAAC,QAAQ,EAA8B;IAC/D,qBACE,8OAAC,iKAAa;QACZ,WAAU;QACV,cAAa;QACb,YAAY;QACZ,yBAAyB;kBAExB;;;;;;AAGP","debugId":null}}]
+}

@@ -1,6 +1,7 @@
-import {useTranslations} from 'next-intl';
+import {getTranslations} from 'next-intl/server';
 import Link from 'next/link';
-import {client} from '@/lib/sanity';
+import {client, isSanityConfigured} from '@/lib/sanity';
+import Navbar from '@/components/Navbar';
 
 async function getPosts() {
   const query = `*[_type == "post"] | order(publishedAt desc)[0...10] {
@@ -13,15 +14,28 @@ async function getPosts() {
     mainImage
   }`;
   
-  return await client.fetch(query);
+  if (!isSanityConfigured) {
+    // Sanity isn't configured for dev: return an empty list and allow the page
+    // to render a helpful message instead of crashing the server.
+    return [];
+  }
+  try {
+    return await client!.fetch(query);
+  } catch (err) {
+    // Log the error server-side and return an empty list so the page still renders.
+    console.error('Error fetching posts from Sanity:', err);
+    return [];
+  }
 }
 
 export default async function BlogPage() {
   const posts = await getPosts();
-  const t = useTranslations('nav');
+  const t = await getTranslations('nav');
   
   return (
-    <main className="flex min-h-screen flex-col items-center p-24">
+    <>
+      <Navbar />
+      <main className="flex min-h-screen flex-col items-center p-24">
       <div className="max-w-5xl w-full">
         {/* H1 - Main heading for the page */}
         <header className="mb-12">
@@ -32,11 +46,21 @@ export default async function BlogPage() {
         </header>
         
         {posts.length === 0 ? (
+          !isSanityConfigured ? (
+            <div className="text-center py-12">
+              <h2 className="text-2xl font-semibold mb-3">Sanity not configured</h2>
+              <p className="text-gray-600 dark:text-gray-400 text-lg mb-3">The Sanity project ID and dataset are not set. To view blog posts locally, add your project details to <code>.env.local</code>.</p>
+              <pre className="bg-gray-100 dark:bg-gray-800 p-3 rounded text-sm overflow-auto mx-auto max-w-lg text-left">
+                NEXT_PUBLIC_SANITY_PROJECT_ID=your-project-id\nNEXT_PUBLIC_SANITY_DATASET=production
+              </pre>
+            </div>
+          ) : (
           <div className="text-center py-12">
             <p className="text-gray-600 dark:text-gray-400 text-lg">
               No blog posts yet. Create some in Sanity Studio!
             </p>
           </div>
+          )
         ) : (
           <section aria-labelledby="posts-heading">
             <h2 id="posts-heading" className="sr-only">Blog Posts</h2>
@@ -85,5 +109,6 @@ export default async function BlogPage() {
         )}
       </div>
     </main>
+    </>
   );
 }

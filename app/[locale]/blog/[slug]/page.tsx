@@ -2,17 +2,22 @@ import {useTranslations} from 'next-intl';
 import Link from 'next/link';
 import Image from 'next/image';
 import {notFound} from 'next/navigation';
-import {client} from '@/lib/sanity';
+import {client, isSanityConfigured} from '@/lib/sanity';
 import {PortableText} from '@portabletext/react';
 import imageUrlBuilder from '@sanity/image-url';
+import Navbar from '@/components/Navbar';
 
-const builder = imageUrlBuilder(client);
+const builder = isSanityConfigured ? imageUrlBuilder(client!) : null;
 
 function urlFor(source: any) {
+  if (!builder) return null;
   return builder.image(source);
 }
 
 async function getPost(slug: string, locale: string) {
+  if (!isSanityConfigured) {
+    return null;
+  }
   const query = `*[_type == "post" && slug.current == $slug][0] {
     _id,
     title,
@@ -28,7 +33,7 @@ async function getPost(slug: string, locale: string) {
     "categories": categories[]->title
   }`;
   
-  return await client.fetch(query, {slug});
+  return await client!.fetch(query, {slug});
 }
 
 export default async function BlogPostPage({
@@ -37,6 +42,27 @@ export default async function BlogPostPage({
   params: Promise<{locale: string; slug: string}>;
 }) {
   const {locale, slug} = await params;
+  if (!isSanityConfigured) {
+    // Dev message: Sanity isn't configured yet.
+    return (
+      <>
+        <Navbar />
+        <main className="flex min-h-screen flex-col items-center p-24">
+          <div className="max-w-4xl w-full text-center py-24">
+            <h1 className="text-3xl font-bold mb-4">Sanity not configured</h1>
+            <p className="text-lg text-gray-600 dark:text-gray-400 mb-6">
+              The Sanity project ID and dataset are not set for this environment. To view blog posts locally, add your project details to <span className="font-mono">.env.local</span>:
+            </p>
+            <pre className="bg-gray-100 dark:bg-gray-800 p-3 rounded text-sm overflow-auto mx-auto max-w-lg text-left">
+              NEXT_PUBLIC_SANITY_PROJECT_ID=your-project-id\nNEXT_PUBLIC_SANITY_DATASET=production
+            </pre>
+            <p className="mt-6 text-sm text-gray-600 dark:text-gray-400">See <Link href="/README.md" className="text-blue-600">README</Link> for setup instructions.</p>
+          </div>
+        </main>
+      </>
+    );
+  }
+
   const post = await getPost(slug, locale);
   
   if (!post) {
@@ -48,7 +74,9 @@ export default async function BlogPostPage({
   const body = post.body?.[currentLocale] || post.body?.en;
   
   return (
-    <article className="flex min-h-screen flex-col items-center p-6 md:p-12 lg:p-24">
+    <>
+      <Navbar />
+      <article className="flex min-h-screen flex-col items-center p-6 md:p-12 lg:p-24">
       <div className="max-w-4xl w-full">
         {/* Breadcrumb navigation */}
         <nav className="mb-8 text-sm" aria-label="Breadcrumb">
@@ -82,9 +110,9 @@ export default async function BlogPostPage({
           <div className="flex flex-wrap items-center gap-6 text-gray-600 dark:text-gray-400 mb-6">
             {post.author && (
               <div className="flex items-center gap-3">
-                {post.author.image && (
+                {post.author.image && builder && (
                   <Image
-                    src={urlFor(post.author.image).width(48).height(48).url()}
+                    src={urlFor(post.author.image)!.width(48).height(48).url()}
                     alt={post.author.name}
                     width={48}
                     height={48}
@@ -124,10 +152,10 @@ export default async function BlogPostPage({
           )}
           
           {/* Featured image */}
-          {post.mainImage && (
+          {post.mainImage && builder && (
             <figure className="mb-12 rounded-lg overflow-hidden">
               <Image
-                src={urlFor(post.mainImage).width(1200).height(630).url()}
+                src={urlFor(post.mainImage)!.width(1200).height(630).url()}
                 alt={title}
                 width={1200}
                 height={630}
@@ -148,9 +176,9 @@ export default async function BlogPostPage({
           <section className="mt-16 pt-8 border-t border-gray-200 dark:border-gray-800">
             <h2 className="text-2xl font-bold mb-6">About the Author</h2>
             <div className="flex gap-6">
-              {post.author.image && (
+              {post.author.image && builder && (
                 <Image
-                  src={urlFor(post.author.image).width(96).height(96).url()}
+                  src={urlFor(post.author.image)!.width(96).height(96).url()}
                   alt={post.author.name}
                   width={96}
                   height={96}
@@ -183,6 +211,7 @@ export default async function BlogPostPage({
         </nav>
       </div>
     </article>
+    </>
   );
 }
 
@@ -212,15 +241,15 @@ export async function generateMetadata({
       type: 'article',
       publishedTime: post.publishedAt,
       authors: post.author ? [post.author.name] : [],
-      images: post.mainImage 
-        ? [urlFor(post.mainImage).width(1200).height(630).url()]
+      images: post.mainImage && builder
+        ? [urlFor(post.mainImage)!.width(1200).height(630).url()]
         : [],
     },
     twitter: {
       card: 'summary_large_image',
       title: title,
-      images: post.mainImage 
-        ? [urlFor(post.mainImage).width(1200).height(630).url()]
+      images: post.mainImage && builder
+        ? [urlFor(post.mainImage)!.width(1200).height(630).url()]
         : [],
     },
   };

@@ -1,14 +1,17 @@
 import {useTranslations} from 'next-intl';
 
 import ThemeToggle from '@/components/ThemeToggle';
+import Navbar from '@/components/Navbar';
 
 export default function Home() {
   const t = useTranslations('home');
   
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <ThemeToggle />
-      <div className="max-w-5xl w-full">
+    <>
+      <Navbar />
+      <main className="flex min-h-screen flex-col items-center justify-center p-24">
+        <ThemeToggle />
+        <div className="max-w-5xl w-full">
         {/* H1 - Only one per page for SEO */}
         <h1 className="text-6xl font-bold text-center mb-4 text-balance">
           {t('title')}
@@ -69,5 +72,6 @@ export default function Home() {
         </section>
       </div>
     </main>
+    </>
   );
 }

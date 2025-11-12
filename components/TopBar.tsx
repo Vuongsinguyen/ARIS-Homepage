@@ -20,8 +20,8 @@ export default function TopBar() {
   const contactInfo = [
     {
       type: 'email',
-      label: 'contact@aris-homepage.com',
-      href: 'mailto:contact@aris-homepage.com',
+      label: 'contact@aris-vn.com',
+      href: 'mailto:contact@aris-vn.com',
       icon: (
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -30,8 +30,8 @@ export default function TopBar() {
     },
     {
       type: 'phone',
-      label: '+1 (234) 567-8900',
-      href: 'tel:+1234567890',
+      label: '+84 28 3842-4483',
+      href: 'tel:+842838424483',
       icon: (
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -40,7 +40,7 @@ export default function TopBar() {
     },
     {
       type: 'hours',
-      label: 'Mon-Fri: 9AM-6PM',
+      label: 'Mon-Fri: 8:30AM-5:30PM',
       href: null,
       icon: (
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -117,11 +117,11 @@ export default function TopBar() {
                 <>
                   {/* Backdrop */}
                   <div
-                    className="fixed inset-0 z-10"
+                    className="fixed inset-0 z-50"
                     onClick={() => setDropdownOpen(false)}
                   />
                   {/* Dropdown Menu */}
-                  <div className="absolute right-0 top-full mt-1 w-40 bg-black border border-gray-800 rounded-md shadow-xl z-20 overflow-hidden">
+                  <div className="absolute right-0 top-full mt-1 w-40 bg-black border border-gray-800 rounded-md shadow-xl z-60 overflow-hidden">
                     {languages.map((lang) => (
                       <Link
                         key={lang.code}
@@ -165,11 +165,11 @@ export default function TopBar() {
                 <>
                   {/* Backdrop */}
                   <div
-                    className="fixed inset-0 z-10"
+                    className="fixed inset-0 z-50"
                     onClick={() => setDropdownOpen(false)}
                   />
                   {/* Dropdown Menu */}
-                  <div className="absolute right-0 top-full mt-1 w-32 bg-black border border-gray-800 rounded-md shadow-xl z-20 overflow-hidden">
+                  <div className="absolute right-0 top-full mt-1 w-32 bg-black border border-gray-800 rounded-md shadow-xl z-60 overflow-hidden">
                     {languages.map((lang) => (
                       <Link
                         key={lang.code}

@@ -1,12 +1,24 @@
 {
   "nav": {
     "home": "Home",
-    "blog": "Blog",
-    "news": "News",
     "services": "Services",
+    "about": "About Us",
     "use-cases": "Use Cases",
-    "about": "About",
+    "products": "Products",
+    "news": "News",
+    "blog": "Blog",
     "contact": "Contact"
+  },
+  "chat": {
+    "chatWithAI": "Chat ARIS AI",
+    "assistant": "AI Assistant",
+    "intro": "Hello! Ask me about the company, projects, timelines or project status.",
+    "typing": "AI is typing...",
+    "placeholder": "Type your message...",
+    "send": "Send",
+    "close": "Close",
+    "clear": "Clear",
+    "error": "Sorry, I cannot respond right now."
   },
   "home": {
     "title": "Welcome to ARIS Homepage",
@@ -35,5 +47,19 @@
       "title": "Type Safe",
       "description": "Full TypeScript support for better development experience"
     }
+  },
+  "footer": {
+    "companyDescription": "High-performance, multilingual website with SEO optimization and CMS integration.",
+    "navigation": "Navigation",
+    "services": "Services",
+    "contact": "Contact",
+    "webDevelopment": "Web Development",
+    "mobileDevelopment": "Mobile Development",
+    "cloudSolutions": "Cloud Solutions",
+    "securityConsulting": "Security Consulting",
+    "dataAnalytics": "Data Analytics",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "copyright": "© {year} ARIS. All rights reserved."
   }
 }

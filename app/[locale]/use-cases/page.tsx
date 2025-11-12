@@ -7,16 +7,22 @@ export default async function UseCasesPage() {
   return (
     <>
       <Navbar />
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-orange-600 via-orange-700 to-red-800 text-white py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+              {t('use-cases')}
+            </h1>
+            <p className="text-xl md:text-2xl text-orange-100 max-w-2xl mx-auto">
+              Discover how our solutions drive success across diverse industries and applications
+            </p>
+          </div>
+        </div>
+      </section>
+
       <main className="flex min-h-screen flex-col items-center p-24">
         <div className="max-w-5xl w-full">
-          {/* H1 - Main heading for the page */}
-          <header className="mb-12">
-            <h1 className="text-5xl font-bold mb-4">{t('use-cases')}</h1>
-            <p className="text-xl text-gray-600 dark:text-gray-400">
-              Real-world applications and success stories
-            </p>
-          </header>
-
           <section aria-labelledby="use-cases-heading">
             <h2 id="use-cases-heading" className="sr-only">Use Cases</h2>
 

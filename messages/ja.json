@@ -1,12 +1,24 @@
 {
   "nav": {
     "home": "ホーム",
-    "blog": "ブログ",
-    "news": "ニュース",
     "services": "サービス",
-    "use-cases": "ユースケース",
     "about": "会社概要",
+    "use-cases": "ユースケース",
+    "products": "製品",
+    "news": "ニュース",
+    "blog": "ブログ",
     "contact": "お問い合わせ"
+  },
+  "chat": {
+    "chatWithAI": "AIチャット",
+    "assistant": "AIアシスタント",
+    "intro": "こんにちは！会社、プロジェクト、スケジュール、プロジェクトの状況について聞いてください。",
+    "typing": "AI が入力中...",
+    "placeholder": "メッセージを入力...",
+    "send": "送信",
+    "close": "閉じる",
+    "clear": "クリア",
+    "error": "申し訳ありませんが、現在応答できません。"
   },
   "home": {
     "title": "ARISホームページへようこそ",

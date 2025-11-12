@@ -57,13 +57,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-1">
-            <Link href={`/${locale}`} className="flex items-center gap-2 mb-4 hover:opacity-80 transition-opacity">
-              <div className="w-8 h-8 bg-gradient-to-br from-primary to-blue-600 rounded-lg flex items-center justify-center text-white font-bold">
-                A
-              </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
-                ARIS
-              </span>
+            <Link href={`/${locale}`} className="flex items-center mb-4 hover:opacity-80 transition-opacity">
+              <img src="/logo.svg" alt="ARIS" className="h-8" />
             </Link>
             <p className="text-sm text-muted-foreground mb-4">
               High-performance, multilingual website with SEO optimization and CMS integration.
@@ -129,18 +124,18 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <a
-                  href="mailto:contact@aris-homepage.com"
+                  href="mailto:contact@aris-vn.com"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  contact@aris-homepage.com
+                  contact@aris-vn.com
                 </a>
               </li>
               <li>
                 <a
-                  href="tel:+1234567890"
+                  href="tel:+842838424483"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  +1 (234) 567-8900
+                  +84 28 3842-4483
                 </a>
               </li>
               <li>

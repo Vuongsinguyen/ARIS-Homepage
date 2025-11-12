@@ -1,12 +1,24 @@
 {
   "nav": {
     "home": "Trang chủ",
-    "blog": "Blog",
-    "news": "Tin tức",
     "services": "Dịch vụ",
-    "use-cases": "Trường hợp sử dụng",
     "about": "Giới thiệu",
+    "use-cases": "Trường hợp sử dụng",
+    "products": "Sản phẩm",
+    "news": "Tin tức",
+    "blog": "Blog",
     "contact": "Liên hệ"
+  },
+  "chat": {
+    "chatWithAI": "Chat ARIS AI",
+    "assistant": "Trợ lý AI",
+    "intro": "Xin chào! Hỏi tôi về Công ty, Dự án, Thời gian hoặc Tình hình dự án.",
+    "typing": "AI đang soạn...",
+    "placeholder": "Gõ câu hỏi...",
+    "send": "Gửi",
+    "close": "Đóng",
+    "clear": "Xóa",
+    "error": "Xin lỗi, hiện không thể trả lời."
   },
   "home": {
     "title": "Chào mừng đến với ARIS Homepage",

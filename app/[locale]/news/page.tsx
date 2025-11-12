@@ -36,16 +36,22 @@ export default async function NewsPage() {
   return (
     <>
       <Navbar />
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-green-600 via-green-700 to-emerald-800 text-white py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+              {t('news')}
+            </h1>
+            <p className="text-xl md:text-2xl text-green-100 max-w-2xl mx-auto">
+              Stay updated with the latest company news, industry insights, and announcements
+            </p>
+          </div>
+        </div>
+      </section>
+
       <main className="flex min-h-screen flex-col items-center p-24">
       <div className="max-w-5xl w-full">
-        {/* H1 - Main heading for the page */}
-        <header className="mb-12">
-          <h1 className="text-5xl font-bold mb-4">{t('news')}</h1>
-          <p className="text-xl text-gray-600 dark:text-gray-400">
-            Latest news and company updates
-          </p>
-        </header>
-
         {news.length === 0 ? (
           !isSanityConfigured ? (
             <div className="text-center py-12">

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import {usePathname} from 'next/navigation';
 import {useTranslations} from 'next-intl';
 import ThemeSelector from './ThemeSelector';
+import ChatBotMount from './ChatBotMount';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -14,11 +15,12 @@ export default function Navbar() {
 
   const navItems = [
     {href: `/${locale}`, label: t('home'), icon: '🏠'},
-    {href: `/${locale}/blog`, label: t('blog'), icon: '📝'},
-    {href: `/${locale}/news`, label: t('news'), icon: '📰'},
     {href: `/${locale}/services`, label: t('services'), icon: '⚙️'},
-    {href: `/${locale}/use-cases`, label: t('use-cases'), icon: '💼'},
     {href: `/${locale}/about`, label: t('about'), icon: 'ℹ️'},
+    {href: `/${locale}/use-cases`, label: t('use-cases'), icon: '💼'},
+    {href: `/${locale}/products`, label: t('products'), icon: '🧩'},
+    {href: `/${locale}/news`, label: t('news'), icon: '�'},
+    {href: `/${locale}/blog`, label: t('blog'), icon: '📝'},
     {href: `/${locale}/contact`, label: t('contact'), icon: '📧'},
   ];
 
@@ -27,13 +29,8 @@ export default function Navbar() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-14 items-center justify-between">
           {/* Logo */}
-          <Link href={`/${locale}`} className="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
-            <div className="w-7 h-7 bg-black dark:bg-white rounded flex items-center justify-center text-white dark:text-black font-bold text-sm">
-              A
-            </div>
-            <span className="text-lg font-bold text-black dark:text-white tracking-tight">
-              ARIS
-            </span>
+          <Link href={`/${locale}`} className="flex items-center hover:opacity-80 transition-opacity">
+            <img src="/logo.svg" alt="ARIS" className="h-8" />
           </Link>
 
           {/* Desktop Navigation Links */}
@@ -55,9 +52,9 @@ export default function Navbar() {
 
           {/* Right side - Desktop */}
           <div className="hidden sm:flex items-center gap-2">
-            {/* Theme Selector */}
-            <ThemeSelector />
-            
+            {/* ChatBot Button */}
+            <div id="chatbot-root" />
+            <ChatBotMount />
             {/* CTA Button */}
             <Link
               href={`/${locale}/contact`}
@@ -109,10 +106,10 @@ export default function Navbar() {
               {/* Divider */}
               <div className="h-px bg-gray-200 dark:bg-gray-800 my-2"></div>
               
-              {/* Theme in Mobile */}
+              {/* ChatBot in Mobile */}
               <div className="flex items-center justify-between px-4 py-2">
-                <span className="text-sm font-medium text-gray-600 dark:text-gray-400">Theme</span>
-                <ThemeSelector />
+                <span className="text-sm font-medium text-gray-600 dark:text-gray-400">{t('chatWithAI')}</span>
+                <div id="chatbot-root-mobile" />
               </div>
             </div>
           </div>

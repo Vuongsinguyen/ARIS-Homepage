@@ -9,10 +9,10 @@
     "blog": "Blog",
     "recruitments": "Tuyển dụng",
     "contact": "Liên hệ",
-    "chatWithAI": "Trò chuyện với AI"
+    "chatWithAI": "Tư vấn viên AI"
   },
   "chat": {
-    "chatWithAI": "Chat ARIS AI",
+    "chatWithAI": "Tư vấn viên AI",
     "assistant": "Trợ lý AI",
     "intro": "Xin chào! Hỏi tôi về Công ty, Dự án, Thời gian hoặc Tình hình dự án.",
     "typing": "AI đang soạn...",

@@ -16,100 +16,133 @@ interface ServiceDetail {
 
 const services: ServiceDetail[] = [
   {
-    slug: 'web-development',
-    title: 'Web Development',
-    description: 'Custom web applications built with modern technologies and best practices.',
-    longDescription: 'We create high-performance, scalable web applications using the latest technologies and frameworks. Our web development services include responsive design, progressive web apps, e-commerce platforms, and custom business applications.',
+    slug: 'one-stop-services',
+    title: 'ONE-STOP SERVICES',
+    description: 'Comprehensive end-to-end software development and deployment solutions',
+    longDescription: 'Our one-stop services provide a complete package for your software development needs. From initial consulting to deployment and ongoing support, we handle every aspect of your project to ensure success.',
     icon: '🚀',
     features: [
-      'Responsive Design',
-      'Progressive Web Apps',
-      'E-commerce Solutions',
-      'Custom Business Applications',
-      'API Development',
-      'Performance Optimization'
+      'Consulting',
+      'Software requirement specification development (SRS)',
+      'UI/UX design & Software design',
+      'Coding, Testing',
+      'Product deployment',
+      'Product sustaining, maintenance & support'
     ],
-    technologies: ['React', 'Next.js', 'Node.js', 'TypeScript', 'Tailwind CSS', 'PostgreSQL']
+    technologies: ['React', 'Next.js', 'Node.js', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'AWS', 'Docker']
+  },
+  {
+    slug: 'system-development',
+    title: 'SYSTEM/APPLICATION DEVELOPMENT',
+    description: 'Custom system and application development services',
+    longDescription: 'We specialize in developing custom systems and applications tailored to your business needs. Our team creates robust, scalable solutions that integrate seamlessly with your existing infrastructure.',
+    icon: '💻',
+    features: [
+      'System Customization & Integration',
+      'Open-Source Customization',
+      'CMS, Web Portal Development',
+      'Website Design'
+    ],
+    technologies: ['PHP', 'Laravel', 'WordPress', 'React', 'Node.js', 'MySQL', 'MongoDB']
   },
   {
     slug: 'mobile-development',
-    title: 'Mobile Development',
-    description: 'Native and cross-platform mobile applications for iOS and Android.',
-    longDescription: 'Our mobile development team creates native iOS and Android applications, as well as cross-platform solutions using React Native and Flutter. We ensure your app provides an exceptional user experience across all devices.',
+    title: 'MOBILE DEVELOPMENT',
+    description: 'Mobile application development across various domains',
+    longDescription: 'Our mobile development team creates innovative applications for iOS and Android platforms. We cover enterprise solutions, Fin-Tech, IoT, gaming, and more, ensuring high performance and user engagement.',
     icon: '📱',
     features: [
-      'Native iOS Development',
-      'Native Android Development',
-      'Cross-platform Solutions',
-      'App Store Optimization',
-      'Push Notifications',
-      'Offline Functionality'
+      'Enterprise Mobilization',
+      'Fin-Tech, security, IoT',
+      'DRM solutions',
+      'Games',
+      'Migration and Porting'
     ],
     technologies: ['Swift', 'Kotlin', 'React Native', 'Flutter', 'Firebase', 'SQLite']
   },
   {
-    slug: 'cloud-solutions',
-    title: 'Cloud Solutions',
-    description: 'Scalable cloud infrastructure and deployment solutions.',
-    longDescription: 'We design and implement cloud-native architectures that scale with your business. From migration to cloud platforms to building serverless applications, we help you leverage the power of cloud computing.',
-    icon: '☁️',
+    slug: 'quality-control',
+    title: 'QUALITY CONTROL',
+    description: 'Comprehensive software testing and quality assurance',
+    longDescription: 'Quality is paramount in software development. Our testing team ensures your applications meet the highest standards through comprehensive testing cycles and user acceptance testing.',
+    icon: '✅',
     features: [
-      'Cloud Migration',
-      'Serverless Architecture',
-      'Microservices Design',
-      'DevOps & CI/CD',
-      'Infrastructure as Code',
-      'Monitoring & Logging'
+      'Mobile, web and desktop application testing',
+      'Full testing life cycle for software development',
+      'User acceptance test before production go live',
+      'Production maintenance Testing'
     ],
-    technologies: ['AWS', 'Azure', 'Google Cloud', 'Docker', 'Kubernetes', 'Terraform']
+    technologies: ['Selenium', 'Appium', 'Jest', 'Cypress', 'Postman', 'Jira']
   },
   {
-    slug: 'security-consulting',
-    title: 'Security Consulting',
-    description: 'Comprehensive security audits and implementation of best practices.',
-    longDescription: 'Security is paramount in today\'s digital landscape. Our security experts conduct thorough audits, implement robust security measures, and provide ongoing monitoring to protect your applications and data.',
-    icon: '🔒',
+    slug: 'ui-ux-design',
+    title: 'UI/UX DESIGN',
+    description: 'User interface and user experience design services',
+    longDescription: 'Great design drives user engagement. Our UI/UX team creates intuitive, beautiful interfaces that provide exceptional user experiences across all platforms and devices.',
+    icon: '🎨',
     features: [
-      'Security Audits',
-      'Penetration Testing',
-      'Compliance Consulting',
-      'Data Encryption',
-      'Access Control',
-      'Incident Response'
+      'UX First',
+      'Responsive & Adaptive design',
+      'Mobile, Web application',
+      'Windows form application',
+      'Logo, C.I.P, 2D, 3D model design',
+      'News, Magazine and books',
+      'Clip & Animation'
     ],
-    technologies: ['OWASP', 'NIST', 'ISO 27001', 'SIEM', 'IDS/IPS', 'SSL/TLS']
+    technologies: ['Figma', 'Adobe XD', 'Sketch', 'Photoshop', 'Illustrator', 'After Effects']
   },
   {
-    slug: 'data-analytics',
-    title: 'Data Analytics',
-    description: 'Business intelligence and data-driven insights for your organization.',
-    longDescription: 'Transform your data into actionable insights with our comprehensive data analytics services. We help you build data pipelines, create dashboards, and implement machine learning models to drive business decisions.',
-    icon: '📊',
+    slug: 'research-development',
+    title: 'COOPERATIVE RESEARCH AND DEVELOPMENT',
+    description: 'Collaborative research and prototype development',
+    longDescription: 'Innovation through research and development. We partner with you to explore new technologies, develop prototypes, and bring innovative ideas from concept to production.',
+    icon: '�',
     features: [
-      'Data Pipeline Development',
-      'Business Intelligence',
-      'Predictive Analytics',
-      'Machine Learning',
-      'Data Visualization',
-      'Real-time Analytics'
+      'Technical Researching',
+      'Prototype development',
+      'MVP to Production'
     ],
-    technologies: ['Python', 'R', 'Tableau', 'Power BI', 'Apache Spark', 'TensorFlow']
+    technologies: ['Python', 'TensorFlow', 'PyTorch', 'Arduino', 'Raspberry Pi', 'AWS IoT']
   },
   {
-    slug: 'digital-marketing',
-    title: 'Digital Marketing',
-    description: 'Strategic digital marketing campaigns to grow your online presence.',
-    longDescription: 'Increase your online visibility and drive growth with our digital marketing strategies. From SEO and content marketing to social media campaigns and paid advertising, we help you reach your target audience effectively.',
-    icon: '🎯',
+    slug: 'digital-transformation',
+    title: 'DIGITAL TRANSFORMATION SOLUTIONS',
+    description: 'Digital transformation and technology integration',
+    longDescription: 'Transform your business with cutting-edge digital solutions. We help you modernize your operations, integrate new technologies, and stay competitive in the digital age.',
+    icon: '🔄',
     features: [
-      'SEO Optimization',
-      'Content Marketing',
-      'Social Media Marketing',
-      'PPC Advertising',
-      'Email Marketing',
-      'Conversion Optimization'
+      'Digital transformation consulting',
+      'Software development',
+      'Digital technology integration'
     ],
-    technologies: ['Google Analytics', 'Google Ads', 'Facebook Ads', 'Mailchimp', 'HubSpot', 'SEMrush']
+    technologies: ['AWS', 'Azure', 'Google Cloud', 'Kubernetes', 'Docker', 'CI/CD']
+  },
+  {
+    slug: 'bpo-services',
+    title: 'BUSINESS PROCESS OUTSOURCING (BPO) SERVICES',
+    description: 'Business process digitization and outsourcing',
+    longDescription: 'Streamline your operations with our BPO services. We digitize and optimize your business processes, allowing you to focus on your core competencies while we handle the rest.',
+    icon: '📋',
+    features: [
+      'Document digitization',
+      'Workflow digitization'
+    ],
+    technologies: ['OCR', 'RPA', 'Workflow Automation', 'Cloud Storage', 'API Integration']
+  },
+  {
+    slug: 'system-maintenance',
+    title: 'SYSTEM MAINTENANCE & OPERATION SERVER/SYSTEM MONITORING',
+    description: 'System maintenance and operational support',
+    longDescription: 'Keep your systems running smoothly with our comprehensive maintenance and monitoring services. We provide 24/7 support, security checks, and proactive system management.',
+    icon: '🔧',
+    features: [
+      'Technical Support',
+      'Support End-users: Help-desk, guideline, training, report',
+      'Review of log files, checking data',
+      'Security checks',
+      'Server maintenance'
+    ],
+    technologies: ['Nagios', 'Zabbix', 'ELK Stack', 'Prometheus', 'Grafana', 'Ansible']
   }
 ];
 

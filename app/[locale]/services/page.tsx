@@ -144,79 +144,118 @@ export default async function ServicesPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {/* Service Card 1 */}
-                  <Link href={`${pathname}/web-development`} className="block">
+                  <Link href={`${pathname}/one-stop-services`} className="block">
                     <article className="p-6 border border-gray-200 dark:border-gray-800 rounded-lg hover:border-gray-400 dark:hover:border-gray-600 transition-colors h-full">
                       <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mb-4">
                         <span className="text-2xl">🚀</span>
                       </div>
-                      <h3 className="text-xl font-semibold mb-2">Web Development</h3>
+                      <h3 className="text-xl font-semibold mb-2">ONE-STOP SERVICES</h3>
                       <p className="text-gray-600 dark:text-gray-400">
-                        Custom web applications built with modern technologies and best practices.
+                        Comprehensive end-to-end software development and deployment solutions
                       </p>
                     </article>
                   </Link>
 
                   {/* Service Card 2 */}
-                  <Link href={`${pathname}/mobile-development`} className="block">
+                  <Link href={`${pathname}/system-development`} className="block">
                     <article className="p-6 border border-gray-200 dark:border-gray-800 rounded-lg hover:border-gray-400 dark:hover:border-gray-600 transition-colors h-full">
                       <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mb-4">
-                        <span className="text-2xl">📱</span>
+                        <span className="text-2xl">�</span>
                       </div>
-                      <h3 className="text-xl font-semibold mb-2">Mobile Development</h3>
+                      <h3 className="text-xl font-semibold mb-2">SYSTEM/APPLICATION DEVELOPMENT</h3>
                       <p className="text-gray-600 dark:text-gray-400">
-                        Native and cross-platform mobile applications for iOS and Android.
+                        Custom system and application development services
                       </p>
                     </article>
                   </Link>
 
                   {/* Service Card 3 */}
-                  <Link href={`${pathname}/cloud-solutions`} className="block">
+                  <Link href={`${pathname}/mobile-development`} className="block">
                     <article className="p-6 border border-gray-200 dark:border-gray-800 rounded-lg hover:border-gray-400 dark:hover:border-gray-600 transition-colors h-full">
                       <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-lg flex items-center justify-center mb-4">
-                        <span className="text-2xl">☁️</span>
+                        <span className="text-2xl">📱</span>
                       </div>
-                      <h3 className="text-xl font-semibold mb-2">Cloud Solutions</h3>
+                      <h3 className="text-xl font-semibold mb-2">MOBILE DEVELOPMENT</h3>
                       <p className="text-gray-600 dark:text-gray-400">
-                        Scalable cloud infrastructure and deployment solutions.
+                        Mobile application development across various domains
                       </p>
                     </article>
                   </Link>
 
                   {/* Service Card 4 */}
-                  <Link href={`${pathname}/security-consulting`} className="block">
+                  <Link href={`${pathname}/quality-control`} className="block">
                     <article className="p-6 border border-gray-200 dark:border-gray-800 rounded-lg hover:border-gray-400 dark:hover:border-gray-600 transition-colors h-full">
                       <div className="w-12 h-12 bg-orange-100 dark:bg-orange-900 rounded-lg flex items-center justify-center mb-4">
-                        <span className="text-2xl">🔒</span>
+                        <span className="text-2xl">✅</span>
                       </div>
-                      <h3 className="text-xl font-semibold mb-2">Security Consulting</h3>
+                      <h3 className="text-xl font-semibold mb-2">QUALITY CONTROL</h3>
                       <p className="text-gray-600 dark:text-gray-400">
-                        Comprehensive security audits and implementation of best practices.
+                        Comprehensive software testing and quality assurance
                       </p>
                     </article>
                   </Link>
 
                   {/* Service Card 5 */}
-                  <Link href={`${pathname}/data-analytics`} className="block">
+                  <Link href={`${pathname}/ui-ux-design`} className="block">
                     <article className="p-6 border border-gray-200 dark:border-gray-800 rounded-lg hover:border-gray-400 dark:hover:border-gray-600 transition-colors h-full">
                       <div className="w-12 h-12 bg-red-100 dark:bg-red-900 rounded-lg flex items-center justify-center mb-4">
-                        <span className="text-2xl">📊</span>
+                        <span className="text-2xl">🎨</span>
                       </div>
-                      <h3 className="text-xl font-semibold mb-2">Data Analytics</h3>
+                      <h3 className="text-xl font-semibold mb-2">UI/UX DESIGN</h3>
                       <p className="text-gray-600 dark:text-gray-400">
-                        Business intelligence and data-driven insights for your organization.
+                        User interface and user experience design services
                       </p>
                     </article>
                   </Link>
 
                   {/* Service Card 6 */}
-                  <Link href={`${pathname}/digital-marketing`} className="block">
+                  <Link href={`${pathname}/research-development`} className="block">
                     <article className="p-6 border border-gray-200 dark:border-gray-800 rounded-lg hover:border-gray-400 dark:hover:border-gray-600 transition-colors h-full">
                       <div className="w-12 h-12 bg-teal-100 dark:bg-teal-900 rounded-lg flex items-center justify-center mb-4">
-                        <span className="text-2xl">🎯</span>
+                        <span className="text-2xl">�</span>
                       </div>
-                      <h3 className="text-xl font-semibold mb-2">Digital Marketing</h3>
+                      <h3 className="text-xl font-semibold mb-2">COOPERATIVE RESEARCH AND DEVELOPMENT</h3>
                       <p className="text-gray-600 dark:text-gray-400">
-                        Strategic digital marketing campaigns to grow your online presence.
+                        Collaborative research and prototype development
+                      </p>
+                    </article>
+                  </Link>
+
+                  {/* Service Card 7 */}
+                  <Link href={`${pathname}/digital-transformation`} className="block">
+                    <article className="p-6 border border-gray-200 dark:border-gray-800 rounded-lg hover:border-gray-400 dark:hover:border-gray-600 transition-colors h-full">
+                      <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-lg flex items-center justify-center mb-4">
+                        <span className="text-2xl">🔄</span>
+                      </div>
+                      <h3 className="text-xl font-semibold mb-2">DIGITAL TRANSFORMATION SOLUTIONS</h3>
+                      <p className="text-gray-600 dark:text-gray-400">
+                        Digital transformation and technology integration
+                      </p>
+                    </article>
+                  </Link>
+
+                  {/* Service Card 8 */}
+                  <Link href={`${pathname}/bpo-services`} className="block">
+                    <article className="p-6 border border-gray-200 dark:border-gray-800 rounded-lg hover:border-gray-400 dark:hover:border-gray-600 transition-colors h-full">
+                      <div className="w-12 h-12 bg-yellow-100 dark:bg-yellow-900 rounded-lg flex items-center justify-center mb-4">
+                        <span className="text-2xl">📋</span>
+                      </div>
+                      <h3 className="text-xl font-semibold mb-2">BUSINESS PROCESS OUTSOURCING (BPO) SERVICES</h3>
+                      <p className="text-gray-600 dark:text-gray-400">
+                        Business process digitization and outsourcing
+                      </p>
+                    </article>
+                  </Link>
+
+                  {/* Service Card 9 */}
+                  <Link href={`${pathname}/system-maintenance`} className="block">
+                    <article className="p-6 border border-gray-200 dark:border-gray-800 rounded-lg hover:border-gray-400 dark:hover:border-gray-600 transition-colors h-full">
+                      <div className="w-12 h-12 bg-pink-100 dark:bg-pink-900 rounded-lg flex items-center justify-center mb-4">
+                        <span className="text-2xl">🔧</span>
+                      </div>
+                      <h3 className="text-xl font-semibold mb-2">SYSTEM MAINTENANCE & OPERATION</h3>
+                      <p className="text-gray-600 dark:text-gray-400">
+                        System maintenance and operational support
                       </p>
                     </article>
                   </Link>

@@ -9,10 +9,10 @@
     "blog": "ブログ",
     "recruitments": "採用情報",
     "contact": "お問い合わせ",
-    "chatWithAI": "AIとチャット"
+    "chatWithAI": "AIコンサルタント"
   },
   "chat": {
-    "chatWithAI": "AIチャット",
+    "chatWithAI": "AIコンサルタント",
     "assistant": "AIアシスタント",
     "intro": "こんにちは！会社、プロジェクト、スケジュール、プロジェクトの状況について聞いてください。",
     "typing": "AI が入力中...",

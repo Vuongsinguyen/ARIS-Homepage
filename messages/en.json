@@ -9,10 +9,10 @@
     "blog": "Blog",
     "recruitments": "Recruitments",
     "contact": "Contact",
-    "chatWithAI": "Chat with AI"
+    "chatWithAI": "AI Consultant"
   },
   "chat": {
-    "chatWithAI": "Chat ARIS AI",
+    "chatWithAI": "AI Consultant",
     "assistant": "AI Assistant",
     "intro": "Hello! Ask me about the company, projects, timelines or project status.",
     "typing": "AI is typing...",

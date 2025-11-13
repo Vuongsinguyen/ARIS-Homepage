@@ -111,6 +111,33 @@ export default function ChatBot() {
 
             {/* Input */}
             <div className="px-4 py-3 border-t border-gray-200 dark:border-gray-800 bg-background">
+              {/* Quick Message Suggestions */}
+              {messages.length === 0 && (
+                <div className="mb-3">
+                  <div className="text-xs text-gray-500 mb-2">{t('suggestions') || 'Quick suggestions:'}</div>
+                  <div className="flex flex-wrap gap-2">
+                    <button
+                      onClick={() => setInput('Tôi muốn làm ứng dụng Quản Lý!')}
+                      className="px-3 py-1 text-xs bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                    >
+                      Tôi muốn làm ứng dụng Quản Lý!
+                    </button>
+                    <button
+                      onClick={() => setInput('Cần ứng dụng trên Mobile!')}
+                      className="px-3 py-1 text-xs bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                    >
+                      Cần ứng dụng trên Mobile!
+                    </button>
+                    <button
+                      onClick={() => setInput('Chuyển đổi số là gì?')}
+                      className="px-3 py-1 text-xs bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                    >
+                      Chuyển đổi số là gì?
+                    </button>
+                  </div>
+                </div>
+              )}
+
               <div className="flex items-center gap-3">
                 <input
                   value={input}

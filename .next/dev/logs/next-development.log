@@ -1,10 +1,33 @@
-[00:00:00.773] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:00.891] Server  LOG      ✓ Ready in 609ms
-[00:00:05.356] Server  WARN     ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
-[00:00:43.789] Server  LOG      ✓ Compiled in 104ms
-[00:00:46.315] Server  WARN     ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
-[00:00:47.822] Server  LOG      ✓ Compiled in 44ms
-[00:00:48.452] Server  WARN     ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
-[00:00:50.492] Server  WARN     ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
-[00:00:57.305] Server  LOG      ✓ Compiled in 31ms
-[00:01:02.733] Server  LOG      ✓ Compiled in 55ms
+[00:00:01.040] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:01.180] Server  LOG      ✓ Ready in 911ms
+[00:00:06.361] Server  LOG      ○ Compiling /[locale] ...
+[00:00:08.134] Browser LOG     CLS: 0.001265619793309062
+[00:00:08.134] Browser LOG     [Analytics] CLS: 0.001265619793309062
+[00:00:08.217] Server  LOG     Performance Metrics Received: {}
+[00:00:09.130] Browser LOG     Performance Budget:
+[00:00:09.130] Browser LOG     DOM Content Loaded: 0.09999990463256836ms
+[00:00:09.131] Browser LOG     Load Complete: 0ms
+[00:00:09.131] Browser LOG     Total Load Time: 4685.600000023842ms
+[00:00:09.131] Browser LOG     ✅ domContentLoaded within budget: 0.09999990463256836ms
+[00:00:09.131] Browser LOG     ✅ loadComplete within budget: 0ms
+[00:00:09.131] Browser WARN    ⚠️ totalTime exceeded budget: 4685.600000023842ms > 3000ms
+[00:00:13.200] Browser ERROR   unhandledRejection: AbortError: The play() request was interrupted by a call to pause(). https://goo.gl/LdLk22
+[00:00:18.251] Server  LOG     Performance Metrics Received: {}
+[00:00:18.262] Server  LOG     Performance Metrics Received: {}
+[00:00:18.349] Browser LOG     FID: 3.100000023841858 ms
+[00:00:18.349] Browser LOG     [Analytics] FID: 3.100000023841858
+[00:00:18.349] Browser LOG     CLS: 0.001265619793309062
+[00:00:18.349] Browser LOG     [Analytics] CLS: 0.001265619793309062
+[00:00:43.037] Browser ERROR   unhandledRejection: AbortError: The play() request was interrupted by a call to pause(). https://goo.gl/LdLk22
+[00:00:44.053] Server  LOG      ✓ Compiled in 137ms
+[00:00:48.466] Server  LOG      ✓ Compiled in 103ms
+[00:00:54.380] Server  LOG      ✓ Compiled in 66ms
+[00:01:04.596] Server  LOG      ✓ Compiled in 116ms
+[00:01:09.182] Server  LOG      ✓ Compiled in 79ms
+[00:01:14.095] Server  LOG      ✓ Compiled in 65ms
+[00:01:18.572] Server  LOG      ✓ Compiled in 48ms
+[00:01:24.804] Server  LOG      ✓ Compiled in 129ms
+[00:01:30.656] Server  LOG      ✓ Compiled in 115ms
+[00:01:36.991] Server  LOG      ✓ Compiled in 84ms
+[00:01:42.844] Server  LOG      ✓ Compiled in 41ms
+[00:01:49.042] Server  LOG      ✓ Compiled in 121ms

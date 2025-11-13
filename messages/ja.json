@@ -7,7 +7,9 @@
     "products": "製品",
     "news": "ニュース",
     "blog": "ブログ",
-    "contact": "お問い合わせ"
+    "recruitments": "採用情報",
+    "contact": "お問い合わせ",
+    "chatWithAI": "AIとチャット"
   },
   "chat": {
     "chatWithAI": "AIチャット",
@@ -18,6 +20,7 @@
     "send": "送信",
     "close": "閉じる",
     "clear": "クリア",
+    "suggestions": "クイックサジェスト:",
     "error": "申し訳ありませんが、現在応答できません。"
   },
   "home": {

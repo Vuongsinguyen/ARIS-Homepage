@@ -3,11 +3,13 @@
     "home": "Trang chủ",
     "services": "Dịch vụ",
     "about": "Giới thiệu",
-    "use-cases": "Trường hợp sử dụng",
+    "use-cases": "Ứng dụng",
     "products": "Sản phẩm",
     "news": "Tin tức",
     "blog": "Blog",
-    "contact": "Liên hệ"
+    "recruitments": "Tuyển dụng",
+    "contact": "Liên hệ",
+    "chatWithAI": "Trò chuyện với AI"
   },
   "chat": {
     "chatWithAI": "Chat ARIS AI",
@@ -18,6 +20,7 @@
     "send": "Gửi",
     "close": "Đóng",
     "clear": "Xóa",
+    "suggestions": "Gợi ý nhanh:",
     "error": "Xin lỗi, hiện không thể trả lời."
   },
   "home": {
@@ -47,5 +50,19 @@
       "title": "Type Safe",
       "description": "Hỗ trợ TypeScript đầy đủ cho trải nghiệm phát triển tốt hơn"
     }
+  },
+  "footer": {
+    "companyDescription": "Website đa ngôn ngữ hiệu suất cao với tối ưu SEO và tích hợp CMS.",
+    "navigation": "Điều hướng",
+    "services": "Dịch vụ",
+    "contact": "Liên hệ",
+    "webDevelopment": "Phát triển Web",
+    "mobileDevelopment": "Phát triển Mobile",
+    "cloudSolutions": "Giải pháp Cloud",
+    "securityConsulting": "Tư vấn Bảo mật",
+    "dataAnalytics": "Phân tích Dữ liệu",
+    "privacyPolicy": "Chính sách Bảo mật",
+    "termsOfService": "Điều khoản Dịch vụ",
+    "copyright": "© {year} ARIS. Tất cả quyền được bảo lưu."
   }
 }

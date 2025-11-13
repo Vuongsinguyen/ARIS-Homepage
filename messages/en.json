@@ -7,7 +7,9 @@
     "products": "Products",
     "news": "News",
     "blog": "Blog",
-    "contact": "Contact"
+    "recruitments": "Recruitments",
+    "contact": "Contact",
+    "chatWithAI": "Chat with AI"
   },
   "chat": {
     "chatWithAI": "Chat ARIS AI",
@@ -18,6 +20,7 @@
     "send": "Send",
     "close": "Close",
     "clear": "Clear",
+    "suggestions": "Quick suggestions:",
     "error": "Sorry, I cannot respond right now."
   },
   "home": {

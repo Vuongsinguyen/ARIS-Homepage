@@ -28,7 +28,7 @@ export default function ThemeSelector() {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-4 py-2 rounded-lg bg-secondary hover:bg-accent transition-colors"
+        className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-gray-900 dark:text-gray-100"
         aria-label="Select theme"
       >
         <span className="text-xl">
@@ -57,7 +57,7 @@ export default function ThemeSelector() {
             className="fixed inset-0 z-40"
             onClick={() => setIsOpen(false)}
           />
-          <div className="absolute right-0 mt-2 w-48 rounded-lg border border-border bg-popover shadow-lg z-50">
+          <div className="absolute right-0 mt-2 w-48 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-lg z-50">
             <div className="p-1">
               {themes.map((themeOption) => (
                 <button
@@ -66,23 +66,23 @@ export default function ThemeSelector() {
                     setTheme(themeOption.value);
                     setIsOpen(false);
                   }}
-                  className={`w-full flex items-center gap-3 px-3 py-2 rounded-md hover:bg-accent transition-colors ${
-                    theme === themeOption.value ? 'bg-accent font-medium' : ''
+                  className={`w-full flex items-center gap-3 px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-gray-900 dark:text-gray-100 ${
+                    theme === themeOption.value ? 'bg-gray-200 dark:bg-gray-700 font-medium' : ''
                   }`}
                 >
                   <span className="text-xl">{themeOption.icon}</span>
                   <span className="flex-1 text-left">{themeOption.label}</span>
                   {theme === themeOption.value && (
-                    <svg className="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-4 h-4 text-blue-600 dark:text-blue-400" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   )}
                 </button>
               ))}
             </div>
-            <div className="border-t border-border p-2">
-              <p className="text-xs text-muted-foreground px-3">
-                Current: <span className="font-medium">{currentTheme}</span>
+            <div className="border-t border-gray-200 dark:border-gray-700 p-2">
+              <p className="text-xs text-gray-500 dark:text-gray-400 px-3">
+                Current: <span className="font-medium text-gray-900 dark:text-gray-100">{currentTheme}</span>
               </p>
             </div>
           </div>

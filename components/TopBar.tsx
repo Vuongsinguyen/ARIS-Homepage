@@ -51,7 +51,7 @@ export default function TopBar() {
   ];
 
   return (
-    <div className="bg-black text-white border-b border-gray-800">
+    <div className="bg-black dark:bg-gray-900 text-white border-b border-gray-800 dark:border-gray-700">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-9">
           {/* Contact Info - Desktop */}
@@ -62,12 +62,12 @@ export default function TopBar() {
                 {info.href ? (
                   <Link
                     href={info.href}
-                    className="text-xs text-gray-300 hover:text-white transition-colors"
+                    className="text-xs text-gray-300 dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-colors"
                   >
                     {info.label}
                   </Link>
                 ) : (
-                  <span className="text-xs text-gray-300">{info.label}</span>
+                  <span className="text-xs text-gray-300 dark:text-gray-400">{info.label}</span>
                 )}
               </div>
             ))}
@@ -81,23 +81,57 @@ export default function TopBar() {
                 {info.href ? (
                   <Link
                     href={info.href}
-                    className="text-xs text-gray-300 hover:text-white transition-colors"
+                    className="text-xs text-gray-300 dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-colors"
                   >
                     {info.label}
                   </Link>
                 ) : (
-                  <span className="text-xs text-gray-300">{info.label}</span>
+                  <span className="text-xs text-gray-300 dark:text-gray-400">{info.label}</span>
                 )}
               </div>
             ))}
           </div>
 
+          {/* Sale Banner - Desktop */}
+          <div className="hidden sm:flex flex-1 mx-4">
+            <div className="relative overflow-hidden w-full" style={{
+              maskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)'
+            }}>
+              <div
+                className="whitespace-nowrap text-xs text-yellow-400"
+                style={{
+                  animation: 'marquee 20s linear infinite'
+                }}
+              >
+                🎉 Happy New Year SALE OFF 10% From 12 Dec, 2025 - 12 Jan, 2026
+              </div>
+            </div>
+          </div>
+
+          {/* Sale Banner - Mobile */}
+          <div className="flex sm:hidden flex-1 mx-2">
+            <div className="relative overflow-hidden w-full" style={{
+              maskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)'
+            }}>
+              <div
+                className="whitespace-nowrap text-xs text-yellow-400"
+                style={{
+                  animation: 'marquee 18s linear infinite'
+                }}
+              >
+                🎉 SALE OFF 10% (12 Dec - 12 Jan)
+              </div>
+            </div>
+          </div>
+
           {/* Language Switcher - Desktop */}
-          <div className="hidden sm:flex items-center space-x-4">
+          <div className="hidden sm:flex items-center">
             <div className="relative">
               <button
                 onClick={() => setDropdownOpen(!dropdownOpen)}
-                className="flex items-center space-x-2 text-xs text-gray-300 hover:text-white transition-colors px-3 py-1.5 rounded-md hover:bg-gray-900"
+                className="flex items-center space-x-2 text-xs text-gray-300 dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-colors px-3 py-1.5 rounded-md hover:bg-gray-900 dark:hover:bg-gray-800"
                 aria-haspopup="true"
                 aria-expanded={dropdownOpen}
               >
@@ -121,14 +155,14 @@ export default function TopBar() {
                     onClick={() => setDropdownOpen(false)}
                   />
                   {/* Dropdown Menu */}
-                  <div className="absolute right-0 top-full mt-1 w-40 bg-black border border-gray-800 rounded-md shadow-xl z-60 overflow-hidden">
+                  <div className="absolute right-0 top-full mt-1 w-40 bg-black dark:bg-gray-800 border border-gray-800 dark:border-gray-700 rounded-md shadow-xl z-60 overflow-hidden">
                     {languages.map((lang) => (
                       <Link
                         key={lang.code}
                         href={pathname.replace(`/${locale}`, `/${lang.code}`)}
                         onClick={() => setDropdownOpen(false)}
-                        className={`flex items-center space-x-2 px-3 py-2.5 text-xs hover:bg-gray-900 transition-colors ${
-                          lang.code === locale ? 'bg-gray-900 text-white' : 'text-gray-300'
+                        className={`flex items-center space-x-2 px-3 py-2.5 text-xs hover:bg-gray-900 dark:hover:bg-gray-700 transition-colors ${
+                          lang.code === locale ? 'bg-gray-900 dark:bg-gray-700 text-white dark:text-gray-200' : 'text-gray-300 dark:text-gray-400'
                         }`}
                       >
                         <span className="text-sm">{lang.flag}</span>
@@ -146,7 +180,7 @@ export default function TopBar() {
             <div className="relative">
               <button
                 onClick={() => setDropdownOpen(!dropdownOpen)}
-                className="flex items-center space-x-1 text-xs text-gray-300 hover:text-white transition-colors px-2 py-1 rounded hover:bg-gray-900"
+                className="flex items-center space-x-1 text-xs text-gray-300 dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-colors px-2 py-1 rounded hover:bg-gray-900 dark:hover:bg-gray-800"
                 aria-haspopup="true"
                 aria-expanded={dropdownOpen}
               >
@@ -169,14 +203,14 @@ export default function TopBar() {
                     onClick={() => setDropdownOpen(false)}
                   />
                   {/* Dropdown Menu */}
-                  <div className="absolute right-0 top-full mt-1 w-32 bg-black border border-gray-800 rounded-md shadow-xl z-60 overflow-hidden">
+                  <div className="absolute right-0 top-full mt-1 w-32 bg-black dark:bg-gray-800 border border-gray-800 dark:border-gray-700 rounded-md shadow-xl z-60 overflow-hidden">
                     {languages.map((lang) => (
                       <Link
                         key={lang.code}
                         href={pathname.replace(`/${locale}`, `/${lang.code}`)}
                         onClick={() => setDropdownOpen(false)}
-                        className={`flex items-center space-x-2 px-3 py-2 text-xs hover:bg-gray-900 transition-colors ${
-                          lang.code === locale ? 'bg-gray-900 text-white' : 'text-gray-300'
+                        className={`flex items-center space-x-2 px-3 py-2 text-xs hover:bg-gray-900 dark:hover:bg-gray-700 transition-colors ${
+                          lang.code === locale ? 'bg-gray-900 dark:bg-gray-700 text-white dark:text-gray-200' : 'text-gray-300 dark:text-gray-400'
                         }`}
                       >
                         <span className="text-sm">{lang.flag}</span>

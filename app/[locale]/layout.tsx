@@ -5,60 +5,82 @@ import { Inter } from "next/font/google";
 import {Providers} from '@/components/providers';
 import TopBar from '@/components/TopBar';
 import Footer from '@/components/Footer';
+import { generateAIMetadata, generateStructuredData } from '@/lib/seo';
+import { trackWebVitals, preloadCriticalResources, checkPerformanceBudget } from '@/lib/performance';
+import { PerformanceTracker } from '@/components/PerformanceTracker';
 import "../globals.css";
 
 const inter = Inter({ subsets: ["latin", "vietnamese"] });
 
-export const metadata: Metadata = {
-  title: {
-    default: "ARIS - Homepage",
-    template: "%s | ARIS"
-  },
-  description: "High-performance, multilingual website with SEO optimization",
-  keywords: ["ARIS", "website", "SEO", "multilingual"],
-  authors: [{ name: "ARIS Team" }],
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://aris-homepage.com",
-    siteName: "ARIS",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "ARIS Homepage",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "ARIS - Homepage",
-    description: "High-performance, multilingual website with SEO optimization",
-    images: ["/twitter-image.jpg"],
-  },
-  alternates: {
-    languages: {
-      'en': '/en',
-      'vi': '/vi',
-      'ja': '/ja',
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{locale: string}>;
+}): Promise<Metadata> {
+  const {locale} = await params;
+  const aiMetadata = generateAIMetadata('home', locale);
+
+  return {
+    title: aiMetadata.title,
+    description: aiMetadata.description,
+    keywords: aiMetadata.keywords,
+    authors: [{ name: "ARIS Team" }],
+    creator: "ARIS",
+    publisher: "ARIS",
+    formatDetection: {
+      email: false,
+      address: false,
+      telephone: false,
     },
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
+    metadataBase: new URL('https://aris-homepage.com'),
+    alternates: {
+      canonical: `https://aris-homepage.com/${locale}`,
+      languages: {
+        'en': `https://aris-homepage.com/en`,
+        'vi': `https://aris-homepage.com/vi`,
+        'ja': `https://aris-homepage.com/ja`,
+      },
+    },
+    openGraph: {
+      type: "website",
+      locale: locale,
+      url: `https://aris-homepage.com/${locale}`,
+      siteName: "ARIS",
+      title: aiMetadata.title,
+      description: aiMetadata.description,
+      images: [
+        {
+          url: aiMetadata.ogImage || "/og-image.jpg",
+          width: 1200,
+          height: 630,
+          alt: aiMetadata.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: aiMetadata.title,
+      description: aiMetadata.description,
+      creator: "@ARIS",
+      images: [aiMetadata.twitterImage || "/twitter-image.jpg"],
+    },
+    robots: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
     },
-  },
-  verification: {
-    google: "your-google-verification-code",
-  },
-};
+    verification: {
+      google: "your-google-verification-code",
+    },
+    category: "technology",
+  };
+}
 
 export default async function LocaleLayout({
   children,
@@ -69,12 +91,25 @@ export default async function LocaleLayout({
 }) {
   const {locale} = await params;
   const messages = await getMessages();
- 
+  const structuredData = generateStructuredData('home', locale);
+
   return (
     <html lang={locale} suppressHydrationWarning>
+      <head>
+        {structuredData.map((data, index) => (
+          <script
+            key={index}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(data),
+            }}
+          />
+        ))}
+      </head>
       <body className={inter.className}>
         <Providers>
           <NextIntlClientProvider messages={messages}>
+            <PerformanceTracker />
             <TopBar />
             {children}
             <Footer />

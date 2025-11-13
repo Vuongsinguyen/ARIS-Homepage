@@ -8,6 +8,46 @@ import {useState} from 'react';
 import Navbar from '@/components/Navbar';
 import HeroSlider from '@/components/HeroSlider';
 
+// FAQ Item Component
+function FAQItem({ question, answer }: { question: string; answer: string }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
+      >
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-white pr-4">
+          {question}
+        </h3>
+        <svg
+          className={`w-5 h-5 text-gray-500 dark:text-gray-400 flex-shrink-0 transition-transform duration-200 ${
+            isOpen ? 'rotate-180' : ''
+          }`}
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+      
+      <div
+        className={`overflow-hidden transition-all duration-300 ${
+          isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        }`}
+      >
+        <div className="px-6 pb-4 pt-2">
+          <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+            {answer}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Home() {
   const t = useTranslations('home');
   const params = useParams();
@@ -677,9 +717,9 @@ export default function Home() {
         </section>
 
         {/* Use Cases Section */}
-        <section className="py-16 bg-gray-50 dark:bg-gray-900">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-[1330px] mx-auto">
+        <section className="py-16 bg-gray-50 dark:bg-gray-900 overflow-visible">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 overflow-visible">
+            <div className="max-w-[1330px] mx-auto overflow-visible">
               <div className="text-center mb-16">
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
                   Use Cases
@@ -688,22 +728,18 @@ export default function Home() {
                   See how our clients achieve measurable success with our solutions
                 </p>
               </div>
-            </div>
-          </div>
 
-          {/* Full Width Scrollable Cards Container */}
-          <div className="relative px-4 sm:px-6 lg:px-8">
-            <div className="max-w-[1330px] mx-auto">
-              <div className="relative -mx-4 sm:-mx-6 lg:-mx-8">
+              {/* Navigation Buttons - Top Right */}
+              <div className="flex justify-end gap-2 mb-6">
                 {/* Previous Button */}
                 <button
                   onClick={() => {
                     const container = document.getElementById('use-cases-scroll');
                     if (container) {
-                      container.scrollBy({ left: -336, behavior: 'smooth' });
+                      container.scrollBy({ left: -504, behavior: 'smooth' });
                     }
                   }}
-                  className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 items-center justify-center bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-110 border border-gray-200 dark:border-gray-700"
+                  className="flex w-12 h-12 items-center justify-center bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-110 border border-gray-200 dark:border-gray-700"
                   aria-label="Previous"
                 >
                   <svg className="w-6 h-6 text-gray-900 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -716,22 +752,25 @@ export default function Home() {
                   onClick={() => {
                     const container = document.getElementById('use-cases-scroll');
                     if (container) {
-                      container.scrollBy({ left: 336, behavior: 'smooth' });
+                      container.scrollBy({ left: 504, behavior: 'smooth' });
                     }
                   }}
-                  className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 items-center justify-center bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-110 border border-gray-200 dark:border-gray-700"
+                  className="flex w-12 h-12 items-center justify-center bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-110 border border-gray-200 dark:border-gray-700"
                   aria-label="Next"
                 >
                   <svg className="w-6 h-6 text-gray-900 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </button>
+              </div>
 
+              {/* Scrollable Cards Container with Overflow */}
+              <div className="relative overflow-visible -mx-4 sm:-mx-6 lg:-mx-8">
                 <div id="use-cases-scroll" className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide px-4 sm:px-6 lg:px-8">
                   {/* Use Case Card 1 - E-Commerce */}
-                  <div className="flex-none w-80 snap-start group">
+                  <div className="flex-none w-[30rem] snap-start group">
                     <article 
-                      className="relative h-96 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer"
+                      className="relative h-[39rem] rounded-2xl overflow-hidden shadow-lg transition-all duration-300 cursor-pointer"
                       onMouseEnter={(e) => {
                         const video = e.currentTarget.querySelector('video');
                         if (video && video.paused) {
@@ -799,7 +838,7 @@ export default function Home() {
                         </div>
                         
                         <div>
-                          <p className="text-sm mb-4 opacity-90">
+                          <p className="text-sm mb-4 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out">
                             "Our e-commerce platform transformed how we connect with customers, delivering seamless shopping experiences that drive real results."
                           </p>
                           <div className="flex items-center justify-between">
@@ -819,9 +858,9 @@ export default function Home() {
                   </div>
 
                   {/* Use Case Card 2 - SaaS */}
-                  <div className="flex-none w-80 snap-start group">
+                  <div className="flex-none w-[30rem] snap-start group">
                     <article 
-                      className="relative h-96 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer"
+                      className="relative h-[39rem] rounded-2xl overflow-hidden shadow-lg transition-all duration-300 cursor-pointer"
                       onMouseEnter={(e) => {
                         const video = e.currentTarget.querySelector('video');
                         if (video && video.paused) {
@@ -881,7 +920,7 @@ export default function Home() {
                           <div className="text-xl font-semibold mb-4">Annual recurring revenue</div>
                         </div>
                         <div>
-                          <p className="text-sm mb-4 opacity-90">
+                          <p className="text-sm mb-4 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out">
                             "Moving to a SaaS model with scalable infrastructure helped us reach new markets and scale efficiently across regions."
                           </p>
                           <div className="flex items-center justify-between">
@@ -901,9 +940,9 @@ export default function Home() {
                   </div>
 
                   {/* Use Case Card 3 - Content Management */}
-                  <div className="flex-none w-80 snap-start group">
+                  <div className="flex-none w-[30rem] snap-start group">
                     <article 
-                      className="relative h-96 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer"
+                      className="relative h-[39rem] rounded-2xl overflow-hidden shadow-lg transition-all duration-300 cursor-pointer"
                       onMouseEnter={(e) => {
                         const video = e.currentTarget.querySelector('video');
                         if (video && video.paused) {
@@ -963,7 +1002,7 @@ export default function Home() {
                           <div className="text-xl font-semibold mb-4">Faster content publishing</div>
                         </div>
                         <div>
-                          <p className="text-sm mb-4 opacity-90">
+                          <p className="text-sm mb-4 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out">
                             "The headless CMS solution revolutionized our content workflow, enabling our team to publish faster without compromising quality."
                           </p>
                           <div className="flex items-center justify-between">
@@ -983,9 +1022,9 @@ export default function Home() {
                   </div>
 
                   {/* Use Case Card 4 - FinTech */}
-                  <div className="flex-none w-80 snap-start group">
+                  <div className="flex-none w-[30rem] snap-start group">
                     <article 
-                      className="relative h-96 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer"
+                      className="relative h-[39rem] rounded-2xl overflow-hidden shadow-lg transition-all duration-300 cursor-pointer"
                       onMouseEnter={(e) => {
                         const video = e.currentTarget.querySelector('video');
                         if (video && video.paused) {
@@ -1045,7 +1084,7 @@ export default function Home() {
                           <div className="text-xl font-semibold mb-4">Transaction success rate</div>
                         </div>
                         <div>
-                          <p className="text-sm mb-4 opacity-90">
+                          <p className="text-sm mb-4 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out">
                             "Secure, compliant payment processing with enterprise-grade encryption has made us the trusted choice for financial services."
                           </p>
                           <div className="flex items-center justify-between">
@@ -1065,9 +1104,9 @@ export default function Home() {
                   </div>
 
                   {/* Use Case Card 5 - Healthcare */}
-                  <div className="flex-none w-80 snap-start group">
+                  <div className="flex-none w-[30rem] snap-start group">
                     <article 
-                      className="relative h-96 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer"
+                      className="relative h-[39rem] rounded-2xl overflow-hidden shadow-lg transition-all duration-300 cursor-pointer"
                       onMouseEnter={(e) => {
                         const video = e.currentTarget.querySelector('video');
                         if (video && video.paused) {
@@ -1127,7 +1166,7 @@ export default function Home() {
                           <div className="text-xl font-semibold mb-4">Patients served monthly</div>
                         </div>
                         <div>
-                          <p className="text-sm mb-4 opacity-90">
+                          <p className="text-sm mb-4 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out">
                             "HIPAA-compliant platform with telemedicine capabilities transformed how we deliver care to patients across multiple locations."
                           </p>
                           <div className="flex items-center justify-between">
@@ -1147,9 +1186,9 @@ export default function Home() {
                   </div>
 
                   {/* Use Case Card 6 - Education */}
-                  <div className="flex-none w-80 snap-start group">
+                  <div className="flex-none w-[30rem] snap-start group">
                     <article 
-                      className="relative h-96 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer"
+                      className="relative h-[39rem] rounded-2xl overflow-hidden shadow-lg transition-all duration-300 cursor-pointer"
                       onMouseEnter={(e) => {
                         const video = e.currentTarget.querySelector('video');
                         if (video && video.paused) {
@@ -1209,7 +1248,7 @@ export default function Home() {
                           <div className="text-xl font-semibold mb-4">Student engagement rate</div>
                         </div>
                         <div>
-                          <p className="text-sm mb-4 opacity-90">
+                          <p className="text-sm mb-4 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out">
                             "Interactive learning platform with real-time progress tracking helped us create engaging educational experiences at scale."
                           </p>
                           <div className="flex items-center justify-between">
@@ -1227,16 +1266,6 @@ export default function Home() {
                       </Link>
                     </article>
                   </div>
-                </div>
-
-                {/* Scroll Indicators */}
-                <div className="flex justify-center gap-2 mt-6">
-                  <div className="w-2 h-2 rounded-full bg-blue-600"></div>
-                  <div className="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-600"></div>
-                  <div className="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-600"></div>
-                  <div className="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-600"></div>
-                  <div className="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-600"></div>
-                  <div className="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-600"></div>
                 </div>
               </div>
             </div>
@@ -1544,8 +1573,74 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Contact Section */}
+        {/* FAQs Section */}
         <section className="py-16 bg-gray-50 dark:bg-gray-900">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-[1330px] mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                  Frequently Asked Questions
+                </h2>
+                <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                  Find answers to common questions about our services and how we can help your business
+                </p>
+              </div>
+
+              <div className="max-w-4xl mx-auto space-y-4">
+                {/* FAQ 1 */}
+                <FAQItem
+                  question="What services does ARIS provide?"
+                  answer="ARIS provides comprehensive software development services including System Development, Mobile Development, Quality Control, UI/UX Design, Digital Transformation, BPO Services, and System Maintenance. We offer end-to-end solutions tailored to your business needs."
+                />
+
+                {/* FAQ 2 */}
+                <FAQItem
+                  question="How long does a typical project take?"
+                  answer="Project timelines vary based on scope and complexity. A typical web application takes 3-6 months, while mobile apps range from 4-8 months. We provide detailed timelines during the initial consultation and maintain transparent communication throughout the project lifecycle."
+                />
+
+                {/* FAQ 3 */}
+                <FAQItem
+                  question="Do you provide ongoing support after project completion?"
+                  answer="Yes, we offer comprehensive maintenance and support packages. Our System Maintenance service includes regular updates, bug fixes, performance optimization, and technical support to ensure your systems run smoothly long after deployment."
+                />
+
+                {/* FAQ 4 */}
+                <FAQItem
+                  question="What industries do you specialize in?"
+                  answer="We have extensive experience across multiple industries including E-Commerce, SaaS, FinTech, Healthcare, Education, and Enterprise Solutions. Our team adapts to industry-specific requirements and compliance standards."
+                />
+
+                {/* FAQ 5 */}
+                <FAQItem
+                  question="Can you work with our existing development team?"
+                  answer="Absolutely! We offer flexible engagement models including team augmentation, where our developers integrate seamlessly with your existing team. We also provide dedicated teams or full project outsourcing based on your needs."
+                />
+
+                {/* FAQ 6 */}
+                <FAQItem
+                  question="What is your development process?"
+                  answer="We follow Agile methodology with regular sprints, daily standups, and continuous client communication. Our process includes: Discovery & Planning → Design → Development → Testing → Deployment → Maintenance. You'll have full visibility throughout each phase."
+                />
+
+                {/* FAQ 7 */}
+                <FAQItem
+                  question="How do you ensure code quality?"
+                  answer="We implement rigorous Quality Control processes including code reviews, automated testing, manual testing, and performance optimization. Our QA team follows industry best practices and uses modern testing frameworks to ensure high-quality deliverables."
+                />
+
+                {/* FAQ 8 */}
+                <FAQItem
+                  question="What technologies do you work with?"
+                  answer="We work with modern tech stacks including React, Next.js, Vue, Angular for frontend; Node.js, Python, Java, .NET for backend; React Native, Flutter for mobile; and various databases, cloud platforms (AWS, Azure, GCP), and DevOps tools."
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <section className="py-16 bg-white dark:bg-gray-800">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-[1330px] mx-auto">
               <div className="text-center mb-12">
@@ -1702,15 +1797,6 @@ export default function Home() {
                     </button>
                   </form>
                 </div>
-              </div>
-
-              <div className="text-center mt-8">
-                <Link
-                  href={`/${locale}/contact`}
-                  className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
-                >
-                  Visit Contact Page
-                </Link>
               </div>
             </div>
           </div>

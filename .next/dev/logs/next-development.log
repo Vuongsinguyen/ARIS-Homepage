@@ -1,33 +1,584 @@
-[00:00:01.040] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:01.180] Server  LOG      ✓ Ready in 911ms
-[00:00:06.361] Server  LOG      ○ Compiling /[locale] ...
-[00:00:08.134] Browser LOG     CLS: 0.001265619793309062
-[00:00:08.134] Browser LOG     [Analytics] CLS: 0.001265619793309062
-[00:00:08.217] Server  LOG     Performance Metrics Received: {}
-[00:00:09.130] Browser LOG     Performance Budget:
-[00:00:09.130] Browser LOG     DOM Content Loaded: 0.09999990463256836ms
-[00:00:09.131] Browser LOG     Load Complete: 0ms
-[00:00:09.131] Browser LOG     Total Load Time: 4685.600000023842ms
-[00:00:09.131] Browser LOG     ✅ domContentLoaded within budget: 0.09999990463256836ms
-[00:00:09.131] Browser LOG     ✅ loadComplete within budget: 0ms
-[00:00:09.131] Browser WARN    ⚠️ totalTime exceeded budget: 4685.600000023842ms > 3000ms
-[00:00:13.200] Browser ERROR   unhandledRejection: AbortError: The play() request was interrupted by a call to pause(). https://goo.gl/LdLk22
-[00:00:18.251] Server  LOG     Performance Metrics Received: {}
-[00:00:18.262] Server  LOG     Performance Metrics Received: {}
-[00:00:18.349] Browser LOG     FID: 3.100000023841858 ms
-[00:00:18.349] Browser LOG     [Analytics] FID: 3.100000023841858
-[00:00:18.349] Browser LOG     CLS: 0.001265619793309062
-[00:00:18.349] Browser LOG     [Analytics] CLS: 0.001265619793309062
-[00:00:43.037] Browser ERROR   unhandledRejection: AbortError: The play() request was interrupted by a call to pause(). https://goo.gl/LdLk22
-[00:00:44.053] Server  LOG      ✓ Compiled in 137ms
-[00:00:48.466] Server  LOG      ✓ Compiled in 103ms
-[00:00:54.380] Server  LOG      ✓ Compiled in 66ms
-[00:01:04.596] Server  LOG      ✓ Compiled in 116ms
-[00:01:09.182] Server  LOG      ✓ Compiled in 79ms
-[00:01:14.095] Server  LOG      ✓ Compiled in 65ms
-[00:01:18.572] Server  LOG      ✓ Compiled in 48ms
-[00:01:24.804] Server  LOG      ✓ Compiled in 129ms
-[00:01:30.656] Server  LOG      ✓ Compiled in 115ms
-[00:01:36.991] Server  LOG      ✓ Compiled in 84ms
-[00:01:42.844] Server  LOG      ✓ Compiled in 41ms
-[00:01:49.042] Server  LOG      ✓ Compiled in 121ms
+[00:00:00.995] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:01.128] Server  LOG      ✓ Ready in 876ms
+[00:00:06.334] Server  LOG      ○ Compiling /[locale] ...
+[00:00:08.437] Browser LOG     CLS: 0.001265619793309062
+[00:00:08.437] Browser LOG     [Analytics] CLS: 0.001265619793309062
+[00:00:08.513] Server  LOG     Performance Metrics Received: {}
+[00:00:09.431] Browser LOG     Performance Budget:
+[00:00:09.432] Browser LOG     DOM Content Loaded: 0.10000002384185791ms
+[00:00:09.432] Browser LOG     Load Complete: 0ms
+[00:00:09.432] Browser LOG     Total Load Time: 5010.800000071526ms
+[00:00:09.432] Browser LOG     ✅ domContentLoaded within budget: 0.10000002384185791ms
+[00:00:09.432] Browser LOG     ✅ loadComplete within budget: 0ms
+[00:00:09.432] Browser WARN    ⚠️ totalTime exceeded budget: 5010.800000071526ms > 3000ms
+[00:01:21.162] Server  LOG     Performance Metrics Received: {}
+[00:01:21.174] Browser LOG     FID: 110.60000002384186 ms
+[00:01:21.174] Browser LOG     [Analytics] FID: 110.60000002384186
+[00:01:34.255] Server  LOG      ✓ Compiled in 116ms
+[00:02:04.041] Server  LOG      ✓ Compiled in 125ms
+[00:02:08.236] Server  LOG      ✓ Compiled in 41ms
+[00:02:18.374] Server  LOG      ✓ Compiled in 78ms
+[00:02:25.921] Server  LOG      ✓ Compiled in 262ms
+[00:02:30.644] Server  LOG      ✓ Compiled in 30ms
+[00:02:58.576] Server  LOG      ✓ Compiled in 98ms
+[00:03:36.257] Server  LOG      ✓ Compiled in 140ms
+[00:03:41.124] Server  LOG      ✓ Compiled in 47ms
+[00:03:47.402] Server  LOG      ✓ Compiled in 55ms
+[00:04:15.279] Server  LOG      ✓ Compiled in 86ms
+[00:04:18.898] Server  LOG      ✓ Compiled in 41ms
+[00:04:26.129] Server  LOG      ✓ Compiled in 80ms
+[00:04:49.830] Server  LOG      ✓ Compiled in 96ms
+[00:05:39.651] Server  LOG      ✓ Compiled in 317ms
+[00:05:43.926] Server  LOG      ✓ Compiled in 136ms
+[00:05:51.400] Server  LOG      ✓ Compiled in 98ms
+[00:05:58.485] Server  LOG      ✓ Compiled in 119ms
+[00:06:04.869] Server  LOG      ✓ Compiled in 101ms
+[00:06:08.807] Server  LOG      ✓ Compiled in 44ms
+[00:07:58.530] Server  LOG      ✓ Compiled in 127ms
+[00:08:04.459] Server  LOG      ✓ Compiled in 80ms
+[00:08:08.711] Server  LOG      ✓ Compiled in 117ms
+[00:08:14.429] Server  LOG      ✓ Compiled in 94ms
+[00:08:20.365] Server  LOG      ✓ Compiled in 96ms
+[00:08:25.671] Server  LOG      ✓ Compiled in 46ms
+[00:09:49.214] Server  LOG      ✓ Compiled in 160ms
+[00:11:58.462] Server  LOG      ✓ Compiled in 127ms
+[00:12:08.721] Server  LOG      ✓ Compiled in 66ms
+[00:12:19.882] Server  LOG      ✓ Compiled in 109ms
+[00:12:29.766] Server  LOG      ✓ Compiled in 62ms
+[00:12:38.282] Server  LOG      ✓ Compiled in 80ms
+[00:12:49.087] Server  LOG      ✓ Compiled in 73ms
+[00:13:00.153] Server  LOG      ✓ Compiled in 104ms
+[00:13:09.010] Server  LOG      ✓ Compiled in 75ms
+[00:14:44.355] Server  LOG      ✓ Compiled in 148ms
+[00:15:04.551] Server  LOG      ✓ Compiled in 104ms
+[00:15:14.697] Server  LOG      ✓ Compiled in 59ms
+[00:15:23.529] Server  LOG      ✓ Compiled in 81ms
+[00:15:34.983] Server  LOG      ✓ Compiled in 158ms
+[00:15:44.617] Server  LOG      ✓ Compiled in 204ms
+[00:16:02.107] Server  LOG     Performance Metrics Received: {}
+[00:16:02.137] Browser LOG     CLS: 0.0012702676573399603
+[00:16:02.137] Browser LOG     [Analytics] CLS: 0.0012702676573399603
+[00:16:03.125] Browser LOG     Performance Budget:
+[00:16:03.125] Browser LOG     DOM Content Loaded: 0.40000009536743164ms
+[00:16:03.126] Browser LOG     Load Complete: 0ms
+[00:16:03.126] Browser LOG     Total Load Time: 1189.2000000476837ms
+[00:16:03.126] Browser LOG     ✅ domContentLoaded within budget: 0.40000009536743164ms
+[00:16:03.126] Browser LOG     ✅ loadComplete within budget: 0ms
+[00:16:03.126] Browser LOG     ✅ totalTime within budget: 1189.2000000476837ms
+[00:16:09.460] Server  LOG     Performance Metrics Received: {}
+[00:16:09.521] Browser LOG     FID: 5.700000047683716 ms
+[00:16:09.521] Browser LOG     [Analytics] FID: 5.700000047683716
+[00:17:05.033] Server  LOG     Performance Metrics Received: {}
+[00:17:05.086] Browser LOG     CLS: 0.0012702676573399603
+[00:17:05.086] Browser LOG     [Analytics] CLS: 0.0012702676573399603
+[00:17:08.600] Server  LOG     Performance Metrics Received: {}
+[00:17:08.687] Browser LOG     CLS: 0.0012702676573399603
+[00:17:08.687] Browser LOG     [Analytics] CLS: 0.0012702676573399603
+[00:17:13.036] Server  LOG      ✓ Compiled in 152ms
+[00:17:13.307] Server  LOG     Performance Metrics Received: {}
+[00:17:13.318] Browser LOG     CLS: 0.0012819035607405324
+[00:17:13.318] Browser LOG     [Analytics] CLS: 0.0012819035607405324
+[00:17:13.355] Server  LOG     Performance Metrics Received: {}
+[00:17:13.445] Browser LOG     CLS: 0.0012895909913473275
+[00:17:13.445] Browser LOG     [Analytics] CLS: 0.0012895909913473275
+[00:18:55.942] Server  LOG      ✓ Compiled in 130ms
+[00:18:56.109] Browser ERROR   uncaughtError: ReferenceError: FAQItem is not defined
+[00:19:08.304] Server  ERROR    ⨯ ReferenceError: FAQItem is not defined
+[00:19:08.859] Browser ERROR   uncaughtError: ReferenceError: FAQItem is not defined
+[00:19:09.912] Server  ERROR    ⨯ ReferenceError: FAQItem is not defined
+[00:19:10.367] Browser ERROR   uncaughtError: ReferenceError: FAQItem is not defined
+[00:19:10.840] Server  LOG      ✓ Compiled in 219ms
+[00:19:10.871] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:19:10.984] Browser ERROR   unhandledRejection: Error: No link element found for chunk /_next/static/chunks/%5Broot-of-the-server%5D__defe1dd5._.css
+[00:19:12.876] Server  LOG     Performance Metrics Received: {}
+[00:19:12.924] Browser LOG     CLS: 0.0012504609890862184
+[00:19:12.924] Browser LOG     [Analytics] CLS: 0.0012504609890862184
+[00:19:13.918] Browser LOG     Performance Budget:
+[00:19:13.918] Browser LOG     DOM Content Loaded: 0.10000002384185791ms
+[00:19:13.918] Browser LOG     Load Complete: 0ms
+[00:19:13.918] Browser LOG     Total Load Time: 1683.4000000953674ms
+[00:19:13.918] Browser LOG     ✅ domContentLoaded within budget: 0.10000002384185791ms
+[00:19:13.918] Browser LOG     ✅ loadComplete within budget: 0ms
+[00:19:13.918] Browser LOG     ✅ totalTime within budget: 1683.4000000953674ms
+[00:19:21.824] Server  LOG     Performance Metrics Received: {}
+[00:19:21.840] Server  LOG     Performance Metrics Received: {}
+[00:19:21.853] Server  LOG     Performance Metrics Received: {}
+[00:19:21.866] Server  LOG     Performance Metrics Received: {}
+[00:19:21.873] Server  LOG     Performance Metrics Received: {}
+[00:19:21.886] Browser LOG     FID: 116.60000002384186 ms
+[00:19:21.886] Browser LOG     [Analytics] FID: 116.60000002384186
+[00:19:21.886] Browser LOG     CLS: 0.0012504609890862184
+[00:19:21.886] Browser LOG     [Analytics] CLS: 0.0012504609890862184
+[00:19:21.886] Browser LOG     CLS: 0.0012504609890862184
+[00:19:21.886] Browser LOG     [Analytics] CLS: 0.0012504609890862184
+[00:19:21.886] Browser LOG     CLS: 0.0012504609890862184
+[00:19:21.886] Browser LOG     [Analytics] CLS: 0.0012504609890862184
+[00:19:21.886] Browser LOG     CLS: 0.0012504609890862184
+[00:19:21.886] Browser LOG     [Analytics] CLS: 0.0012504609890862184
+[00:20:05.121] Server  LOG      ✓ Compiled in 100ms
+[00:20:09.214] Server  LOG     Performance Metrics Received: {}
+[00:20:09.302] Browser LOG     CLS: 0.0012504609890862184
+[00:20:09.302] Browser LOG     [Analytics] CLS: 0.0012504609890862184
+[00:20:10.289] Browser LOG     Performance Budget:
+[00:20:10.289] Browser LOG     DOM Content Loaded: 0ms
+[00:20:10.289] Browser LOG     Load Complete: 0.20000004768371582ms
+[00:20:10.289] Browser LOG     Total Load Time: 1215.8000000715256ms
+[00:20:10.289] Browser LOG     ✅ domContentLoaded within budget: 0ms
+[00:20:10.289] Browser LOG     ✅ loadComplete within budget: 0.20000004768371582ms
+[00:20:10.289] Browser LOG     ✅ totalTime within budget: 1215.8000000715256ms
+[00:20:11.438] Server  LOG     Performance Metrics Received: {}
+[00:20:11.519] Browser LOG     FID: 9.899999976158142 ms
+[00:20:11.520] Browser LOG     [Analytics] FID: 9.899999976158142
+[00:21:13.616] Server  LOG      ✓ Compiled in 139ms
+[00:21:52.137] Server  LOG     Performance Metrics Received: {}
+[00:21:52.206] Browser LOG     CLS: 0.0012504609890862184
+[00:21:52.206] Browser LOG     [Analytics] CLS: 0.0012504609890862184
+[00:21:53.118] Browser LOG     Performance Budget:
+[00:21:53.118] Browser LOG     DOM Content Loaded: 0.10000002384185791ms
+[00:21:53.118] Browser LOG     Load Complete: 0ms
+[00:21:53.118] Browser LOG     Total Load Time: 1161.6999999284744ms
+[00:21:53.118] Browser LOG     ✅ domContentLoaded within budget: 0.10000002384185791ms
+[00:21:53.118] Browser LOG     ✅ loadComplete within budget: 0ms
+[00:21:53.118] Browser LOG     ✅ totalTime within budget: 1161.6999999284744ms
+[00:22:18.477] Server  LOG     Performance Metrics Received: {}
+[00:22:18.493] Browser LOG     FID: 131.10000002384186 ms
+[00:22:18.493] Browser LOG     [Analytics] FID: 131.10000002384186
+[00:22:37.542] Server  LOG      ✓ Compiled in 87ms
+[00:22:55.445] Server  LOG     Performance Metrics Received: {}
+[00:22:55.476] Browser LOG     CLS: 0.0012504609890862184
+[00:22:55.476] Browser LOG     [Analytics] CLS: 0.0012504609890862184
+[00:22:56.468] Browser LOG     Performance Budget:
+[00:22:56.468] Browser LOG     DOM Content Loaded: 0.19999992847442627ms
+[00:22:56.468] Browser LOG     Load Complete: 0ms
+[00:22:56.468] Browser LOG     Total Load Time: 1347.8999999761581ms
+[00:22:56.468] Browser LOG     ✅ domContentLoaded within budget: 0.19999992847442627ms
+[00:22:56.468] Browser LOG     ✅ loadComplete within budget: 0ms
+[00:22:56.468] Browser LOG     ✅ totalTime within budget: 1347.8999999761581ms
+[00:23:29.846] Server  LOG      ✓ Compiled in 245ms
+[00:23:57.447] Server  LOG     Performance Metrics Received: {}
+[00:23:57.504] Browser LOG     FID: 6.600000023841858 ms
+[00:23:57.504] Browser LOG     [Analytics] FID: 6.600000023841858
+[00:25:08.402] Server  LOG      ✓ Compiled in 111ms
+[00:26:19.349] Server  LOG      ✓ Compiled in 168ms
+[00:26:19.508] Server  LOG     Performance Metrics Received: {}
+[00:26:19.603] Browser LOG     CLS: 0.005492240496239824
+[00:26:19.603] Browser LOG     [Analytics] CLS: 0.005492240496239824
+[00:26:30.439] Server  LOG      ✓ Compiled in 96ms
+[00:26:30.876] Server  LOG     Performance Metrics Received: {}
+[00:26:30.888] Server  LOG     Performance Metrics Received: {}
+[00:26:30.896] Server  LOG     Performance Metrics Received: {}
+[00:26:30.911] Server  LOG     Performance Metrics Received: {}
+[00:26:31.002] Browser LOG     CLS: 0.005492240496239824
+[00:26:31.002] Browser LOG     [Analytics] CLS: 0.005492240496239824
+[00:26:31.002] Browser LOG     CLS: 0.005492240496239824
+[00:26:31.002] Browser LOG     [Analytics] CLS: 0.005492240496239824
+[00:26:31.002] Browser LOG     CLS: 0.005492240496239824
+[00:26:31.002] Browser LOG     [Analytics] CLS: 0.005492240496239824
+[00:26:31.002] Browser LOG     CLS: 0.005492240496239824
+[00:26:31.002] Browser LOG     [Analytics] CLS: 0.005492240496239824
+[00:26:31.821] Server  LOG     Performance Metrics Received: {}
+[00:26:31.838] Server  LOG     Performance Metrics Received: {}
+[00:26:31.853] Server  LOG     Performance Metrics Received: {}
+[00:26:31.867] Server  LOG     Performance Metrics Received: {}
+[00:26:31.879] Server  LOG     Performance Metrics Received: {}
+[00:26:31.896] Server  LOG     Performance Metrics Received: {}
+[00:26:31.915] Server  LOG     Performance Metrics Received: {}
+[00:26:31.929] Server  LOG     Performance Metrics Received: {}
+[00:26:32.020] Browser LOG     CLS: 0.005492240496239824
+[00:26:32.020] Browser LOG     [Analytics] CLS: 0.005492240496239824
+[00:26:32.020] Browser LOG     CLS: 0.005492240496239824
+[00:26:32.020] Browser LOG     [Analytics] CLS: 0.005492240496239824
+[00:26:32.020] Browser LOG     CLS: 0.005492240496239824
+[00:26:32.020] Browser LOG     [Analytics] CLS: 0.005492240496239824
+[00:26:32.020] Browser LOG     CLS: 0.005492240496239824
+[00:26:32.020] Browser LOG     [Analytics] CLS: 0.005492240496239824
+[00:26:32.020] Browser LOG     CLS: 0.005492240496239824
+[00:26:32.020] Browser LOG     [Analytics] CLS: 0.005492240496239824
+[00:26:32.020] Browser LOG     CLS: 0.005492240496239824
+[00:26:32.020] Browser LOG     [Analytics] CLS: 0.005492240496239824
+[00:26:32.020] Browser LOG     CLS: 0.005492240496239824
+[00:26:32.020] Browser LOG     [Analytics] CLS: 0.005492240496239824
+[00:26:32.020] Browser LOG     CLS: 0.005492240496239824
+[00:26:32.020] Browser LOG     [Analytics] CLS: 0.005492240496239824
+[00:26:32.833] Server  LOG     Performance Metrics Received: {}
+[00:26:32.849] Server  LOG     Performance Metrics Received: {}
+[00:26:32.863] Server  LOG     Performance Metrics Received: {}
+[00:26:32.878] Server  LOG     Performance Metrics Received: {}
+[00:26:32.971] Browser LOG     CLS: 0.005492240496239824
+[00:26:32.971] Browser LOG     [Analytics] CLS: 0.005492240496239824
+[00:26:32.971] Browser LOG     CLS: 0.005492240496239824
+[00:26:32.971] Browser LOG     [Analytics] CLS: 0.005492240496239824
+[00:26:32.971] Browser LOG     CLS: 0.005492240496239824
+[00:26:32.971] Browser LOG     [Analytics] CLS: 0.005492240496239824
+[00:26:32.971] Browser LOG     CLS: 0.005492240496239824
+[00:26:32.971] Browser LOG     [Analytics] CLS: 0.005492240496239824
+[00:26:33.483] Server  LOG     Performance Metrics Received: {}
+[00:26:33.498] Server  LOG     Performance Metrics Received: {}
+[00:26:33.518] Server  LOG     Performance Metrics Received: {}
+[00:26:33.530] Server  LOG     Performance Metrics Received: {}
+[00:26:33.545] Server  LOG     Performance Metrics Received: {}
+[00:26:33.562] Server  LOG     Performance Metrics Received: {}
+[00:26:33.585] Server  LOG     Performance Metrics Received: {}
+[00:26:33.676] Browser LOG     CLS: 0.005492240496239824
+[00:26:33.676] Browser LOG     [Analytics] CLS: 0.005492240496239824
+[00:26:33.676] Browser LOG     CLS: 0.005492240496239824
+[00:26:33.676] Browser LOG     [Analytics] CLS: 0.005492240496239824
+[00:26:33.676] Browser LOG     CLS: 0.005492240496239824
+[00:26:33.676] Browser LOG     [Analytics] CLS: 0.005492240496239824
+[00:26:33.676] Browser LOG     CLS: 0.005492240496239824
+[00:26:33.676] Browser LOG     [Analytics] CLS: 0.005492240496239824
+[00:26:33.676] Browser LOG     CLS: 0.005492240496239824
+[00:26:33.676] Browser LOG     [Analytics] CLS: 0.005492240496239824
+[00:26:33.676] Browser LOG     CLS: 0.005492240496239824
+[00:26:33.676] Browser LOG     [Analytics] CLS: 0.005492240496239824
+[00:26:33.676] Browser LOG     CLS: 0.005492240496239824
+[00:26:33.676] Browser LOG     [Analytics] CLS: 0.005492240496239824
+[00:26:39.896] Server  LOG      ✓ Compiled in 175ms
+[00:26:50.676] Server  LOG      ✓ Compiled in 149ms
+[00:27:02.435] Server  LOG      ✓ Compiled in 86ms
+[00:27:16.535] Server  LOG      ✓ Compiled in 132ms
+[00:29:26.287] Server  LOG      ✓ Compiled in 166ms
+[00:29:45.482] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <ScrollAndFocusHandler segmentPath={[...]}>
+      <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+        <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+          <LoadingBoundary name="en/" loading={null}>
+            <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <InnerLayoutRouter url="/en" tree={[...]} params={{locale:"en"}} cacheNode={{lazyData:null, ...}} ...>
+                    <SegmentViewNode type="page" pagePath="[locale]/p...">
+                      <SegmentTrieNode>
+                      <ClientPageRoot Component={function Home} serverProvidedParams={{...}}>
+                        <Home params={Promise} searchParams={Promise}>
+                          <Navbar>
+                          <main className="flex min-h...">
+                            <HeroSlider>
+                              <section
++                               className="relative w-full overflow-hidden bg-gradient-to-br from-blue-600 via-purple-..."
+-                               className="relative w-full overflow-hidden bg-gradient-to-br from-blue-400 via-purple-..."
+                              >
+                                <div className="relative h...">
+                                  <div className="absolute i...">
+                                    <div
++                                     className="absolute inset-0 bg-black/40"
+-                                     className="absolute inset-0 bg-black/20"
+                                    >
+                                    ...
+                                  <div className="absolute i...">
+                                    <div
++                                     className="absolute inset-0 bg-black/40"
+-                                     className="absolute inset-0 bg-black/20"
+                                    >
+                                    ...
+                                  <div className="absolute i...">
+                                    <div
++                                     className="absolute inset-0 bg-black/40"
+-                                     className="absolute inset-0 bg-black/20"
+                                    >
+                                    ...
+                                  <div className="absolute i...">
+                                    <div
++                                     className="absolute inset-0 bg-black/40"
+-                                     className="absolute inset-0 bg-black/20"
+                                    >
+                                    ...
+                                  <div className="absolute i...">
+                                    <div
++                                     className="absolute inset-0 bg-black/40"
+-                                     className="absolute inset-0 bg-black/20"
+                                    >
+                                    ...
+                                  <div className="absolute i...">
+                                    <div
++                                     className="absolute inset-0 bg-black/40"
+-                                     className="absolute inset-0 bg-black/20"
+                                    >
+                                    ...
+                                  <div className="absolute i...">
+                                    <div
++                                     className="absolute inset-0 bg-black/40"
+-                                     className="absolute inset-0 bg-black/20"
+                                    >
+                                    ...
+                                  <div className="absolute i...">
+                                    <div
++                                     className="absolute inset-0 bg-black/40"
+-                                     className="absolute inset-0 bg-black/20"
+                                    >
+                                    ...
+                                <button
+                                  onClick={function prevSlide}
++                                 className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full transition..."
+-                                 className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full transition..."
+                                  aria-label="Previous slide"
+                                >
+                                <button
+                                  onClick={function nextSlide}
++                                 className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full transitio..."
+-                                 className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full transitio..."
+                                  aria-label="Next slide"
+                                >
+                                <div className="absolute b...">
+                                  <button
+                                    onClick={function onClick}
++                                   className="w-3 h-3 rounded-full transition-colors bg-white"
+-                                   className="w-3 h-3 rounded-full transition-colors bg-black"
+                                    aria-label="Go to slide 1"
+                                  >
+                                  <button
+                                    onClick={function onClick}
++                                   className="w-3 h-3 rounded-full transition-colors bg-white/50 hover:bg-white/75"
+-                                   className="w-3 h-3 rounded-full transition-colors bg-black/50 hover:bg-black/75"
+                                    aria-label="Go to slide 2"
+                                  >
+                                  <button
+                                    onClick={function onClick}
++                                   className="w-3 h-3 rounded-full transition-colors bg-white/50 hover:bg-white/75"
+-                                   className="w-3 h-3 rounded-full transition-colors bg-black/50 hover:bg-black/75"
+                                    aria-label="Go to slide 3"
+                                  >
+                                  <button
+                                    onClick={function onClick}
++                                   className="w-3 h-3 rounded-full transition-colors bg-white/50 hover:bg-white/75"
+-                                   className="w-3 h-3 rounded-full transition-colors bg-black/50 hover:bg-black/75"
+                                    aria-label="Go to slide 4"
+                                  >
+                                  <button
+                                    onClick={function onClick}
++                                   className="w-3 h-3 rounded-full transition-colors bg-white/50 hover:bg-white/75"
+-                                   className="w-3 h-3 rounded-full transition-colors bg-black/50 hover:bg-black/75"
+                                    aria-label="Go to slide 5"
+                                  >
+                                  <button
+                                    onClick={function onClick}
++                                   className="w-3 h-3 rounded-full transition-colors bg-white/50 hover:bg-white/75"
+-                                   className="w-3 h-3 rounded-full transition-colors bg-black/50 hover:bg-black/75"
+                                    aria-label="Go to slide 6"
+                                  >
+                                  <button
+                                    onClick={function onClick}
++                                   className="w-3 h-3 rounded-full transition-colors bg-white/50 hover:bg-white/75"
+-                                   className="w-3 h-3 rounded-full transition-colors bg-black/50 hover:bg-black/75"
+                                    aria-label="Go to slide 7"
+                                  >
+                                  <button
+                                    onClick={function onClick}
++                                   className="w-3 h-3 rounded-full transition-colors bg-white/50 hover:bg-white/75"
+-                                   className="w-3 h-3 rounded-full transition-colors bg-black/50 hover:bg-black/75"
+                                    aria-label="Go to slide 8"
+                                  >
+                                <div
++                                 className="absolute bottom-0 left-0 right-0 h-1 bg-white/20 z-10"
+-                                 className="absolute bottom-0 left-0 right-0 h-1 bg-black/20 z-10"
+                                >
+                                  <div
++                                   className="h-full bg-white transition-all duration-100 ease-linear"
+-                                   className="h-full bg-black transition-all duration-100 ease-linear"
+                                    style={{width:"12.5%"}}
+                                  >
+                            ...
+                    ...
+                  ...
+        ...
+
+[00:29:45.577] Server  LOG     Performance Metrics Received: {}
+[00:29:45.643] Browser LOG     CLS: 0.0012504609890862184
+[00:29:45.643] Browser LOG     [Analytics] CLS: 0.0012504609890862184
+[00:29:46.631] Browser LOG     Performance Budget:
+[00:29:46.631] Browser LOG     DOM Content Loaded: 0.10000002384185791ms
+[00:29:46.631] Browser LOG     Load Complete: 0.09999990463256836ms
+[00:29:46.631] Browser LOG     Total Load Time: 1398.0999999046326ms
+[00:29:46.631] Browser LOG     ✅ domContentLoaded within budget: 0.10000002384185791ms
+[00:29:46.631] Browser LOG     ✅ loadComplete within budget: 0.09999990463256836ms
+[00:29:46.631] Browser LOG     ✅ totalTime within budget: 1398.0999999046326ms
+[00:29:58.590] Server  LOG     Performance Metrics Received: {}
+[00:29:58.603] Browser LOG     FID: 128.29999995231628 ms
+[00:29:58.603] Browser LOG     [Analytics] FID: 128.29999995231628
+[00:30:03.374] Server  WARN    [sanity] NEXT_PUBLIC_SANITY_PROJECT_ID not set — Sanity client is disabled. Add a .env.local with your project ID and dataset to enable content fetching.
+[00:30:03.572] Server  LOG     Performance Metrics Received: {}
+[00:30:03.664] Browser LOG     CLS: 0.002500921978172437
+[00:30:03.664] Browser LOG     [Analytics] CLS: 0.002500921978172437
+[00:30:07.916] Browser LOG     CLS: 0.002500921978172437
+[00:30:07.916] Browser LOG     [Analytics] CLS: 0.002500921978172437
+[00:30:08.047] Server  LOG     Performance Metrics Received: {}
+[00:30:15.855] Server  LOG      ✓ Compiled in 103ms
+[00:31:22.188] Server  LOG      ✓ Compiled in 140ms
+[00:31:43.645] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <ScrollAndFocusHandler segmentPath={[...]}>
+      <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+        <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+          <LoadingBoundary name="en/" loading={null}>
+            <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <InnerLayoutRouter url="/en" tree={[...]} params={{locale:"en"}} cacheNode={{lazyData:null, ...}} ...>
+                    <SegmentViewNode type="page" pagePath="[locale]/p...">
+                      <SegmentTrieNode>
+                      <ClientPageRoot Component={function Home} serverProvidedParams={{...}}>
+                        <Home params={Promise} searchParams={Promise}>
+                          <Navbar>
+                          <main className="flex min-h...">
+                            <HeroSlider>
+                              <section
++                               className="relative w-full overflow-hidden bg-gradient-to-br from-blue-600 via-purple-..."
+-                               className="relative w-full overflow-hidden bg-gradient-to-br from-blue-400 via-purple-..."
+                              >
+                                <div className="relative h...">
+                                  <div className="absolute i...">
+                                    <div
++                                     className="absolute inset-0 bg-black/40"
+-                                     className="absolute inset-0 bg-black/20"
+                                    >
+                                    ...
+                                  <div className="absolute i...">
+                                    <div
++                                     className="absolute inset-0 bg-black/40"
+-                                     className="absolute inset-0 bg-black/20"
+                                    >
+                                    ...
+                                  <div className="absolute i...">
+                                    <div
++                                     className="absolute inset-0 bg-black/40"
+-                                     className="absolute inset-0 bg-black/20"
+                                    >
+                                    ...
+                                  <div className="absolute i...">
+                                    <div
++                                     className="absolute inset-0 bg-black/40"
+-                                     className="absolute inset-0 bg-black/20"
+                                    >
+                                    ...
+                                  <div className="absolute i...">
+                                    <div
++                                     className="absolute inset-0 bg-black/40"
+-                                     className="absolute inset-0 bg-black/20"
+                                    >
+                                    ...
+                                  <div className="absolute i...">
+                                    <div
++                                     className="absolute inset-0 bg-black/40"
+-                                     className="absolute inset-0 bg-black/20"
+                                    >
+                                    ...
+                                  <div className="absolute i...">
+                                    <div
++                                     className="absolute inset-0 bg-black/40"
+-                                     className="absolute inset-0 bg-black/20"
+                                    >
+                                    ...
+                                  <div className="absolute i...">
+                                    <div
++                                     className="absolute inset-0 bg-black/40"
+-                                     className="absolute inset-0 bg-black/20"
+                                    >
+                                    ...
+                                <button
+                                  onClick={function prevSlide}
++                                 className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full transition..."
+-                                 className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full transition..."
+                                  aria-label="Previous slide"
+                                >
+                                <button
+                                  onClick={function nextSlide}
++                                 className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full transitio..."
+-                                 className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full transitio..."
+                                  aria-label="Next slide"
+                                >
+                                <div className="absolute b...">
+                                  <button
+                                    onClick={function onClick}
++                                   className="w-3 h-3 rounded-full transition-colors bg-white"
+-                                   className="w-3 h-3 rounded-full transition-colors bg-black"
+                                    aria-label="Go to slide 1"
+                                  >
+                                  <button
+                                    onClick={function onClick}
++                                   className="w-3 h-3 rounded-full transition-colors bg-white/50 hover:bg-white/75"
+-                                   className="w-3 h-3 rounded-full transition-colors bg-black/50 hover:bg-black/75"
+                                    aria-label="Go to slide 2"
+                                  >
+                                  <button
+                                    onClick={function onClick}
++                                   className="w-3 h-3 rounded-full transition-colors bg-white/50 hover:bg-white/75"
+-                                   className="w-3 h-3 rounded-full transition-colors bg-black/50 hover:bg-black/75"
+                                    aria-label="Go to slide 3"
+                                  >
+                                  <button
+                                    onClick={function onClick}
++                                   className="w-3 h-3 rounded-full transition-colors bg-white/50 hover:bg-white/75"
+-                                   className="w-3 h-3 rounded-full transition-colors bg-black/50 hover:bg-black/75"
+                                    aria-label="Go to slide 4"
+                                  >
+                                  <button
+                                    onClick={function onClick}
++                                   className="w-3 h-3 rounded-full transition-colors bg-white/50 hover:bg-white/75"
+-                                   className="w-3 h-3 rounded-full transition-colors bg-black/50 hover:bg-black/75"
+                                    aria-label="Go to slide 5"
+                                  >
+                                  <button
+                                    onClick={function onClick}
++                                   className="w-3 h-3 rounded-full transition-colors bg-white/50 hover:bg-white/75"
+-                                   className="w-3 h-3 rounded-full transition-colors bg-black/50 hover:bg-black/75"
+                                    aria-label="Go to slide 6"
+                                  >
+                                  <button
+                                    onClick={function onClick}
++                                   className="w-3 h-3 rounded-full transition-colors bg-white/50 hover:bg-white/75"
+-                                   className="w-3 h-3 rounded-full transition-colors bg-black/50 hover:bg-black/75"
+                                    aria-label="Go to slide 7"
+                                  >
+                                  <button
+                                    onClick={function onClick}
++                                   className="w-3 h-3 rounded-full transition-colors bg-white/50 hover:bg-white/75"
+-                                   className="w-3 h-3 rounded-full transition-colors bg-black/50 hover:bg-black/75"
+                                    aria-label="Go to slide 8"
+                                  >
+                                <div
++                                 className="absolute bottom-0 left-0 right-0 h-1 bg-white/20 z-10"
+-                                 className="absolute bottom-0 left-0 right-0 h-1 bg-black/20 z-10"
+                                >
+                                  <div
++                                   className="h-full bg-white transition-all duration-100 ease-linear"
+-                                   className="h-full bg-black transition-all duration-100 ease-linear"
+                                    style={{width:"12.5%"}}
+                                  >
+                            ...
+                    ...
+                  ...
+        ...
+
+[00:31:43.774] Server  LOG     Performance Metrics Received: {}
+[00:31:43.790] Browser LOG     CLS: 0.0012504609890862184
+[00:31:43.790] Browser LOG     [Analytics] CLS: 0.0012504609890862184
+[00:31:44.616] Browser LOG     Performance Budget:
+[00:31:44.616] Browser LOG     DOM Content Loaded: 0.09999990463256836ms
+[00:31:44.616] Browser LOG     Load Complete: 0ms
+[00:31:44.616] Browser LOG     Total Load Time: 1547.2000000476837ms
+[00:31:44.616] Browser LOG     ✅ domContentLoaded within budget: 0.09999990463256836ms
+[00:31:44.616] Browser LOG     ✅ loadComplete within budget: 0ms
+[00:31:44.616] Browser LOG     ✅ totalTime within budget: 1547.2000000476837ms

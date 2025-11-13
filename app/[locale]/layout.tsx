@@ -32,7 +32,7 @@ export async function generateMetadata({
       address: false,
       telephone: false,
     },
-    metadataBase: new URL('https://aris-homepage.com'),
+    metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://aris-homepage.com'),
     alternates: {
       canonical: `https://aris-homepage.com/${locale}`,
       languages: {

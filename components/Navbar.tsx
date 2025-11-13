@@ -53,7 +53,7 @@ export default function Navbar() {
               href={`/${locale}`}
               className={`px-3 py-2 text-sm font-medium rounded transition-colors ${
                 pathname === `/${locale}`
-                  ? 'text-black dark:text-white bg-gray-100 dark:bg-gray-900'
+                  ? 'text-black dark:text-white'
                   : 'text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400'
               }`}
             >
@@ -67,9 +67,9 @@ export default function Navbar() {
               onMouseLeave={() => setServicesDropdownOpen(false)}
             >
               <button
-                className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded transition-colors ${
+                className={`flex items-center gap-1 pl-3 pr-0 py-2 text-sm font-medium rounded transition-colors ${
                   pathname.startsWith(`/${locale}/services`)
-                    ? 'text-black dark:text-white bg-gray-100 dark:bg-gray-900'
+                    ? 'text-black dark:text-white'
                     : 'text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400'
                 }`}
               >
@@ -167,7 +167,7 @@ export default function Navbar() {
                 href={item.href}
                 className={`px-3 py-2 text-sm font-medium rounded transition-colors ${
                   pathname === item.href
-                    ? 'text-black dark:text-white bg-gray-100 dark:bg-gray-900'
+                    ? 'text-black dark:text-white'
                     : 'text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400'
                 }`}
               >
@@ -220,7 +220,7 @@ export default function Navbar() {
                   onClick={() => setMobileMenuOpen(false)}
                   className={`flex items-center gap-3 px-4 py-2.5 text-sm font-medium rounded transition-colors ${
                     pathname === item.href
-                      ? 'text-black dark:text-white bg-gray-100 dark:bg-gray-900'
+                      ? 'text-black dark:text-white'
                       : 'text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400'
                   }`}
                 >
@@ -235,7 +235,7 @@ export default function Navbar() {
                   onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
                   className={`flex items-center justify-between px-4 py-2.5 text-sm font-medium rounded transition-colors ${
                     pathname.startsWith(`/${locale}/services`)
-                      ? 'text-black dark:text-white bg-gray-100 dark:bg-gray-900'
+                      ? 'text-black dark:text-white'
                       : 'text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400'
                   }`}
                 >

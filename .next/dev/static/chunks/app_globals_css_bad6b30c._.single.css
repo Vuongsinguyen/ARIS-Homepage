@@ -862,8 +862,8 @@
     margin-bottom: calc(var(--spacing) * 16);
   }
 
-  .mb-\[20px\] {
-    margin-bottom: 20px;
+  .mb-\[15px\] {
+    margin-bottom: 15px;
   }
 
   .ml-2 {

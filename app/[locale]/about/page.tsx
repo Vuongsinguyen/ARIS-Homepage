@@ -25,7 +25,6 @@ export default async function AboutPage() {
         <section className="bg-gradient-to-br from-green-50 to-emerald-100 dark:from-green-950 dark:to-emerald-900 py-16">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
-              <div className="text-6xl mb-6">🏢</div>
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
                 {t('about')}
               </h1>
@@ -73,9 +72,7 @@ export default async function AboutPage() {
                     Our Mission
                   </h2>
                   <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-                    ARIS Homepage is a high-performance, multilingual website built with the latest web technologies.
-                    We focus on delivering exceptional user experience, optimal SEO, and modern design principles to create
-                    digital experiences that drive business growth.
+                    We are committed to excellence in every detail, ensuring reliable solutions that earn lasting trust from our clients.
                   </p>
 
                   <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
@@ -108,7 +105,7 @@ export default async function AboutPage() {
                 {/* Technologies */}
                 <div>
                   <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
-                    Technology Stack
+                    Delivering Quality - Building Trust.
                   </h3>
                   <div className="grid grid-cols-2 gap-4 mb-8">
                     <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 text-center">

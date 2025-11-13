@@ -102,7 +102,7 @@ export default function Navbar() {
                           className={`group flex items-center gap-3 px-4 py-2.5 text-sm font-semibold rounded-lg transition-all duration-200 ${
                             pathname === service.href
                               ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
-                              : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50'
+                              : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
                           }`}
                           onClick={() => setServicesDropdownOpen(false)}
                         >
@@ -129,7 +129,7 @@ export default function Navbar() {
                           className={`group flex items-center gap-3 px-4 py-2.5 text-sm font-semibold rounded-lg transition-all duration-200 ${
                             pathname === service.href
                               ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
-                              : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50'
+                              : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
                           }`}
                           onClick={() => setServicesDropdownOpen(false)}
                         >
@@ -156,7 +156,7 @@ export default function Navbar() {
                           className={`group flex items-center gap-3 px-4 py-2.5 text-sm font-semibold rounded-lg transition-all duration-200 ${
                             pathname === service.href
                               ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
-                              : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50'
+                              : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
                           }`}
                           onClick={() => setServicesDropdownOpen(false)}
                         >
@@ -286,7 +286,7 @@ export default function Navbar() {
                         className={`group flex items-center gap-3 px-4 py-2.5 text-xs font-semibold rounded-lg transition-all duration-200 ${
                           pathname === service.href
                             ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
-                            : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700/50'
+                            : 'text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400'
                         }`}
                       >
                         <svg width="16" height="23" viewBox="0 0 22 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-3 h-5 flex-shrink-0 transition-transform group-hover:scale-110">

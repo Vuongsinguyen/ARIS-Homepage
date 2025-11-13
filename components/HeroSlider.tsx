@@ -20,7 +20,7 @@ export default function HeroSlider() {
   const slides: Slide[] = [
     {
       id: 1,
-      title: "Next.js 16 Innovation",
+      title: "Delivering Quality - Building Trust",
       description: "Experience the latest in web development with Next.js 16, featuring enhanced performance and developer experience.",
       alt: "Next.js 16 technology showcase"
     },

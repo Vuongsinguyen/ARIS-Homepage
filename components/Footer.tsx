@@ -10,8 +10,6 @@ export default function Footer() {
   const tNav = useTranslations('nav');
   const locale = pathname.split('/')[1];
 
-  const currentYear = new Date().getFullYear();
-
   const footerNavItems = [
     {href: `/${locale}`, label: tNav('home')},
     {href: `/${locale}/blog`, label: tNav('blog')},
@@ -153,7 +151,7 @@ export default function Footer() {
         <div className="mt-8 pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-muted-foreground">
-              {t('copyright', { year: currentYear })}
+              {t('copyright')}
             </p>
             
             <div className="flex items-center gap-6">

@@ -386,13 +386,13 @@ export default function Home() {
                       <select
                         value={selectedTeam}
                         onChange={(e) => setSelectedTeam(e.target.value)}
-                        className="appearance-none bg-transparent border-2 border-blue-500 rounded-lg px-4 py-2 pr-10 text-blue-600 dark:text-blue-400 font-bold cursor-pointer hover:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all mt-[20px] mb-[20px]"
+                        className="appearance-none bg-transparent border-2 border-blue-500 rounded-lg px-4 py-2 pr-10 text-blue-600 dark:text-blue-400 font-bold cursor-pointer hover:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all mt-[20px] mb-[15px]"
                       >
-                        <option value="marketing">ARIS Vietnam</option>
-                        <option value="design">CEO Messages</option>
-                        <option value="engineering">LAB-BASED Development</option>
-                        <option value="agencies">Sustainability</option>
-                        <option value="skills">Skills & Abilities</option>
+                        <option value="marketing">ARIS VIETNAM</option>
+                        <option value="design">CEO MESSAGES</option>
+                        <option value="engineering">LAD-BASED</option>
+                        <option value="agencies">SUSTAINABILITY</option>
+                        <option value="skills">SKILLS & ABILITIES</option>
                       </select>
                       <svg
                         className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-blue-600 dark:text-blue-400 pointer-events-none"
@@ -417,25 +417,25 @@ export default function Home() {
                     {selectedTeam === 'marketing' && (
                       <>
                         <div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700">
-                          <span className="text-gray-900 dark:text-white font-medium">Visual content management</span>
+                          <span className="text-gray-900 dark:text-white font-medium">About Us</span>
                           <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                           </svg>
                         </div>
                         <div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700">
-                          <span className="text-gray-900 dark:text-white font-medium">Built-in SEO optimization</span>
+                          <span className="text-gray-900 dark:text-white font-medium">Our Vision - Mission and Core Values</span>
                           <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                           </svg>
                         </div>
                         <div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700">
-                          <span className="text-gray-900 dark:text-white font-medium">Campaign landing pages</span>
+                          <span className="text-gray-900 dark:text-white font-medium">Timelines</span>
                           <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                           </svg>
                         </div>
                         <div className="flex items-center justify-between py-3">
-                          <span className="text-gray-900 dark:text-white font-medium">Analytics integration</span>
+                          <span className="text-gray-900 dark:text-white font-medium">Explore innovation</span>
                           <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                           </svg>
@@ -1002,7 +1002,6 @@ export default function Home() {
                         : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
                     }`}
                   >
-                    <span>{category.icon}</span>
                     <span>{category.label}</span>
                   </button>
                 ))}

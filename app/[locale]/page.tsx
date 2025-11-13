@@ -3,9 +3,10 @@
 import {useTranslations} from 'next-intl';
 import Link from 'next/link';
 import {useParams} from 'next/navigation';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
+import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, ResponsiveContainer, Tooltip } from 'recharts';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -14,6 +15,126 @@ import 'swiper/css/navigation';
 import Navbar from '@/components/Navbar';
 import HeroSlider from '@/components/HeroSlider';
 import GradientHeading from '@/components/GradientHeading';
+
+// Photo Gallery Component with Lightbox
+function PhotoGallery() {
+  const [selectedImage, setSelectedImage] = useState<number | null>(null);
+
+  // Prevent body scroll when lightbox is open
+  useEffect(() => {
+    if (selectedImage !== null) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedImage]);
+
+  const photos = [
+    { id: 1, src: '/comp/comp1.png', alt: 'Company Photo 1', description: 'Team collaboration and innovation in action' },
+    { id: 2, src: '/comp/comp2.png', alt: 'Company Photo 2', description: 'Modern workspace designed for productivity' },
+    { id: 3, src: '/comp/comp3.png', alt: 'Company Photo 3', description: 'Corporate event celebrating achievements' },
+    { id: 4, src: '/comp/comp4.png', alt: 'Company Photo 4', description: 'Technology and development excellence' },
+    { id: 5, src: '/comp/comp5.png', alt: 'Company Photo 5', description: 'Team building and professional growth' },
+    { id: 6, src: '/comp/comp6.png', alt: 'Company Photo 6', description: 'Quality assurance and testing processes' },
+    { id: 7, src: '/comp/comp7.png', alt: 'Company Photo 7', description: 'Client presentations and project delivery' },
+    { id: 8, src: '/comp/comp8.png', alt: 'Company Photo 8', description: 'Innovation hub and creative spaces' },
+    { id: 9, src: '/comp/comp9.png', alt: 'Company Photo 9', description: 'Sustainability and green initiatives' },
+  ];
+
+  return (
+    <>
+      {/* Gallery Grid */}
+      <div className="grid grid-cols-3 gap-2">
+        {photos.map((photo, index) => (
+          <div
+            key={photo.id}
+            className="aspect-square overflow-hidden rounded-lg cursor-pointer group relative"
+            onClick={() => setSelectedImage(index)}
+          >
+            <img
+              src={photo.src}
+              alt={photo.alt}
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+              onError={(e) => {
+                e.currentTarget.src = `data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDMwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjRjNGNEY2Ii8+Cjx0ZXh0IHg9IjE1MCIgeT0iMTUwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM5Q0EzQUYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkltYWdlICR7photo.idfTwvdGV4dD4KPC9zdmc+`;
+              }}
+            />
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+              <svg className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
+              </svg>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Lightbox Modal */}
+      {selectedImage !== null && (
+        <div
+          className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4 overflow-hidden"
+          onClick={() => setSelectedImage(null)}
+        >
+          <button
+            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+            onClick={() => setSelectedImage(null)}
+          >
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+
+          <button
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors disabled:opacity-30"
+            onClick={(e) => {
+              e.stopPropagation();
+              setSelectedImage(selectedImage > 0 ? selectedImage - 1 : photos.length - 1);
+            }}
+          >
+            <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+
+          <button
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors disabled:opacity-30"
+            onClick={(e) => {
+              e.stopPropagation();
+              setSelectedImage(selectedImage < photos.length - 1 ? selectedImage + 1 : 0);
+            }}
+          >
+            <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          <div className="flex flex-col items-center justify-center w-full max-w-6xl mx-auto px-4 py-8 max-h-[90vh]">
+            <div className="relative w-full flex-1 flex items-center justify-center overflow-hidden mb-6">
+              <img
+                src={photos[selectedImage].src}
+                alt={photos[selectedImage].alt}
+                className="max-w-full max-h-[70vh] w-auto h-auto object-contain"
+                onClick={(e) => e.stopPropagation()}
+              />
+            </div>
+            <div className="text-center flex-shrink-0">
+              <p className="text-white text-lg md:text-xl font-medium mb-2">
+                {photos[selectedImage].description}
+              </p>
+              <p className="text-gray-400 text-sm">
+                {selectedImage + 1} / {photos.length}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
 
 // FAQ Item Component
 function FAQItem({ question, answer }: { question: string; answer: string }) {
@@ -203,19 +324,19 @@ export default function Home() {
         <HeroSlider />
 
         {/* Services Section */}
-        <section className="py-16 bg-gray-50 dark:bg-gray-900">
+        <section className="py-16 bg-gray-50 dark:bg-gray-900 relative">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-[1330px] mx-auto">
-              <div className="text-center mb-12">
+              <div className="text-center mb-12 relative z-0">
                 <GradientHeading className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
                   Accelerate Your Growth with Our DX Services
                 </GradientHeading>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
                 {/* Service Card 1 - One-Stop Services */}
                 <Link href={`/${locale}/services/one-stop-services`} className="block group">
-                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg transition-all duration-300 h-full">
+                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/20 hover:-translate-y-1 transition-all duration-300 h-full relative z-10">
                     <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">One-Stop Services</h3>
                     <p className="text-gray-600 dark:text-gray-400 mb-4">
                       Comprehensive end-to-end software development and deployment solutions.
@@ -231,7 +352,7 @@ export default function Home() {
 
                 {/* Service Card 2 - System Development */}
                 <Link href={`/${locale}/services/system-development`} className="block group">
-                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg transition-all duration-300 h-full">
+                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/20 hover:-translate-y-1 transition-all duration-300 h-full relative z-10">
                     <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">System Development</h3>
                     <p className="text-gray-600 dark:text-gray-400 mb-4">
                       Custom system and application development services.
@@ -247,7 +368,7 @@ export default function Home() {
 
                 {/* Service Card 3 - Mobile Development */}
                 <Link href={`/${locale}/services/mobile-development`} className="block group">
-                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg transition-all duration-300 h-full">
+                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/20 hover:-translate-y-1 transition-all duration-300 h-full relative z-10">
                     <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Mobile Development</h3>
                     <p className="text-gray-600 dark:text-gray-400 mb-4">
                       Mobile application development across various domains.
@@ -263,7 +384,7 @@ export default function Home() {
 
                 {/* Service Card 4 - Quality Control */}
                 <Link href={`/${locale}/services/quality-control`} className="block group">
-                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg transition-all duration-300 h-full">
+                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/20 hover:-translate-y-1 transition-all duration-300 h-full relative z-10">
                     <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Quality Control</h3>
                     <p className="text-gray-600 dark:text-gray-400 mb-4">
                       Comprehensive software testing and quality assurance.
@@ -279,7 +400,7 @@ export default function Home() {
 
                 {/* Service Card 5 - UI/UX Design */}
                 <Link href={`/${locale}/services/ui-ux-design`} className="block group">
-                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg transition-all duration-300 h-full">
+                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/20 hover:-translate-y-1 transition-all duration-300 h-full relative z-10">
                     <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">UI/UX Design</h3>
                     <p className="text-gray-600 dark:text-gray-400 mb-4">
                       User interface and user experience design services.
@@ -295,7 +416,7 @@ export default function Home() {
 
                 {/* Service Card 6 - Research & Development */}
                 <Link href={`/${locale}/services/research-development`} className="block group">
-                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg transition-all duration-300 h-full">
+                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/20 hover:-translate-y-1 transition-all duration-300 h-full relative z-10">
                     <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Research & Development</h3>
                     <p className="text-gray-600 dark:text-gray-400 mb-4">
                       Collaborative research and prototype development.
@@ -311,7 +432,7 @@ export default function Home() {
 
                 {/* Service Card 7 - Digital Transformation */}
                 <Link href={`/${locale}/services/digital-transformation`} className="block group">
-                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg transition-all duration-300 h-full">
+                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/20 hover:-translate-y-1 transition-all duration-300 h-full relative z-10">
                     <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Digital Transformation</h3>
                     <p className="text-gray-600 dark:text-gray-400 mb-4">
                       Digital transformation and technology integration.
@@ -327,7 +448,7 @@ export default function Home() {
 
                 {/* Service Card 8 - BPO Services */}
                 <Link href={`/${locale}/services/bpo-services`} className="block group">
-                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg transition-all duration-300 h-full">
+                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/20 hover:-translate-y-1 transition-all duration-300 h-full relative z-10">
                     <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">BPO Services</h3>
                     <p className="text-gray-600 dark:text-gray-400 mb-4">
                       Business process digitization and outsourcing.
@@ -343,7 +464,7 @@ export default function Home() {
 
                 {/* Service Card 9 - System Maintenance */}
                 <Link href={`/${locale}/services/system-maintenance`} className="block group">
-                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg transition-all duration-300 h-full">
+                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/20 hover:-translate-y-1 transition-all duration-300 h-full relative z-10">
                     <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">System Maintenance</h3>
                     <p className="text-gray-600 dark:text-gray-400 mb-4">
                       System maintenance and operational support.
@@ -386,11 +507,12 @@ export default function Home() {
                       <select
                         value={selectedTeam}
                         onChange={(e) => setSelectedTeam(e.target.value)}
-                        className="appearance-none bg-transparent border-2 border-blue-500 rounded-lg px-4 py-2 pr-10 text-blue-600 dark:text-blue-400 font-bold cursor-pointer hover:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all mt-[20px] mb-[15px]"
+                        className="appearance-none bg-transparent border-2 border-blue-500 rounded-lg px-4 py-2 pr-10 text-blue-600 dark:text-blue-400 font-bold cursor-pointer hover:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all mt-[20px] mb-[15px] w-auto"
+                        style={{ width: 'fit-content' }}
                       >
                         <option value="marketing">ARIS VIETNAM</option>
                         <option value="design">CEO MESSAGES</option>
-                        <option value="engineering">LAD-BASED</option>
+                        <option value="engineering">LAB-BASED</option>
                         <option value="agencies">SUSTAINABILITY</option>
                         <option value="skills">SKILLS & ABILITIES</option>
                       </select>
@@ -412,8 +534,8 @@ export default function Home() {
                 </div>
 
                 {/* Right Column - Features List */}
-                <div className="bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 border border-gray-200 dark:border-gray-700">
-                  <div className="space-y-6">
+                <div className={selectedTeam === 'agencies' || selectedTeam === 'design' ? '' : 'bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 border border-gray-200 dark:border-gray-700'}>
+                  <div className={selectedTeam === 'agencies' || selectedTeam === 'design' ? '' : 'space-y-6'}>
                     {selectedTeam === 'marketing' && (
                       <>
                         <div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700">
@@ -444,56 +566,70 @@ export default function Home() {
                     )}
 
                     {selectedTeam === 'design' && (
-                      <>
-                        <div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700">
-                          <span className="text-gray-900 dark:text-white font-medium">Visual design system</span>
-                          <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
+                      <div className="relative h-96 rounded-lg overflow-hidden shadow-lg">
+                        {/* Background Image */}
+                        <img
+                          src="/ceo.jpg"
+                          alt="CEO Background"
+                          className="absolute inset-0 w-full h-full object-cover"
+                          onError={(e) => {
+                            e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjM4NCIgdmlld0JveD0iMCAwIDQwMCAzODQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMzg0IiBmaWxsPSIjRjNGNEY2Ii8+CjxjaXJjbGUgY3g9IjIwMCIgY3k9IjEyMCIgcj0iNDAiIGZpbGw9IiM5Q0EzQUYiLz4KPHBhdGggZD0iTTgwIDI0MGMzMCAwLTI0IDQwIDAgNDBoMjQwYzAgMC0yNC00MCAwLTQweiIgZmlsbD0iIzlDQTNBRiIvPgo8L3N2Zz4K';
+                          }}
+                        />
+
+                        {/* Dark Overlay */}
+                        <div className="absolute inset-0 bg-black/50"></div>
+
+                        {/* Content Overlay */}
+                        <div className="relative h-full flex flex-col justify-between text-center text-white p-8">
+                          {/* CEO Content - Upper Part */}
+                          <div className="flex-1 flex flex-col justify-center">
+                            {/* CEO Name and Title */}
+                            <div className="mb-6">
+                              <h3 className="text-3xl font-bold mb-2">Nhat Tran</h3>
+                              <p className="text-xl opacity-90">Chief Executive Officer</p>
+                            </div>
+
+                            {/* CEO Message */}
+                            <blockquote className="text-lg leading-relaxed max-w-2xl mx-auto opacity-90">
+                              "At ARIS, we believe in delivering quality software solutions that drive real business value.
+                              With over 15 years of experience, our team is committed to building trust through innovation,
+                              excellence, and unwavering dedication to our clients' success."
+                            </blockquote>
+                          </div>
+
+                          {/* View More Button - Lower Part */}
+                          <div className="mt-8">
+                            <Link
+                              href={`/${locale}/about`}
+                              className="inline-flex items-center px-6 py-3 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-medium rounded-lg transition-all shadow-lg hover:shadow-xl border border-white/30"
+                            >
+                              <span>View More</span>
+                              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                              </svg>
+                            </Link>
+                          </div>
                         </div>
-                        <div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700">
-                          <span className="text-gray-900 dark:text-white font-medium">Component library</span>
-                          <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </div>
-                        <div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700">
-                          <span className="text-gray-900 dark:text-white font-medium">Responsive layouts</span>
-                          <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </div>
-                        <div className="flex items-center justify-between py-3">
-                          <span className="text-gray-900 dark:text-white font-medium">Design to code workflow</span>
-                          <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </div>
-                      </>
+                      </div>
                     )}
 
                     {selectedTeam === 'engineering' && (
                       <>
                         <div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700">
-                          <span className="text-gray-900 dark:text-white font-medium">Production-ready code</span>
+                          <span className="text-gray-900 dark:text-white font-medium">LAB-BASED Development at ARIS Vietnam</span>
                           <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                           </svg>
                         </div>
                         <div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700">
-                          <span className="text-gray-900 dark:text-white font-medium">Reusable components</span>
-                          <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </div>
-                        <div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700">
-                          <span className="text-gray-900 dark:text-white font-medium">API integration</span>
+                          <span className="text-gray-900 dark:text-white font-medium">Advantages - Disadvantages</span>
                           <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                           </svg>
                         </div>
                         <div className="flex items-center justify-between py-3">
-                          <span className="text-gray-900 dark:text-white font-medium">Version control</span>
+                          <span className="text-gray-900 dark:text-white font-medium">Structure and Form of LAB-Based Development</span>
                           <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                           </svg>
@@ -502,61 +638,61 @@ export default function Home() {
                     )}
 
                     {selectedTeam === 'agencies' && (
-                      <>
-                        <div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700">
-                          <span className="text-gray-900 dark:text-white font-medium">Client management</span>
-                          <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </div>
-                        <div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700">
-                          <span className="text-gray-900 dark:text-white font-medium">White-label solutions</span>
-                          <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </div>
-                        <div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700">
-                          <span className="text-gray-900 dark:text-white font-medium">Scalable infrastructure</span>
-                          <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </div>
-                        <div className="flex items-center justify-between py-3">
-                          <span className="text-gray-900 dark:text-white font-medium">Multi-site management</span>
-                          <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </div>
-                      </>
+                      <PhotoGallery />
                     )}
 
                     {selectedTeam === 'skills' && (
-                      <>
-                        <div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700">
-                          <span className="text-gray-900 dark:text-white font-medium">Technical expertise</span>
-                          <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </div>
-                        <div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700">
-                          <span className="text-gray-900 dark:text-white font-medium">Problem solving</span>
-                          <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </div>
-                        <div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700">
-                          <span className="text-gray-900 dark:text-white font-medium">Innovation mindset</span>
-                          <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </div>
-                        <div className="flex items-center justify-between py-3">
-                          <span className="text-gray-900 dark:text-white font-medium">Continuous learning</span>
-                          <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </div>
-                      </>
+                      <ResponsiveContainer width="100%" height={500}>
+                        <RadarChart data={[
+                          { skill: 'Data Science', value: 4.0, fullMark: 5 },
+                          { skill: 'Analysis', value: 4.5, fullMark: 5 },
+                          { skill: 'Design', value: 4.0, fullMark: 5 },
+                          { skill: 'FE Dev', value: 4.0, fullMark: 5 },
+                          { skill: 'BE Dev', value: 5.0, fullMark: 5 },
+                          { skill: 'Quality Control', value: 4.75, fullMark: 5 },
+                          { skill: 'Mobile', value: 5.0, fullMark: 5 },
+                          { skill: 'Server', value: 4.0, fullMark: 5 },
+                        ]}>
+                          <PolarGrid 
+                            stroke="#D1D5DB" 
+                            className="dark:stroke-gray-600"
+                          />
+                          <PolarAngleAxis 
+                            dataKey="skill" 
+                            tick={{ 
+                              fill: '#374151',
+                              fontSize: 14,
+                              fontWeight: 600
+                            }}
+                            className="dark:fill-white"
+                          />
+                          <PolarRadiusAxis 
+                            angle={90} 
+                            domain={[0, 5]}
+                            tick={{ 
+                              fill: '#9CA3AF',
+                              fontSize: 12
+                            }}
+                          />
+                          <Radar
+                            name="Skills"
+                            dataKey="value"
+                            stroke="#3B82F6"
+                            fill="#3B82F6"
+                            fillOpacity={0.5}
+                            strokeWidth={2}
+                          />
+                          <Tooltip
+                            contentStyle={{
+                              backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                              border: '1px solid #E5E7EB',
+                              borderRadius: '8px',
+                              padding: '8px 12px'
+                            }}
+                            formatter={(value: number) => [`${value.toFixed(2)} / 5.0`, 'Score']}
+                          />
+                        </RadarChart>
+                      </ResponsiveContainer>
                     )}
                   </div>
                 </div>

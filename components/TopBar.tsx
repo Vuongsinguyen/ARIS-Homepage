@@ -56,40 +56,56 @@ export default function TopBar() {
         <div className="flex items-center justify-between h-9">
           {/* Contact Info - Desktop */}
           <div className="hidden sm:flex items-center space-x-6">
-            {contactInfo.map((info, index) => (
-              <div key={info.type} className="flex items-center space-x-2">
-                {info.icon}
-                {info.href ? (
-                  <Link
-                    href={info.href}
-                    className="text-xs text-gray-300 dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-colors"
-                  >
-                    {info.label}
-                  </Link>
-                ) : (
-                  <span className="text-xs text-gray-300 dark:text-gray-400">{info.label}</span>
-                )}
-              </div>
-            ))}
+            {/* Email - show on medium screens and up */}
+            <div className="flex items-center space-x-2">
+              {contactInfo[0].icon}
+              {contactInfo[0].href ? (
+                <Link
+                  href={contactInfo[0].href}
+                  className="text-xs text-gray-300 dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-colors"
+                >
+                  {contactInfo[0].label}
+                </Link>
+              ) : (
+                <span className="text-xs text-gray-300 dark:text-gray-400">{contactInfo[0].label}</span>
+              )}
+            </div>
+            {/* Phone - only show on large screens */}
+            <div className="hidden lg:flex items-center space-x-2">
+              {contactInfo[1].icon}
+              {contactInfo[1].href ? (
+                <Link
+                  href={contactInfo[1].href}
+                  className="text-xs text-gray-300 dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-colors"
+                >
+                  {contactInfo[1].label}
+                </Link>
+              ) : (
+                <span className="text-xs text-gray-300 dark:text-gray-400">{contactInfo[1].label}</span>
+              )}
+            </div>
+            {/* Hours - only show on large screens */}
+            <div className="hidden lg:flex items-center space-x-2">
+              {contactInfo[2].icon}
+              <span className="text-xs text-gray-300 dark:text-gray-400">{contactInfo[2].label}</span>
+            </div>
           </div>
 
-          {/* Contact Info - Mobile (only phone and email) */}
+          {/* Contact Info - Mobile (only email) */}
           <div className="flex sm:hidden items-center space-x-3">
-            {contactInfo.slice(0, 2).map((info, index) => (
-              <div key={info.type} className="flex items-center space-x-1">
-                {info.icon}
-                {info.href ? (
-                  <Link
-                    href={info.href}
-                    className="text-xs text-gray-300 dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-colors"
-                  >
-                    {info.label}
-                  </Link>
-                ) : (
-                  <span className="text-xs text-gray-300 dark:text-gray-400">{info.label}</span>
-                )}
-              </div>
-            ))}
+            <div className="flex items-center space-x-1">
+              {contactInfo[0].icon}
+              {contactInfo[0].href ? (
+                <Link
+                  href={contactInfo[0].href}
+                  className="text-xs text-gray-300 dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-colors"
+                >
+                  {contactInfo[0].label}
+                </Link>
+              ) : (
+                <span className="text-xs text-gray-300 dark:text-gray-400">{contactInfo[0].label}</span>
+              )}
+            </div>
           </div>
 
           {/* Sale Banner - Desktop */}
@@ -135,7 +151,6 @@ export default function TopBar() {
                 aria-haspopup="true"
                 aria-expanded={dropdownOpen}
               >
-                <span className="text-sm">{currentLanguage.flag}</span>
                 <span className="font-medium">{currentLanguage.name}</span>
                 <svg
                   className={`w-3 h-3 transition-transform ${dropdownOpen ? 'rotate-180' : ''}`}
@@ -165,7 +180,6 @@ export default function TopBar() {
                           lang.code === locale ? 'bg-gray-900 dark:bg-gray-700 text-white dark:text-gray-200' : 'text-gray-300 dark:text-gray-400'
                         }`}
                       >
-                        <span className="text-sm">{lang.flag}</span>
                         <span className="font-medium">{lang.name}</span>
                       </Link>
                     ))}
@@ -184,7 +198,6 @@ export default function TopBar() {
                 aria-haspopup="true"
                 aria-expanded={dropdownOpen}
               >
-                <span className="text-sm">{currentLanguage.flag}</span>
                 <svg
                   className={`w-3 h-3 transition-transform ${dropdownOpen ? 'rotate-180' : ''}`}
                   fill="none"
@@ -213,7 +226,6 @@ export default function TopBar() {
                           lang.code === locale ? 'bg-gray-900 dark:bg-gray-700 text-white dark:text-gray-200' : 'text-gray-300 dark:text-gray-400'
                         }`}
                       >
-                        <span className="text-sm">{lang.flag}</span>
                         <span className="font-medium">{lang.code.toUpperCase()}</span>
                       </Link>
                     ))}

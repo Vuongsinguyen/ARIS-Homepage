@@ -892,8 +892,8 @@
     margin-top: calc(var(--spacing) * 16);
   }
 
-  .mt-\[10px\] {
-    margin-top: 10px;
+  .mt-\[20px\] {
+    margin-top: 20px;
   }
 
   .mt-auto {
@@ -940,8 +940,8 @@
     margin-bottom: calc(var(--spacing) * 16);
   }
 
-  .mb-\[10px\] {
-    margin-bottom: 10px;
+  .mb-\[20px\] {
+    margin-bottom: 20px;
   }
 
   .ml-2 {

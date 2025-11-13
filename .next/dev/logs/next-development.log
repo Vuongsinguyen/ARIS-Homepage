@@ -1,21 +1,14 @@
-[00:00:01.212] Server  LOG      ✓ Ready in 956ms
-[00:00:10.439] Browser LOG     LCP: 2204 ms
-[00:00:10.439] Browser LOG     [Analytics] LCP: 2204
-[00:00:10.683] Server  LOG     Performance Metrics Received: {}
-[00:00:10.692] Server  LOG     Performance Metrics Received: {}
-[00:00:10.694] Browser LOG     CLS: 0.001596756726959015
-[00:00:10.694] Browser LOG     [Analytics] CLS: 0.001596756726959015
-[00:00:11.643] Browser LOG     Performance Budget:
-[00:00:11.643] Browser LOG     DOM Content Loaded: 0ms
-[00:00:11.643] Browser LOG     Load Complete: 0ms
-[00:00:11.643] Browser LOG     Total Load Time: 2448.899999976158ms
-[00:00:11.643] Browser LOG     ✅ domContentLoaded within budget: 0ms
-[00:00:11.643] Browser LOG     ✅ loadComplete within budget: 0ms
-[00:00:11.643] Browser LOG     ✅ totalTime within budget: 2448.899999976158ms
-[00:00:59.520] Server  LOG     Performance Metrics Received: {}
-[00:00:59.537] Server  LOG     Performance Metrics Received: {}
-[00:00:59.592] Browser LOG     CLS: 0.001596756726959015
-[00:00:59.592] Browser LOG     [Analytics] CLS: 0.001596756726959015
-[00:00:59.592] Browser LOG     FID: 132.19999992847443 ms
-[00:00:59.592] Browser LOG     [Analytics] FID: 132.19999992847443
-[00:01:09.044] Server  LOG      ✓ Compiled in 86ms
+[00:00:01.116] Server  LOG      ✓ Ready in 862ms
+[00:00:06.471] Browser LOG     LCP: 2560 ms
+[00:00:06.471] Browser LOG     [Analytics] LCP: 2560
+[00:00:06.471] Browser LOG     CLS: 0.0016527451377765306
+[00:00:06.471] Browser LOG     [Analytics] CLS: 0.0016527451377765306
+[00:00:06.584] Server  LOG     Performance Metrics Received: {}
+[00:00:06.594] Server  LOG     Performance Metrics Received: {}
+[00:00:07.471] Browser LOG     Performance Budget:
+[00:00:07.471] Browser LOG     DOM Content Loaded: 0.10000002384185791ms
+[00:00:07.471] Browser LOG     Load Complete: 0.10000002384185791ms
+[00:00:07.471] Browser LOG     Total Load Time: 2609.7000000476837ms
+[00:00:07.471] Browser LOG     ✅ domContentLoaded within budget: 0.10000002384185791ms
+[00:00:07.471] Browser LOG     ✅ loadComplete within budget: 0.10000002384185791ms
+[00:00:07.471] Browser LOG     ✅ totalTime within budget: 2609.7000000476837ms

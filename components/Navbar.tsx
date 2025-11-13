@@ -26,15 +26,15 @@ export default function Navbar() {
   ];
 
   const servicesItems = [
-    {href: `/${locale}/services/one-stop-services`, label: 'One-Stop Services', icon: '🏆'},
-    {href: `/${locale}/services/system-development`, label: 'System Development', icon: '🖥️'},
-    {href: `/${locale}/services/mobile-development`, label: 'Mobile Development', icon: '📱'},
-    {href: `/${locale}/services/quality-control`, label: 'Quality Control', icon: '✅'},
-    {href: `/${locale}/services/ui-ux-design`, label: 'UI/UX Design', icon: '🎨'},
-    {href: `/${locale}/services/research-development`, label: 'Research & Development', icon: '🔬'},
-    {href: `/${locale}/services/digital-transformation`, label: 'Digital Transformation', icon: '�'},
-    {href: `/${locale}/services/bpo-services`, label: 'BPO Services', icon: '📋'},
-    {href: `/${locale}/services/system-maintenance`, label: 'System Maintenance', icon: '🔧'},
+    {href: `/${locale}/services/one-stop-services`, label: 'ONE-STOP SERVICES'},
+    {href: `/${locale}/services/system-development`, label: 'SYSTEM DEVELOPMENT'},
+    {href: `/${locale}/services/mobile-development`, label: 'MOBILE DEVELOPMENT'},
+    {href: `/${locale}/services/quality-control`, label: 'QUALITY CONTROL'},
+    {href: `/${locale}/services/ui-ux-design`, label: 'UI/UX DESIGN'},
+    {href: `/${locale}/services/research-development`, label: 'RESEARCH & DEVELOPMENT'},
+    {href: `/${locale}/services/digital-transformation`, label: 'DIGITAL TRANSFORMATION'},
+    {href: `/${locale}/services/bpo-services`, label: 'BPO SERVICES'},
+    {href: `/${locale}/services/system-maintenance`, label: 'SYSTEM MAINTENANCE'},
   ];
 
   return (
@@ -89,25 +89,33 @@ export default function Navbar() {
                 <>
                   {/* Invisible bridge to prevent dropdown from closing */}
                   <div className="absolute top-full left-0 right-0 h-2" />
-                  <div className="fixed left-0 right-0 z-50" style={{top: 'calc(3.5rem + 30px)'}}>
+                  <div className="fixed left-0 right-0 top-14 z-50">
                     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                      <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg py-8">
-                        <div className="grid grid-cols-3 gap-8 px-8">
+                      <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-2xl py-6 max-w-[1200px] mx-auto">
+                        <div className="grid grid-cols-3 gap-6 px-6">
                     {/* Column 1 */}
                     <div className="space-y-1">
                       {servicesItems.slice(0, 3).map((service) => (
                         <Link
                           key={service.href}
                           href={service.href}
-                          className={`flex items-center gap-3 px-4 py-3 text-sm font-medium rounded transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${
+                          className={`group flex items-center gap-3 px-4 py-2.5 text-sm font-semibold rounded-lg transition-all duration-200 ${
                             pathname === service.href
                               ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
-                              : 'text-gray-700 dark:text-gray-300'
+                              : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50'
                           }`}
                           onClick={() => setServicesDropdownOpen(false)}
                         >
-                          <span className="text-sm">{service.icon}</span>
-                          <span className="text-sm leading-tight">{service.label}</span>
+                          <svg width="16" height="23" viewBox="0 0 22 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-4 h-6 flex-shrink-0 transition-transform group-hover:scale-110">
+                            <path d="M10.6066 0L21.2132 15.6066L10.6066 31.2132L-4.32723e-07 15.6066L10.6066 0Z" fill="url(#gradient)"/>
+                            <defs>
+                              <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stopColor="#D9D9D9"/>
+                                <stop offset="100%" stopColor="#0066ED"/>
+                              </linearGradient>
+                            </defs>
+                          </svg>
+                          <span className="leading-tight tracking-wide">{service.label}</span>
                         </Link>
                       ))}
                     </div>
@@ -118,15 +126,23 @@ export default function Navbar() {
                         <Link
                           key={service.href}
                           href={service.href}
-                          className={`flex items-center gap-3 px-4 py-3 text-sm font-medium rounded transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${
+                          className={`group flex items-center gap-3 px-4 py-2.5 text-sm font-semibold rounded-lg transition-all duration-200 ${
                             pathname === service.href
                               ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
-                              : 'text-gray-700 dark:text-gray-300'
+                              : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50'
                           }`}
                           onClick={() => setServicesDropdownOpen(false)}
                         >
-                          <span className="text-sm">{service.icon}</span>
-                          <span className="text-sm leading-tight">{service.label}</span>
+                          <svg width="16" height="23" viewBox="0 0 22 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-4 h-6 flex-shrink-0 transition-transform group-hover:scale-110">
+                            <path d="M10.6066 0L21.2132 15.6066L10.6066 31.2132L-4.32723e-07 15.6066L10.6066 0Z" fill="url(#gradient2)"/>
+                            <defs>
+                              <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stopColor="#D9D9D9"/>
+                                <stop offset="100%" stopColor="#0066ED"/>
+                              </linearGradient>
+                            </defs>
+                          </svg>
+                          <span className="leading-tight tracking-wide">{service.label}</span>
                         </Link>
                       ))}
                     </div>
@@ -137,15 +153,23 @@ export default function Navbar() {
                         <Link
                           key={service.href}
                           href={service.href}
-                          className={`flex items-center gap-3 px-4 py-3 text-sm font-medium rounded transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${
+                          className={`group flex items-center gap-3 px-4 py-2.5 text-sm font-semibold rounded-lg transition-all duration-200 ${
                             pathname === service.href
                               ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
-                              : 'text-gray-700 dark:text-gray-300'
+                              : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50'
                           }`}
                           onClick={() => setServicesDropdownOpen(false)}
                         >
-                          <span className="text-sm">{service.icon}</span>
-                          <span className="text-sm leading-tight">{service.label}</span>
+                          <svg width="16" height="23" viewBox="0 0 22 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-4 h-6 flex-shrink-0 transition-transform group-hover:scale-110">
+                            <path d="M10.6066 0L21.2132 15.6066L10.6066 31.2132L-4.32723e-07 15.6066L10.6066 0Z" fill="url(#gradient3)"/>
+                            <defs>
+                              <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stopColor="#D9D9D9"/>
+                                <stop offset="100%" stopColor="#0066ED"/>
+                              </linearGradient>
+                            </defs>
+                          </svg>
+                          <span className="leading-tight tracking-wide">{service.label}</span>
                         </Link>
                       ))}
                     </div>
@@ -259,14 +283,22 @@ export default function Navbar() {
                           setMobileMenuOpen(false);
                           setMobileServicesOpen(false);
                         }}
-                        className={`flex items-center gap-3 px-4 py-2 text-sm font-medium rounded transition-colors ${
+                        className={`group flex items-center gap-3 px-4 py-2.5 text-xs font-semibold rounded-lg transition-all duration-200 ${
                           pathname === service.href
                             ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
-                            : 'text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400'
+                            : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700/50'
                         }`}
                       >
-                        <span className="text-base">{service.icon}</span>
-                        <span>{service.label}</span>
+                        <svg width="16" height="23" viewBox="0 0 22 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-3 h-5 flex-shrink-0 transition-transform group-hover:scale-110">
+                          <path d="M10.6066 0L21.2132 15.6066L10.6066 31.2132L-4.32723e-07 15.6066L10.6066 0Z" fill="url(#gradientMobile)"/>
+                          <defs>
+                            <linearGradient id="gradientMobile" x1="0%" y1="0%" x2="100%" y2="100%">
+                              <stop offset="0%" stopColor="#D9D9D9"/>
+                              <stop offset="100%" stopColor="#0066ED"/>
+                            </linearGradient>
+                          </defs>
+                        </svg>
+                        <span className="tracking-wide">{service.label}</span>
                       </Link>
                     ))}
                     <Link

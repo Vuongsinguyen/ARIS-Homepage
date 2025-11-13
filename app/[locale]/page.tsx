@@ -210,21 +210,21 @@ export default function Home() {
                 <GradientHeading className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
                   Accelerate Your Growth with Our DX Services
                 </GradientHeading>
-                <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                  A full range of digital solutions designed to drive your business forward.
-                </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {/* Service Card 1 - One-Stop Services */}
                 <Link href={`/${locale}/services/one-stop-services`} className="block group">
-                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-amber-400 dark:hover:border-amber-500 hover:shadow-lg transition-all duration-300 h-full">
+                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg transition-all duration-300 h-full">
                     <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">One-Stop Services</h3>
                     <p className="text-gray-600 dark:text-gray-400 mb-4">
                       Comprehensive end-to-end software development and deployment solutions.
                     </p>
-                    <span className="text-amber-600 dark:text-amber-400 font-medium group-hover:text-amber-700 dark:group-hover:text-amber-300 transition-colors">
-                      Learn more →
+                    <span className="text-blue-600 dark:text-blue-400 font-medium group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors flex items-center">
+                      Learn more
+                      <svg width="32" height="7" viewBox="0 0 32 7" fill="none" xmlns="http://www.w3.org/2000/svg" className="ml-2 group-hover:translate-x-1 transition-transform duration-300">
+                        <path d="M32 7H0V5H21V0L32 7Z" fill="currentColor"/>
+                      </svg>
                     </span>
                   </article>
                 </Link>
@@ -236,99 +236,123 @@ export default function Home() {
                     <p className="text-gray-600 dark:text-gray-400 mb-4">
                       Custom system and application development services.
                     </p>
-                    <span className="text-blue-600 dark:text-blue-400 font-medium group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors">
-                      Learn more →
+                    <span className="text-blue-600 dark:text-blue-400 font-medium group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors flex items-center">
+                      Learn more
+                      <svg width="32" height="7" viewBox="0 0 32 7" fill="none" xmlns="http://www.w3.org/2000/svg" className="ml-2 group-hover:translate-x-1 transition-transform duration-300">
+                        <path d="M32 7H0V5H21V0L32 7Z" fill="currentColor"/>
+                      </svg>
                     </span>
                   </article>
                 </Link>
 
                 {/* Service Card 3 - Mobile Development */}
                 <Link href={`/${locale}/services/mobile-development`} className="block group">
-                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-green-400 dark:hover:border-green-500 hover:shadow-lg transition-all duration-300 h-full">
+                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg transition-all duration-300 h-full">
                     <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Mobile Development</h3>
                     <p className="text-gray-600 dark:text-gray-400 mb-4">
                       Mobile application development across various domains.
                     </p>
-                    <span className="text-green-600 dark:text-green-400 font-medium group-hover:text-green-700 dark:group-hover:text-green-300 transition-colors">
-                      Learn more →
+                    <span className="text-blue-600 dark:text-blue-400 font-medium group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors flex items-center">
+                      Learn more
+                      <svg width="32" height="7" viewBox="0 0 32 7" fill="none" xmlns="http://www.w3.org/2000/svg" className="ml-2 group-hover:translate-x-1 transition-transform duration-300">
+                        <path d="M32 7H0V5H21V0L32 7Z" fill="currentColor"/>
+                      </svg>
                     </span>
                   </article>
                 </Link>
 
                 {/* Service Card 4 - Quality Control */}
                 <Link href={`/${locale}/services/quality-control`} className="block group">
-                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-red-400 dark:hover:border-red-500 hover:shadow-lg transition-all duration-300 h-full">
+                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg transition-all duration-300 h-full">
                     <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Quality Control</h3>
                     <p className="text-gray-600 dark:text-gray-400 mb-4">
                       Comprehensive software testing and quality assurance.
                     </p>
-                    <span className="text-red-600 dark:text-red-400 font-medium group-hover:text-red-700 dark:group-hover:text-red-300 transition-colors">
-                      Learn more →
+                    <span className="text-blue-600 dark:text-blue-400 font-medium group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors flex items-center">
+                      Learn more
+                      <svg width="32" height="7" viewBox="0 0 32 7" fill="none" xmlns="http://www.w3.org/2000/svg" className="ml-2 group-hover:translate-x-1 transition-transform duration-300">
+                        <path d="M32 7H0V5H21V0L32 7Z" fill="currentColor"/>
+                      </svg>
                     </span>
                   </article>
                 </Link>
 
                 {/* Service Card 5 - UI/UX Design */}
                 <Link href={`/${locale}/services/ui-ux-design`} className="block group">
-                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-purple-400 dark:hover:border-purple-500 hover:shadow-lg transition-all duration-300 h-full">
+                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg transition-all duration-300 h-full">
                     <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">UI/UX Design</h3>
                     <p className="text-gray-600 dark:text-gray-400 mb-4">
                       User interface and user experience design services.
                     </p>
-                    <span className="text-purple-600 dark:text-purple-400 font-medium group-hover:text-purple-700 dark:group-hover:text-purple-300 transition-colors">
-                      Learn more →
+                    <span className="text-blue-600 dark:text-blue-400 font-medium group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors flex items-center">
+                      Learn more
+                      <svg width="32" height="7" viewBox="0 0 32 7" fill="none" xmlns="http://www.w3.org/2000/svg" className="ml-2 group-hover:translate-x-1 transition-transform duration-300">
+                        <path d="M32 7H0V5H21V0L32 7Z" fill="currentColor"/>
+                      </svg>
                     </span>
                   </article>
                 </Link>
 
                 {/* Service Card 6 - Research & Development */}
                 <Link href={`/${locale}/services/research-development`} className="block group">
-                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-indigo-400 dark:hover:border-indigo-500 hover:shadow-lg transition-all duration-300 h-full">
+                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg transition-all duration-300 h-full">
                     <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Research & Development</h3>
                     <p className="text-gray-600 dark:text-gray-400 mb-4">
                       Collaborative research and prototype development.
                     </p>
-                    <span className="text-indigo-600 dark:text-indigo-400 font-medium group-hover:text-indigo-700 dark:group-hover:text-indigo-300 transition-colors">
-                      Learn more →
+                    <span className="text-blue-600 dark:text-blue-400 font-medium group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors flex items-center">
+                      Learn more
+                      <svg width="32" height="7" viewBox="0 0 32 7" fill="none" xmlns="http://www.w3.org/2000/svg" className="ml-2 group-hover:translate-x-1 transition-transform duration-300">
+                        <path d="M32 7H0V5H21V0L32 7Z" fill="currentColor"/>
+                      </svg>
                     </span>
                   </article>
                 </Link>
 
                 {/* Service Card 7 - Digital Transformation */}
                 <Link href={`/${locale}/services/digital-transformation`} className="block group">
-                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-cyan-400 dark:hover:border-cyan-500 hover:shadow-lg transition-all duration-300 h-full">
+                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg transition-all duration-300 h-full">
                     <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Digital Transformation</h3>
                     <p className="text-gray-600 dark:text-gray-400 mb-4">
                       Digital transformation and technology integration.
                     </p>
-                    <span className="text-cyan-600 dark:text-cyan-400 font-medium group-hover:text-cyan-700 dark:group-hover:text-cyan-300 transition-colors">
-                      Learn more →
+                    <span className="text-blue-600 dark:text-blue-400 font-medium group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors flex items-center">
+                      Learn more
+                      <svg width="32" height="7" viewBox="0 0 32 7" fill="none" xmlns="http://www.w3.org/2000/svg" className="ml-2 group-hover:translate-x-1 transition-transform duration-300">
+                        <path d="M32 7H0V5H21V0L32 7Z" fill="currentColor"/>
+                      </svg>
                     </span>
                   </article>
                 </Link>
 
                 {/* Service Card 8 - BPO Services */}
                 <Link href={`/${locale}/services/bpo-services`} className="block group">
-                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-orange-400 dark:hover:border-orange-500 hover:shadow-lg transition-all duration-300 h-full">
+                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg transition-all duration-300 h-full">
                     <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">BPO Services</h3>
                     <p className="text-gray-600 dark:text-gray-400 mb-4">
                       Business process digitization and outsourcing.
                     </p>
-                    <span className="text-orange-600 dark:text-orange-400 font-medium group-hover:text-orange-700 dark:group-hover:text-orange-300 transition-colors">
-                      Learn more →
+                    <span className="text-blue-600 dark:text-blue-400 font-medium group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors flex items-center">
+                      Learn more
+                      <svg width="32" height="7" viewBox="0 0 32 7" fill="none" xmlns="http://www.w3.org/2000/svg" className="ml-2 group-hover:translate-x-1 transition-transform duration-300">
+                        <path d="M32 7H0V5H21V0L32 7Z" fill="currentColor"/>
+                      </svg>
                     </span>
                   </article>
                 </Link>
 
                 {/* Service Card 9 - System Maintenance */}
                 <Link href={`/${locale}/services/system-maintenance`} className="block group">
-                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-teal-400 dark:hover:border-teal-500 hover:shadow-lg transition-all duration-300 h-full">
+                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg transition-all duration-300 h-full">
                     <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">System Maintenance</h3>
                     <p className="text-gray-600 dark:text-gray-400 mb-4">
                       System maintenance and operational support.
                     </p>
-                    <span className="text-teal-600 dark:text-teal-400 font-medium group-hover:text-teal-700 dark:group-hover:text-teal-300 transition-colors">
-                      Learn more →
+                    <span className="text-blue-600 dark:text-blue-400 font-medium group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors flex items-center">
+                      Learn more
+                      <svg width="32" height="7" viewBox="0 0 32 7" fill="none" xmlns="http://www.w3.org/2000/svg" className="ml-2 group-hover:translate-x-1 transition-transform duration-300">
+                        <path d="M32 7H0V5H21V0L32 7Z" fill="currentColor"/>
+                      </svg>
                     </span>
                   </article>
                 </Link>

@@ -4,6 +4,12 @@ import {useTranslations} from 'next-intl';
 import Link from 'next/link';
 import {useParams} from 'next/navigation';
 import {useState} from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 import Navbar from '@/components/Navbar';
 import HeroSlider from '@/components/HeroSlider';
@@ -720,10 +726,10 @@ export default function Home() {
         </section>
 
         {/* Use Cases Section */}
-        <section className="py-16 bg-gray-50 dark:bg-gray-900 overflow-visible">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 overflow-visible">
-            <div className="max-w-[1330px] mx-auto overflow-visible">
-              <div className="text-center mb-16">
+        <section className="py-16 bg-gray-50 dark:bg-gray-900">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-[1330px] mx-auto">
+              <div className="text-center mb-12">
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
                   Use Cases
                 </h2>
@@ -736,63 +742,59 @@ export default function Home() {
               <div className="flex justify-end gap-2 mb-6">
                 {/* Previous Button */}
                 <button
-                  onClick={() => {
-                    const container = document.getElementById('use-cases-scroll');
-                    if (container) {
-                      container.scrollBy({ left: -504, behavior: 'smooth' });
-                    }
-                  }}
-                  className="flex w-12 h-12 items-center justify-center bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-110 border border-gray-200 dark:border-gray-700"
+                  id="use-cases-prev"
+                  className="flex w-12 h-12 items-center justify-center bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-110 border border-gray-200 dark:border-gray-700 group"
                   aria-label="Previous"
                 >
-                  <svg className="w-6 h-6 text-gray-900 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6 text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                   </svg>
                 </button>
 
                 {/* Next Button */}
                 <button
-                  onClick={() => {
-                    const container = document.getElementById('use-cases-scroll');
-                    if (container) {
-                      container.scrollBy({ left: 504, behavior: 'smooth' });
-                    }
-                  }}
-                  className="flex w-12 h-12 items-center justify-center bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-110 border border-gray-200 dark:border-gray-700"
+                  id="use-cases-next"
+                  className="flex w-12 h-12 items-center justify-center bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-110 border border-gray-200 dark:border-gray-700 group"
                   aria-label="Next"
                 >
-                  <svg className="w-6 h-6 text-gray-900 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6 text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </button>
               </div>
+            </div>
+          </div>
 
-              {/* Scrollable Cards Container with Overflow */}
-              <div className="relative overflow-visible -mx-4 sm:-mx-6 lg:-mx-8">
-                <div id="use-cases-scroll" className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide px-4 sm:px-6 lg:px-8">
+          {/* Swiper Slider - Full Width with Overflow */}
+          <div className="relative">
+            <div className="overflow-visible pl-4 sm:pl-6 lg:pl-8 xl:pl-[calc((100vw-1330px)/2+2rem)]">
+              <Swiper
+                modules={[Navigation]}
+                spaceBetween={24}
+                slidesPerView={1.2}
+                navigation={{
+                  prevEl: '#use-cases-prev',
+                  nextEl: '#use-cases-next',
+                }}
+                breakpoints={{
+                  640: {
+                    slidesPerView: 1.5,
+                  },
+                  768: {
+                    slidesPerView: 2.2,
+                  },
+                  1024: {
+                    slidesPerView: 2.5,
+                  },
+                  1280: {
+                    slidesPerView: 3,
+                  },
+                }}
+                className="!overflow-visible pb-6"
+              >
                   {/* Use Case Card 1 - E-Commerce */}
-                  <div className="flex-none w-[30rem] snap-start group">
-                    <article 
-                      className="relative h-[39rem] rounded-2xl overflow-hidden shadow-lg transition-all duration-300 cursor-pointer"
-                      onMouseEnter={(e) => {
-                        const video = e.currentTarget.querySelector('video');
-                        if (video && video.paused) {
-                          video.play().catch((error) => {
-                            // Ignore AbortError which happens when play is interrupted by pause
-                            if (error.name !== 'AbortError') {
-                              console.error('Video play error:', error);
-                            }
-                          });
-                        }
-                      }}
-                      onMouseLeave={(e) => {
-                        const video = e.currentTarget.querySelector('video');
-                        if (video) {
-                          video.pause();
-                          video.currentTime = 0;
-                        }
-                      }}
-                    >
+                  <SwiperSlide>
+                    <div className="relative h-[32rem] rounded-2xl overflow-hidden shadow-lg transition-all duration-300 group cursor-pointer">
                       {/* Background Video */}
                       <video
                         className="absolute inset-0 w-full h-full object-cover"
@@ -800,495 +802,339 @@ export default function Home() {
                         muted
                         playsInline
                         poster="/video/vid1-poster.jpg"
+                        autoPlay
                       >
                         <source src="/video/vid1.mp4" type="video/mp4" />
                       </video>
-                      
-                      {/* Dark Overlay */}
-                      <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors"></div>
 
-                      {/* Stop Button */}
-                      <button
-                        onClick={(e) => {
-                          e.preventDefault();
-                          const video = e.currentTarget.closest('article')?.querySelector('video');
-                          if (video) {
-                            if (video.paused) {
-                              video.play().catch((error) => {
-                                // Ignore AbortError which happens when play is interrupted by pause
-                                if (error.name !== 'AbortError') {
-                                  console.error('Video play error:', error);
-                                }
-                              });
-                            } else {
-                              video.pause();
-                            }
-                          }
-                        }}
-                        className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm flex items-center justify-center transition-all opacity-0 group-hover:opacity-100"
-                        aria-label="Play/Pause video"
-                      >
-                        <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
-                        </svg>
-                      </button>
-                      
+                      {/* Dark Overlay */}
+                      <div className="absolute inset-0 bg-black/60 group-hover:bg-black/50 transition-colors"></div>
+
+                      {/* Blur Effect */}
+                      <div className="absolute inset-0 bg-black/20 backdrop-blur-[1px]"></div>
+
                       {/* Content */}
-                      <Link href={`/${locale}/use-cases/e-commerce`} className="relative h-full p-8 flex flex-col justify-between text-white block">
-                        <div>
-                          <div className="text-6xl font-bold mb-2">45%</div>
-                          <div className="text-xl font-semibold mb-4">Increase in conversion rate</div>
+                      <div className="relative h-full p-8 flex flex-col text-white">
+                        {/* Logo */}
+                        <div className="mb-6">
+                          <img
+                            src="/logos/ecommerce-logo.svg"
+                            alt="E-Commerce Company"
+                            className="w-16 h-16 object-contain"
+                          />
                         </div>
-                        
-                        <div>
-                          <p className="text-sm mb-4 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out">
-                            "Our e-commerce platform transformed how we connect with customers, delivering seamless shopping experiences that drive real results."
-                          </p>
-                          <div className="flex items-center justify-between">
-                            <div>
-                              <div className="font-semibold text-sm">Sarah Chen</div>
-                              <div className="text-xs opacity-75">E-Commerce Director</div>
-                            </div>
-                            <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-                              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                              </svg>
+
+                        {/* Bottom Content */}
+                        <div className="mt-auto">
+                          {/* Stats */}
+                          <div className="mb-6">
+                            <div className="text-5xl font-bold mb-2">45%</div>
+                            <div className="text-lg font-medium opacity-90">Increase in conversion rate</div>
+                          </div>
+
+                          {/* Quote */}
+                          <div className="mb-6">
+                            <blockquote className="text-sm leading-relaxed opacity-90 mb-4">
+                              "Our e-commerce platform transformed how we connect with customers, delivering seamless shopping experiences that drive real results."
+                            </blockquote>
+                            <div className="flex items-center justify-between">
+                              <div>
+                                <div className="font-semibold text-sm">Sarah Chen</div>
+                                <div className="text-xs opacity-75">E-Commerce Director</div>
+                              </div>
+                              <Link
+                                href={`/${locale}/use-cases/e-commerce`}
+                                className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm flex items-center justify-center transition-all group-hover:bg-white/40"
+                              >
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                              </Link>
                             </div>
                           </div>
                         </div>
-                      </Link>
-                    </article>
-                  </div>
+                      </div>
+                    </div>
+                  </SwiperSlide>
 
                   {/* Use Case Card 2 - SaaS */}
-                  <div className="flex-none w-[30rem] snap-start group">
-                    <article 
-                      className="relative h-[39rem] rounded-2xl overflow-hidden shadow-lg transition-all duration-300 cursor-pointer"
-                      onMouseEnter={(e) => {
-                        const video = e.currentTarget.querySelector('video');
-                        if (video && video.paused) {
-                          video.play().catch((error) => {
-                            // Ignore AbortError which happens when play is interrupted by pause
-                            if (error.name !== 'AbortError') {
-                              console.error('Video play error:', error);
-                            }
-                          });
-                        }
-                      }}
-                      onMouseLeave={(e) => {
-                        const video = e.currentTarget.querySelector('video');
-                        if (video) {
-                          video.pause();
-                          video.currentTime = 0;
-                        }
-                      }}
-                    >
+                  <SwiperSlide>
+                    <div className="relative h-[32rem] rounded-2xl overflow-hidden shadow-lg transition-all duration-300 group cursor-pointer">
                       <video
                         className="absolute inset-0 w-full h-full object-cover"
                         loop
                         muted
                         playsInline
                         poster="/video/vid2-poster.jpg"
+                        autoPlay
                       >
                         <source src="/video/vid2.mp4" type="video/mp4" />
                       </video>
-                      <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors"></div>
-                      <button
-                        onClick={(e) => {
-                          e.preventDefault();
-                          const video = e.currentTarget.closest('article')?.querySelector('video');
-                          if (video) {
-                            if (video.paused) {
-                              video.play().catch((error) => {
-                                // Ignore AbortError which happens when play is interrupted by pause
-                                if (error.name !== 'AbortError') {
-                                  console.error('Video play error:', error);
-                                }
-                              });
-                            } else {
-                              video.pause();
-                            }
-                          }
-                        }}
-                        className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm flex items-center justify-center transition-all opacity-0 group-hover:opacity-100"
-                        aria-label="Play/Pause video"
-                      >
-                        <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
-                        </svg>
-                      </button>
-                      <Link href={`/${locale}/use-cases/saas-applications`} className="relative h-full p-8 flex flex-col justify-between text-white block">
-                        <div>
-                          <div className="text-6xl font-bold mb-2">$2M</div>
-                          <div className="text-xl font-semibold mb-4">Annual recurring revenue</div>
+                      <div className="absolute inset-0 bg-black/60 group-hover:bg-black/50 transition-colors"></div>
+                      <div className="absolute inset-0 bg-black/20 backdrop-blur-[1px]"></div>
+                      <div className="relative h-full p-8 flex flex-col text-white">
+                        <div className="mb-6">
+                          <img
+                            src="/logos/saas-logo.svg"
+                            alt="SaaS Company"
+                            className="w-16 h-16 object-contain"
+                          />
                         </div>
-                        <div>
-                          <p className="text-sm mb-4 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out">
-                            "Moving to a SaaS model with scalable infrastructure helped us reach new markets and scale efficiently across regions."
-                          </p>
-                          <div className="flex items-center justify-between">
-                            <div>
-                              <div className="font-semibold text-sm">Michael Zhang</div>
-                              <div className="text-xs opacity-75">CTO, TechScale</div>
-                            </div>
-                            <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-                              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                              </svg>
+                        <div className="mt-auto">
+                          <div className="mb-6">
+                            <div className="text-5xl font-bold mb-2">$2M</div>
+                            <div className="text-lg font-medium opacity-90">Annual recurring revenue</div>
+                          </div>
+                          <div className="mb-6">
+                            <blockquote className="text-sm leading-relaxed opacity-90 mb-4">
+                              "Moving to a SaaS model with scalable infrastructure helped us reach new markets and scale efficiently across regions."
+                            </blockquote>
+                            <div className="flex items-center justify-between">
+                              <div>
+                                <div className="font-semibold text-sm">Michael Zhang</div>
+                                <div className="text-xs opacity-75">CTO, TechScale</div>
+                              </div>
+                              <Link
+                                href={`/${locale}/use-cases/saas-applications`}
+                                className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm flex items-center justify-center transition-all group-hover:bg-white/40"
+                              >
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                              </Link>
                             </div>
                           </div>
                         </div>
-                      </Link>
-                    </article>
-                  </div>
+                      </div>
+                    </div>
+                  </SwiperSlide>
 
                   {/* Use Case Card 3 - Content Management */}
-                  <div className="flex-none w-[30rem] snap-start group">
-                    <article 
-                      className="relative h-[39rem] rounded-2xl overflow-hidden shadow-lg transition-all duration-300 cursor-pointer"
-                      onMouseEnter={(e) => {
-                        const video = e.currentTarget.querySelector('video');
-                        if (video && video.paused) {
-                          video.play().catch((error) => {
-                            // Ignore AbortError which happens when play is interrupted by pause
-                            if (error.name !== 'AbortError') {
-                              console.error('Video play error:', error);
-                            }
-                          });
-                        }
-                      }}
-                      onMouseLeave={(e) => {
-                        const video = e.currentTarget.querySelector('video');
-                        if (video) {
-                          video.pause();
-                          video.currentTime = 0;
-                        }
-                      }}
-                    >
+                  <SwiperSlide>
+                    <div className="relative h-[32rem] rounded-2xl overflow-hidden shadow-lg transition-all duration-300 group cursor-pointer">
                       <video
                         className="absolute inset-0 w-full h-full object-cover"
                         loop
                         muted
                         playsInline
                         poster="/video/vid3-poster.jpg"
+                        autoPlay
                       >
                         <source src="/video/vid3.mp4" type="video/mp4" />
                       </video>
-                      <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors"></div>
-                      <button
-                        onClick={(e) => {
-                          e.preventDefault();
-                          const video = e.currentTarget.closest('article')?.querySelector('video');
-                          if (video) {
-                            if (video.paused) {
-                              video.play().catch((error) => {
-                                // Ignore AbortError which happens when play is interrupted by pause
-                                if (error.name !== 'AbortError') {
-                                  console.error('Video play error:', error);
-                                }
-                              });
-                            } else {
-                              video.pause();
-                            }
-                          }
-                        }}
-                        className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm flex items-center justify-center transition-all opacity-0 group-hover:opacity-100"
-                        aria-label="Play/Pause video"
-                      >
-                        <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
-                        </svg>
-                      </button>
-                      <Link href={`/${locale}/use-cases/content-management`} className="relative h-full p-8 flex flex-col justify-between text-white block">
-                        <div>
-                          <div className="text-6xl font-bold mb-2">80%</div>
-                          <div className="text-xl font-semibold mb-4">Faster content publishing</div>
+                      <div className="absolute inset-0 bg-black/60 group-hover:bg-black/50 transition-colors"></div>
+                      <div className="absolute inset-0 bg-black/20 backdrop-blur-[1px]"></div>
+                      <div className="relative h-full p-8 flex flex-col text-white">
+                        <div className="mb-6">
+                          <img
+                            src="/logos/content-logo.svg"
+                            alt="Content Management Company"
+                            className="w-16 h-16 object-contain"
+                          />
                         </div>
-                        <div>
-                          <p className="text-sm mb-4 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out">
-                            "The headless CMS solution revolutionized our content workflow, enabling our team to publish faster without compromising quality."
-                          </p>
-                          <div className="flex items-center justify-between">
-                            <div>
-                              <div className="font-semibold text-sm">Emma Williams</div>
-                              <div className="text-xs opacity-75">Content Manager</div>
-                            </div>
-                            <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-                              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                              </svg>
+                        <div className="mt-auto">
+                          <div className="mb-6">
+                            <div className="text-5xl font-bold mb-2">80%</div>
+                            <div className="text-lg font-medium opacity-90">Faster content publishing</div>
+                          </div>
+                          <div className="mb-6">
+                            <blockquote className="text-sm leading-relaxed opacity-90 mb-4">
+                              "The headless CMS solution revolutionized our content workflow, enabling our team to publish faster without compromising quality."
+                            </blockquote>
+                            <div className="flex items-center justify-between">
+                              <div>
+                                <div className="font-semibold text-sm">Emma Williams</div>
+                                <div className="text-xs opacity-75">Content Manager</div>
+                              </div>
+                              <Link
+                                href={`/${locale}/use-cases/content-management`}
+                                className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm flex items-center justify-center transition-all group-hover:bg-white/40"
+                              >
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                              </Link>
                             </div>
                           </div>
                         </div>
-                      </Link>
-                    </article>
-                  </div>
+                      </div>
+                    </div>
+                  </SwiperSlide>
 
                   {/* Use Case Card 4 - FinTech */}
-                  <div className="flex-none w-[30rem] snap-start group">
-                    <article 
-                      className="relative h-[39rem] rounded-2xl overflow-hidden shadow-lg transition-all duration-300 cursor-pointer"
-                      onMouseEnter={(e) => {
-                        const video = e.currentTarget.querySelector('video');
-                        if (video && video.paused) {
-                          video.play().catch((error) => {
-                            // Ignore AbortError which happens when play is interrupted by pause
-                            if (error.name !== 'AbortError') {
-                              console.error('Video play error:', error);
-                            }
-                          });
-                        }
-                      }}
-                      onMouseLeave={(e) => {
-                        const video = e.currentTarget.querySelector('video');
-                        if (video) {
-                          video.pause();
-                          video.currentTime = 0;
-                        }
-                      }}
-                    >
+                  <SwiperSlide>
+                    <div className="relative h-[32rem] rounded-2xl overflow-hidden shadow-lg transition-all duration-300 group cursor-pointer">
                       <video
                         className="absolute inset-0 w-full h-full object-cover"
                         loop
                         muted
                         playsInline
                         poster="/video/vid4-poster.jpg"
+                        autoPlay
                       >
                         <source src="/video/vid4.mp4" type="video/mp4" />
                       </video>
-                      <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors"></div>
-                      <button
-                        onClick={(e) => {
-                          e.preventDefault();
-                          const video = e.currentTarget.closest('article')?.querySelector('video');
-                          if (video) {
-                            if (video.paused) {
-                              video.play().catch((error) => {
-                                // Ignore AbortError which happens when play is interrupted by pause
-                                if (error.name !== 'AbortError') {
-                                  console.error('Video play error:', error);
-                                }
-                              });
-                            } else {
-                              video.pause();
-                            }
-                          }
-                        }}
-                        className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm flex items-center justify-center transition-all opacity-0 group-hover:opacity-100"
-                        aria-label="Play/Pause video"
-                      >
-                        <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
-                        </svg>
-                      </button>
-                      <Link href={`/${locale}/use-cases/fintech-solutions`} className="relative h-full p-8 flex flex-col justify-between text-white block">
-                        <div>
-                          <div className="text-6xl font-bold mb-2">99.9%</div>
-                          <div className="text-xl font-semibold mb-4">Transaction success rate</div>
+                      <div className="absolute inset-0 bg-black/60 group-hover:bg-black/50 transition-colors"></div>
+                      <div className="absolute inset-0 bg-black/20 backdrop-blur-[1px]"></div>
+                      <div className="relative h-full p-8 flex flex-col text-white">
+                        <div className="mb-6">
+                          <img
+                            src="/logos/fintech-logo.svg"
+                            alt="FinTech Company"
+                            className="w-16 h-16 object-contain"
+                          />
                         </div>
-                        <div>
-                          <p className="text-sm mb-4 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out">
-                            "Secure, compliant payment processing with enterprise-grade encryption has made us the trusted choice for financial services."
-                          </p>
-                          <div className="flex items-center justify-between">
-                            <div>
-                              <div className="font-semibold text-sm">David Park</div>
-                              <div className="text-xs opacity-75">Head of Security</div>
-                            </div>
-                            <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-                              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                              </svg>
+                        <div className="mt-auto">
+                          <div className="mb-6">
+                            <div className="text-5xl font-bold mb-2">99.9%</div>
+                            <div className="text-lg font-medium opacity-90">Transaction success rate</div>
+                          </div>
+                          <div className="mb-6">
+                            <blockquote className="text-sm leading-relaxed opacity-90 mb-4">
+                              "Secure, compliant payment processing with enterprise-grade encryption has made us the trusted choice for financial services."
+                            </blockquote>
+                            <div className="flex items-center justify-between">
+                              <div>
+                                <div className="font-semibold text-sm">David Park</div>
+                                <div className="text-xs opacity-75">Head of Security</div>
+                              </div>
+                              <Link
+                                href={`/${locale}/use-cases/fintech-solutions`}
+                                className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm flex items-center justify-center transition-all group-hover:bg-white/40"
+                              >
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                              </Link>
                             </div>
                           </div>
                         </div>
-                      </Link>
-                    </article>
-                  </div>
+                      </div>
+                    </div>
+                  </SwiperSlide>
 
                   {/* Use Case Card 5 - Healthcare */}
-                  <div className="flex-none w-[30rem] snap-start group">
-                    <article 
-                      className="relative h-[39rem] rounded-2xl overflow-hidden shadow-lg transition-all duration-300 cursor-pointer"
-                      onMouseEnter={(e) => {
-                        const video = e.currentTarget.querySelector('video');
-                        if (video && video.paused) {
-                          video.play().catch((error) => {
-                            // Ignore AbortError which happens when play is interrupted by pause
-                            if (error.name !== 'AbortError') {
-                              console.error('Video play error:', error);
-                            }
-                          });
-                        }
-                      }}
-                      onMouseLeave={(e) => {
-                        const video = e.currentTarget.querySelector('video');
-                        if (video) {
-                          video.pause();
-                          video.currentTime = 0;
-                        }
-                      }}
-                    >
+                  <SwiperSlide>
+                    <div className="relative h-[32rem] rounded-2xl overflow-hidden shadow-lg transition-all duration-300 group cursor-pointer">
                       <video
                         className="absolute inset-0 w-full h-full object-cover"
                         loop
                         muted
                         playsInline
                         poster="/video/vid5-poster.jpg"
+                        autoPlay
                       >
                         <source src="/video/vid5.mp4" type="video/mp4" />
                       </video>
-                      <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors"></div>
-                      <button
-                        onClick={(e) => {
-                          e.preventDefault();
-                          const video = e.currentTarget.closest('article')?.querySelector('video');
-                          if (video) {
-                            if (video.paused) {
-                              video.play().catch((error) => {
-                                // Ignore AbortError which happens when play is interrupted by pause
-                                if (error.name !== 'AbortError') {
-                                  console.error('Video play error:', error);
-                                }
-                              });
-                            } else {
-                              video.pause();
-                            }
-                          }
-                        }}
-                        className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm flex items-center justify-center transition-all opacity-0 group-hover:opacity-100"
-                        aria-label="Play/Pause video"
-                      >
-                        <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
-                        </svg>
-                      </button>
-                      <Link href={`/${locale}/use-cases/healthcare-systems`} className="relative h-full p-8 flex flex-col justify-between text-white block">
-                        <div>
-                          <div className="text-6xl font-bold mb-2">10K+</div>
-                          <div className="text-xl font-semibold mb-4">Patients served monthly</div>
+                      <div className="absolute inset-0 bg-black/60 group-hover:bg-black/50 transition-colors"></div>
+                      <div className="absolute inset-0 bg-black/20 backdrop-blur-[1px]"></div>
+                      <div className="relative h-full p-8 flex flex-col text-white">
+                        <div className="mb-6">
+                          <img
+                            src="/logos/healthcare-logo.svg"
+                            alt="Healthcare Company"
+                            className="w-16 h-16 object-contain"
+                          />
                         </div>
-                        <div>
-                          <p className="text-sm mb-4 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out">
-                            "HIPAA-compliant platform with telemedicine capabilities transformed how we deliver care to patients across multiple locations."
-                          </p>
-                          <div className="flex items-center justify-between">
-                            <div>
-                              <div className="font-semibold text-sm">Dr. Lisa Johnson</div>
-                              <div className="text-xs opacity-75">Medical Director</div>
-                            </div>
-                            <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-                              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                              </svg>
+                        <div className="mt-auto">
+                          <div className="mb-6">
+                            <div className="text-5xl font-bold mb-2">10K+</div>
+                            <div className="text-lg font-medium opacity-90">Patients served monthly</div>
+                          </div>
+                          <div className="mb-6">
+                            <blockquote className="text-sm leading-relaxed opacity-90 mb-4">
+                              "HIPAA-compliant platform with telemedicine capabilities transformed how we deliver care to patients across multiple locations."
+                            </blockquote>
+                            <div className="flex items-center justify-between">
+                              <div>
+                                <div className="font-semibold text-sm">Dr. Lisa Johnson</div>
+                                <div className="text-xs opacity-75">Medical Director</div>
+                              </div>
+                              <Link
+                                href={`/${locale}/use-cases/healthcare-systems`}
+                                className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm flex items-center justify-center transition-all group-hover:bg-white/40"
+                              >
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                              </Link>
                             </div>
                           </div>
                         </div>
-                      </Link>
-                    </article>
-                  </div>
+                      </div>
+                    </div>
+                  </SwiperSlide>
 
                   {/* Use Case Card 6 - Education */}
-                  <div className="flex-none w-[30rem] snap-start group">
-                    <article 
-                      className="relative h-[39rem] rounded-2xl overflow-hidden shadow-lg transition-all duration-300 cursor-pointer"
-                      onMouseEnter={(e) => {
-                        const video = e.currentTarget.querySelector('video');
-                        if (video && video.paused) {
-                          video.play().catch((error) => {
-                            // Ignore AbortError which happens when play is interrupted by pause
-                            if (error.name !== 'AbortError') {
-                              console.error('Video play error:', error);
-                            }
-                          });
-                        }
-                      }}
-                      onMouseLeave={(e) => {
-                        const video = e.currentTarget.querySelector('video');
-                        if (video) {
-                          video.pause();
-                          video.currentTime = 0;
-                        }
-                      }}
-                    >
+                  <SwiperSlide>
+                    <div className="relative h-[32rem] rounded-2xl overflow-hidden shadow-lg transition-all duration-300 group cursor-pointer">
                       <video
                         className="absolute inset-0 w-full h-full object-cover"
                         loop
                         muted
                         playsInline
                         poster="/video/vid6-poster.jpg"
+                        autoPlay
                       >
                         <source src="/video/vid6.mp4" type="video/mp4" />
                       </video>
-                      <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors"></div>
-                      <button
-                        onClick={(e) => {
-                          e.preventDefault();
-                          const video = e.currentTarget.closest('article')?.querySelector('video');
-                          if (video) {
-                            if (video.paused) {
-                              video.play().catch((error) => {
-                                // Ignore AbortError which happens when play is interrupted by pause
-                                if (error.name !== 'AbortError') {
-                                  console.error('Video play error:', error);
-                                }
-                              });
-                            } else {
-                              video.pause();
-                            }
-                          }
-                        }}
-                        className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm flex items-center justify-center transition-all opacity-0 group-hover:opacity-100"
-                        aria-label="Play/Pause video"
-                      >
-                        <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
-                        </svg>
-                      </button>
-                      <Link href={`/${locale}/use-cases/education-platforms`} className="relative h-full p-8 flex flex-col justify-between text-white block">
-                        <div>
-                          <div className="text-6xl font-bold mb-2">92%</div>
-                          <div className="text-xl font-semibold mb-4">Student engagement rate</div>
+                      <div className="absolute inset-0 bg-black/60 group-hover:bg-black/50 transition-colors"></div>
+                      <div className="absolute inset-0 bg-black/20 backdrop-blur-[1px]"></div>
+                      <div className="relative h-full p-8 flex flex-col text-white">
+                        <div className="mb-6">
+                          <img
+                            src="/logos/education-logo.svg"
+                            alt="Education Company"
+                            className="w-16 h-16 object-contain"
+                          />
                         </div>
-                        <div>
-                          <p className="text-sm mb-4 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out">
-                            "Interactive learning platform with real-time progress tracking helped us create engaging educational experiences at scale."
-                          </p>
-                          <div className="flex items-center justify-between">
-                            <div>
-                              <div className="font-semibold text-sm">Prof. James Miller</div>
-                              <div className="text-xs opacity-75">Dean of Education</div>
-                            </div>
-                            <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-                              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                              </svg>
+                        <div className="mt-auto">
+                          <div className="mb-6">
+                            <div className="text-5xl font-bold mb-2">92%</div>
+                            <div className="text-lg font-medium opacity-90">Student engagement rate</div>
+                          </div>
+                          <div className="mb-6">
+                            <blockquote className="text-sm leading-relaxed opacity-90 mb-4">
+                              "Interactive learning platform with real-time progress tracking helped us create engaging educational experiences at scale."
+                            </blockquote>
+                            <div className="flex items-center justify-between">
+                              <div>
+                                <div className="font-semibold text-sm">Prof. James Miller</div>
+                                <div className="text-xs opacity-75">Dean of Education</div>
+                              </div>
+                              <Link
+                                href={`/${locale}/use-cases/education-platforms`}
+                                className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm flex items-center justify-center transition-all group-hover:bg-white/40"
+                              >
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                              </Link>
                             </div>
                           </div>
                         </div>
-                      </Link>
-                    </article>
-                  </div>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                </Swiper>
+              </div>
+            </div>
+
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+              <div className="max-w-[1330px] mx-auto">
+                <div className="text-center">
+                  <Link
+                    href={`/${locale}/use-cases`}
+                    className="inline-flex items-center px-6 py-3 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  >
+                    <span>Explore all success stories</span>
+                    <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
                 </div>
               </div>
             </div>
-          </div>
-
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-[1330px] mx-auto">
-              <div className="text-center mt-12">
-                <Link
-                  href={`/${locale}/use-cases`}
-                  className="inline-flex items-center px-6 py-3 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                >
-                  <span>Explore all success stories</span>
-                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
-              </div>
-            </div>
-          </div>
         </section>
 
         {/* Products Section */}

@@ -86,15 +86,20 @@ export default function Navbar() {
 
               {/* Dropdown Menu */}
               {servicesDropdownOpen && (
-                <div className="absolute top-full left-0 mt-1 w-[32rem] bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg py-6 z-50">
-                  <div className="grid grid-cols-3 gap-6 px-6">
+                <>
+                  {/* Invisible bridge to prevent dropdown from closing */}
+                  <div className="absolute top-full left-0 right-0 h-2" />
+                  <div className="fixed left-0 right-0 z-50" style={{top: 'calc(3.5rem + 30px)'}}>
+                    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                      <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg py-8">
+                        <div className="grid grid-cols-3 gap-8 px-8">
                     {/* Column 1 */}
                     <div className="space-y-1">
                       {servicesItems.slice(0, 3).map((service) => (
                         <Link
                           key={service.href}
                           href={service.href}
-                          className={`flex items-center gap-2 px-4 py-3 text-sm font-medium rounded transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${
+                          className={`flex items-center gap-3 px-4 py-3 text-sm font-medium rounded transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${
                             pathname === service.href
                               ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
                               : 'text-gray-700 dark:text-gray-300'
@@ -102,7 +107,7 @@ export default function Navbar() {
                           onClick={() => setServicesDropdownOpen(false)}
                         >
                           <span className="text-sm">{service.icon}</span>
-                          <span className="text-xs leading-tight">{service.label}</span>
+                          <span className="text-sm leading-tight">{service.label}</span>
                         </Link>
                       ))}
                     </div>
@@ -113,7 +118,7 @@ export default function Navbar() {
                         <Link
                           key={service.href}
                           href={service.href}
-                          className={`flex items-center gap-2 px-4 py-3 text-sm font-medium rounded transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${
+                          className={`flex items-center gap-3 px-4 py-3 text-sm font-medium rounded transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${
                             pathname === service.href
                               ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
                               : 'text-gray-700 dark:text-gray-300'
@@ -121,7 +126,7 @@ export default function Navbar() {
                           onClick={() => setServicesDropdownOpen(false)}
                         >
                           <span className="text-sm">{service.icon}</span>
-                          <span className="text-xs leading-tight">{service.label}</span>
+                          <span className="text-sm leading-tight">{service.label}</span>
                         </Link>
                       ))}
                     </div>
@@ -132,7 +137,7 @@ export default function Navbar() {
                         <Link
                           key={service.href}
                           href={service.href}
-                          className={`flex items-center gap-2 px-3 py-2 text-sm font-medium rounded transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${
+                          className={`flex items-center gap-3 px-4 py-3 text-sm font-medium rounded transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${
                             pathname === service.href
                               ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
                               : 'text-gray-700 dark:text-gray-300'
@@ -140,13 +145,13 @@ export default function Navbar() {
                           onClick={() => setServicesDropdownOpen(false)}
                         >
                           <span className="text-sm">{service.icon}</span>
-                          <span className="text-xs leading-tight">{service.label}</span>
+                          <span className="text-sm leading-tight">{service.label}</span>
                         </Link>
                       ))}
                     </div>
                   </div>
 
-                  <div className="border-t border-gray-200 dark:border-gray-700 mt-6 pt-4 px-6">
+                  <div className="border-t border-gray-200 dark:border-gray-700 mt-6 pt-4 px-8">
                     <Link
                       href={`/${locale}/services`}
                       className="flex items-center justify-center gap-2 px-3 py-2 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 rounded transition-colors"
@@ -156,7 +161,10 @@ export default function Navbar() {
                       <span>View All Services</span>
                     </Link>
                   </div>
-                </div>
+                      </div>
+                    </div>
+                  </div>
+                </>
               )}
             </div>
 

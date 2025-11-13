@@ -20,49 +20,49 @@ export default function HeroSlider() {
   const slides: Slide[] = [
     {
       id: 1,
-      title: "🚀 Next.js 16 Innovation",
+      title: "Next.js 16 Innovation",
       description: "Experience the latest in web development with Next.js 16, featuring enhanced performance and developer experience.",
       alt: "Next.js 16 technology showcase"
     },
     {
       id: 2,
-      title: "🌍 Global Reach",
+      title: "Global Reach",
       description: "Connect with audiences worldwide through our multilingual platform supporting English, Vietnamese, and Japanese.",
       alt: "Global connectivity illustration"
     },
     {
       id: 3,
-      title: "⚡ Lightning Fast Performance",
+      title: "Lightning Fast Performance",
       description: "Optimized for speed with Core Web Vitals excellence, ensuring your users have the best experience possible.",
       alt: "Performance optimization graphics"
     },
     {
       id: 4,
-      title: "🎨 Modern UI/UX Design",
+      title: "Modern UI/UX Design",
       description: "Beautiful, responsive designs built with Tailwind CSS and modern design principles for exceptional user experience.",
       alt: "Modern UI/UX design showcase"
     },
     {
       id: 5,
-      title: "🔒 Enterprise Security",
+      title: "Enterprise Security",
       description: "Bank-grade security measures protect your data and ensure compliance with industry standards and regulations.",
       alt: "Security and compliance illustration"
     },
     {
       id: 6,
-      title: "📱 Mobile-First Approach",
+      title: "Mobile-First Approach",
       description: "Responsive design that works perfectly on all devices, from mobile phones to desktop computers and tablets.",
       alt: "Mobile responsive design"
     },
     {
       id: 7,
-      title: "🤖 AI-Powered Features",
+      title: "AI-Powered Features",
       description: "Leverage artificial intelligence for enhanced user experiences, automated content generation, and smart recommendations.",
       alt: "AI technology integration"
     },
     {
       id: 8,
-      title: "📊 Advanced Analytics",
+      title: "Advanced Analytics",
       description: "Comprehensive analytics and insights to help you understand your users and optimize your business performance.",
       alt: "Data analytics dashboard"
     }
@@ -131,11 +131,11 @@ export default function HeroSlider() {
                     {slide.description}
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <button className="px-8 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors shadow-lg">
-                      Learn More
+                    <button className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-lg">
+                      Contact Sales
                     </button>
-                    <button className="px-8 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-blue-600 transition-colors">
-                      Get Started
+                    <button className="px-8 py-3 border border-white text-white font-semibold rounded-lg hover:bg-white/35 hover:text-white transition-colors">
+                      Call Now
                     </button>
                   </div>
                 </div>

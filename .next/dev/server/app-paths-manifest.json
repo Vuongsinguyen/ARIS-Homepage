@@ -1,1 +1,6 @@
-{}
+{
+  "/[locale]/page": "app/[locale]/page.js",
+  "/[locale]/use-cases/page": "app/[locale]/use-cases/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/performance/route": "app/api/performance/route.js"
+}

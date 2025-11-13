@@ -504,9 +504,12 @@ export default function Home() {
               <div className="text-center mt-8">
                 <Link
                   href={`/${locale}/services`}
-                  className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
+                  className="inline-flex items-center px-6 py-3 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                 >
-                  View All Services
+                  <span>View All Services</span>
+                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
                 </Link>
               </div>
             </div>
@@ -796,9 +799,9 @@ export default function Home() {
                         loop
                         muted
                         playsInline
-                        poster="/videos/ecommerce-poster.jpg"
+                        poster="/video/vid1-poster.jpg"
                       >
-                        <source src="/videos/ecommerce.mp4" type="video/mp4" />
+                        <source src="/video/vid1.mp4" type="video/mp4" />
                       </video>
                       
                       {/* Dark Overlay */}
@@ -885,9 +888,9 @@ export default function Home() {
                         loop
                         muted
                         playsInline
-                        poster="/videos/saas-poster.jpg"
+                        poster="/video/vid2-poster.jpg"
                       >
-                        <source src="/videos/saas.mp4" type="video/mp4" />
+                        <source src="/video/vid2.mp4" type="video/mp4" />
                       </video>
                       <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors"></div>
                       <button
@@ -967,9 +970,9 @@ export default function Home() {
                         loop
                         muted
                         playsInline
-                        poster="/videos/cms-poster.jpg"
+                        poster="/video/vid3-poster.jpg"
                       >
-                        <source src="/videos/cms.mp4" type="video/mp4" />
+                        <source src="/video/vid3.mp4" type="video/mp4" />
                       </video>
                       <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors"></div>
                       <button
@@ -1049,9 +1052,9 @@ export default function Home() {
                         loop
                         muted
                         playsInline
-                        poster="/videos/fintech-poster.jpg"
+                        poster="/video/vid4-poster.jpg"
                       >
-                        <source src="/videos/fintech.mp4" type="video/mp4" />
+                        <source src="/video/vid4.mp4" type="video/mp4" />
                       </video>
                       <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors"></div>
                       <button
@@ -1131,9 +1134,9 @@ export default function Home() {
                         loop
                         muted
                         playsInline
-                        poster="/videos/healthcare-poster.jpg"
+                        poster="/video/vid5-poster.jpg"
                       >
-                        <source src="/videos/healthcare.mp4" type="video/mp4" />
+                        <source src="/video/vid5.mp4" type="video/mp4" />
                       </video>
                       <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors"></div>
                       <button
@@ -1213,9 +1216,9 @@ export default function Home() {
                         loop
                         muted
                         playsInline
-                        poster="/videos/education-poster.jpg"
+                        poster="/video/vid6-poster.jpg"
                       >
-                        <source src="/videos/education.mp4" type="video/mp4" />
+                        <source src="/video/vid6.mp4" type="video/mp4" />
                       </video>
                       <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors"></div>
                       <button

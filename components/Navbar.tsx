@@ -86,15 +86,15 @@ export default function Navbar() {
 
               {/* Dropdown Menu */}
               {servicesDropdownOpen && (
-                <div className="absolute top-full left-0 mt-1 w-96 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg py-4 z-50">
-                  <div className="grid grid-cols-3 gap-4 px-4">
+                <div className="absolute top-full left-0 mt-1 w-[32rem] bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg py-6 z-50">
+                  <div className="grid grid-cols-3 gap-6 px-6">
                     {/* Column 1 */}
                     <div className="space-y-1">
                       {servicesItems.slice(0, 3).map((service) => (
                         <Link
                           key={service.href}
                           href={service.href}
-                          className={`flex items-center gap-2 px-3 py-2 text-sm font-medium rounded transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${
+                          className={`flex items-center gap-2 px-4 py-3 text-sm font-medium rounded transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${
                             pathname === service.href
                               ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
                               : 'text-gray-700 dark:text-gray-300'
@@ -113,7 +113,7 @@ export default function Navbar() {
                         <Link
                           key={service.href}
                           href={service.href}
-                          className={`flex items-center gap-2 px-3 py-2 text-sm font-medium rounded transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${
+                          className={`flex items-center gap-2 px-4 py-3 text-sm font-medium rounded transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${
                             pathname === service.href
                               ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
                               : 'text-gray-700 dark:text-gray-300'
@@ -146,7 +146,7 @@ export default function Navbar() {
                     </div>
                   </div>
 
-                  <div className="border-t border-gray-200 dark:border-gray-700 mt-4 pt-3 px-4">
+                  <div className="border-t border-gray-200 dark:border-gray-700 mt-6 pt-4 px-6">
                     <Link
                       href={`/${locale}/services`}
                       className="flex items-center justify-center gap-2 px-3 py-2 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 rounded transition-colors"

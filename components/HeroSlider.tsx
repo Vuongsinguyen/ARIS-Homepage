@@ -8,7 +8,6 @@ interface Slide {
   id: number;
   title: string;
   description: string;
-  image: string;
   alt: string;
 }
 
@@ -23,56 +22,48 @@ export default function HeroSlider() {
       id: 1,
       title: "🚀 Next.js 16 Innovation",
       description: "Experience the latest in web development with Next.js 16, featuring enhanced performance and developer experience.",
-      image: "/api/placeholder/800/400?text=Next.js+16",
       alt: "Next.js 16 technology showcase"
     },
     {
       id: 2,
       title: "🌍 Global Reach",
       description: "Connect with audiences worldwide through our multilingual platform supporting English, Vietnamese, and Japanese.",
-      image: "/api/placeholder/800/400?text=Global+Reach",
       alt: "Global connectivity illustration"
     },
     {
       id: 3,
       title: "⚡ Lightning Fast Performance",
       description: "Optimized for speed with Core Web Vitals excellence, ensuring your users have the best experience possible.",
-      image: "/api/placeholder/800/400?text=Fast+Performance",
       alt: "Performance optimization graphics"
     },
     {
       id: 4,
       title: "🎨 Modern UI/UX Design",
       description: "Beautiful, responsive designs built with Tailwind CSS and modern design principles for exceptional user experience.",
-      image: "/api/placeholder/800/400?text=Modern+Design",
       alt: "Modern UI/UX design showcase"
     },
     {
       id: 5,
       title: "🔒 Enterprise Security",
       description: "Bank-grade security measures protect your data and ensure compliance with industry standards and regulations.",
-      image: "/api/placeholder/800/400?text=Security",
       alt: "Security and compliance illustration"
     },
     {
       id: 6,
       title: "📱 Mobile-First Approach",
       description: "Responsive design that works perfectly on all devices, from mobile phones to desktop computers and tablets.",
-      image: "/api/placeholder/800/400?text=Mobile+First",
       alt: "Mobile responsive design"
     },
     {
       id: 7,
       title: "🤖 AI-Powered Features",
       description: "Leverage artificial intelligence for enhanced user experiences, automated content generation, and smart recommendations.",
-      image: "/api/placeholder/800/400?text=AI+Powered",
       alt: "AI technology integration"
     },
     {
       id: 8,
       title: "📊 Advanced Analytics",
       description: "Comprehensive analytics and insights to help you understand your users and optimize your business performance.",
-      image: "/api/placeholder/800/400?text=Analytics",
       alt: "Data analytics dashboard"
     }
   ];
@@ -104,9 +95,24 @@ export default function HeroSlider() {
     : 'bg-gradient-to-br from-blue-400 via-purple-400 to-indigo-500';
 
   return (
-    <section className={`relative w-full overflow-hidden ${backgroundClass}`}>
+    <section className="relative w-full overflow-hidden" suppressHydrationWarning>
+      {/* Background Video - Single video for all slides */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover"
+        autoPlay
+        loop
+        muted
+        playsInline
+        poster="/slider-videos/hero-background-poster.jpg"
+      >
+        <source src="/slider-videos/hero-background.mp4" type="video/mp4" />
+      </video>
+
+      {/* Dark Overlay */}
+      <div className={`absolute inset-0 ${theme === 'dark' ? 'bg-black/60' : 'bg-black/40'} z-10`} />
+
       {/* Slider Container */}
-      <div className="relative h-[400px] md:h-[500px] lg:h-[600px]">
+      <div className="relative h-[400px] md:h-[500px] lg:h-[600px] z-20">
         {slides.map((slide, index) => (
           <div
             key={slide.id}
@@ -114,16 +120,6 @@ export default function HeroSlider() {
               index === currentSlide ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            {/* Background Image with Overlay */}
-            <div className={`absolute inset-0 ${theme === 'dark' ? 'bg-black/40' : 'bg-black/20'}`} />
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{
-                backgroundImage: `url(${slide.image})`,
-                backgroundBlendMode: 'overlay'
-              }}
-            />
-
             {/* Content */}
             <div className="relative z-10 flex items-center justify-center h-full">
               <div className="container mx-auto px-4 sm:px-6 lg:px-8">

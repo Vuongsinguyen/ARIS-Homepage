@@ -110,6 +110,14 @@
     animation: fadeIn 1s ease-out 0.3s forwards;
     opacity: 0;
   }
+
+  .animate-scroll {
+    animation: scroll 40s linear infinite;
+  }
+
+  .animate-scroll:hover {
+    animation-play-state: paused;
+  }
 }
 
 @keyframes fadeIn {
@@ -148,4 +156,38 @@
   100% {
     transform: translateX(0%);
   }
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-25%);
+  }
+}
+
+/* Heading gradient mask animation */
+.gradient-heading {
+  padding-block: 0.1em;
+  margin-block: -0.1em;
+  background-image: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    #cab1ff 0%,
+    #146ef5 15%,
+    currentColor 35%
+  );
+  background-size: 100% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.5s ease-out;
+}
+
+.gradient-heading::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: var(--gradient-opacity, 1);
+  transition: opacity 0.5s ease-out;
 }

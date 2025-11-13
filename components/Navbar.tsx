@@ -150,17 +150,6 @@ export default function Navbar() {
                       ))}
                     </div>
                   </div>
-
-                  <div className="border-t border-gray-200 dark:border-gray-700 mt-6 pt-4 px-8">
-                    <Link
-                      href={`/${locale}/services`}
-                      className="flex items-center justify-center gap-2 px-3 py-2 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 rounded transition-colors"
-                      onClick={() => setServicesDropdownOpen(false)}
-                    >
-                      <span className="text-sm">📋</span>
-                      <span>View All Services</span>
-                    </Link>
-                  </div>
                       </div>
                     </div>
                   </div>

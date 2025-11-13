@@ -145,51 +145,6 @@ export default function HeroSlider() {
         ))}
       </div>
 
-      {/* Navigation Arrows */}
-      <button
-        onClick={prevSlide}
-        className={`absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full transition-colors backdrop-blur-sm ${
-          theme === 'dark' 
-            ? 'bg-white/20 hover:bg-white/30 text-white' 
-            : 'bg-black/20 hover:bg-black/30 text-black'
-        }`}
-        aria-label="Previous slide"
-      >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-        </svg>
-      </button>
-
-      <button
-        onClick={nextSlide}
-        className={`absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full transition-colors backdrop-blur-sm ${
-          theme === 'dark' 
-            ? 'bg-white/20 hover:bg-white/30 text-white' 
-            : 'bg-black/20 hover:bg-black/30 text-black'
-        }`}
-        aria-label="Next slide"
-      >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-        </svg>
-      </button>
-
-      {/* Slide Indicators */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex space-x-3">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-colors ${
-              index === currentSlide 
-                ? (theme === 'dark' ? 'bg-white' : 'bg-black')
-                : (theme === 'dark' ? 'bg-white/50 hover:bg-white/75' : 'bg-black/50 hover:bg-black/75')
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
-      </div>
-
       {/* Progress Bar */}
       <div className={`absolute bottom-0 left-0 right-0 h-1 ${theme === 'dark' ? 'bg-white/20' : 'bg-black/20'} z-10`}>
         <div
@@ -198,6 +153,29 @@ export default function HeroSlider() {
             width: `${((currentSlide + 1) / slides.length) * 100}%`
           }}
         />
+      </div>
+
+      {/* Customer Logos Carousel */}
+      <div className="absolute bottom-5 left-0 right-0 z-20 overflow-hidden">
+        <div className="flex animate-scroll whitespace-nowrap">
+          {/* Multiple sets for seamless infinite loop */}
+          {[...Array(4)].map((_, setIndex) => (
+            <div key={setIndex} className="flex gap-12 items-center shrink-0 px-6">
+              <img src="/cust/cus1.png" alt="Customer 1" className="h-12 w-auto opacity-100 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+              <img src="/cust/cus2.png" alt="Customer 2" className="h-12 w-auto opacity-100 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+              <img src="/cust/cus3.png" alt="Customer 3" className="h-12 w-auto opacity-100 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+              <img src="/cust/cus4.png" alt="Customer 4" className="h-12 w-auto opacity-100 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+              <img src="/cust/cus5.png" alt="Customer 5" className="h-12 w-auto opacity-100 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+              <img src="/cust/cus6.png" alt="Customer 6" className="h-12 w-auto opacity-100 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+              <img src="/cust/cus7.png" alt="Customer 7" className="h-12 w-auto opacity-100 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+              <img src="/cust/cus8.png" alt="Customer 8" className="h-12 w-auto opacity-100 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+              <img src="/cust/cus9.png" alt="Customer 9" className="h-12 w-auto opacity-100 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+              <img src="/cust/cus10.png" alt="Customer 10" className="h-12 w-auto opacity-100 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+              <img src="/cust/cus11.png" alt="Customer 11" className="h-12 w-auto opacity-100 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+              <img src="/cust/cus12.png" alt="Customer 12" className="h-12 w-auto opacity-100 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

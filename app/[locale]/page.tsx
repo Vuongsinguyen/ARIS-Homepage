@@ -13,6 +13,7 @@ import 'swiper/css/navigation';
 
 import Navbar from '@/components/Navbar';
 import HeroSlider from '@/components/HeroSlider';
+import GradientHeading from '@/components/GradientHeading';
 
 // FAQ Item Component
 function FAQItem({ question, answer }: { question: string; answer: string }) {
@@ -201,163 +202,16 @@ export default function Home() {
         {/* Hero Slider */}
         <HeroSlider />
 
-        {/* Customers Section */}
-        <section className="py-12 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
-          <div className="w-full">
-            {/* Customer Logos Marquee - Row 1 (Right to Left) */}
-            <div className="relative overflow-hidden mb-6">
-              <div className="flex items-center space-x-8 animate-[marquee-customer_30s_linear_infinite]">
-                {/* First set of logos */}
-                <div className="flex items-center space-x-8 flex-shrink-0">
-                  <div className="w-32 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
-                    <span className="text-gray-500 dark:text-gray-400 font-bold text-sm">Spotify</span>
-                  </div>
-                  <div className="w-32 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
-                    <span className="text-gray-500 dark:text-gray-400 font-bold text-sm">MoMA</span>
-                  </div>
-                  <div className="w-32 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
-                    <span className="text-gray-500 dark:text-gray-400 font-bold text-sm">Arc'teryx</span>
-                  </div>
-                  <div className="w-32 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
-                    <span className="text-gray-500 dark:text-gray-400 font-bold text-sm">Complex</span>
-                  </div>
-                  <div className="w-32 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
-                    <span className="text-gray-500 dark:text-gray-400 font-bold text-sm">Nordstrom</span>
-                  </div>
-                  <div className="w-32 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
-                    <span className="text-gray-500 dark:text-gray-400 font-bold text-sm">Rona</span>
-                  </div>
-                </div>
-
-                {/* Duplicate set for seamless loop */}
-                <div className="flex items-center space-x-8 flex-shrink-0">
-                  <div className="w-32 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
-                    <span className="text-gray-500 dark:text-gray-400 font-bold text-sm">Spotify</span>
-                  </div>
-                  <div className="w-32 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
-                    <span className="text-gray-500 dark:text-gray-400 font-bold text-sm">MoMA</span>
-                  </div>
-                  <div className="w-32 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
-                    <span className="text-gray-500 dark:text-gray-400 font-bold text-sm">Arc'teryx</span>
-                  </div>
-                  <div className="w-32 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
-                    <span className="text-gray-500 dark:text-gray-400 font-bold text-sm">Complex</span>
-                  </div>
-                  <div className="w-32 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
-                    <span className="text-gray-500 dark:text-gray-400 font-bold text-sm">Nordstrom</span>
-                  </div>
-                  <div className="w-32 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
-                    <span className="text-gray-500 dark:text-gray-400 font-bold text-sm">Rona</span>
-                  </div>
-                </div>
-
-                {/* Third set for seamless loop */}
-                <div className="flex items-center space-x-8 flex-shrink-0">
-                  <div className="w-32 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
-                    <span className="text-gray-500 dark:text-gray-400 font-bold text-sm">Spotify</span>
-                  </div>
-                  <div className="w-32 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
-                    <span className="text-gray-500 dark:text-gray-400 font-bold text-sm">MoMA</span>
-                  </div>
-                  <div className="w-32 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
-                    <span className="text-gray-500 dark:text-gray-400 font-bold text-sm">Arc'teryx</span>
-                  </div>
-                  <div className="w-32 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
-                    <span className="text-gray-500 dark:text-gray-400 font-bold text-sm">Complex</span>
-                  </div>
-                  <div className="w-32 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
-                    <span className="text-gray-500 dark:text-gray-400 font-bold text-sm">Nordstrom</span>
-                  </div>
-                  <div className="w-32 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
-                    <span className="text-gray-500 dark:text-gray-400 font-bold text-sm">Rona</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Customer Logos Marquee - Row 2 (Left to Right - Reverse) */}
-            <div className="relative overflow-hidden">
-              <div className="flex items-center space-x-8 animate-[marquee-customer-reverse_30s_linear_infinite]">
-                {/* First set of logos */}
-                <div className="flex items-center space-x-8 flex-shrink-0">
-                  <div className="w-32 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
-                    <span className="text-gray-500 dark:text-gray-400 font-bold text-sm">Shopify</span>
-                  </div>
-                  <div className="w-32 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
-                    <span className="text-gray-500 dark:text-gray-400 font-bold text-sm">Unity</span>
-                  </div>
-                  <div className="w-32 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
-                    <span className="text-gray-500 dark:text-gray-400 font-bold text-sm">Loveholidays</span>
-                  </div>
-                  <div className="w-32 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
-                    <span className="text-gray-500 dark:text-gray-400 font-bold text-sm">Mejuri</span>
-                  </div>
-                  <div className="w-32 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
-                    <span className="text-gray-500 dark:text-gray-400 font-bold text-sm">Replit</span>
-                  </div>
-                  <div className="w-32 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
-                    <span className="text-gray-500 dark:text-gray-400 font-bold text-sm">Carhartt</span>
-                  </div>
-                </div>
-
-                {/* Duplicate set for seamless loop */}
-                <div className="flex items-center space-x-8 flex-shrink-0">
-                  <div className="w-32 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
-                    <span className="text-gray-500 dark:text-gray-400 font-bold text-sm">Shopify</span>
-                  </div>
-                  <div className="w-32 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
-                    <span className="text-gray-500 dark:text-gray-400 font-bold text-sm">Unity</span>
-                  </div>
-                  <div className="w-32 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
-                    <span className="text-gray-500 dark:text-gray-400 font-bold text-sm">Loveholidays</span>
-                  </div>
-                  <div className="w-32 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
-                    <span className="text-gray-500 dark:text-gray-400 font-bold text-sm">Mejuri</span>
-                  </div>
-                  <div className="w-32 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
-                    <span className="text-gray-500 dark:text-gray-400 font-bold text-sm">Replit</span>
-                  </div>
-                  <div className="w-32 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
-                    <span className="text-gray-500 dark:text-gray-400 font-bold text-sm">Carhartt</span>
-                  </div>
-                </div>
-
-                {/* Third set for seamless loop */}
-                <div className="flex items-center space-x-8 flex-shrink-0">
-                  <div className="w-32 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
-                    <span className="text-gray-500 dark:text-gray-400 font-bold text-sm">Shopify</span>
-                  </div>
-                  <div className="w-32 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
-                    <span className="text-gray-500 dark:text-gray-400 font-bold text-sm">Unity</span>
-                  </div>
-                  <div className="w-32 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
-                    <span className="text-gray-500 dark:text-gray-400 font-bold text-sm">Loveholidays</span>
-                  </div>
-                  <div className="w-32 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
-                    <span className="text-gray-500 dark:text-gray-400 font-bold text-sm">Mejuri</span>
-                  </div>
-                  <div className="w-32 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
-                    <span className="text-gray-500 dark:text-gray-400 font-bold text-sm">Replit</span>
-                  </div>
-                  <div className="w-32 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
-                    <span className="text-gray-500 dark:text-gray-400 font-bold text-sm">Carhartt</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Services Section */}
         <section className="py-16 bg-gray-50 dark:bg-gray-900">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-[1330px] mx-auto">
               <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-                  Our Services
-                </h2>
+                <GradientHeading className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+                  Accelerate Your Growth with Our DX Services
+                </GradientHeading>
                 <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                  Comprehensive digital solutions across 9 specialized service areas to accelerate your business growth and innovation
+                  A full range of digital solutions designed to drive your business forward.
                 </p>
               </div>
 
@@ -365,9 +219,6 @@ export default function Home() {
                 {/* Service Card 1 - One-Stop Services */}
                 <Link href={`/${locale}/services/one-stop-services`} className="block group">
                   <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-amber-400 dark:hover:border-amber-500 hover:shadow-lg transition-all duration-300 h-full">
-                    <div className="w-12 h-12 bg-amber-100 dark:bg-amber-900 rounded-lg flex items-center justify-center mb-4 group-hover:bg-amber-200 dark:group-hover:bg-amber-800 transition-colors">
-                      <span className="text-2xl">🏆</span>
-                    </div>
                     <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">One-Stop Services</h3>
                     <p className="text-gray-600 dark:text-gray-400 mb-4">
                       Comprehensive end-to-end software development and deployment solutions.
@@ -381,9 +232,6 @@ export default function Home() {
                 {/* Service Card 2 - System Development */}
                 <Link href={`/${locale}/services/system-development`} className="block group">
                   <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg transition-all duration-300 h-full">
-                    <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-200 dark:group-hover:bg-blue-800 transition-colors">
-                      <span className="text-2xl">🖥️</span>
-                    </div>
                     <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">System Development</h3>
                     <p className="text-gray-600 dark:text-gray-400 mb-4">
                       Custom system and application development services.
@@ -397,9 +245,6 @@ export default function Home() {
                 {/* Service Card 3 - Mobile Development */}
                 <Link href={`/${locale}/services/mobile-development`} className="block group">
                   <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-green-400 dark:hover:border-green-500 hover:shadow-lg transition-all duration-300 h-full">
-                    <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mb-4 group-hover:bg-green-200 dark:group-hover:bg-green-800 transition-colors">
-                      <span className="text-2xl">📱</span>
-                    </div>
                     <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Mobile Development</h3>
                     <p className="text-gray-600 dark:text-gray-400 mb-4">
                       Mobile application development across various domains.
@@ -413,9 +258,6 @@ export default function Home() {
                 {/* Service Card 4 - Quality Control */}
                 <Link href={`/${locale}/services/quality-control`} className="block group">
                   <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-red-400 dark:hover:border-red-500 hover:shadow-lg transition-all duration-300 h-full">
-                    <div className="w-12 h-12 bg-red-100 dark:bg-red-900 rounded-lg flex items-center justify-center mb-4 group-hover:bg-red-200 dark:group-hover:bg-red-800 transition-colors">
-                      <span className="text-2xl">✅</span>
-                    </div>
                     <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Quality Control</h3>
                     <p className="text-gray-600 dark:text-gray-400 mb-4">
                       Comprehensive software testing and quality assurance.
@@ -429,9 +271,6 @@ export default function Home() {
                 {/* Service Card 5 - UI/UX Design */}
                 <Link href={`/${locale}/services/ui-ux-design`} className="block group">
                   <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-purple-400 dark:hover:border-purple-500 hover:shadow-lg transition-all duration-300 h-full">
-                    <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-lg flex items-center justify-center mb-4 group-hover:bg-purple-200 dark:group-hover:bg-purple-800 transition-colors">
-                      <span className="text-2xl">🎨</span>
-                    </div>
                     <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">UI/UX Design</h3>
                     <p className="text-gray-600 dark:text-gray-400 mb-4">
                       User interface and user experience design services.
@@ -445,9 +284,6 @@ export default function Home() {
                 {/* Service Card 6 - Research & Development */}
                 <Link href={`/${locale}/services/research-development`} className="block group">
                   <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-indigo-400 dark:hover:border-indigo-500 hover:shadow-lg transition-all duration-300 h-full">
-                    <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-lg flex items-center justify-center mb-4 group-hover:bg-indigo-200 dark:group-hover:bg-indigo-800 transition-colors">
-                      <span className="text-2xl">�</span>
-                    </div>
                     <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Research & Development</h3>
                     <p className="text-gray-600 dark:text-gray-400 mb-4">
                       Collaborative research and prototype development.
@@ -461,9 +297,6 @@ export default function Home() {
                 {/* Service Card 7 - Digital Transformation */}
                 <Link href={`/${locale}/services/digital-transformation`} className="block group">
                   <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-cyan-400 dark:hover:border-cyan-500 hover:shadow-lg transition-all duration-300 h-full">
-                    <div className="w-12 h-12 bg-cyan-100 dark:bg-cyan-900 rounded-lg flex items-center justify-center mb-4 group-hover:bg-cyan-200 dark:group-hover:bg-cyan-800 transition-colors">
-                      <span className="text-2xl">🚀</span>
-                    </div>
                     <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Digital Transformation</h3>
                     <p className="text-gray-600 dark:text-gray-400 mb-4">
                       Digital transformation and technology integration.
@@ -477,9 +310,6 @@ export default function Home() {
                 {/* Service Card 8 - BPO Services */}
                 <Link href={`/${locale}/services/bpo-services`} className="block group">
                   <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-orange-400 dark:hover:border-orange-500 hover:shadow-lg transition-all duration-300 h-full">
-                    <div className="w-12 h-12 bg-orange-100 dark:bg-orange-900 rounded-lg flex items-center justify-center mb-4 group-hover:bg-orange-200 dark:group-hover:bg-orange-800 transition-colors">
-                      <span className="text-2xl">�</span>
-                    </div>
                     <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">BPO Services</h3>
                     <p className="text-gray-600 dark:text-gray-400 mb-4">
                       Business process digitization and outsourcing.
@@ -493,9 +323,6 @@ export default function Home() {
                 {/* Service Card 9 - System Maintenance */}
                 <Link href={`/${locale}/services/system-maintenance`} className="block group">
                   <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-teal-400 dark:hover:border-teal-500 hover:shadow-lg transition-all duration-300 h-full">
-                    <div className="w-12 h-12 bg-teal-100 dark:bg-teal-900 rounded-lg flex items-center justify-center mb-4 group-hover:bg-teal-200 dark:group-hover:bg-teal-800 transition-colors">
-                      <span className="text-2xl">🔧</span>
-                    </div>
                     <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">System Maintenance</h3>
                     <p className="text-gray-600 dark:text-gray-400 mb-4">
                       System maintenance and operational support.
@@ -1190,9 +1017,12 @@ export default function Home() {
               <div className="text-center mt-8">
                 <Link
                   href={`/${locale}/products`}
-                  className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
+                  className="inline-flex items-center px-6 py-3 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                 >
-                  View All Products
+                  <span>View All Products</span>
+                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
                 </Link>
               </div>
             </div>
@@ -1314,9 +1144,22 @@ export default function Home() {
               <div className="text-center mt-12">
                 <Link
                   href={`/${locale}/news`}
-                  className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
+                  className="inline-flex items-center px-6 py-3 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                 >
                   View All News
+                  <svg
+                    className="ml-2 w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
                 </Link>
               </div>
             </div>

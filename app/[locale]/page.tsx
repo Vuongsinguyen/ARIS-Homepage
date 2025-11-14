@@ -60,9 +60,6 @@ function PhotoGallery() {
               src={photo.src}
               alt={photo.alt}
               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-              onError={(e) => {
-                e.currentTarget.src = `data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDMwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjRjNGNEY2Ii8+Cjx0ZXh0IHg9IjE1MCIgeT0iMTUwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM5Q0EzQUYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkltYWdlICR7photo.idfTwvdGV4dD4KPC9zdmc+`;
-              }}
             />
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
               <svg className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -181,7 +178,32 @@ export default function Home() {
   const params = useParams();
   const locale = params.locale as string || 'en';
   
-  const [selectedTeam, setSelectedTeam] = useState('marketing');
+  const [selectedTeam, setSelectedTeam] = useState<'marketing' | 'design' | 'engineering' | 'agencies' | 'skills'>('marketing');
+  const [dropdownWidth, setDropdownWidth] = useState('auto');
+
+  useEffect(() => {
+    // Calculate width based on selected option text
+    const options = {
+      'marketing': 'ARIS VIETNAM',
+      'design': 'CEO MESSAGES',
+      'engineering': 'LAB-BASED',
+      'agencies': 'SUSTAINABILITY',
+      'skills': 'SKILLS & ABILITIES'
+    };
+    const selectedText = options[selectedTeam as keyof typeof options];
+    
+    // Create a temporary element to measure text width
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+    if (context) {
+      // Match the actual font size used in the select (47px for better visibility)
+      context.font = 'bold 47px system-ui, -apple-system, sans-serif';
+      const textWidth = context.measureText(selectedText).width;
+      
+      // Add padding (30px left + 64px right) + arrow space (60px) + buffer (-10px)
+      setDropdownWidth(`${textWidth + 144}px`);
+    }
+  }, [selectedTeam]);
   const [activeProductCategory, setActiveProductCategory] = useState('all');
   const [activeOffice, setActiveOffice] = useState('vietnam-hcm');
 
@@ -502,13 +524,14 @@ export default function Home() {
                 {/* Left Column - Title and Selector */}
                 <div>
                   <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-8">
-                    Everything{' '}
-                    <div className="relative inline-block">
+                    Introducing our
+                    <br />
+                    <span className="relative inline-block" style={{ width: dropdownWidth }}>
                       <select
                         value={selectedTeam}
-                        onChange={(e) => setSelectedTeam(e.target.value)}
-                        className="appearance-none bg-transparent border-2 border-blue-500 rounded-lg px-4 py-2 pr-10 text-blue-600 dark:text-blue-400 font-bold cursor-pointer hover:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all mt-[20px] mb-[15px] w-auto"
-                        style={{ width: 'fit-content' }}
+                        onChange={(e) => setSelectedTeam(e.target.value as 'marketing' | 'design' | 'engineering' | 'agencies' | 'skills')}
+                        className="appearance-none bg-transparent border-2 border-blue-500 rounded-lg pl-[30px] pr-16 py-4 text-blue-600 dark:text-blue-400 font-bold cursor-pointer hover:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all my-4 w-full text-[47px]"
+                        style={{ minWidth: dropdownWidth }}
                       >
                         <option value="marketing">ARIS VIETNAM</option>
                         <option value="design">CEO MESSAGES</option>
@@ -517,102 +540,136 @@ export default function Home() {
                         <option value="skills">SKILLS & ABILITIES</option>
                       </select>
                       <svg
-                        className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-blue-600 dark:text-blue-400 pointer-events-none"
+                        className="absolute right-6 top-1/2 -translate-y-1/2 w-6 h-6 text-blue-600 dark:text-blue-400 pointer-events-none"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
-                    </div>
+                    </span>
                     <br />
-                    love about
+                    with Pride
                   </h2>
 
                   <div className="space-y-4 mt-8">
                   </div>
                 </div>
 
-                {/* Right Column - Features List */}
-                <div className={selectedTeam === 'agencies' || selectedTeam === 'design' ? '' : 'bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 border border-gray-200 dark:border-gray-700'}>
-                  <div className={selectedTeam === 'agencies' || selectedTeam === 'design' ? '' : 'space-y-6'}>
-                    {selectedTeam === 'marketing' && (
-                      <>
-                        <div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700">
-                          <span className="text-gray-900 dark:text-white font-medium">About Us</span>
-                          <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </div>
-                        <div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700">
-                          <span className="text-gray-900 dark:text-white font-medium">Our Vision - Mission and Core Values</span>
-                          <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </div>
-                        <div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700">
-                          <span className="text-gray-900 dark:text-white font-medium">Timelines</span>
-                          <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </div>
-                        <div className="flex items-center justify-between py-3">
-                          <span className="text-gray-900 dark:text-white font-medium">Explore innovation</span>
-                          <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </div>
-                      </>
-                    )}
+                {/* Right Column - Features List, CEO Message, or Skills Chart */}
+                {selectedTeam === 'design' ? (
+                  <div className="relative h-96 rounded-lg overflow-hidden shadow-lg group cursor-pointer">
+                    {/* Background Image */}
+                    <img
+                      src="/ceo.jpg"
+                      alt="CEO Background"
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
 
-                    {selectedTeam === 'design' && (
-                      <div className="relative h-96 rounded-lg overflow-hidden shadow-lg">
-                        {/* Background Image */}
-                        <img
-                          src="/ceo.jpg"
-                          alt="CEO Background"
-                          className="absolute inset-0 w-full h-full object-cover"
-                          onError={(e) => {
-                            e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjM4NCIgdmlld0JveD0iMCAwIDQwMCAzODQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMzg0IiBmaWxsPSIjRjNGNEY2Ii8+CjxjaXJjbGUgY3g9IjIwMCIgY3k9IjEyMCIgcj0iNDAiIGZpbGw9IiM5Q0EzQUYiLz4KPHBhdGggZD0iTTgwIDI0MGMzMCAwLTI0IDQwIDAgNDBoMjQwYzAgMC0yNC00MCAwLTQweiIgZmlsbD0iIzlDQTNBRiIvPgo8L3N2Zz4K';
-                          }}
-                        />
-
-                        {/* Dark Overlay */}
-                        <div className="absolute inset-0 bg-black/50"></div>
-
-                        {/* Content Overlay */}
-                        <div className="relative h-full flex flex-col justify-between text-center text-white p-8">
-                          {/* CEO Content - Upper Part */}
-                          <div className="flex-1 flex flex-col justify-center">
-                            {/* CEO Name and Title */}
-                            <div className="mb-6">
-                              <h3 className="text-3xl font-bold mb-2">Nhat Tran</h3>
-                              <p className="text-xl opacity-90">Chief Executive Officer</p>
-                            </div>
-
-                            {/* CEO Message */}
-                            <blockquote className="text-lg leading-relaxed max-w-2xl mx-auto opacity-90">
-                              "At ARIS, we believe in delivering quality software solutions that drive real business value.
-                              With over 15 years of experience, our team is committed to building trust through innovation,
-                              excellence, and unwavering dedication to our clients' success."
-                            </blockquote>
-                          </div>
-
-                          {/* View More Button - Lower Part */}
-                          <div className="mt-8">
-                            <Link
-                              href={`/${locale}/about`}
-                              className="inline-flex items-center px-6 py-3 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-medium rounded-lg transition-all shadow-lg hover:shadow-xl border border-white/30"
-                            >
-                              <span>View More</span>
-                              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                              </svg>
-                            </Link>
-                          </div>
+                    {/* Dark Overlay - Strip at bottom, expands upward on hover */}
+                    <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/90 via-black/70 to-transparent group-hover:h-full transition-all duration-500 ease-in-out flex flex-col justify-center text-center text-white p-8">
+                      {/* CEO Content - Inside the dark overlay */}
+                      <div className="flex-1 flex flex-col justify-center group cursor-pointer">
+                        {/* CEO Name and Title */}
+                        <div className="mb-6 text-right">
+                          <h3 className="text-3xl font-bold mb-2">Nhat Tran</h3>
+                          <p className="text-xl opacity-90">Chief Executive Officer</p>
                         </div>
+
+                        {/* CEO Message - Hidden by default, shown on hover */}
+                        <blockquote className="text-lg leading-relaxed max-w-2xl text-right opacity-0 group-hover:opacity-90 transition-opacity duration-300">
+                          At ARIS, we believe in delivering quality software solutions that drive real business value.
+                          With over 15 years of experience, our team is committed to building trust through innovation,
+                          excellence, and unwavering dedication to our clients&apos; success.
+                        </blockquote>
                       </div>
-                    )}
+                    </div>
+                  </div>
+                ) : selectedTeam === 'skills' ? (
+                  <ResponsiveContainer width="100%" height={500}>
+                    <RadarChart data={[
+                      { skill: 'Data Science', value: 4.0, fullMark: 5 },
+                      { skill: 'Analysis', value: 4.5, fullMark: 5 },
+                      { skill: 'Design', value: 4.0, fullMark: 5 },
+                      { skill: 'FE Dev', value: 4.0, fullMark: 5 },
+                      { skill: 'BE Dev', value: 5.0, fullMark: 5 },
+                      { skill: 'Quality Control', value: 4.75, fullMark: 5 },
+                      { skill: 'Mobile', value: 5.0, fullMark: 5 },
+                      { skill: 'Server', value: 4.0, fullMark: 5 },
+                    ]}>
+                      <PolarGrid 
+                        stroke="#D1D5DB" 
+                        className="dark:stroke-gray-600"
+                      />
+                      <PolarAngleAxis 
+                        dataKey="skill" 
+                        tick={{ 
+                          fill: '#374151',
+                          fontSize: 14,
+                          fontWeight: 600
+                        }}
+                        className="dark:fill-white"
+                      />
+                      <PolarRadiusAxis 
+                        angle={90} 
+                        domain={[0, 5]}
+                        tick={{ 
+                          fill: '#9CA3AF',
+                          fontSize: 12
+                        }}
+                      />
+                      <Radar
+                        name="Skills"
+                        dataKey="value"
+                        stroke="#3B82F6"
+                        fill="#3B82F6"
+                        fillOpacity={0.3}
+                        strokeWidth={2}
+                      />
+                      <Tooltip
+                        contentStyle={{
+                          backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                          border: '1px solid #E5E7EB',
+                          borderRadius: '8px',
+                          padding: '8px 12px'
+                        }}
+                        formatter={(value: number) => [`${value.toFixed(2)} / 5.0`, 'Score']}
+                      />
+                    </RadarChart>
+                  </ResponsiveContainer>
+                ) : selectedTeam === 'agencies' ? (
+                  <PhotoGallery />
+                ) : (
+                  <div className="bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 border border-gray-200 dark:border-gray-700">
+                    <div className="space-y-6">
+                      {selectedTeam === 'marketing' && (
+                        <>
+                          <div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700">
+                            <span className="text-gray-900 dark:text-white font-medium">About Us</span>
+                            <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                          </div>
+                          <div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700">
+                            <span className="text-gray-900 dark:text-white font-medium">Our Vision - Mission and Core Values</span>
+                            <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                          </div>
+                          <div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700">
+                            <span className="text-gray-900 dark:text-white font-medium">Timelines</span>
+                            <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                          </div>
+                          <div className="flex items-center justify-between py-3">
+                            <span className="text-gray-900 dark:text-white font-medium">Explore innovation</span>
+                            <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                          </div>
+                        </>
+                      )}
 
                     {selectedTeam === 'engineering' && (
                       <>
@@ -636,66 +693,9 @@ export default function Home() {
                         </div>
                       </>
                     )}
-
-                    {selectedTeam === 'agencies' && (
-                      <PhotoGallery />
-                    )}
-
-                    {selectedTeam === 'skills' && (
-                      <ResponsiveContainer width="100%" height={500}>
-                        <RadarChart data={[
-                          { skill: 'Data Science', value: 4.0, fullMark: 5 },
-                          { skill: 'Analysis', value: 4.5, fullMark: 5 },
-                          { skill: 'Design', value: 4.0, fullMark: 5 },
-                          { skill: 'FE Dev', value: 4.0, fullMark: 5 },
-                          { skill: 'BE Dev', value: 5.0, fullMark: 5 },
-                          { skill: 'Quality Control', value: 4.75, fullMark: 5 },
-                          { skill: 'Mobile', value: 5.0, fullMark: 5 },
-                          { skill: 'Server', value: 4.0, fullMark: 5 },
-                        ]}>
-                          <PolarGrid 
-                            stroke="#D1D5DB" 
-                            className="dark:stroke-gray-600"
-                          />
-                          <PolarAngleAxis 
-                            dataKey="skill" 
-                            tick={{ 
-                              fill: '#374151',
-                              fontSize: 14,
-                              fontWeight: 600
-                            }}
-                            className="dark:fill-white"
-                          />
-                          <PolarRadiusAxis 
-                            angle={90} 
-                            domain={[0, 5]}
-                            tick={{ 
-                              fill: '#9CA3AF',
-                              fontSize: 12
-                            }}
-                          />
-                          <Radar
-                            name="Skills"
-                            dataKey="value"
-                            stroke="#3B82F6"
-                            fill="#3B82F6"
-                            fillOpacity={0.5}
-                            strokeWidth={2}
-                          />
-                          <Tooltip
-                            contentStyle={{
-                              backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                              border: '1px solid #E5E7EB',
-                              borderRadius: '8px',
-                              padding: '8px 12px'
-                            }}
-                            formatter={(value: number) => [`${value.toFixed(2)} / 5.0`, 'Score']}
-                          />
-                        </RadarChart>
-                      </ResponsiveContainer>
-                    )}
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             </div>
           </div>
@@ -706,7 +706,7 @@ export default function Home() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-[1330px] mx-auto">
               <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
                   Use Cases
                 </h2>
                 <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
@@ -770,7 +770,7 @@ export default function Home() {
               >
                   {/* Use Case Card 1 - E-Commerce */}
                   <SwiperSlide>
-                    <div className="relative h-[32rem] rounded-2xl overflow-hidden shadow-lg transition-all duration-300 group cursor-pointer">
+                    <div className="relative h-[562px] rounded-2xl overflow-hidden shadow-lg transition-all duration-300 group cursor-pointer">
                       {/* Background Video */}
                       <video
                         className="absolute inset-0 w-full h-full object-cover"
@@ -835,7 +835,7 @@ export default function Home() {
 
                   {/* Use Case Card 2 - SaaS */}
                   <SwiperSlide>
-                    <div className="relative h-[32rem] rounded-2xl overflow-hidden shadow-lg transition-all duration-300 group cursor-pointer">
+                    <div className="relative h-[562px] rounded-2xl overflow-hidden shadow-lg transition-all duration-300 group cursor-pointer">
                       <video
                         className="absolute inset-0 w-full h-full object-cover"
                         loop
@@ -887,7 +887,7 @@ export default function Home() {
 
                   {/* Use Case Card 3 - Content Management */}
                   <SwiperSlide>
-                    <div className="relative h-[32rem] rounded-2xl overflow-hidden shadow-lg transition-all duration-300 group cursor-pointer">
+                    <div className="relative h-[562px] rounded-2xl overflow-hidden shadow-lg transition-all duration-300 group cursor-pointer">
                       <video
                         className="absolute inset-0 w-full h-full object-cover"
                         loop
@@ -939,7 +939,7 @@ export default function Home() {
 
                   {/* Use Case Card 4 - FinTech */}
                   <SwiperSlide>
-                    <div className="relative h-[32rem] rounded-2xl overflow-hidden shadow-lg transition-all duration-300 group cursor-pointer">
+                    <div className="relative h-[562px] rounded-2xl overflow-hidden shadow-lg transition-all duration-300 group cursor-pointer">
                       <video
                         className="absolute inset-0 w-full h-full object-cover"
                         loop
@@ -991,7 +991,7 @@ export default function Home() {
 
                   {/* Use Case Card 5 - Healthcare */}
                   <SwiperSlide>
-                    <div className="relative h-[32rem] rounded-2xl overflow-hidden shadow-lg transition-all duration-300 group cursor-pointer">
+                    <div className="relative h-[562px] rounded-2xl overflow-hidden shadow-lg transition-all duration-300 group cursor-pointer">
                       <video
                         className="absolute inset-0 w-full h-full object-cover"
                         loop
@@ -1043,7 +1043,7 @@ export default function Home() {
 
                   {/* Use Case Card 6 - Education */}
                   <SwiperSlide>
-                    <div className="relative h-[32rem] rounded-2xl overflow-hidden shadow-lg transition-all duration-300 group cursor-pointer">
+                    <div className="relative h-[562px] rounded-2xl overflow-hidden shadow-lg transition-all duration-300 group cursor-pointer">
                       <video
                         className="absolute inset-0 w-full h-full object-cover"
                         loop
@@ -1118,7 +1118,7 @@ export default function Home() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-[1330px] mx-auto">
               <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
                   Our Products
                 </h2>
                 <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
@@ -1182,7 +1182,7 @@ export default function Home() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-[1330px] mx-auto">
               <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
                   Latest News
                 </h2>
                 <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
@@ -1319,7 +1319,7 @@ export default function Home() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-[1330px] mx-auto">
               <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
                   Our Blog
                 </h2>
                 <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
@@ -1404,7 +1404,7 @@ export default function Home() {
               <div className="text-center mt-8">
                 <Link
                   href={`/${locale}/blog`}
-                  className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
+                  className="inline-flex items-center px-6 py-3 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                 >
                   View All Blog Posts
                 </Link>
@@ -1418,7 +1418,7 @@ export default function Home() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-[1330px] mx-auto">
               <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
                   Frequently Asked Questions
                 </h2>
                 <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
@@ -1484,7 +1484,7 @@ export default function Home() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-[1330px] mx-auto">
               <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
                   Get In Touch
                 </h2>
                 <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
@@ -1531,17 +1531,15 @@ export default function Home() {
                           </div>
 
                           <div className="space-y-3">
-                            <div>
-                              <div className="font-medium text-gray-900 dark:text-white mb-1 flex items-center gap-2">
-                                <span className="text-lg">📍</span>
-                                Address
+                            <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
+                              <div className="flex items-start gap-2 sm:col-span-2">
+                                <span className="text-lg mt-0.5">📍</span>
+                                <div>
+                                  <div className="font-medium text-gray-900 dark:text-white text-sm">ADDRESS</div>
+                                  <div className="text-sm text-gray-600 dark:text-gray-400">{office.address}</div>
+                                </div>
                               </div>
-                              <div className="text-sm text-gray-600 dark:text-gray-400 pl-7">
-                                {office.address}
-                              </div>
-                            </div>
 
-                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                               <div className="flex items-start gap-2">
                                 <span className="text-lg mt-0.5">📧</span>
                                 <div>

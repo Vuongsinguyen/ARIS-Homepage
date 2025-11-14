@@ -1,103 +1,104 @@
-[00:00:01.287] Server  LOG      ✓ Ready in 922ms
-[00:01:00.102] Browser LOG     CLS: 0
-[00:01:00.102] Browser LOG     [Analytics] CLS: 0
-[00:01:00.483] Server  LOG     Performance Metrics Received: {}
-[00:01:01.189] Browser LOG     Performance Budget:
-[00:01:01.189] Browser LOG     DOM Content Loaded: 0.10000002384185791ms
-[00:01:01.189] Browser LOG     Load Complete: 0ms
-[00:01:01.190] Browser LOG     Total Load Time: 3634.8000000715256ms
-[00:01:01.190] Browser LOG     ✅ domContentLoaded within budget: 0.10000002384185791ms
-[00:01:01.190] Browser LOG     ✅ loadComplete within budget: 0ms
-[00:01:01.190] Browser WARN    ⚠️ totalTime exceeded budget: 3634.8000000715256ms > 3000ms
-[00:01:05.934] Browser LOG     CLS: 0
-[00:01:05.934] Browser LOG     [Analytics] CLS: 0
-[00:01:06.034] Server  LOG     Performance Metrics Received: {}
-[00:01:14.644] Server  LOG     Performance Metrics Received: {}
-[00:01:14.721] Browser LOG     FID: 21.5 ms
-[00:01:14.721] Browser LOG     [Analytics] FID: 21.5
-[00:01:23.795] Server  LOG     Performance Metrics Received: {}
-[00:01:23.885] Browser LOG     CLS: 0
-[00:01:23.885] Browser LOG     [Analytics] CLS: 0
-[00:01:26.092] Server  LOG     Performance Metrics Received: {}
-[00:01:26.172] Browser LOG     CLS: 0
-[00:01:26.172] Browser LOG     [Analytics] CLS: 0
-[00:02:15.046] Server  LOG     Performance Metrics Received: {}
-[00:02:15.086] Browser LOG     LCP: 804 ms
-[00:02:15.086] Browser LOG     [Analytics] LCP: 804
-[00:02:15.199] Server  LOG     Performance Metrics Received: {}
-[00:02:15.284] Browser LOG     CLS: 0.000934337078743602
-[00:02:15.284] Browser LOG     [Analytics] CLS: 0.000934337078743602
-[00:02:16.231] Server  LOG     Performance Metrics Received: {}
-[00:02:16.317] Browser LOG     Performance Budget:
-[00:02:16.317] Browser LOG     DOM Content Loaded: 0.19999992847442627ms
-[00:02:16.317] Browser LOG     Load Complete: 0ms
-[00:02:16.317] Browser LOG     Total Load Time: 1068.5ms
-[00:02:16.317] Browser LOG     ✅ domContentLoaded within budget: 0.19999992847442627ms
-[00:02:16.317] Browser LOG     ✅ loadComplete within budget: 0ms
-[00:02:16.317] Browser LOG     ✅ totalTime within budget: 1068.5ms
-[00:02:16.317] Browser LOG     FID: 38.39999997615814 ms
-[00:02:16.317] Browser LOG     [Analytics] FID: 38.39999997615814
-[00:03:54.731] Server  LOG     Performance Metrics Received: {}
-[00:03:54.816] Browser LOG     CLS: 0.000934337078743602
-[00:03:54.817] Browser LOG     [Analytics] CLS: 0.000934337078743602
-[00:03:55.690] Server  LOG     Performance Metrics Received: {}
-[00:03:55.796] Browser LOG     FID: 37.40000009536743 ms
-[00:03:55.796] Browser LOG     [Analytics] FID: 37.40000009536743
-[00:03:55.796] Browser LOG     Performance Budget:
-[00:03:55.796] Browser LOG     DOM Content Loaded: 0.10000002384185791ms
-[00:03:55.796] Browser LOG     Load Complete: 0.10000002384185791ms
-[00:03:55.796] Browser LOG     Total Load Time: 1054.3999999761581ms
-[00:03:55.796] Browser LOG     ✅ domContentLoaded within budget: 0.10000002384185791ms
-[00:03:55.796] Browser LOG     ✅ loadComplete within budget: 0.10000002384185791ms
-[00:03:55.796] Browser LOG     ✅ totalTime within budget: 1054.3999999761581ms
-[00:04:55.285] Server  LOG      ✓ Compiled in 348ms
-[00:04:55.538] Server  LOG     Performance Metrics Received: {}
-[00:04:55.589] Browser LOG     CLS: 0.3963165549265126
-[00:04:55.589] Browser LOG     [Analytics] CLS: 0.3963165549265126
-[00:05:03.564] Server  LOG      ✓ Compiled in 132ms
-[00:05:10.652] Server  LOG      ✓ Compiled in 121ms
-[00:05:18.540] Server  LOG      ✓ Compiled in 117ms
-[00:05:25.508] Server  LOG      ✓ Compiled in 214ms
-[00:05:33.833] Server  LOG      ✓ Compiled in 124ms
-[00:05:42.046] Server  LOG      ✓ Compiled in 109ms
-[00:05:49.054] Server  LOG      ✓ Compiled in 140ms
-[00:05:57.080] Server  LOG      ✓ Compiled in 129ms
-[00:08:06.607] Server  LOG     Performance Metrics Received: {}
-[00:08:06.666] Browser LOG     CLS: 0.000934337078743602
-[00:08:06.666] Browser LOG     [Analytics] CLS: 0.000934337078743602
-[00:08:06.833] Server  LOG     Performance Metrics Received: {}
-[00:08:06.928] Browser LOG     FID: 35.60000002384186 ms
-[00:08:06.928] Browser LOG     [Analytics] FID: 35.60000002384186
-[00:08:07.649] Browser LOG     Performance Budget:
-[00:08:07.649] Browser LOG     DOM Content Loaded: 0.6000000238418579ms
-[00:08:07.649] Browser LOG     Load Complete: 0ms
-[00:08:07.649] Browser LOG     Total Load Time: 1478.2000000476837ms
-[00:08:07.649] Browser LOG     ✅ domContentLoaded within budget: 0.6000000238418579ms
-[00:08:07.649] Browser LOG     ✅ loadComplete within budget: 0ms
-[00:08:07.649] Browser LOG     ✅ totalTime within budget: 1478.2000000476837ms
-[00:08:43.702] Server  LOG     Performance Metrics Received: {}
-[00:08:43.726] Browser LOG     CLS: 0.000934337078743602
-[00:08:43.726] Browser LOG     [Analytics] CLS: 0.000934337078743602
-[00:08:44.706] Browser LOG     Performance Budget:
-[00:08:44.706] Browser LOG     DOM Content Loaded: 1.100000023841858ms
-[00:08:44.706] Browser LOG     Load Complete: 0.10000002384185791ms
-[00:08:44.706] Browser LOG     Total Load Time: 1002.2000000476837ms
-[00:08:44.706] Browser LOG     ✅ domContentLoaded within budget: 1.100000023841858ms
-[00:08:44.706] Browser LOG     ✅ loadComplete within budget: 0.10000002384185791ms
-[00:08:44.706] Browser LOG     ✅ totalTime within budget: 1002.2000000476837ms
-[00:17:18.648] Browser LOG     CLS: 0.000934337078743602
-[00:17:18.649] Browser LOG     [Analytics] CLS: 0.000934337078743602
-[00:17:18.750] Server  LOG     Performance Metrics Received: {}
-[00:17:20.673] Server  LOG     Performance Metrics Received: {}
-[00:17:20.760] Browser LOG     FID: 2.600000023841858 ms
-[00:17:20.761] Browser LOG     [Analytics] FID: 2.600000023841858
-[00:17:22.539] Server  LOG     Performance Metrics Received: {}
-[00:17:22.578] Browser LOG     CLS: 0.0019253525821100281
-[00:17:22.578] Browser LOG     [Analytics] CLS: 0.0019253525821100281
-[00:17:23.476] Browser LOG     Performance Budget:
-[00:17:23.477] Browser LOG     DOM Content Loaded: 0.5ms
-[00:17:23.477] Browser LOG     Load Complete: 0ms
-[00:17:23.477] Browser LOG     Total Load Time: 760.5ms
-[00:17:23.477] Browser LOG     ✅ domContentLoaded within budget: 0.5ms
-[00:17:23.477] Browser LOG     ✅ loadComplete within budget: 0ms
-[00:17:23.477] Browser LOG     ✅ totalTime within budget: 760.5ms
+[00:00:00.946] Server  LOG      ✓ Ready in 701ms
+[00:00:05.904] Server  LOG      ○ Compiling /[locale] ...
+[00:00:08.152] Browser LOG     CLS: 0.002009958919168101
+[00:00:08.152] Browser LOG     [Analytics] CLS: 0.002009958919168101
+[00:00:08.562] Server  LOG     Performance Metrics Received: {}
+[00:00:09.739] Browser LOG     Performance Budget:
+[00:00:09.739] Browser LOG     DOM Content Loaded: 0.19999992847442627ms
+[00:00:09.739] Browser LOG     Load Complete: 0ms
+[00:00:09.739] Browser LOG     Total Load Time: 5842.400000095367ms
+[00:00:09.739] Browser LOG     ✅ domContentLoaded within budget: 0.19999992847442627ms
+[00:00:09.739] Browser LOG     ✅ loadComplete within budget: 0ms
+[00:00:09.739] Browser WARN    ⚠️ totalTime exceeded budget: 5842.400000095367ms > 3000ms
+[00:00:43.124] Browser LOG     LCP: 692 ms
+[00:00:43.125] Browser LOG     [Analytics] LCP: 692
+[00:00:43.125] Browser LOG     CLS: 0.002009958919168101
+[00:00:43.125] Browser LOG     [Analytics] CLS: 0.002009958919168101
+[00:00:43.164] Server  LOG     Performance Metrics Received: {}
+[00:00:43.182] Server  LOG     Performance Metrics Received: {}
+[00:00:44.300] Browser LOG     Performance Budget:
+[00:00:44.300] Browser LOG     DOM Content Loaded: 0.19999992847442627ms
+[00:00:44.300] Browser LOG     Load Complete: 0.10000002384185791ms
+[00:00:44.300] Browser LOG     Total Load Time: 1040ms
+[00:00:44.300] Browser LOG     ✅ domContentLoaded within budget: 0.19999992847442627ms
+[00:00:44.300] Browser LOG     ✅ loadComplete within budget: 0.10000002384185791ms
+[00:00:44.300] Browser LOG     ✅ totalTime within budget: 1040ms
+[00:00:46.238] Server  LOG     Performance Metrics Received: {}
+[00:00:46.324] Browser LOG     FID: 4.299999952316284 ms
+[00:00:46.324] Browser LOG     [Analytics] FID: 4.299999952316284
+[00:00:52.770] Server  LOG     Performance Metrics Received: {}
+[00:00:52.852] Browser LOG     CLS: 0.002009958919168101
+[00:00:52.852] Browser LOG     [Analytics] CLS: 0.002009958919168101
+[00:02:15.789] Browser ERROR   uncaughtError: NotFoundError: Failed to execute 'removeChild' on 'Node': The node to be removed is not a child of this node.
+[00:02:19.530] Server  LOG     Performance Metrics Received: {}
+[00:02:19.593] Browser LOG     CLS: 0.002009958919168101
+[00:02:19.593] Browser LOG     [Analytics] CLS: 0.002009958919168101
+[00:02:20.842] Browser LOG     Performance Budget:
+[00:02:20.842] Browser LOG     DOM Content Loaded: 0.10000002384185791ms
+[00:02:20.842] Browser LOG     Load Complete: 0.10000002384185791ms
+[00:02:20.842] Browser LOG     Total Load Time: 1147.6999999284744ms
+[00:02:20.842] Browser LOG     ✅ domContentLoaded within budget: 0.10000002384185791ms
+[00:02:20.842] Browser LOG     ✅ loadComplete within budget: 0.10000002384185791ms
+[00:02:20.842] Browser LOG     ✅ totalTime within budget: 1147.6999999284744ms
+[00:02:21.300] Server  LOG      ✓ Compiled in 155ms
+[00:02:21.859] Server  LOG     Performance Metrics Received: {}
+[00:02:21.940] Browser LOG     FID: 1.100000023841858 ms
+[00:02:21.940] Browser LOG     [Analytics] FID: 1.100000023841858
+[00:02:23.242] Server  LOG     Performance Metrics Received: {}
+[00:02:23.251] Server  LOG     Performance Metrics Received: {}
+[00:02:23.313] Browser LOG     CLS: 0.002009958919168101
+[00:02:23.313] Browser LOG     [Analytics] CLS: 0.002009958919168101
+[00:02:23.313] Browser LOG     CLS: 0.002009958919168101
+[00:02:23.313] Browser LOG     [Analytics] CLS: 0.002009958919168101
+[00:02:24.962] Server  LOG     Performance Metrics Received: {}
+[00:02:25.054] Browser LOG     CLS: 0.002009958919168101
+[00:02:25.054] Browser LOG     [Analytics] CLS: 0.002009958919168101
+[00:02:26.937] Server  LOG     Performance Metrics Received: {}
+[00:02:26.991] Browser LOG     CLS: 0.002009958919168101
+[00:02:26.992] Browser LOG     [Analytics] CLS: 0.002009958919168101
+[00:02:29.342] Server  LOG     Performance Metrics Received: {}
+[00:02:29.426] Browser LOG     CLS: 0.002009958919168101
+[00:02:29.426] Browser LOG     [Analytics] CLS: 0.002009958919168101
+[00:02:33.462] Server  LOG     Performance Metrics Received: {}
+[00:02:33.549] Browser LOG     CLS: 0.002009958919168101
+[00:02:33.549] Browser LOG     [Analytics] CLS: 0.002009958919168101
+[00:04:12.770] Server  LOG     Performance Metrics Received: {}
+[00:04:12.820] Browser LOG     CLS: 0.002009958919168101
+[00:04:12.820] Browser LOG     [Analytics] CLS: 0.002009958919168101
+[00:04:13.913] Browser LOG     Performance Budget:
+[00:04:13.913] Browser LOG     DOM Content Loaded: 0.10000002384185791ms
+[00:04:13.913] Browser LOG     Load Complete: 0.09999990463256836ms
+[00:04:13.913] Browser LOG     Total Load Time: 1884.3999999761581ms
+[00:04:13.913] Browser LOG     ✅ domContentLoaded within budget: 0.10000002384185791ms
+[00:04:13.913] Browser LOG     ✅ loadComplete within budget: 0.09999990463256836ms
+[00:04:13.913] Browser LOG     ✅ totalTime within budget: 1884.3999999761581ms
+[00:04:14.259] Server  LOG     Performance Metrics Received: {}
+[00:04:14.340] Browser LOG     FID: 5.099999904632568 ms
+[00:04:14.340] Browser LOG     [Analytics] FID: 5.099999904632568
+[00:04:15.305] Server  LOG     Performance Metrics Received: {}
+[00:04:15.392] Browser LOG     CLS: 0.002009958919168101
+[00:04:15.392] Browser LOG     [Analytics] CLS: 0.002009958919168101
+[00:04:17.141] Server  LOG     Performance Metrics Received: {}
+[00:04:17.231] Browser LOG     CLS: 0.002009958919168101
+[00:04:17.231] Browser LOG     [Analytics] CLS: 0.002009958919168101
+[00:04:18.964] Server  LOG     Performance Metrics Received: {}
+[00:04:18.998] Browser LOG     CLS: 0.002009958919168101
+[00:04:18.998] Browser LOG     [Analytics] CLS: 0.002009958919168101
+[00:04:20.214] Server  LOG      ✓ Compiled in 169ms
+[00:04:22.144] Server  LOG     Performance Metrics Received: {}
+[00:04:22.211] Browser LOG     CLS: 0.002009958919168101
+[00:04:22.211] Browser LOG     [Analytics] CLS: 0.002009958919168101
+[00:05:22.151] Server  LOG      ✓ Compiled in 265ms
+[00:06:24.786] Server  LOG      ✓ Compiled in 141ms
+[00:07:20.630] Server  LOG      ✓ Compiled in 171ms
+[00:07:30.043] Server  LOG      ✓ Compiled in 110ms
+[00:07:35.878] Server  LOG      ✓ Compiled in 118ms
+[00:07:41.720] Server  LOG      ✓ Compiled in 133ms
+[00:07:45.948] Server  LOG      ✓ Compiled in 73ms
+[00:07:55.111] Server  LOG      ✓ Compiled in 120ms
+[00:08:43.525] Server  LOG      ✓ Compiled in 122ms
+[00:09:48.787] Server  LOG      ✓ Compiled in 113ms
+[00:09:53.362] Server  LOG      ✓ Compiled in 248ms
+[00:09:57.197] Server  LOG      ✓ Compiled in 122ms
+[00:10:02.244] Server  LOG      ✓ Compiled in 125ms
+[00:10:06.717] Server  LOG      ✓ Compiled in 185ms

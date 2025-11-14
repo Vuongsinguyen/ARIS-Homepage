@@ -127,16 +127,7 @@ export function analyzeBundleSize() {
 // Preload critical resources
 export function preloadCriticalResources() {
   if (typeof document !== 'undefined') {
-    // Preload critical fonts
-    const fontLink = document.createElement('link');
-    fontLink.rel = 'preload';
-    fontLink.href = '/fonts/inter-var.woff2';
-    fontLink.as = 'font';
-    fontLink.type = 'font/woff2';
-    fontLink.crossOrigin = 'anonymous';
-    document.head.appendChild(fontLink);
-
-    // Preload critical images
+    // Preload critical images (fonts are handled by Next.js)
     const heroImage = document.createElement('link');
     heroImage.rel = 'preload';
     heroImage.href = '/hero-image.jpg';

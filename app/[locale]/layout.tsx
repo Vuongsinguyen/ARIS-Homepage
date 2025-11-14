@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import {Providers} from '@/components/providers';
 import TopBar from '@/components/TopBar';
 import Footer from '@/components/Footer';
+import FooterBottom from '@/components/FooterBottom';
 import { generateAIMetadata, generateStructuredData } from '@/lib/seo';
 import { trackWebVitals, preloadCriticalResources, checkPerformanceBudget } from '@/lib/performance';
 import { PerformanceTracker } from '@/components/PerformanceTracker';
@@ -113,6 +114,7 @@ export default async function LocaleLayout({
             <TopBar />
             {children}
             <Footer />
+            <FooterBottom />
           </NextIntlClientProvider>
         </Providers>
       </body>

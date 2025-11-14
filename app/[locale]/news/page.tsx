@@ -1,33 +1,37 @@
 import {getTranslations} from 'next-intl/server';
 import Link from 'next/link';
 import {headers} from 'next/headers';
-import {client, isSanityConfigured} from '@/lib/sanity';
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
 import Navbar from '@/components/Navbar';
 
 async function getNews() {
-  const query = `*[_type == "news"] | order(publishedAt desc)[0...10] {
-    _id,
-    title,
-    slug,
-    publishedAt,
-    "author": author->name,
-    "categories": categories[]->title,
-    mainImage,
-    excerpt
-  }`;
+  const newsDirectory = path.join(process.cwd(), 'content/news');
+  const fileNames = fs.readdirSync(newsDirectory);
 
-  if (!isSanityConfigured) {
-    // Sanity isn't configured for dev: return an empty list and allow the page
-    // to render a helpful message instead of crashing the server.
-    return [];
-  }
-  try {
-    return await client!.fetch(query);
-  } catch (err) {
-    // Log the error server-side and return an empty list so the page still renders.
-    console.error('Error fetching news from Sanity:', err);
-    return [];
-  }
+  const news = fileNames
+    .filter(fileName => fileName.endsWith('.md'))
+    .map(fileName => {
+      const fullPath = path.join(newsDirectory, fileName);
+      const fileContents = fs.readFileSync(fullPath, 'utf8');
+      const { data, content } = matter(fileContents);
+
+      return {
+        _id: fileName.replace('.md', ''),
+        title: data.title,
+        slug: { current: data.slug },
+        publishedAt: data.publishedAt,
+        author: data.author,
+        categories: data.categories,
+        excerpt: data.excerpt,
+        content: content,
+      };
+    })
+    .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
+    .slice(0, 10);
+
+  return news;
 }
 
 export async function generateMetadata() {
@@ -177,21 +181,11 @@ export default async function NewsPage() {
 
               {/* News Articles */}
               {news.length === 0 ? (
-                !isSanityConfigured ? (
-                  <div className="text-center py-12">
-                    <h2 className="text-2xl font-semibold mb-3">Sanity not configured</h2>
-                    <p className="text-gray-600 dark:text-gray-400 text-lg mb-3">The Sanity project ID and dataset are not set. To view news articles locally, add your project details to <code>.env.local</code>.</p>
-                    <pre className="bg-gray-100 dark:bg-gray-800 p-3 rounded text-sm overflow-auto mx-auto max-w-lg text-left">
-                      NEXT_PUBLIC_SANITY_PROJECT_ID=your-project-id\nNEXT_PUBLIC_SANITY_DATASET=production
-                    </pre>
-                  </div>
-                ) : (
                 <div className="text-center py-12">
                   <p className="text-gray-600 dark:text-gray-400 text-lg">
-                    No news articles yet. Create some in Sanity Studio!
+                    No news articles yet. Create some MD files in content/news/!
                   </p>
                 </div>
-                )
               ) : (
                 <section aria-labelledby="news-heading">
                   <h2 id="news-heading" className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
@@ -209,13 +203,13 @@ export default async function NewsPage() {
                             href={`/${locale}/news/${article.slug.current}`}
                             className="hover:text-green-600 dark:hover:text-green-400 transition-colors"
                           >
-                            {article.title.en}
+                            {article.title}
                           </Link>
                         </h3>
 
                         {article.excerpt && (
                           <p className="text-gray-600 dark:text-gray-400 mb-4">
-                            {article.excerpt.en}
+                            {article.excerpt}
                           </p>
                         )}
 
@@ -237,7 +231,7 @@ export default async function NewsPage() {
                                 key={idx}
                                 className="text-xs px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full"
                               >
-                                {cat.en}
+                                {cat}
                               </span>
                             ))}
                           </div>

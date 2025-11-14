@@ -59,7 +59,7 @@ export default function ChatBot() {
     <div>
       {/* Floating Chat Button */}
       <button
-        className="ml-2 px-3 py-1.5 rounded text-sm bg-blue-600 text-white hover:bg-blue-700 transition-colors"
+        className="ml-2 px-3 py-1.5 rounded text-sm text-white font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25 animate-gradient-x bg-gradient-to-r from-blue-500 via-purple-500 via-pink-500 via-red-500 to-yellow-500"
         onClick={() => setOpen(true)}
         aria-label="Open AI Chat"
       >

@@ -1,40 +1,39 @@
-import {useTranslations} from 'next-intl';
 import Link from 'next/link';
-import Image from 'next/image';
 import {notFound} from 'next/navigation';
-import {client, isSanityConfigured} from '@/lib/sanity';
-import {PortableText} from '@portabletext/react';
-import imageUrlBuilder from '@sanity/image-url';
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+import {remark} from 'remark';
+import html from 'remark-html';
 import Navbar from '@/components/Navbar';
 
-const builder = isSanityConfigured ? imageUrlBuilder(client!) : null;
+async function getNewsArticle(slug: string) {
+  const newsDirectory = path.join(process.cwd(), 'content/news');
+  const fileNames = fs.readdirSync(newsDirectory);
 
-function urlFor(source: any) {
-  if (!builder) return null;
-  return builder.image(source);
-}
+  const fileName = fileNames.find(file => file.replace('.md', '') === slug || matter(fs.readFileSync(path.join(newsDirectory, file), 'utf8')).data.slug === slug);
 
-async function getNewsArticle(slug: string, locale: string) {
-  if (!isSanityConfigured) {
+  if (!fileName) {
     return null;
   }
-  const query = `*[_type == "news" && slug.current == $slug][0] {
-    _id,
-    title,
-    slug,
-    publishedAt,
-    mainImage,
-    body,
-    excerpt,
-    "author": author->{
-      name,
-      image,
-      bio
-    },
-    "categories": categories[]->title
-  }`;
 
-  return await client!.fetch(query, {slug});
+  const fullPath = path.join(newsDirectory, fileName);
+  const fileContents = fs.readFileSync(fullPath, 'utf8');
+  const { data, content } = matter(fileContents);
+
+  const processedContent = await remark().use(html).process(content);
+  const contentHtml = processedContent.toString();
+
+  return {
+    _id: fileName.replace('.md', ''),
+    title: data.title,
+    slug: { current: data.slug },
+    publishedAt: data.publishedAt,
+    author: data.author,
+    categories: data.categories,
+    excerpt: data.excerpt,
+    content: contentHtml,
+  };
 }
 
 export default async function NewsArticlePage({
@@ -43,36 +42,15 @@ export default async function NewsArticlePage({
   params: Promise<{locale: string; slug: string}>;
 }) {
   const {locale, slug} = await params;
-  if (!isSanityConfigured) {
-    // Dev message: Sanity isn't configured yet.
-    return (
-      <>
-        <Navbar />
-        <main className="flex min-h-screen flex-col items-center p-24">
-          <div className="max-w-4xl w-full text-center py-24">
-            <h1 className="text-3xl font-bold mb-4">Sanity not configured</h1>
-            <p className="text-lg text-gray-600 dark:text-gray-400 mb-6">
-              The Sanity project ID and dataset are not set for this environment. To view news articles locally, add your project details to <span className="font-mono">.env.local</span>:
-            </p>
-            <pre className="bg-gray-100 dark:bg-gray-800 p-3 rounded text-sm overflow-auto mx-auto max-w-lg text-left">
-              NEXT_PUBLIC_SANITY_PROJECT_ID=your-project-id\nNEXT_PUBLIC_SANITY_DATASET=production
-            </pre>
-            <p className="mt-6 text-sm text-gray-600 dark:text-gray-400">See <Link href="/README.md" className="text-blue-600">README</Link> for setup instructions.</p>
-          </div>
-        </main>
-      </>
-    );
-  }
 
-  const article = await getNewsArticle(slug, locale);
+  const article = await getNewsArticle(slug);
 
   if (!article) {
     notFound();
   }
 
-  const currentLocale = locale as 'en' | 'vi';
-  const title = article.title[currentLocale] || article.title.en;
-  const body = article.body?.[currentLocale] || article.body?.en;
+  const title = article.title;
+  const body = article.content;
 
   return (
     <>
@@ -110,18 +88,7 @@ export default async function NewsArticlePage({
           {/* Article metadata */}
           <div className="flex flex-wrap items-center gap-6 text-gray-600 dark:text-gray-400 mb-6">
             {article.author && (
-              <div className="flex items-center gap-3">
-                {article.author.image && builder && (
-                  <Image
-                    src={urlFor(article.author.image)!.width(48).height(48).url()}
-                    alt={article.author.name}
-                    width={48}
-                    height={48}
-                    className="rounded-full"
-                  />
-                )}
-                <span className="font-medium">By {article.author.name}</span>
-              </div>
+              <span className="font-medium">By {article.author}</span>
             )}
 
             {article.publishedAt && (
@@ -146,57 +113,17 @@ export default async function NewsArticlePage({
                   key={idx}
                   className="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-800 rounded-full"
                 >
-                  {cat[currentLocale] || cat.en}
+                  {cat}
                 </span>
               ))}
             </div>
-          )}
-
-          {/* Featured image */}
-          {article.mainImage && builder && (
-            <figure className="mb-12 rounded-lg overflow-hidden">
-              <Image
-                src={urlFor(article.mainImage)!.width(1200).height(630).url()}
-                alt={title}
-                width={1200}
-                height={630}
-                className="w-full h-auto"
-                priority
-              />
-            </figure>
           )}
         </header>
 
         {/* Article content */}
         <div className="prose prose-lg dark:prose-invert max-w-none mb-12">
-          {body && <PortableText value={body} />}
+          {body && <div dangerouslySetInnerHTML={{ __html: body }} />}
         </div>
-
-        {/* Author bio section */}
-        {article.author && article.author.bio && (
-          <section className="mt-16 pt-8 border-t border-gray-200 dark:border-gray-800">
-            <h2 className="text-2xl font-bold mb-6">About the Author</h2>
-            <div className="flex gap-6">
-              {article.author.image && builder && (
-                <Image
-                  src={urlFor(article.author.image)!.width(96).height(96).url()}
-                  alt={article.author.name}
-                  width={96}
-                  height={96}
-                  className="rounded-full flex-shrink-0"
-                />
-              )}
-              <div>
-                <h3 className="text-xl font-semibold mb-2">{article.author.name}</h3>
-                <div className="prose dark:prose-invert">
-                  {article.author.bio[currentLocale] && (
-                    <PortableText value={article.author.bio[currentLocale]} />
-                  )}
-                </div>
-              </div>
-            </div>
-          </section>
-        )}
 
         {/* Back to news link */}
         <nav className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
@@ -222,8 +149,8 @@ export async function generateMetadata({
 }: {
   params: Promise<{locale: string; slug: string}>;
 }) {
-  const {locale, slug} = await params;
-  const article = await getNewsArticle(slug, locale);
+  const {slug} = await params;
+  const article = await getNewsArticle(slug);
 
   if (!article) {
     return {
@@ -231,8 +158,7 @@ export async function generateMetadata({
     };
   }
 
-  const currentLocale = locale as 'en' | 'vi';
-  const title = article.title[currentLocale] || article.title.en;
+  const title = article.title;
 
   return {
     title: title,
@@ -241,17 +167,11 @@ export async function generateMetadata({
       title: title,
       type: 'article',
       publishedTime: article.publishedAt,
-      authors: article.author ? [article.author.name] : [],
-      images: article.mainImage && builder
-        ? [urlFor(article.mainImage)!.width(1200).height(630).url()]
-        : [],
+      authors: article.author ? [article.author] : [],
     },
     twitter: {
       card: 'summary_large_image',
       title: title,
-      images: article.mainImage && builder
-        ? [urlFor(article.mainImage)!.width(1200).height(630).url()]
-        : [],
     },
   };
 }

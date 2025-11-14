@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { client, isSanityConfigured } from '@/lib/sanity'
+import { supabase, supabaseAdmin, isSupabaseConfigured } from '@/lib/supabase'
 
 export async function GET(request: NextRequest) {
-  if (!isSanityConfigured) {
+  if (!isSupabaseConfigured) {
     return NextResponse.json({ likes: 0 })
   }
 
@@ -16,18 +16,33 @@ export async function GET(request: NextRequest) {
     }
 
     // Get total likes for the post
-    const totalLikesQuery = `count(*[_type == "like" && post._ref == $postId])`
-    const totalLikes = await client!.fetch(totalLikesQuery, { postId })
+    const { count: totalLikes, error: countError } = await supabaseAdmin!
+      .from('likes')
+      .select('*', { count: 'exact', head: true })
+      .eq('post_id', postId)
+
+    if (countError) {
+      console.error('Error counting likes:', countError)
+      return NextResponse.json({ error: 'Failed to count likes' }, { status: 500 })
+    }
 
     // Check if current user has liked this post
     let userHasLiked = false
     if (userEmail) {
-      const userLikeQuery = `count(*[_type == "like" && post._ref == $postId && user.email == $userEmail])`
-      const userLikes = await client!.fetch(userLikeQuery, { postId, userEmail })
-      userHasLiked = userLikes > 0
+      const { count: userLikes, error: userError } = await supabaseAdmin!
+        .from('likes')
+        .select('*', { count: 'exact', head: true })
+        .eq('post_id', postId)
+        .eq('user_email', userEmail)
+
+      if (userError) {
+        console.error('Error checking user like:', userError)
+      } else {
+        userHasLiked = (userLikes || 0) > 0
+      }
     }
 
-    return NextResponse.json({ likes: totalLikes, userHasLiked })
+    return NextResponse.json({ likes: totalLikes || 0, userHasLiked })
   } catch (error) {
     console.error('Error fetching likes:', error)
     return NextResponse.json({ error: 'Failed to fetch likes' }, { status: 500 })
@@ -35,7 +50,7 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
-  if (!isSanityConfigured) {
+  if (!isSupabaseConfigured || !supabaseAdmin) {
     return NextResponse.json({ error: 'Likes not available' }, { status: 503 })
   }
 
@@ -48,40 +63,54 @@ export async function POST(request: NextRequest) {
 
     if (action === 'like') {
       // Check if user already liked this post
-      const existingLikeQuery = `*[_type == "like" && post._ref == $postId && user.email == $userEmail][0]`
-      const existingLike = await client!.fetch(existingLikeQuery, { postId, userEmail })
+      const { data: existingLike, error: checkError } = await supabaseAdmin!
+        .from('likes')
+        .select('id')
+        .eq('post_id', postId)
+        .eq('user_email', userEmail)
+        .single()
+
+      if (checkError && checkError.code !== 'PGRST116') { // PGRST116 = no rows returned
+        console.error('Error checking existing like:', checkError)
+        return NextResponse.json({ error: 'Failed to check existing like' }, { status: 500 })
+      }
 
       if (existingLike) {
         return NextResponse.json({ error: 'Already liked' }, { status: 400 })
       }
 
       // Create new like
-      const like = {
-        _type: 'like',
-        post: {
-          _type: 'reference',
-          _ref: postId,
-        },
-        user: {
-          name: userName,
-          email: userEmail,
-        },
-        createdAt: new Date().toISOString(),
+      const { data, error } = await supabaseAdmin!
+        .from('likes')
+        .insert({
+          post_id: postId,
+          user_name: userName,
+          user_email: userEmail,
+          created_at: new Date().toISOString(),
+        })
+        .select()
+        .single()
+
+      if (error) {
+        console.error('Error creating like:', error)
+        return NextResponse.json({ error: 'Failed to create like' }, { status: 500 })
       }
 
-      const result = await client!.create(like)
-      return NextResponse.json({ like: result }, { status: 201 })
+      return NextResponse.json({ like: data }, { status: 201 })
     } else if (action === 'unlike') {
       // Remove like
-      const likeToDeleteQuery = `*[_type == "like" && post._ref == $postId && user.email == $userEmail][0]`
-      const likeToDelete = await client!.fetch(likeToDeleteQuery, { postId, userEmail })
+      const { error } = await supabaseAdmin!
+        .from('likes')
+        .delete()
+        .eq('post_id', postId)
+        .eq('user_email', userEmail)
 
-      if (likeToDelete) {
-        await client!.delete(likeToDelete._id)
-        return NextResponse.json({ message: 'Like removed' })
-      } else {
-        return NextResponse.json({ error: 'Like not found' }, { status: 404 })
+      if (error) {
+        console.error('Error removing like:', error)
+        return NextResponse.json({ error: 'Failed to remove like' }, { status: 500 })
       }
+
+      return NextResponse.json({ message: 'Like removed' })
     } else {
       return NextResponse.json({ error: 'Invalid action' }, { status: 400 })
     }

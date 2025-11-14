@@ -25,7 +25,6 @@ export default function Navbar() {
     {href: `/${locale}/news`, label: t('news'), icon: '📰'},
     {href: `/${locale}/blog`, label: t('blog'), icon: '�'},
     {href: `/${locale}/recruitments`, label: t('recruitments'), icon: '👥'},
-    {href: `/${locale}/contact`, label: t('contact'), icon: '📧'},
   ];
 
   const servicesItems = [
@@ -264,14 +263,6 @@ export default function Navbar() {
                 Sign in
               </Link>
             )}
-
-            {/* CTA Button */}
-            <Link
-              href={`/${locale}/contact`}
-              className="ml-2 px-4 py-1.5 text-sm font-medium text-white bg-black dark:bg-white dark:text-black rounded hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
-            >
-              {t('contact')}
-            </Link>
           </div>
 
           {/* Mobile menu button */}

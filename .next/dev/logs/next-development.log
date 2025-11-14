@@ -1,14 +1,1 @@
-[00:00:01.158] Server  LOG      ✓ Ready in 899ms
-[00:00:06.759] Browser LOG     CLS: 0.0014105301282757144
-[00:00:06.759] Browser LOG     [Analytics] CLS: 0.0014105301282757144
-[00:00:06.982] Server  LOG     Performance Metrics Received: {}
-[00:00:07.614] Server  LOG     Performance Metrics Received: {}
-[00:00:07.708] Browser LOG     CLS: 0.002752782853386623
-[00:00:07.708] Browser LOG     [Analytics] CLS: 0.002752782853386623
-[00:00:07.861] Browser LOG     Performance Budget:
-[00:00:07.861] Browser LOG     DOM Content Loaded: 0ms
-[00:00:07.861] Browser LOG     Load Complete: 0.10000002384185791ms
-[00:00:07.861] Browser LOG     Total Load Time: 3155.399999976158ms
-[00:00:07.861] Browser LOG     ✅ domContentLoaded within budget: 0ms
-[00:00:07.861] Browser LOG     ✅ loadComplete within budget: 0.10000002384185791ms
-[00:00:07.861] Browser WARN    ⚠️ totalTime exceeded budget: 3155.399999976158ms > 3000ms
+[00:00:00.925] Server  LOG      ✓ Ready in 664ms

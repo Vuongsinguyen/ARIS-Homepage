@@ -6,10 +6,9 @@ export default defineType({
   type: 'document',
   fields: [
     {
-      name: 'post',
-      title: 'Post',
-      type: 'reference',
-      to: { type: 'post' },
+      name: 'postId',
+      title: 'Post ID',
+      type: 'string',
       validation: Rule => Rule.required(),
     },
     {
@@ -43,12 +42,12 @@ export default defineType({
   preview: {
     select: {
       user: 'user.name',
-      post: 'post.title.en',
+      postId: 'postId',
     },
     prepare(selection: any) {
-      const { user, post } = selection
+      const { user, postId } = selection
       return {
-        title: `${user} liked ${post}`,
+        title: `${user} liked ${postId}`,
       }
     },
   },

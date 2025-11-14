@@ -1,31 +1,14 @@
 import {getTranslations} from 'next-intl/server';
 import Link from 'next/link';
 import {headers} from 'next/headers';
-import {client, isSanityConfigured} from '@/lib/sanity';
+import {getBlogPosts} from '@/lib/blog';
 import Navbar from '@/components/Navbar';
 
-async function getPosts() {
-  const query = `*[_type == "post"] | order(publishedAt desc)[0...10] {
-    _id,
-    title,
-    slug,
-    publishedAt,
-    "author": author->name,
-    "categories": categories[]->title,
-    mainImage,
-    excerpt
-  }`;
-
-  if (!isSanityConfigured) {
-    // Sanity isn't configured for dev: return an empty list and allow the page
-    // to render a helpful message instead of crashing the server.
-    return [];
-  }
+async function getPosts(locale: string) {
   try {
-    return await client!.fetch(query);
+    return await getBlogPosts(locale);
   } catch (err) {
-    // Log the error server-side and return an empty list so the page still renders.
-    console.error('Error fetching posts from Sanity:', err);
+    console.error('Error fetching blog posts:', err);
     return [];
   }
 }
@@ -37,11 +20,13 @@ export async function generateMetadata() {
   };
 }
 
-export default async function BlogPage() {
-  const posts = await getPosts();
-  const headersList = await headers();
-  const pathname = headersList.get('x-pathname') || '/en/blog';
-  const locale = pathname.split('/')[1] || 'en';
+export default async function BlogPage({
+  params,
+}: {
+  params: Promise<{locale: string}>;
+}) {
+  const {locale} = await params;
+  const posts = await getPosts(locale);
 
   const t = await getTranslations('nav');
 
@@ -177,21 +162,11 @@ export default async function BlogPage() {
 
               {/* Blog Posts */}
               {posts.length === 0 ? (
-                !isSanityConfigured ? (
-                  <div className="text-center py-12">
-                    <h2 className="text-2xl font-semibold mb-3">Sanity not configured</h2>
-                    <p className="text-gray-600 dark:text-gray-400 text-lg mb-3">The Sanity project ID and dataset are not set. To view blog posts locally, add your project details to <code>.env.local</code>.</p>
-                    <pre className="bg-gray-100 dark:bg-gray-800 p-3 rounded text-sm overflow-auto mx-auto max-w-lg text-left">
-                      NEXT_PUBLIC_SANITY_PROJECT_ID=your-project-id\nNEXT_PUBLIC_SANITY_DATASET=production
-                    </pre>
-                  </div>
-                ) : (
                 <div className="text-center py-12">
                   <p className="text-gray-600 dark:text-gray-400 text-lg">
-                    No blog posts yet. Create some in Sanity Studio!
+                    No blog posts yet. Create some in content/news/{locale}/!
                   </p>
                 </div>
-                )
               ) : (
                 <section aria-labelledby="posts-heading">
                   <h2 id="posts-heading" className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
@@ -201,21 +176,21 @@ export default async function BlogPage() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {posts.map((post: any) => (
                       <article
-                        key={post._id}
+                        key={post.slug}
                         className="p-6 border border-gray-200 dark:border-gray-800 rounded-lg hover:border-gray-400 dark:hover:border-gray-600 transition-colors"
                       >
                         <h3 className="text-2xl font-semibold mb-3">
                           <Link
-                            href={`/${locale}/blog/${post.slug.current}`}
+                            href={`/${locale}/blog/${post.slug}`}
                             className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
                           >
-                            {post.title.en}
+                            {post.title}
                           </Link>
                         </h3>
 
                         {post.excerpt && (
                           <p className="text-gray-600 dark:text-gray-400 mb-4">
-                            {post.excerpt.en}
+                            {post.excerpt}
                           </p>
                         )}
 
@@ -237,7 +212,7 @@ export default async function BlogPage() {
                                 key={idx}
                                 className="text-xs px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full"
                               >
-                                {cat.en}
+                                {cat}
                               </span>
                             ))}
                           </div>

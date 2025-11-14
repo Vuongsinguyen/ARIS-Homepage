@@ -50,5 +50,72 @@
       "title": "型安全性",
       "description": "より良い開発体験のための完全なTypeScriptサポート"
     }
+  },
+  "footer": {
+    "companyDescription": "SEO最適化とCMS統合を備えた高性能多言語ウェブサイト。",
+    "navigation": "ナビゲーション",
+    "services": "サービス",
+    "contact": "お問い合わせ",
+    "oneStopServices": "ワンストップサービス",
+    "systemDevelopment": "システム開発",
+    "mobileDevelopment": "モバイル開発",
+    "qualityControl": "品質管理",
+    "uiUxDesign": "UI/UXデザイン",
+    "researchDevelopment": "研究開発",
+    "digitalTransformation": "デジタルトランスフォーメーション",
+    "bpoServices": "BPOサービス",
+    "systemMaintenance": "システムメンテナンス",
+    "privacyPolicy": "プライバシーポリシー",
+    "termsOfService": "利用規約",
+    "copyright": "© 2011 ARIS Vietnam | All rights reserved."
+  },
+  "recruitments": {
+    "title": "私たちのチームに参加しませんか",
+    "subtitle": "エキサイティングなキャリアチャンスを発見し、イノベーティブなチームの一員になりましょう",
+    "currentOpenings": "現在の求人",
+    "seniorFullStack": {
+      "title": "シニアフルスタックデベロッパー",
+      "description": "最新のテクノロジーを使用して最先端のウェブアプリケーションを構築する開発チームに参加してください。",
+      "location": "リモート",
+      "type": "フルタイム",
+      "salary": "競争力のある給与"
+    },
+    "uiUxDesigner": {
+      "title": "UI/UXデザイナー",
+      "description": "私たちのデジタル製品のために美しく直感的なユーザー体験を作成してください。",
+      "location": "ハイブリッド",
+      "type": "フルタイム",
+      "salary": "競争力のある給与"
+    },
+    "devOpsEngineer": {
+      "title": "DevOpsエンジニア",
+      "description": "クラウドインフラとデプロイメントパイプラインを構築・維持してください。",
+      "location": "リモート",
+      "type": "フルタイム",
+      "salary": "競争力のある給与"
+    },
+    "applyNow": "今すぐ応募",
+    "whyJoinUs": "なぜARISを選ぶのか？",
+    "innovation": {
+      "title": "イノベーション",
+      "description": "最先端のテクノロジーと革新的なプロジェクトで大きな影響を与える仕事に取り組みましょう。"
+    },
+    "teamCulture": {
+      "title": "チームカルチャー",
+      "description": "多様性と包摂を重視する協調的でサポート的なチームに加わりましょう。"
+    },
+    "growth": {
+      "title": "成長",
+      "description": "継続的な学習機会とキャリア開発サポート。"
+    },
+    "workLifeBalance": {
+      "title": "ワークライフバランス",
+      "description": "柔軟な勤務形態と健全なワークライフバランス。"
+    },
+    "contactCTA": {
+      "title": "完璧な役割が見つかりませんか？",
+      "description": "常に才能ある個人を探しています。履歴書を送って、話をしましょう！",
+      "button": "履歴書を送る"
+    }
   }
 }

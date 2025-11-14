@@ -68,5 +68,54 @@
     "privacyPolicy": "Privacy Policy",
     "termsOfService": "Terms of Service",
     "copyright": "© 2011 ARIS Vietnam | All rights reserved."
+  },
+  "recruitments": {
+    "title": "Join Our Team",
+    "subtitle": "Discover exciting career opportunities and be part of our innovative team",
+    "currentOpenings": "Current Openings",
+    "seniorFullStack": {
+      "title": "Senior Full-Stack Developer",
+      "description": "Join our development team to build cutting-edge web applications using modern technologies.",
+      "location": "Remote",
+      "type": "Full-time",
+      "salary": "Competitive salary"
+    },
+    "uiUxDesigner": {
+      "title": "UI/UX Designer",
+      "description": "Create beautiful and intuitive user experiences for our digital products.",
+      "location": "Hybrid",
+      "type": "Full-time",
+      "salary": "Competitive salary"
+    },
+    "devOpsEngineer": {
+      "title": "DevOps Engineer",
+      "description": "Build and maintain our cloud infrastructure and deployment pipelines.",
+      "location": "Remote",
+      "type": "Full-time",
+      "salary": "Competitive salary"
+    },
+    "applyNow": "Apply Now",
+    "whyJoinUs": "Why Join ARIS?",
+    "innovation": {
+      "title": "Innovation",
+      "description": "Work on cutting-edge technologies and innovative projects that make a real impact."
+    },
+    "teamCulture": {
+      "title": "Team Culture",
+      "description": "Join a collaborative and supportive team that values diversity and inclusion."
+    },
+    "growth": {
+      "title": "Growth",
+      "description": "Continuous learning opportunities and career development support."
+    },
+    "workLifeBalance": {
+      "title": "Work-Life Balance",
+      "description": "Flexible working arrangements and a healthy work-life balance."
+    },
+    "contactCTA": {
+      "title": "Don't see the perfect role?",
+      "description": "We're always looking for talented individuals. Send us your resume and let's talk!",
+      "button": "Send Resume"
+    }
   }
 }

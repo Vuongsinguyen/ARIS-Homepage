@@ -68,5 +68,54 @@
     "privacyPolicy": "Chính sách Bảo mật",
     "termsOfService": "Điều khoản Dịch vụ",
     "copyright": "© 2011 ARIS Vietnam | Tất cả quyền được bảo lưu."
+  },
+  "recruitments": {
+    "title": "Tham gia đội ngũ của chúng tôi",
+    "subtitle": "Khám phá cơ hội nghề nghiệp thú vị và trở thành một phần của đội ngũ sáng tạo",
+    "currentOpenings": "Vị trí đang tuyển",
+    "seniorFullStack": {
+      "title": "Senior Full-Stack Developer",
+      "description": "Tham gia đội ngũ phát triển để xây dựng các ứng dụng web tiên tiến sử dụng công nghệ hiện đại.",
+      "location": "Làm việc từ xa",
+      "type": "Toàn thời gian",
+      "salary": "Mức lương cạnh tranh"
+    },
+    "uiUxDesigner": {
+      "title": "UI/UX Designer",
+      "description": "Tạo ra trải nghiệm người dùng đẹp và trực quan cho các sản phẩm số của chúng tôi.",
+      "location": "Làm việc kết hợp",
+      "type": "Toàn thời gian",
+      "salary": "Mức lương cạnh tranh"
+    },
+    "devOpsEngineer": {
+      "title": "DevOps Engineer",
+      "description": "Xây dựng và duy trì hạ tầng đám mây và pipeline triển khai.",
+      "location": "Làm việc từ xa",
+      "type": "Toàn thời gian",
+      "salary": "Mức lương cạnh tranh"
+    },
+    "applyNow": "Ứng tuyển ngay",
+    "whyJoinUs": "Tại sao chọn ARIS?",
+    "innovation": {
+      "title": "Đổi mới",
+      "description": "Làm việc với công nghệ tiên tiến và các dự án sáng tạo tạo ra tác động thực sự."
+    },
+    "teamCulture": {
+      "title": "Văn hóa đội ngũ",
+      "description": "Tham gia đội ngũ hợp tác và hỗ trợ nhau, coi trọng sự đa dạng và bao gồm."
+    },
+    "growth": {
+      "title": "Phát triển",
+      "description": "Cơ hội học tập liên tục và hỗ trợ phát triển nghề nghiệp."
+    },
+    "workLifeBalance": {
+      "title": "Cân bằng công việc - cuộc sống",
+      "description": "Lịch làm việc linh hoạt và sự cân bằng lành mạnh giữa công việc và cuộc sống."
+    },
+    "contactCTA": {
+      "title": "Không thấy vị trí phù hợp?",
+      "description": "Chúng tôi luôn tìm kiếm những cá nhân tài năng. Gửi CV cho chúng tôi và hãy trò chuyện!",
+      "button": "Gửi CV"
+    }
   }
 }

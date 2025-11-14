@@ -11,7 +11,11 @@ import { trackWebVitals, preloadCriticalResources, checkPerformanceBudget } from
 import { PerformanceTracker } from '@/components/PerformanceTracker';
 import "../globals.css";
 
-const inter = Inter({ subsets: ["latin", "vietnamese"] });
+const inter = Inter({ 
+  subsets: ["latin", "vietnamese"],
+  variable: '--font-inter',
+  display: 'swap',
+});
 
 export async function generateMetadata({
   params,
@@ -92,22 +96,10 @@ export default async function LocaleLayout({
 }) {
   const {locale} = await params;
   const messages = await getMessages();
-  const structuredData = generateStructuredData('home', locale);
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <head>
-        {structuredData.map((data, index) => (
-          <script
-            key={index}
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify(data),
-            }}
-          />
-        ))}
-      </head>
-      <body className={inter.className}>
+      <body className={inter.variable} suppressHydrationWarning>
         <Providers>
           <NextIntlClientProvider messages={messages}>
             <PerformanceTracker />

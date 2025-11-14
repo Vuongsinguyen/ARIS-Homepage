@@ -1,72 +1,14 @@
-[00:00:01.232] Server  LOG      ✓ Ready in 948ms
-[00:00:05.859] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
-
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
-
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
-
-%s%s https://react.dev/link/hydration-mismatch 
-
-  ...
-    <RenderFromTemplateContext>
-      <ScrollAndFocusHandler segmentPath={[...]}>
-        <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
-          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
-            <LoadingBoundary name="/" loading={null}>
-              <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
-                <HTTPAccessFallbackErrorBoundary pathname="/en/about" notFound={<SegmentViewNode>} forbidden={undefined} ...>
-                  <RedirectBoundary>
-                    <RedirectErrorBoundary router={{...}}>
-                      <InnerLayoutRouter url="/en/about" tree={[...]} params={{locale:"en"}} ...>
-                        <SegmentViewNode type="layout" pagePath="[locale]/l...">
-                          <SegmentTrieNode>
-                          <link>
-                          <script>
-                          <script>
-                          <script>
-                          <LocaleLayout>
-                            <html lang="en" suppressHydrationWarning={true}>
-                              <head>
-                                <script
-+                                 type="application/ld+json"
--                                 type={null}
-                                  dangerouslySetInnerHTML={{
-+                                   __html: "{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"name\":..."
--                                   __html: ""
-                                  }}
--                                 src="/_next/static/chunks/node_modules_next_dist_build_polyfills_polyfill-nomodule.js"
--                                 nomodule=""
-                                >
-                                <script
-+                                 type="application/ld+json"
--                                 type={null}
-                                  dangerouslySetInnerHTML={{
-+                                   __html: "{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"ARI..."
--                                   __html: ""
-                                  }}
--                                 src="/_next/static/chunks/%5Bturbopack%5D_browser_dev_hmr-client_hmr-client_ts_c8c99..."
-                                >
-                              <body
-+                               className="inter_bcd142de-module__j05kcG__className"
--                               className="inter_5972bc34-module__OU16Qa__className"
-                              >
-                      ...
-          ...
-
-[00:00:06.490] Browser LOG     CLS: 0.002798100966012719
-[00:00:06.490] Browser LOG     [Analytics] CLS: 0.002798100966012719
-[00:00:07.356] Server  LOG     Performance Metrics Received: {}
-[00:00:07.511] Browser LOG     Performance Budget:
-[00:00:07.511] Browser LOG     DOM Content Loaded: 0.10000002384185791ms
-[00:00:07.511] Browser LOG     Load Complete: 0ms
-[00:00:07.511] Browser LOG     Total Load Time: 3176.100000023842ms
-[00:00:07.512] Browser LOG     ✅ domContentLoaded within budget: 0.10000002384185791ms
-[00:00:07.512] Browser LOG     ✅ loadComplete within budget: 0ms
-[00:00:07.512] Browser WARN    ⚠️ totalTime exceeded budget: 3176.100000023842ms > 3000ms
-[00:00:08.543] Server  LOG     Performance Metrics Received: {}
-[00:00:08.627] Browser LOG     CLS: 0.0038512549506684196
-[00:00:08.627] Browser LOG     [Analytics] CLS: 0.0038512549506684196
+[00:00:01.158] Server  LOG      ✓ Ready in 899ms
+[00:00:06.759] Browser LOG     CLS: 0.0014105301282757144
+[00:00:06.759] Browser LOG     [Analytics] CLS: 0.0014105301282757144
+[00:00:06.982] Server  LOG     Performance Metrics Received: {}
+[00:00:07.614] Server  LOG     Performance Metrics Received: {}
+[00:00:07.708] Browser LOG     CLS: 0.002752782853386623
+[00:00:07.708] Browser LOG     [Analytics] CLS: 0.002752782853386623
+[00:00:07.861] Browser LOG     Performance Budget:
+[00:00:07.861] Browser LOG     DOM Content Loaded: 0ms
+[00:00:07.861] Browser LOG     Load Complete: 0.10000002384185791ms
+[00:00:07.861] Browser LOG     Total Load Time: 3155.399999976158ms
+[00:00:07.861] Browser LOG     ✅ domContentLoaded within budget: 0ms
+[00:00:07.861] Browser LOG     ✅ loadComplete within budget: 0.10000002384185791ms
+[00:00:07.861] Browser WARN    ⚠️ totalTime exceeded budget: 3155.399999976158ms > 3000ms

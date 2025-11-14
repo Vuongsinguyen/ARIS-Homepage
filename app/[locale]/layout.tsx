@@ -1,7 +1,6 @@
 import {NextIntlClientProvider} from 'next-intl';
 import {getMessages} from 'next-intl/server';
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import {Providers} from '@/components/providers';
 import TopBar from '@/components/TopBar';
 import Footer from '@/components/Footer';
@@ -10,12 +9,6 @@ import { generateAIMetadata, generateStructuredData } from '@/lib/seo';
 import { trackWebVitals, preloadCriticalResources, checkPerformanceBudget } from '@/lib/performance';
 import { PerformanceTracker } from '@/components/PerformanceTracker';
 import "../globals.css";
-
-const inter = Inter({ 
-  subsets: ["latin", "vietnamese"],
-  variable: '--font-inter',
-  display: 'swap',
-});
 
 export async function generateMetadata({
   params,
@@ -98,18 +91,14 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} suppressHydrationWarning>
-      <body className={inter.variable} suppressHydrationWarning>
-        <Providers>
-          <NextIntlClientProvider messages={messages}>
-            <PerformanceTracker />
-            <TopBar />
-            {children}
-            <Footer />
-            <FooterBottom />
-          </NextIntlClientProvider>
-        </Providers>
-      </body>
-    </html>
+    <Providers>
+      <NextIntlClientProvider messages={messages}>
+        <PerformanceTracker />
+        <TopBar />
+        {children}
+        <Footer />
+        <FooterBottom />
+      </NextIntlClientProvider>
+    </Providers>
   );
 }

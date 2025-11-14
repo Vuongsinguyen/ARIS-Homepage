@@ -3,8 +3,13 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from 'next-themes'
 import AuthProvider from '@/components/AuthProvider'
+import { HtmlLangSetter } from '@/components/HtmlLangSetter'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ 
+  subsets: ['latin', 'vietnamese'],
+  variable: '--font-inter',
+  display: 'swap'
+})
 
 export const metadata: Metadata = {
   title: 'ARIS VIETNAM - Technology Solutions & Digital Innovation',
@@ -17,8 +22,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+    <html suppressHydrationWarning>
+      <HtmlLangSetter />
+      <body className={inter.variable}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

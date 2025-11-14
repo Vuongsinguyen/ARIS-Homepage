@@ -22,7 +22,7 @@ export default async function UseCasesPage() {
       <Navbar />
       <main className="flex min-h-screen flex-col">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-orange-50 to-red-100 dark:from-orange-950 dark:to-red-900 py-16">
+        <section className="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-950 dark:to-indigo-900 py-16">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
@@ -33,7 +33,7 @@ export default async function UseCasesPage() {
               </p>
               <Link
                 href={`/${locale}/contact`}
-                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-orange-600 hover:bg-orange-700 transition-colors"
+                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
               >
                 Discuss Your Project
               </Link>
@@ -65,202 +65,140 @@ export default async function UseCasesPage() {
         <section className="py-16">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-6xl mx-auto">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-                {/* Description */}
-                <div>
-                  <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-                    Real-World Applications
-                  </h2>
-                  <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-                    Our solutions have been successfully implemented across various industries, helping businesses
-                    transform their operations and achieve remarkable results. Each use case demonstrates our
-                    commitment to delivering tailored solutions that drive real business value.
-                  </p>
-
-                  <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-                    Industries We Serve
-                  </h3>
-                  <ul className="space-y-3">
-                    <li className="flex items-start">
-                      <span className="text-orange-500 mr-3 mt-1">✓</span>
-                      <span className="text-gray-600 dark:text-gray-300">Healthcare & Medical</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-orange-500 mr-3 mt-1">✓</span>
-                      <span className="text-gray-600 dark:text-gray-300">E-commerce & Retail</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-orange-500 mr-3 mt-1">✓</span>
-                      <span className="text-gray-600 dark:text-gray-300">Education & E-learning</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-orange-500 mr-3 mt-1">✓</span>
-                      <span className="text-gray-600 dark:text-gray-300">Financial Services & FinTech</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-orange-500 mr-3 mt-1">✓</span>
-                      <span className="text-gray-600 dark:text-gray-300">Manufacturing & Logistics</span>
-                    </li>
-                  </ul>
-                </div>
-
-                {/* Technologies */}
-                <div>
-                  <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
-                    Technologies We Use
-                  </h3>
-                  <div className="grid grid-cols-2 gap-4 mb-8">
-                    <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 text-center">
-                      <span className="text-gray-900 dark:text-white font-medium">React</span>
-                    </div>
-                    <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 text-center">
-                      <span className="text-gray-900 dark:text-white font-medium">Next.js</span>
-                    </div>
-                    <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 text-center">
-                      <span className="text-gray-900 dark:text-white font-medium">Node.js</span>
-                    </div>
-                    <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 text-center">
-                      <span className="text-gray-900 dark:text-white font-medium">Python</span>
-                    </div>
-                    <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 text-center">
-                      <span className="text-gray-900 dark:text-white font-medium">AWS</span>
-                    </div>
-                    <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 text-center">
-                      <span className="text-gray-900 dark:text-white font-medium">Docker</span>
-                    </div>
-                  </div>
-
-                  <div className="mt-8 p-6 bg-orange-50 dark:bg-orange-900/20 rounded-lg">
-                    <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                      Have a Similar Project?
-                    </h4>
-                    <p className="text-gray-600 dark:text-gray-300 mb-4">
-                      Let's discuss how we can adapt our solutions to meet your specific business needs.
-                    </p>
-                    <Link
-                      href={`/${locale}/contact`}
-                      className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-orange-600 bg-orange-50 hover:bg-orange-100 dark:text-orange-400 dark:bg-orange-900/40 dark:hover:bg-orange-900/60 transition-colors"
-                    >
-                      Contact Us →
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
               {/* Use Cases Grid */}
-              <section aria-labelledby="use-cases-heading">
-                <h2 id="use-cases-heading" className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
-                  Featured Use Cases
-                </h2>
-
-                <div className="space-y-8">
+              <section>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {/* Use Case 1 */}
-                  <article className="border border-gray-200 dark:border-gray-800 rounded-lg p-8 hover:border-gray-400 dark:hover:border-gray-600 transition-colors">
-                    <div className="flex items-start gap-6">
-                      <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <span className="text-3xl">🏥</span>
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-2xl font-semibold mb-3">Healthcare Management System</h3>
-                        <p className="text-gray-600 dark:text-gray-400 mb-4">
-                          A comprehensive patient management system for a large hospital network, featuring appointment scheduling,
-                          electronic health records, and telemedicine integration.
-                        </p>
-                        <div className="flex flex-wrap gap-2">
-                          <span className="text-xs px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full">
-                            React
-                          </span>
-                          <span className="text-xs px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full">
-                            Node.js
-                          </span>
-                          <span className="text-xs px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full">
-                            PostgreSQL
-                          </span>
-                        </div>
-                      </div>
+                  <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:shadow-lg hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-300 text-center">
+                    <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mx-auto mb-4">
+                      <span className="text-3xl">🏥</span>
                     </div>
-                  </article>
+                    <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">Healthcare Management System</h3>
+                    <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm">
+                      Comprehensive patient management with appointment scheduling, EHR, and telemedicine integration.
+                    </p>
+                    <div className="flex flex-wrap gap-2 justify-center">
+                      <span className="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full">
+                        React
+                      </span>
+                      <span className="text-xs px-2 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full">
+                        Node.js
+                      </span>
+                      <span className="text-xs px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full">
+                        PostgreSQL
+                      </span>
+                    </div>
+                  </div>
 
                   {/* Use Case 2 */}
-                  <article className="border border-gray-200 dark:border-gray-800 rounded-lg p-8 hover:border-gray-400 dark:hover:border-gray-600 transition-colors">
-                    <div className="flex items-start gap-6">
-                      <div className="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <span className="text-3xl">🏪</span>
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-2xl font-semibold mb-3">E-commerce Platform</h3>
-                        <p className="text-gray-600 dark:text-gray-400 mb-4">
-                          A scalable e-commerce solution for a retail chain with inventory management,
-                          payment processing, and customer analytics dashboard.
-                        </p>
-                        <div className="flex flex-wrap gap-2">
-                          <span className="text-xs px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full">
-                            Next.js
-                          </span>
-                          <span className="text-xs px-3 py-1 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 rounded-full">
-                            Stripe
-                          </span>
-                          <span className="text-xs px-3 py-1 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded-full">
-                            Redis
-                          </span>
-                        </div>
-                      </div>
+                  <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:shadow-lg hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-300 text-center">
+                    <div className="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mx-auto mb-4">
+                      <span className="text-3xl">🏪</span>
                     </div>
-                  </article>
+                    <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">E-commerce Platform</h3>
+                    <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm">
+                      Scalable e-commerce solution with inventory management, payment processing, and analytics.
+                    </p>
+                    <div className="flex flex-wrap gap-2 justify-center">
+                      <span className="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full">
+                        Next.js
+                      </span>
+                      <span className="text-xs px-2 py-1 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 rounded-full">
+                        Stripe
+                      </span>
+                      <span className="text-xs px-2 py-1 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded-full">
+                        Redis
+                      </span>
+                    </div>
+                  </div>
 
                   {/* Use Case 3 */}
-                  <article className="border border-gray-200 dark:border-gray-800 rounded-lg p-8 hover:border-gray-400 dark:hover:border-gray-600 transition-colors">
-                    <div className="flex items-start gap-6">
-                      <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <span className="text-3xl">🎓</span>
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-2xl font-semibold mb-3">Learning Management System</h3>
-                        <p className="text-gray-600 dark:text-gray-400 mb-4">
-                          An online education platform with course management, video streaming,
-                          progress tracking, and certification features for educational institutions.
-                        </p>
-                        <div className="flex flex-wrap gap-2">
-                          <span className="text-xs px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full">
-                            React
-                          </span>
-                          <span className="text-xs px-3 py-1 bg-teal-100 dark:bg-teal-900 text-teal-800 dark:text-teal-200 rounded-full">
-                            AWS
-                          </span>
-                          <span className="text-xs px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 rounded-full">
-                            MongoDB
-                          </span>
-                        </div>
-                      </div>
+                  <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:shadow-lg hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-300 text-center">
+                    <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-lg flex items-center justify-center mx-auto mb-4">
+                      <span className="text-3xl">🎓</span>
                     </div>
-                  </article>
+                    <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">Learning Management System</h3>
+                    <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm">
+                      Online education platform with course management, video streaming, and certification features.
+                    </p>
+                    <div className="flex flex-wrap gap-2 justify-center">
+                      <span className="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full">
+                        React
+                      </span>
+                      <span className="text-xs px-2 py-1 bg-teal-100 dark:bg-teal-900 text-teal-800 dark:text-teal-200 rounded-full">
+                        AWS
+                      </span>
+                      <span className="text-xs px-2 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 rounded-full">
+                        MongoDB
+                      </span>
+                    </div>
+                  </div>
 
                   {/* Use Case 4 */}
-                  <article className="border border-gray-200 dark:border-gray-800 rounded-lg p-8 hover:border-gray-400 dark:hover:border-gray-600 transition-colors">
-                    <div className="flex items-start gap-6">
-                      <div className="w-16 h-16 bg-orange-100 dark:bg-orange-900 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <span className="text-3xl">🚀</span>
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-2xl font-semibold mb-3">FinTech Application</h3>
-                        <p className="text-gray-600 dark:text-gray-400 mb-4">
-                          A secure financial application with real-time trading, portfolio management,
-                          and advanced analytics for investment firms.
-                        </p>
-                        <div className="flex flex-wrap gap-2">
-                          <span className="text-xs px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full">
-                            TypeScript
-                          </span>
-                          <span className="text-xs px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full">
-                            Python
-                          </span>
-                          <span className="text-xs px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-full">
-                            Docker
-                          </span>
-                        </div>
-                      </div>
+                  <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:shadow-lg hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-300 text-center">
+                    <div className="w-16 h-16 bg-orange-100 dark:bg-orange-900 rounded-lg flex items-center justify-center mx-auto mb-4">
+                      <span className="text-3xl">🚀</span>
                     </div>
-                  </article>
+                    <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">FinTech Application</h3>
+                    <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm">
+                      Secure financial application with real-time trading, portfolio management, and analytics.
+                    </p>
+                    <div className="flex flex-wrap gap-2 justify-center">
+                      <span className="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full">
+                        TypeScript
+                      </span>
+                      <span className="text-xs px-2 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full">
+                        Python
+                      </span>
+                      <span className="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-full">
+                        Docker
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Use Case 5 */}
+                  <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:shadow-lg hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-300 text-center">
+                    <div className="w-16 h-16 bg-cyan-100 dark:bg-cyan-900 rounded-lg flex items-center justify-center mx-auto mb-4">
+                      <span className="text-3xl">🚛</span>
+                    </div>
+                    <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">Logistics & Supply Chain</h3>
+                    <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm">
+                      Advanced logistics platform with route optimization, inventory tracking, and real-time monitoring.
+                    </p>
+                    <div className="flex flex-wrap gap-2 justify-center">
+                      <span className="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full">
+                        React
+                      </span>
+                      <span className="text-xs px-2 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full">
+                        Python
+                      </span>
+                      <span className="text-xs px-2 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 rounded-full">
+                        PostgreSQL
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Use Case 6 */}
+                  <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:shadow-lg hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-300 text-center">
+                    <div className="w-16 h-16 bg-rose-100 dark:bg-rose-900 rounded-lg flex items-center justify-center mx-auto mb-4">
+                      <span className="text-3xl">🏭</span>
+                    </div>
+                    <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">Manufacturing ERP</h3>
+                    <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm">
+                      Complete manufacturing ERP system with production planning, quality control, and IoT integration.
+                    </p>
+                    <div className="flex flex-wrap gap-2 justify-center">
+                      <span className="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full">
+                        Angular
+                      </span>
+                      <span className="text-xs px-2 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full">
+                        .NET
+                      </span>
+                      <span className="text-xs px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full">
+                        SQL Server
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </section>
             </div>
@@ -273,7 +211,7 @@ export default async function UseCasesPage() {
             <div className="text-center">
               <Link
                 href={`/${locale}`}
-                className="inline-flex items-center text-orange-600 hover:text-orange-800 dark:text-orange-400 dark:hover:text-orange-300 transition-colors"
+                className="inline-flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
               >
                 ← Back to Home
               </Link>

@@ -1823,55 +1823,6 @@ export default function Home() {
                       />
                     </div>
                   </div>
-
-                  {/* Quick Contact */}
-                  <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
-                      Quick Contact
-                    </h3>
-                    <div className="space-y-4">
-                      <div className="flex items-start gap-3">
-                        <span className="text-indigo-600 dark:text-indigo-400 text-lg mt-0.5">📧</span>
-                        <div>
-                          <div className="font-medium text-gray-900 dark:text-white text-sm">Email</div>
-                          <div className="text-sm text-gray-600 dark:text-gray-400">contact@aris-vn.com</div>
-                        </div>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <span className="text-blue-600 dark:text-blue-400 text-lg mt-0.5">📞</span>
-                        <div>
-                          <div className="font-medium text-gray-900 dark:text-white text-sm">Phone</div>
-                          <div className="text-sm text-gray-600 dark:text-gray-400">+84-28-38424483</div>
-                        </div>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <span className="text-green-600 dark:text-green-400 text-lg mt-0.5">💼</span>
-                        <div>
-                          <div className="font-medium text-gray-900 dark:text-white text-sm">Business Hours</div>
-                          <div className="text-sm text-gray-600 dark:text-gray-400">Mon-Fri 8:30AM-5:30PM</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Call to Action */}
-                  <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-lg p-6 text-white shadow-lg">
-                    <h3 className="text-xl font-semibold mb-3">
-                      Ready to Start a Project?
-                    </h3>
-                    <p className="text-blue-100 mb-4">
-                      Let's discuss how we can help transform your business with our innovative solutions.
-                    </p>
-                    <Link
-                      href={`/${locale}/contact`}
-                      className="inline-flex items-center px-4 py-2 bg-white text-blue-600 font-medium rounded-md hover:bg-gray-100 transition-colors"
-                    >
-                      Get In Touch
-                      <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </Link>
-                  </div>
                 </div>
               </div>
             </div>

@@ -173,6 +173,169 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
   );
 }
 
+// Quick Contact Form Component
+function QuickContactForm() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
+  const [submitError, setSubmitError] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitMessage('');
+    setSubmitError('');
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      company: formData.get('company'),
+      subject: formData.get('subject'),
+      message: formData.get('message'),
+    };
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setSubmitMessage(result.message);
+        // Reset form
+        e.currentTarget.reset();
+      } else {
+        setSubmitError(result.error || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      setSubmitError('Network error. Please check your connection and try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 shadow-lg">
+      <div className="text-center mb-6">
+        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+          Get In Touch
+        </h3>
+        <p className="text-gray-600 dark:text-gray-400">
+          Ready to start your project? Send us a quick message and we'll get back to you soon.
+        </p>
+      </div>
+
+      <form className="space-y-4" onSubmit={handleSubmit}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              Full Name *
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-sm"
+              placeholder="Your name"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              Email Address *
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-sm"
+              placeholder="your@email.com"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label htmlFor="company" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+            Company (Optional)
+          </label>
+          <input
+            type="text"
+            id="company"
+            name="company"
+            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-sm"
+            placeholder="Your company"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+            Subject *
+          </label>
+          <select
+            id="subject"
+            name="subject"
+            required
+            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-sm"
+          >
+            <option value="">Select a topic</option>
+            <option value="web-development">Web Development</option>
+            <option value="mobile-apps">Mobile Applications</option>
+            <option value="ai-solutions">AI Solutions</option>
+            <option value="consulting">Consulting</option>
+            <option value="support">Support</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div>
+          <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+            Message *
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            rows={4}
+            required
+            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none text-sm"
+            placeholder="Tell us about your project..."
+          />
+        </div>
+
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className="w-full px-4 py-2 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+        >
+          {isSubmitting ? 'Sending...' : 'Send Message'}
+        </button>
+      </form>
+
+      {submitMessage && (
+        <div className="mt-4 p-3 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-md">
+          <p className="text-green-800 dark:text-green-200 text-sm">{submitMessage}</p>
+        </div>
+      )}
+
+      {submitError && (
+        <div className="mt-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-md">
+          <p className="text-red-800 dark:text-red-200 text-sm">{submitError}</p>
+        </div>
+      )}
+
+      <p className="text-xs text-gray-500 dark:text-gray-400 mt-3 text-center">
+        * Required fields. We respect your privacy and will never share your information.
+      </p>
+    </div>
+  );
+}
+
 export default function Home() {
   const t = useTranslations('home');
   const params = useParams();
@@ -205,50 +368,7 @@ export default function Home() {
     }
   }, [selectedTeam]);
   const [activeProductCategory, setActiveProductCategory] = useState('all');
-  const [activeOffice, setActiveOffice] = useState('vietnam-hcm');
 
-  const offices = [
-    {
-      id: 'vietnam-hcm',
-      company: 'ARIS VIETNAM CO., LTD',
-      location: 'Vietnam - Ho Chi Minh Headquarter',
-      address: 'Waseco Building, 10 Pho Quang Str., Ward 2, Tan Binh Dist., Ho Chi Minh City, Vietnam',
-      email: 'contact@aris-vn.com',
-      phone: '+84-28-38424483',
-      fax: '+84-28-38424473',
-      flag: '🇻🇳'
-    },
-    {
-      id: 'vietnam-hanoi',
-      company: 'Chi nhánh Hanoi',
-      location: 'Hanoi Branch',
-      address: 'Detech Tower II Building, 107 Nguyen Phong Sac Str., Cau Giay Dist., Hanoi, Vietnam',
-      email: 'contact@aris-vn.com',
-      phone: '+84-28-38424483',
-      fax: '+84-28-38424473',
-      flag: '🇻🇳'
-    },
-    {
-      id: 'japan-tokyo',
-      company: 'ARIS JAPAN Inc.',
-      location: 'Tokyo Headquarter',
-      address: 'Shinjuku Nomura Bldg 10F, 1-26-2 Nishishinjuku, Shinjuku-ku, Tokyo 163-0510, Japan',
-      email: 'dev-info@ml.aris-kk.co.jp',
-      phone: '+81-3-3340-1053',
-      fax: '+81-3-3340-1054',
-      flag: '🇯🇵'
-    }
-  ];
-
-  const productCategories = [
-    { id: 'all', label: 'All Products', icon: '🧩' },
-    { id: 'development', label: 'Development', icon: '💻' },
-    { id: 'analytics', label: 'Analytics', icon: '📊' },
-    { id: 'communication', label: 'Communication', icon: '💬' },
-    { id: 'automation', label: 'Automation', icon: '🤖' },
-    { id: 'security', label: 'Security', icon: '🔐' },
-    { id: 'cloud', label: 'Cloud', icon: '☁️' },
-  ];
 
   const products = [
     {
@@ -332,11 +452,22 @@ export default function Home() {
       color: 'pink',
       href: `/${locale}/products/video-conferencing`
     },
+
   ];
 
   const filteredProducts = activeProductCategory === 'all'
     ? products
     : products.filter(product => product.category === activeProductCategory);
+
+  const productCategories = [
+    { id: 'all', label: 'All Products' },
+    { id: 'development', label: 'Development' },
+    { id: 'analytics', label: 'Analytics' },
+    { id: 'communication', label: 'Communication' },
+    { id: 'automation', label: 'Automation' },
+    { id: 'security', label: 'Security' },
+    { id: 'cloud', label: 'Cloud' },
+  ];
 
   return (
     <>
@@ -1563,161 +1694,184 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Contact Section */}
+        {/* Quick Contact Section */}
         <section className="py-16 bg-white dark:bg-gray-800">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl mx-auto">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                {/* Left Column - Content */}
+                <div>
+                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+                    Let's Build Something Amazing Together
+                  </h2>
+                  <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
+                    Have a project in mind? We'd love to hear about it. Our team of experts is ready to help bring your vision to life with cutting-edge technology solutions.
+                  </p>
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center">
+                        <span className="text-blue-600 dark:text-blue-400 text-sm">✓</span>
+                      </div>
+                      <span className="text-gray-700 dark:text-gray-300">Free initial consultation</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center">
+                        <span className="text-blue-600 dark:text-blue-400 text-sm">✓</span>
+                      </div>
+                      <span className="text-gray-700 dark:text-gray-300">Customized project roadmap</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center">
+                        <span className="text-blue-600 dark:text-blue-400 text-sm">✓</span>
+                      </div>
+                      <span className="text-gray-700 dark:text-gray-300">Dedicated project manager</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right Column - Contact Form */}
+                <div>
+                  <QuickContactForm />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Company Section */}
+        <section className="py-16 bg-gray-50 dark:bg-gray-900">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-[1330px] mx-auto">
               <div className="text-center mb-12">
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-                  Get In Touch
+                  Our Company
                 </h2>
                 <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                  Ready to transform your business? Let's discuss how we can help you achieve your goals.
+                  Discover our global presence and connect with us worldwide
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                {/* Contact Information */}
-                <div className="space-y-6">
-                  {/* Office Tabs */}
-                  <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Our Offices</h3>
-                    
-                    {/* Tab Navigation */}
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {offices.map((office) => (
-                        <button
-                          key={office.id}
-                          onClick={() => setActiveOffice(office.id)}
-                          className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                            activeOffice === office.id
-                              ? 'bg-blue-600 text-white shadow-lg'
-                              : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
-                          }`}
-                        >
-                          <span>{office.flag}</span>
-                          <span className="hidden sm:inline">{office.company}</span>
-                          <span className="sm:hidden">{office.id.split('-')[1].toUpperCase()}</span>
-                        </button>
-                      ))}
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                {/* Left Column - Maps (2/3 width) */}
+                <div className="lg:col-span-2">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {/* Map 1 */}
+                    <div className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                      <div className="p-4 bg-gray-50 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
+                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white flex items-center gap-2">
+                          <span className="text-xl">🇻🇳</span>
+                          Ho Chi Minh City Office
+                        </h3>
+                      </div>
+                      <div className="aspect-video">
+                        <iframe
+                          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.6308199999997!2d106.695775!3d10.762622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f9b7c3c3c3%3A0x1c6b0b0b0b0b0b0b!2sWaseco%20Building%2C%2010%20Pho%20Quang%20Str.%2C%20Ward%202%2C%20Tan%20Binh%20Dist.%2C%20Ho%20Chi%20Minh%20City%2C%20Vietnam!5e0!3m2!1sen!2s!4v1634567890123!5m2!1sen!2s"
+                          width="100%"
+                          height="100%"
+                          style={{ border: 0 }}
+                          allowFullScreen
+                          loading="lazy"
+                          referrerPolicy="no-referrer-when-downgrade"
+                          title="Ho Chi Minh City Office Location"
+                        ></iframe>
+                      </div>
                     </div>
 
-                    {/* Active Office Content */}
-                    {offices.map((office) => (
-                      activeOffice === office.id && (
-                        <div key={office.id} className="space-y-4">
-                          <div className="flex items-center gap-3 mb-4">
-                            <span className="text-2xl">{office.flag}</span>
-                            <div>
-                              <h4 className="text-lg font-semibold text-gray-900 dark:text-white">{office.company}</h4>
-                              <p className="text-sm text-gray-600 dark:text-gray-400">{office.location}</p>
-                            </div>
-                          </div>
-
-                          <div className="space-y-3">
-                            <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
-                              <div className="flex items-start gap-2 sm:col-span-2">
-                                <span className="text-lg mt-0.5">📍</span>
-                                <div>
-                                  <div className="font-medium text-gray-900 dark:text-white text-sm">ADDRESS</div>
-                                  <div className="text-sm text-gray-600 dark:text-gray-400">{office.address}</div>
-                                </div>
-                              </div>
-
-                              <div className="flex items-start gap-2">
-                                <span className="text-lg mt-0.5">📧</span>
-                                <div>
-                                  <div className="font-medium text-gray-900 dark:text-white text-sm">EMAIL</div>
-                                  <div className="text-sm text-gray-600 dark:text-gray-400">{office.email}</div>
-                                </div>
-                              </div>
-
-                              <div className="flex items-start gap-2">
-                                <span className="text-lg mt-0.5">📞</span>
-                                <div>
-                                  <div className="font-medium text-gray-900 dark:text-white text-sm">PHONE</div>
-                                  <div className="text-sm text-gray-600 dark:text-gray-400">{office.phone}</div>
-                                </div>
-                              </div>
-
-                              <div className="flex items-start gap-2">
-                                <span className="text-lg mt-0.5">📠</span>
-                                <div>
-                                  <div className="font-medium text-gray-900 dark:text-white text-sm">FAX</div>
-                                  <div className="text-sm text-gray-600 dark:text-gray-400">{office.fax}</div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      )
-                    ))}
-                  </div>
-
-                  <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Business Hours</h3>
-                    <div className="space-y-2 text-gray-600 dark:text-gray-400">
-                      <div className="flex justify-between">
-                        <span>Monday - Friday</span>
-                        <span>8:30 AM - 5:30 PM</span>
+                    {/* Map 2 */}
+                    <div className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                      <div className="p-4 bg-gray-50 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
+                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white flex items-center gap-2">
+                          <span className="text-xl">🇯🇵</span>
+                          Tokyo Office
+                        </h3>
+                      </div>
+                      <div className="aspect-video">
+                        <iframe
+                          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.8283!2d139.6987!3d35.6895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188c0d0d0d0d0d%3A0x1c6b0b0b0b0b0b0b!2sShinjuku%20Nomura%20Bldg%2010F%2C%201-26-2%20Nishishinjuku%2C%20Shinjuku-ku%2C%20Tokyo%20163-0510%2C%20Japan!5e0!3m2!1sen!2s!4v1634567890123!5m2!1sen!2s"
+                          width="100%"
+                          height="100%"
+                          style={{ border: 0 }}
+                          allowFullScreen
+                          loading="lazy"
+                          referrerPolicy="no-referrer-when-downgrade"
+                          title="Tokyo Office Location"
+                        ></iframe>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Contact Form */}
-                <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Send us a Message</h3>
-                  <form className="space-y-4">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">First Name</label>
-                        <input
-                          type="text"
-                          className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                          placeholder="John"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Last Name</label>
-                        <input
-                          type="text"
-                          className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                          placeholder="Doe"
-                        />
-                      </div>
+                {/* Right Column - Company Info (1/3 width) */}
+                <div className="space-y-6">
+                  {/* Company Overview */}
+                  <div className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                    <div className="p-4 bg-gray-50 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
+                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white flex items-center gap-2">
+                        <span className="text-xl">�🇳</span>Ho Chi Minh City Office
+                      </h3>
                     </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
-                      <input
-                        type="email"
-                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                        placeholder="john@example.com"
+                    <div className="aspect-video">
+                      <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.6308199999997!2d106.695775!3d10.762622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f9b7c3c3c3%3A0x1c6b0b0b0b0b0b0b!2sWaseco%20Building%2C%2010%20Pho%20Quang%20Str.%2C%20Ward%202%2C%20Tan%20Binh%20Dist.%2C%20Ho%20Chi%20Minh%20City%2C%20Vietnam!5e0!3m2!1sen!2s!4v1634567890123!5m2!1sen!2s"
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title="Ho Chi Minh City Office Location"
                       />
                     </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Subject</label>
-                      <input
-                        type="text"
-                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                        placeholder="How can we help you?"
-                      />
+                  </div>
+
+                  {/* Quick Contact */}
+                  <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
+                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+                      Quick Contact
+                    </h3>
+                    <div className="space-y-4">
+                      <div className="flex items-start gap-3">
+                        <span className="text-indigo-600 dark:text-indigo-400 text-lg mt-0.5">📧</span>
+                        <div>
+                          <div className="font-medium text-gray-900 dark:text-white text-sm">Email</div>
+                          <div className="text-sm text-gray-600 dark:text-gray-400">contact@aris-vn.com</div>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <span className="text-blue-600 dark:text-blue-400 text-lg mt-0.5">📞</span>
+                        <div>
+                          <div className="font-medium text-gray-900 dark:text-white text-sm">Phone</div>
+                          <div className="text-sm text-gray-600 dark:text-gray-400">+84-28-38424483</div>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <span className="text-green-600 dark:text-green-400 text-lg mt-0.5">💼</span>
+                        <div>
+                          <div className="font-medium text-gray-900 dark:text-white text-sm">Business Hours</div>
+                          <div className="text-sm text-gray-600 dark:text-gray-400">Mon-Fri 8:30AM-5:30PM</div>
+                        </div>
+                      </div>
                     </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
-                      <textarea
-                        rows={4}
-                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
-                        placeholder="Tell us about your project..."
-                      ></textarea>
-                    </div>
-                    <button
-                      type="submit"
-                      className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition-colors"
+                  </div>
+
+                  {/* Call to Action */}
+                  <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-lg p-6 text-white shadow-lg">
+                    <h3 className="text-xl font-semibold mb-3">
+                      Ready to Start a Project?
+                    </h3>
+                    <p className="text-blue-100 mb-4">
+                      Let's discuss how we can help transform your business with our innovative solutions.
+                    </p>
+                    <Link
+                      href={`/${locale}/contact`}
+                      className="inline-flex items-center px-4 py-2 bg-white text-blue-600 font-medium rounded-md hover:bg-gray-100 transition-colors"
                     >
-                      Send Message
-                    </button>
-                  </form>
+                      Get In Touch
+                      <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>

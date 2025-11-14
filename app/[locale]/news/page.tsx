@@ -4,9 +4,7 @@ import {useTranslations} from 'next-intl';
 import Link from 'next/link';
 import {useParams} from 'next/navigation';
 import {useState, useEffect} from 'react';
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
+import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 
 async function getNews(locale: string) {
@@ -22,6 +20,8 @@ async function getNews(locale: string) {
       author: 'ARIS Technology Team',
       categories: ['Technology', 'Digital Transformation', 'Innovation'],
       excerpt: 'Explore the latest trends shaping digital transformation in businesses worldwide.',
+      image: '/images/blog/blog-1.jpg',
+      imageAlt: 'Digital Transformation Trends 2025 - Featured Image',
     },
     {
       _id: 'mastering-react-development',
@@ -31,6 +31,8 @@ async function getNews(locale: string) {
       author: 'ARIS Team',
       categories: ['React', 'JavaScript', 'Web Development', 'Frontend'],
       excerpt: 'Master the fundamentals and advanced concepts of React development with this comprehensive guide covering hooks, state management, performance optimization, and best practices.',
+      image: '/images/blog/blog-2.jpg',
+      imageAlt: 'Mastering React Development - Featured Image',
     },
     {
       _id: 'sample-news-article',
@@ -40,6 +42,8 @@ async function getNews(locale: string) {
       author: 'ARIS Team',
       categories: ['Product Updates', 'Tech Insights'],
       excerpt: 'This is a sample news article to demonstrate the MD file structure.',
+      image: '/images/blog/blog-3.jpg',
+      imageAlt: 'Sample News Article - Featured Image',
     },
   ];
 
@@ -67,7 +71,11 @@ export default function NewsPage() {
   useEffect(() => {
     const loadNews = async () => {
       try {
-        const newsData = await getNews(locale);
+        const response = await fetch(`/api/news?locale=${locale}`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch news');
+        }
+        const newsData = await response.json();
         setNews(newsData);
       } catch (error) {
         console.error('Error loading news:', error);
@@ -171,6 +179,22 @@ export default function NewsPage() {
                             key={article._id}
                             className="p-6 border border-gray-200 dark:border-gray-800 rounded-lg hover:border-gray-400 dark:hover:border-gray-600 transition-colors hover:shadow-lg"
                           >
+                            {/* Featured Image */}
+                            {article.image && (
+                              <div className="mb-4 -m-6 rounded-t-lg overflow-hidden">
+                                <Image
+                                  src={article.image}
+                                  alt={article.imageAlt || `${article.title} - Featured Image`}
+                                  width={600}
+                                  height={300}
+                                  className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
+                                  priority={filteredNews.indexOf(article) < 3} // Prioritize first 3 images
+                                  placeholder="blur"
+                                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R+IRjWjBqO6O2mhP//Z"
+                                />
+                              </div>
+                            )}
+
                             <h3 className="text-2xl font-semibold mb-3">
                               <Link
                                 href={`/${locale}/news/${article.slug.current}`}

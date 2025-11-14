@@ -272,6 +272,135 @@ export default async function AboutOverviewPage() {
         </div>
       </div>
 
+      {/* Our Offices */}
+      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-8">
+        <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+          Our Offices
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Vietnam - Ho Chi Minh Headquarter */}
+          <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 p-6 rounded-lg border border-blue-200 dark:border-blue-800 hover:shadow-lg transition-all duration-300">
+            <div className="text-center mb-4">
+              <div className="text-4xl mb-2">🇻🇳</div>
+              <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
+                ARIS VIETNAM CO., LTD
+              </h4>
+              <p className="text-blue-600 dark:text-blue-400 font-medium">
+                Vietnam - Ho Chi Minh Headquarter
+              </p>
+            </div>
+            <div className="space-y-3 text-sm">
+              <div className="flex items-start space-x-3">
+                <span className="text-lg">📍</span>
+                <div>
+                  <p className="font-medium text-gray-900 dark:text-white">ADDRESS</p>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    Waseco Building, 10 Pho Quang Str., Ward 2, Tan Binh Dist., Ho Chi Minh City, Vietnam
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center space-x-3">
+                <span className="text-lg">📧</span>
+                <div>
+                  <p className="font-medium text-gray-900 dark:text-white">EMAIL</p>
+                  <p className="text-gray-600 dark:text-gray-300">contact@aris-vn.com</p>
+                </div>
+              </div>
+              <div className="flex items-center space-x-3">
+                <span className="text-lg">📞</span>
+                <div>
+                  <p className="font-medium text-gray-900 dark:text-white">PHONE</p>
+                  <p className="text-gray-600 dark:text-gray-300">+84-28-38424483</p>
+                </div>
+              </div>
+              <div className="flex items-center space-x-3">
+                <span className="text-lg">📠</span>
+                <div>
+                  <p className="font-medium text-gray-900 dark:text-white">FAX</p>
+                  <p className="text-gray-600 dark:text-gray-300">+84-28-38424473</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Hanoi Branch */}
+          <div className="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 p-6 rounded-lg border border-green-200 dark:border-green-800 hover:shadow-lg transition-all duration-300">
+            <div className="text-center mb-4">
+              <div className="text-4xl mb-2">🇻🇳</div>
+              <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
+                Chi nhánh Hanoi
+              </h4>
+              <p className="text-green-600 dark:text-green-400 font-medium">
+                Hanoi Branch
+              </p>
+            </div>
+            <div className="space-y-3 text-sm">
+              <div className="flex items-start space-x-3">
+                <span className="text-lg">📍</span>
+                <div>
+                  <p className="font-medium text-gray-900 dark:text-white">ADDRESS</p>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    Coming Soon - Hanoi, Vietnam
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center space-x-3">
+                <span className="text-lg">📧</span>
+                <div>
+                  <p className="font-medium text-gray-900 dark:text-white">EMAIL</p>
+                  <p className="text-gray-600 dark:text-gray-300">hanoi@aris-vn.com</p>
+                </div>
+              </div>
+              <div className="flex items-center space-x-3">
+                <span className="text-lg">📞</span>
+                <div>
+                  <p className="font-medium text-gray-900 dark:text-white">PHONE</p>
+                  <p className="text-gray-600 dark:text-gray-300">Coming Soon</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Japan Office */}
+          <div className="bg-gradient-to-br from-red-50 to-red-100 dark:from-red-900/20 dark:to-red-800/20 p-6 rounded-lg border border-red-200 dark:border-red-800 hover:shadow-lg transition-all duration-300">
+            <div className="text-center mb-4">
+              <div className="text-4xl mb-2">🇯🇵</div>
+              <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
+                ARIS JAPAN Inc.
+              </h4>
+              <p className="text-red-600 dark:text-red-400 font-medium">
+                Japan Office
+              </p>
+            </div>
+            <div className="space-y-3 text-sm">
+              <div className="flex items-start space-x-3">
+                <span className="text-lg">📍</span>
+                <div>
+                  <p className="font-medium text-gray-900 dark:text-white">ADDRESS</p>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    Coming Soon - Tokyo, Japan
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center space-x-3">
+                <span className="text-lg">📧</span>
+                <div>
+                  <p className="font-medium text-gray-900 dark:text-white">EMAIL</p>
+                  <p className="text-gray-600 dark:text-gray-300">info@aris-japan.com</p>
+                </div>
+              </div>
+              <div className="flex items-center space-x-3">
+                <span className="text-lg">📞</span>
+                <div>
+                  <p className="font-medium text-gray-900 dark:text-white">PHONE</p>
+                  <p className="text-gray-600 dark:text-gray-300">Coming Soon</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Call to Action */}
       <div className="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg p-8 text-center text-white">
         <h3 className="text-2xl font-bold mb-4">

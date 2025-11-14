@@ -25,6 +25,7 @@ export default function Navbar() {
     {href: `/${locale}/news`, label: t('news'), icon: '📰'},
     {href: `/${locale}/blog`, label: t('blog'), icon: '�'},
     {href: `/${locale}/recruitments`, label: t('recruitments'), icon: '👥'},
+    {href: `/${locale}/contact`, label: t('contact'), icon: '📞'},
   ];
 
   const servicesItems = [

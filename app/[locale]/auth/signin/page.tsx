@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { signIn, getSession } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
+import { useRouter, usePathname, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 
@@ -15,6 +15,16 @@ export default function SignIn() {
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState('')
   const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+  const locale = pathname.split('/')[1] || 'en'
+
+  useEffect(() => {
+    const msg = searchParams.get('message')
+    if (msg) {
+      setMessage(msg)
+    }
+  }, [searchParams])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -34,7 +44,7 @@ export default function SignIn() {
         // Check if sign in was successful
         const session = await getSession()
         if (session) {
-          router.push('/en/blog')
+          router.push(`/${locale}`)
         }
       }
     } catch (error) {
@@ -54,7 +64,7 @@ export default function SignIn() {
           <p className="mt-2 text-center text-sm text-gray-600 dark:text-gray-400">
             Or{' '}
             <Link
-              href="/auth/signup"
+              href={`/${locale}/auth/signup`}
               className="font-medium text-purple-600 hover:text-purple-500 dark:text-purple-400"
             >
               create a new account

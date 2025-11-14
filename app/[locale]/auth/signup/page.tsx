@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { useRouter, usePathname } from 'next/navigation'
 
 export const runtime = 'nodejs'
 
@@ -14,6 +14,8 @@ export default function SignUp() {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const router = useRouter()
+  const pathname = usePathname()
+  const locale = pathname.split('/')[1] || 'en'
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -40,7 +42,7 @@ export default function SignUp() {
       })
 
       if (response.ok) {
-        router.push('/auth/signin?message=Account created successfully')
+        router.push(`/${locale}/auth/signin?message=Account created successfully`)
       } else {
         const data = await response.json()
         setError(data.message || 'An error occurred')
@@ -62,7 +64,7 @@ export default function SignUp() {
           <p className="mt-2 text-center text-sm text-gray-600 dark:text-gray-400">
             Or{' '}
             <Link
-              href="/auth/signin"
+              href={`/${locale}/auth/signin`}
               className="font-medium text-purple-600 hover:text-purple-500 dark:text-purple-400"
             >
               sign in to existing account

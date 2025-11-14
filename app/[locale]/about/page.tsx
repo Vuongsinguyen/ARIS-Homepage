@@ -18,6 +18,65 @@ export default async function AboutOverviewPage() {
 
   return (
     <div className="space-y-8">
+      {/* Navigation Section */}
+      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-8">
+        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+          ARIS VIETNAM
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <Link
+            href={`/${locale}/about/vision`}
+            className="group bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 p-6 rounded-lg border border-blue-200 dark:border-blue-800 hover:shadow-lg transition-all duration-300"
+          >
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center">
+                <span className="text-white text-xl">👁️</span>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                Our Vision
+              </h3>
+            </div>
+            <p className="text-gray-600 dark:text-gray-300 text-sm">
+              Mission and Core Values
+            </p>
+          </Link>
+
+          <Link
+            href={`/${locale}/about/timeline`}
+            className="group bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 p-6 rounded-lg border border-green-200 dark:border-green-800 hover:shadow-lg transition-all duration-300"
+          >
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center">
+                <span className="text-white text-xl">⏰</span>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">
+                Timelines
+              </h3>
+            </div>
+            <p className="text-gray-600 dark:text-gray-300 text-sm">
+              Our journey and milestones
+            </p>
+          </Link>
+
+          <Link
+            href={`/${locale}/blog`}
+            className="group bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 p-6 rounded-lg border border-purple-200 dark:border-purple-800 hover:shadow-lg transition-all duration-300"
+          >
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-10 h-10 bg-purple-500 rounded-lg flex items-center justify-center">
+                <span className="text-white text-xl">🚀</span>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                Explore Innovation
+              </h3>
+            </div>
+            <p className="text-gray-600 dark:text-gray-300 text-sm">
+              Latest insights and trends
+            </p>
+          </Link>
+        </div>
+      </div>
+
       {/* Overview Section */}
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-8">
         <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">

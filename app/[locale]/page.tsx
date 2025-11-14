@@ -644,53 +644,53 @@ export default function Home() {
                     <div className="space-y-6">
                       {selectedTeam === 'marketing' && (
                         <>
-                          <div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700">
+                          <Link href={`/${locale}/about`} className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors rounded px-2 -mx-2">
                             <span className="text-gray-900 dark:text-white font-medium">About Us</span>
                             <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                             </svg>
-                          </div>
-                          <div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700">
+                          </Link>
+                          <Link href={`/${locale}/about/vision`} className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors rounded px-2 -mx-2">
                             <span className="text-gray-900 dark:text-white font-medium">Our Vision - Mission and Core Values</span>
                             <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                             </svg>
-                          </div>
-                          <div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700">
+                          </Link>
+                          <Link href={`/${locale}/about/timeline`} className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors rounded px-2 -mx-2">
                             <span className="text-gray-900 dark:text-white font-medium">Timelines</span>
                             <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                             </svg>
-                          </div>
-                          <div className="flex items-center justify-between py-3">
+                          </Link>
+                          <Link href={`/${locale}/about/skills`} className="flex items-center justify-between py-3 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors rounded px-2 -mx-2">
                             <span className="text-gray-900 dark:text-white font-medium">Explore innovation</span>
                             <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                             </svg>
-                          </div>
+                          </Link>
                         </>
                       )}
 
                     {selectedTeam === 'engineering' && (
                       <>
-                        <div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700">
+                        <Link href={`/${locale}/about`} className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors rounded px-2 -mx-2">
                           <span className="text-gray-900 dark:text-white font-medium">LAB-BASED Development at ARIS Vietnam</span>
                           <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                           </svg>
-                        </div>
-                        <div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700">
+                        </Link>
+                        <Link href={`/${locale}/about/values`} className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors rounded px-2 -mx-2">
                           <span className="text-gray-900 dark:text-white font-medium">Advantages - Disadvantages</span>
                           <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                           </svg>
-                        </div>
-                        <div className="flex items-center justify-between py-3">
+                        </Link>
+                        <Link href={`/${locale}/about/skills`} className="flex items-center justify-between py-3 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors rounded px-2 -mx-2">
                           <span className="text-gray-900 dark:text-white font-medium">Structure and Form of LAB-Based Development</span>
                           <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                           </svg>
-                        </div>
+                        </Link>
                       </>
                     )}
                     </div>

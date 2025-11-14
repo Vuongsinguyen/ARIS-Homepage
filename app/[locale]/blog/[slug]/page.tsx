@@ -6,6 +6,8 @@ import {client, isSanityConfigured} from '@/lib/sanity';
 import {PortableText} from '@portabletext/react';
 import imageUrlBuilder from '@sanity/image-url';
 import Navbar from '@/components/Navbar';
+import LikeButton from '@/components/LikeButton';
+import CommentsSection from '@/components/CommentsSection';
 
 const builder = isSanityConfigured ? imageUrlBuilder(client!) : null;
 
@@ -170,6 +172,14 @@ export default async function BlogPostPage({
         <div className="prose prose-lg dark:prose-invert max-w-none mb-12">
           {body && <PortableText value={body} />}
         </div>
+
+        {/* Like and Comment Actions */}
+        <div className="flex items-center gap-4 mb-12">
+          <LikeButton postId={post._id} />
+        </div>
+
+        {/* Comments Section */}
+        <CommentsSection postId={post._id} />
         
         {/* Author bio section */}
         {post.author && post.author.bio && (

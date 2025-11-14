@@ -4,14 +4,17 @@ import {useState} from 'react';
 import Link from 'next/link';
 import {usePathname} from 'next/navigation';
 import {useTranslations} from 'next-intl';
+import {useSession, signOut} from 'next-auth/react';
 import ChatBotMount from './ChatBotMount';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
   const pathname = usePathname();
   const t = useTranslations('nav');
+  const { data: session, status } = useSession();
   const locale = pathname.split('/')[1];
 
   const navItems = [
@@ -202,6 +205,66 @@ export default function Navbar() {
             {/* ChatBot Button */}
             <div id="chatbot-root" />
             <ChatBotMount />
+
+            {/* Authentication */}
+            {status === 'loading' ? (
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full animate-pulse" />
+            ) : session ? (
+              <div className="relative">
+                <button
+                  onClick={() => setUserMenuOpen(!userMenuOpen)}
+                  className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                >
+                  <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-white text-sm font-medium">
+                    {session.user?.name?.charAt(0).toUpperCase() || 'U'}
+                  </div>
+                  <span>{session.user?.name?.split(' ')[0] || 'User'}</span>
+                  <svg
+                    className={`w-4 h-4 transition-transform ${userMenuOpen ? 'rotate-180' : ''}`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+
+                {userMenuOpen && (
+                  <>
+                    <div className="fixed inset-0 z-10" onClick={() => setUserMenuOpen(false)} />
+                    <div className="absolute right-0 top-full mt-2 w-48 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg z-20">
+                      <div className="py-2">
+                        <div className="px-4 py-2 border-b border-gray-200 dark:border-gray-700">
+                          <p className="text-sm font-medium text-gray-900 dark:text-white">
+                            {session.user?.name}
+                          </p>
+                          <p className="text-xs text-gray-500 dark:text-gray-400">
+                            {session.user?.email}
+                          </p>
+                        </div>
+                        <button
+                          onClick={() => {
+                            signOut({ callbackUrl: `/${locale}` });
+                            setUserMenuOpen(false);
+                          }}
+                          className="w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                        >
+                          Sign out
+                        </button>
+                      </div>
+                    </div>
+                  </>
+                )}
+              </div>
+            ) : (
+              <Link
+                href={`/${locale}/auth/signin`}
+                className="px-4 py-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+              >
+                Sign in
+              </Link>
+            )}
+
             {/* CTA Button */}
             <Link
               href={`/${locale}/contact`}
@@ -318,7 +381,48 @@ export default function Navbar() {
               
               {/* Divider */}
               <div className="h-px bg-gray-200 dark:bg-gray-800 my-2"></div>
-              
+
+              {/* Authentication in Mobile */}
+              {status === 'loading' ? (
+                <div className="px-4 py-2">
+                  <div className="w-full h-8 bg-gray-200 dark:bg-gray-700 rounded animate-pulse" />
+                </div>
+              ) : session ? (
+                <div className="px-4 py-2 space-y-2">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-white text-sm font-medium">
+                      {session.user?.name?.charAt(0).toUpperCase() || 'U'}
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-gray-900 dark:text-white">
+                        {session.user?.name}
+                      </p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">
+                        {session.user?.email}
+                      </p>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => {
+                      signOut({ callbackUrl: `/${locale}` });
+                      setMobileMenuOpen(false);
+                    }}
+                    className="w-full text-left px-3 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors"
+                  >
+                    Sign out
+                  </button>
+                </div>
+              ) : (
+                <Link
+                  href={`/${locale}/auth/signin`}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center gap-3 px-4 py-2.5 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 rounded transition-colors"
+                >
+                  <span className="text-base">🔐</span>
+                  <span>Sign in</span>
+                </Link>
+              )}
+
               {/* ChatBot in Mobile */}
               <div className="flex items-center justify-between px-4 py-2">
                 <span className="text-sm font-medium text-gray-600 dark:text-gray-400">{t('chatWithAI')}</span>

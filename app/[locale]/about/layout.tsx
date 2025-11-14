@@ -33,7 +33,7 @@ export default async function AboutLayout({
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-                About ARIS
+                ARIS VIETNAM
               </h1>
               <p className="text-lg text-gray-600 dark:text-gray-300">
                 Learn more about our company, vision, and commitment to excellence
@@ -71,7 +71,7 @@ export default async function AboutLayout({
                 <div className="lg:col-span-1">
                   <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6 sticky top-8">
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-                      About ARIS
+                      ARIS VIETNAM
                     </h3>
                     <nav className="space-y-2">
                       {menuItems.map((item) => (

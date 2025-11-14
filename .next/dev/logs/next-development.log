@@ -1,1 +1,24 @@
-[00:00:01.897] Server  LOG      ✓ Ready in 1640ms
+[00:00:01.215] Server  LOG      ✓ Ready in 948ms
+[00:00:04.322] Server  LOG      ○ Compiling /[locale]/use-cases ...
+[00:00:06.172] Browser LOG     CLS: 0.0012649071795150508
+[00:00:06.172] Browser LOG     [Analytics] CLS: 0.0012649071795150508
+[00:00:06.727] Server  LOG     Performance Metrics Received: {}
+[00:00:06.933] Server  LOG     Performance Metrics Received: {}
+[00:00:07.002] Browser LOG     FID: 6.200000047683716 ms
+[00:00:07.002] Browser LOG     [Analytics] FID: 6.200000047683716
+[00:00:07.893] Server  LOG     Performance Metrics Received: {}
+[00:00:07.987] Browser LOG     CLS: 0.001735518720939577
+[00:00:07.988] Browser LOG     [Analytics] CLS: 0.001735518720939577
+[00:00:08.865] Browser LOG     Performance Budget:
+[00:00:08.865] Browser LOG     DOM Content Loaded: 0ms
+[00:00:08.865] Browser LOG     Load Complete: 0ms
+[00:00:08.865] Browser LOG     Total Load Time: 5300.800000071526ms
+[00:00:08.865] Browser LOG     ✅ domContentLoaded within budget: 0ms
+[00:00:08.865] Browser LOG     ✅ loadComplete within budget: 0ms
+[00:00:08.865] Browser WARN    ⚠️ totalTime exceeded budget: 5300.800000071526ms > 3000ms
+[00:00:09.149] Server  LOG     Performance Metrics Received: {}
+[00:00:09.182] Server  LOG     Performance Metrics Received: {}
+[00:00:09.237] Browser LOG     CLS: 0.002254406224888845
+[00:00:09.237] Browser LOG     [Analytics] CLS: 0.002254406224888845
+[00:00:09.237] Browser LOG     CLS: 0.0035790370177040676
+[00:00:09.237] Browser LOG     [Analytics] CLS: 0.0035790370177040676

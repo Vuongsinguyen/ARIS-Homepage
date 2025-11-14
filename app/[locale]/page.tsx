@@ -1473,6 +1473,96 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Recruitments Section */}
+        <section className="py-16 bg-white dark:bg-gray-800">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-[1330px] mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+                  Join Our Team
+                </h2>
+                <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                  Be part of our innovative team and help shape the future of technology
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Recruitment Card 1 - C++ Developer */}
+                <Link href={`/${locale}/recruitments`} className="block group">
+                  <article className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:shadow-lg hover:border-blue-400 dark:hover:border-blue-500 transition-all duration-300 h-full">
+                    <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-200 dark:group-hover:bg-blue-800 transition-colors">
+                      <span className="text-2xl">💻</span>
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">C++ Developer</h3>
+                    <p className="text-gray-600 dark:text-gray-400 mb-4">
+                      Join our team to develop high-performance applications and systems using C++. Work on challenging projects involving system programming and embedded systems.
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded">
+                        C++
+                      </span>
+                      <span className="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs rounded">
+                        STL
+                      </span>
+                      <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-xs rounded">
+                        Qt
+                      </span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm text-gray-500 dark:text-gray-400">📍 Ho Chi Minh City • Full-time</span>
+                      <span className="text-blue-600 dark:text-blue-400 font-medium group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors">
+                        Apply now →
+                      </span>
+                    </div>
+                  </article>
+                </Link>
+
+                {/* Recruitment Card 2 - Software Development Intern */}
+                <Link href={`/${locale}/recruitments`} className="block group">
+                  <article className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:shadow-lg hover:border-blue-400 dark:hover:border-blue-500 transition-all duration-300 h-full">
+                    <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mb-4 group-hover:bg-green-200 dark:group-hover:bg-green-800 transition-colors">
+                      <span className="text-2xl">🎓</span>
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Software Development Intern</h3>
+                    <p className="text-gray-600 dark:text-gray-400 mb-4">
+                      Perfect opportunity for students to gain real-world experience in software development. Work on exciting projects and learn from experienced developers.
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      <span className="px-2 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 text-xs rounded">
+                        JavaScript
+                      </span>
+                      <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded">
+                        React
+                      </span>
+                      <span className="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs rounded">
+                        Node.js
+                      </span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm text-gray-500 dark:text-gray-400">📍 Ho Chi Minh City • Internship</span>
+                      <span className="text-green-600 dark:text-green-400 font-medium group-hover:text-green-700 dark:group-hover:text-green-300 transition-colors">
+                        Apply now →
+                      </span>
+                    </div>
+                  </article>
+                </Link>
+              </div>
+
+              <div className="text-center mt-8">
+                <Link
+                  href={`/${locale}/recruitments`}
+                  className="inline-flex items-center px-6 py-3 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                >
+                  <span>View All Opportunities</span>
+                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Contact Section */}
         <section className="py-16 bg-white dark:bg-gray-800">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">

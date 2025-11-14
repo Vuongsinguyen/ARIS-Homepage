@@ -234,7 +234,7 @@ export default async function AboutOverviewPage() {
       </div>
 
       {/* Call to Action */}
-      <div className="bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg p-8 text-center text-white">
+      <div className="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg p-8 text-center text-white">
         <h3 className="text-2xl font-bold mb-4">
           Ready to Work Together?
         </h3>
@@ -243,7 +243,7 @@ export default async function AboutOverviewPage() {
         </p>
         <Link
           href={`/${locale}/contact`}
-          className="inline-flex items-center px-6 py-3 bg-white text-green-600 font-medium rounded-md hover:bg-gray-50 transition-colors"
+          className="inline-flex items-center px-6 py-3 bg-white text-blue-600 font-medium rounded-md hover:bg-gray-50 transition-colors"
         >
           Contact Us →
         </Link>

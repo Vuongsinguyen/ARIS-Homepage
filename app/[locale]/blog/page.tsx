@@ -35,7 +35,7 @@ export default async function BlogPage({
       <Navbar />
       <main className="flex min-h-screen flex-col">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-purple-50 to-violet-100 dark:from-purple-950 dark:to-violet-900 py-16">
+        <section className="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-950 dark:to-indigo-900 py-16">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
@@ -46,7 +46,7 @@ export default async function BlogPage({
               </p>
               <Link
                 href={`/${locale}/contact`}
-                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 transition-colors"
+                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
               >
                 Subscribe to Updates
               </Link>
@@ -78,87 +78,6 @@ export default async function BlogPage({
         <section className="py-16">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-6xl mx-auto">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-                {/* Description */}
-                <div>
-                  <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-                    Latest Insights
-                  </h2>
-                  <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-                    Dive deep into technology trends, development best practices, industry insights,
-                    and innovative solutions. Our blog covers everything from cutting-edge web
-                    development techniques to emerging technologies shaping the future.
-                  </p>
-
-                  <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-                    What You'll Find Here
-                  </h3>
-                  <ul className="space-y-3">
-                    <li className="flex items-start">
-                      <span className="text-purple-500 mr-3 mt-1">✓</span>
-                      <span className="text-gray-600 dark:text-gray-300">Technical tutorials and guides</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-purple-500 mr-3 mt-1">✓</span>
-                      <span className="text-gray-600 dark:text-gray-300">Industry trends and analysis</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-purple-500 mr-3 mt-1">✓</span>
-                      <span className="text-gray-600 dark:text-gray-300">Best practices and tips</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-purple-500 mr-3 mt-1">✓</span>
-                      <span className="text-gray-600 dark:text-gray-300">Case studies and success stories</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-purple-500 mr-3 mt-1">✓</span>
-                      <span className="text-gray-600 dark:text-gray-300">Technology reviews and comparisons</span>
-                    </li>
-                  </ul>
-                </div>
-
-                {/* Blog Categories */}
-                <div>
-                  <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
-                    Popular Topics
-                  </h3>
-                  <div className="grid grid-cols-2 gap-4 mb-8">
-                    <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 text-center">
-                      <span className="text-gray-900 dark:text-white font-medium">Web Development</span>
-                    </div>
-                    <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 text-center">
-                      <span className="text-gray-900 dark:text-white font-medium">AI & Machine Learning</span>
-                    </div>
-                    <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 text-center">
-                      <span className="text-gray-900 dark:text-white font-medium">Mobile Apps</span>
-                    </div>
-                    <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 text-center">
-                      <span className="text-gray-900 dark:text-white font-medium">Cloud Computing</span>
-                    </div>
-                    <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 text-center">
-                      <span className="text-gray-900 dark:text-white font-medium">DevOps</span>
-                    </div>
-                    <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 text-center">
-                      <span className="text-gray-900 dark:text-white font-medium">Security</span>
-                    </div>
-                  </div>
-
-                  <div className="mt-8 p-6 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
-                    <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                      Stay Updated
-                    </h4>
-                    <p className="text-gray-600 dark:text-gray-300 mb-4">
-                      Subscribe to our newsletter to receive the latest blog posts and insights directly in your inbox.
-                    </p>
-                    <Link
-                      href={`/${locale}/contact`}
-                      className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-purple-600 bg-purple-50 hover:bg-purple-100 dark:text-purple-400 dark:bg-purple-900/40 dark:hover:bg-purple-900/60 transition-colors"
-                    >
-                      Subscribe Now →
-                    </Link>
-                  </div>
-                </div>
-              </div>
 
               {/* Blog Posts */}
               {posts.length === 0 ? (
@@ -182,7 +101,7 @@ export default async function BlogPage({
                         <h3 className="text-2xl font-semibold mb-3">
                           <Link
                             href={`/${locale}/blog/${post.slug}`}
-                            className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+                            className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                           >
                             {post.title}
                           </Link>
@@ -210,7 +129,7 @@ export default async function BlogPage({
                             {post.categories.map((cat: any, idx: number) => (
                               <span
                                 key={idx}
-                                className="text-xs px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full"
+                                className="text-xs px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full"
                               >
                                 {cat}
                               </span>
@@ -232,7 +151,7 @@ export default async function BlogPage({
             <div className="text-center">
               <Link
                 href={`/${locale}`}
-                className="inline-flex items-center text-purple-600 hover:text-purple-800 dark:text-purple-400 dark:hover:text-purple-300 transition-colors"
+                className="inline-flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
               >
                 ← Back to Home
               </Link>

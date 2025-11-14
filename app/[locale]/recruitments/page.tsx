@@ -1,13 +1,15 @@
-import {useTranslations} from 'next-intl';
+import {getTranslations} from 'next-intl/server';
 import {setRequestLocale} from 'next-intl/server';
 import {notFound} from 'next/navigation';
+import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 
 type Props = {
-  params: {locale: string};
+  params: Promise<{locale: string}>;
 };
 
-export default function RecruitmentsPage({params: {locale}}: Props) {
+export default async function RecruitmentsPage({params}: Props) {
+  const {locale} = await params;
   // Ensure that the incoming `locale` is valid
   if (!locale || !['en', 'vi', 'ja'].includes(locale)) {
     notFound();
@@ -16,23 +18,54 @@ export default function RecruitmentsPage({params: {locale}}: Props) {
   // Enable static rendering
   setRequestLocale(locale);
 
-  const t = useTranslations('recruitments');
+  const t = await getTranslations('recruitments');
 
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-gray-50 dark:bg-gray-900">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="max-w-4xl mx-auto">
-            {/* Header */}
-            <div className="text-center mb-12">
+      <main className="flex min-h-screen flex-col">
+        {/* Hero Section */}
+        <section className="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-950 dark:to-indigo-900 py-16">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
                 {t('title')}
               </h1>
-              <p className="text-xl text-gray-600 dark:text-gray-300">
+              <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
                 {t('subtitle')}
               </p>
+              <Link
+                href={`/${locale}/contact`}
+                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
+              >
+                {t('applyNow')}
+              </Link>
             </div>
+          </div>
+        </section>
+
+        {/* Breadcrumb */}
+        <nav className="bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <ol className="flex items-center space-x-2 text-sm">
+              <li>
+                <Link
+                  href={`/${locale}`}
+                  className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
+                >
+                  Home
+                </Link>
+              </li>
+              <li className="flex items-center">
+                <span className="text-gray-400 mx-2">/</span>
+                <span className="text-gray-900 dark:text-white font-medium">Recruitments</span>
+              </li>
+            </ol>
+          </div>
+        </nav>
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="max-w-4xl mx-auto">
 
             {/* Current Openings */}
             <div className="space-y-6">
@@ -127,6 +160,78 @@ export default function RecruitmentsPage({params: {locale}}: Props) {
                     </div>
                     <div className="text-sm text-gray-500 dark:text-gray-400">
                       📍 {t('devOpsEngineer.location')} • {t('devOpsEngineer.type')} • {t('devOpsEngineer.salary')}
+                    </div>
+                  </div>
+                  <div className="mt-4 md:mt-0 md:ml-6">
+                    <button className="w-full md:w-auto px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors">
+                      {t('applyNow')}
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Job Card 4 - C++ Developer */}
+              <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow">
+                <div className="flex flex-col md:flex-row md:items-center justify-between">
+                  <div className="flex-1">
+                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                      C++ Developer
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-400 mb-3">
+                      Join our team to develop high-performance applications and systems using C++. Work on challenging projects involving system programming, game development, and embedded systems.
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded">
+                        C++
+                      </span>
+                      <span className="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs rounded">
+                        STL
+                      </span>
+                      <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-xs rounded">
+                        Qt
+                      </span>
+                      <span className="px-2 py-1 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 text-xs rounded">
+                        Boost
+                      </span>
+                    </div>
+                    <div className="text-sm text-gray-500 dark:text-gray-400">
+                      📍 Ho Chi Minh City • Full-time • Competitive Salary
+                    </div>
+                  </div>
+                  <div className="mt-4 md:mt-0 md:ml-6">
+                    <button className="w-full md:w-auto px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors">
+                      {t('applyNow')}
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Job Card 5 - Internship */}
+              <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow">
+                <div className="flex flex-col md:flex-row md:items-center justify-between">
+                  <div className="flex-1">
+                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                      Software Development Intern
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-400 mb-3">
+                      Perfect opportunity for students to gain real-world experience in software development. Work on exciting projects, learn from experienced developers, and contribute to meaningful applications.
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      <span className="px-2 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 text-xs rounded">
+                        JavaScript
+                      </span>
+                      <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded">
+                        React
+                      </span>
+                      <span className="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs rounded">
+                        Node.js
+                      </span>
+                      <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-xs rounded">
+                        Git
+                      </span>
+                    </div>
+                    <div className="text-sm text-gray-500 dark:text-gray-400">
+                      📍 Ho Chi Minh City • Internship • Monthly Allowance
                     </div>
                   </div>
                   <div className="mt-4 md:mt-0 md:ml-6">

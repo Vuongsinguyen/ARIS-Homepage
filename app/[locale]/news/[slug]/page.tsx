@@ -7,8 +7,8 @@ import {remark} from 'remark';
 import html from 'remark-html';
 import Navbar from '@/components/Navbar';
 
-async function getNewsArticle(slug: string) {
-  const newsDirectory = path.join(process.cwd(), 'content/news');
+async function getNewsArticle(slug: string, locale: string) {
+  const newsDirectory = path.join(process.cwd(), 'content/news', locale);
   const fileNames = fs.readdirSync(newsDirectory);
 
   const fileName = fileNames.find(file => file.replace('.md', '') === slug || matter(fs.readFileSync(path.join(newsDirectory, file), 'utf8')).data.slug === slug);
@@ -43,7 +43,7 @@ export default async function NewsArticlePage({
 }) {
   const {locale, slug} = await params;
 
-  const article = await getNewsArticle(slug);
+  const article = await getNewsArticle(slug, locale);
 
   if (!article) {
     notFound();
@@ -149,8 +149,8 @@ export async function generateMetadata({
 }: {
   params: Promise<{locale: string; slug: string}>;
 }) {
-  const {slug} = await params;
-  const article = await getNewsArticle(slug);
+  const {locale, slug} = await params;
+  const article = await getNewsArticle(slug, locale);
 
   if (!article) {
     return {

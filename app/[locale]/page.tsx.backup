@@ -1,0 +1,637 @@
+'use client';
+
+import {useTranslations} from 'next-intl';
+import Link from 'next/link';
+import {useParams} from 'next/navigation';
+import {useState, useEffect} from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, ResponsiveContainer, Tooltip } from 'recharts';
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+
+import Navbar from '@/components/Navbar';
+import HeroSlider from '@/components/HeroSlider';
+import GradientHeading from '@/components/GradientHeading';
+
+// Photo Gallery Component with Lightbox
+function PhotoGallery() {
+  const [selectedImage, setSelectedImage] = useState<number | null>(null);
+
+  // Prevent body scroll when lightbox is open
+  useEffect(() => {
+    if (selectedImage !== null) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedImage]);
+
+  const photos = [
+    { id: 1, src: '/comp/comp1.png', alt: 'Company Photo 1', description: 'Team collaboration and innovation in action' },
+    { id: 2, src: '/comp/comp2.png', alt: 'Company Photo 2', description: 'Modern workspace designed for productivity' },
+    { id: 3, src: '/comp/comp3.png', alt: 'Company Photo 3', description: 'Corporate event celebrating achievements' },
+    { id: 4, src: '/comp/comp4.png', alt: 'Company Photo 4', description: 'Technology and development excellence' },
+    { id: 5, src: '/comp/comp5.png', alt: 'Company Photo 5', description: 'Team building and professional growth' },
+    { id: 6, src: '/comp/comp6.png', alt: 'Company Photo 6', description: 'Quality assurance and testing processes' },
+    { id: 7, src: '/comp/comp7.png', alt: 'Company Photo 7', description: 'Client presentations and project delivery' },
+    { id: 8, src: '/comp/comp8.png', alt: 'Company Photo 8', description: 'Innovation hub and creative spaces' },
+    { id: 9, src: '/comp/comp9.png', alt: 'Company Photo 9', description: 'Sustainability and green initiatives' },
+  ];
+
+  return (
+    <>
+      {/* Gallery Grid */}
+      <div className="grid grid-cols-3 gap-2">
+        {photos.map((photo, index) => (
+          <div
+            key={photo.id}
+            className="aspect-square overflow-hidden rounded-lg cursor-pointer group relative"
+            onClick={() => setSelectedImage(index)}
+          >
+            <img
+              src={photo.src}
+              alt={photo.alt}
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+              <svg className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
+              </svg>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Lightbox Modal */}
+      {selectedImage !== null && (
+        <div
+          className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4 overflow-hidden"
+          onClick={() => setSelectedImage(null)}
+        >
+          <button
+            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+            onClick={() => setSelectedImage(null)}
+          >
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+
+          <button
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors disabled:opacity-30"
+            onClick={(e) => {
+              e.stopPropagation();
+              setSelectedImage(selectedImage > 0 ? selectedImage - 1 : photos.length - 1);
+            }}
+          >
+            <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+
+          <button
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors disabled:opacity-30"
+            onClick={(e) => {
+              e.stopPropagation();
+              setSelectedImage(selectedImage < photos.length - 1 ? selectedImage + 1 : 0);
+            }}
+          >
+            <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          <div className="flex flex-col items-center justify-center w-full max-w-6xl mx-auto px-4 py-8 max-h-[90vh]">
+            <div className="relative w-full flex-1 flex items-center justify-center overflow-hidden mb-6">
+              <img
+                src={photos[selectedImage].src}
+                alt={photos[selectedImage].alt}
+                className="max-w-full max-h-[70vh] w-auto h-auto object-contain"
+                onClick={(e) => e.stopPropagation()}
+              />
+            </div>
+            <div className="text-center flex-shrink-0">
+              <p className="text-white text-lg md:text-xl font-medium mb-2">
+                {photos[selectedImage].description}
+              </p>
+              <p className="text-gray-400 text-sm">
+                {selectedImage + 1} / {photos.length}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
+
+// FAQ Item Component
+function FAQItem({ question, answer }: { question: string; answer: string }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
+      >
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-white pr-4">
+          {question}
+        </h3>
+        <svg
+          className={`w-5 h-5 text-gray-500 dark:text-gray-400 flex-shrink-0 transition-transform duration-200 ${
+            isOpen ? 'rotate-180' : ''
+          }`}
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+      
+      <div
+        className={`overflow-hidden transition-all duration-300 ${
+          isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        }`}
+      >
+        <div className="px-6 pb-4 pt-2">
+          <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+            {answer}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function Home() {
+  const t = useTranslations('home');
+  const params = useParams();
+  const locale = params.locale as string || 'en';
+  
+  const [selectedTeam, setSelectedTeam] = useState<'marketing' | 'design' | 'engineering' | 'agencies' | 'skills'>('marketing');
+  const [dropdownWidth, setDropdownWidth] = useState('auto');
+
+  useEffect(() => {
+    // Calculate width based on selected option text
+    const options = {
+      'marketing': 'ARIS VIETNAM',
+      'design': 'CEO MESSAGES',
+      'engineering': 'LAB-BASED',
+      'agencies': 'SUSTAINABILITY',
+      'skills': 'SKILLS & ABILITIES'
+    };
+    const selectedText = options[selectedTeam as keyof typeof options];
+    
+    // Create a temporary element to measure text width
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+    if (context) {
+      // Match the actual font size used in the select (47px for better visibility)
+      context.font = 'bold 47px system-ui, -apple-system, sans-serif';
+      const textWidth = context.measureText(selectedText).width;
+      
+      // Add padding (30px left + 64px right) + arrow space (60px) + buffer (-10px)
+      setDropdownWidth(`${textWidth + 144}px`);
+    }
+  }, [selectedTeam]);
+
+  useEffect(() => {
+    // Fetch use cases from API
+    const fetchUseCases = async () => {
+      try {
+        const response = await fetch('/api/use-cases');
+        if (response.ok) {
+          const data = await response.json();
+          setUseCases(data);
+        }
+      } catch (error) {
+        console.error('Error fetching use cases:', error);
+      }
+    };
+
+    fetchUseCases();
+  }, []);
+  const [activeProductCategory, setActiveProductCategory] = useState('all');
+  const [activeOffice, setActiveOffice] = useState('vietnam-hcm');
+
+  const [useCases, setUseCases] = useState<any[]>([]);
+
+  const offices = [
+    {
+      id: 'vietnam-hcm',
+      company: 'ARIS VIETNAM CO., LTD',
+      location: 'Vietnam - Ho Chi Minh Headquarter',
+      address: 'Waseco Building, 10 Pho Quang Str., Ward 2, Tan Binh Dist., Ho Chi Minh City, Vietnam',
+      email: 'contact@aris-vn.com',
+      phone: '+84-28-38424483',
+      fax: '+84-28-38424473',
+      flag: '🇻🇳'
+    },
+    {
+      id: 'vietnam-hanoi',
+      company: 'Chi nhánh Hanoi',
+      location: 'Hanoi Branch',
+      address: 'Detech Tower II Building, 107 Nguyen Phong Sac Str., Cau Giay Dist., Hanoi, Vietnam',
+      email: 'contact@aris-vn.com',
+      phone: '+84-28-38424483',
+      fax: '+84-28-38424473',
+      flag: '🇻🇳'
+    },
+    {
+      id: 'japan-tokyo',
+      company: 'ARIS JAPAN Inc.',
+      location: 'Tokyo Headquarter',
+      address: 'Shinjuku Nomura Bldg 10F, 1-26-2 Nishishinjuku, Shinjuku-ku, Tokyo 163-0510, Japan',
+      email: 'dev-info@ml.aris-kk.co.jp',
+      phone: '+81-3-3340-1053',
+      fax: '+81-3-3340-1054',
+      flag: '🇯🇵'
+    }
+  ];
+
+  const productCategories = [
+    { id: 'all', label: 'All Products', icon: '🧩' },
+    { id: 'development', label: 'Development', icon: '💻' },
+    { id: 'analytics', label: 'Analytics', icon: '📊' },
+    { id: 'communication', label: 'Communication', icon: '💬' },
+    { id: 'automation', label: 'Automation', icon: '🤖' },
+    { id: 'security', label: 'Security', icon: '🔐' },
+    { id: 'cloud', label: 'Cloud', icon: '☁️' },
+  ];
+
+  const products = [
+    {
+      id: 'project-management',
+      category: 'development',
+      title: 'Project Management Suite',
+      description: 'Comprehensive project management tools with real-time collaboration and analytics.',
+      icon: '📋',
+      color: 'blue',
+      href: `/${locale}/products/project-management`
+    },
+    {
+      id: 'analytics-dashboard',
+      category: 'analytics',
+      title: 'Analytics Dashboard',
+      description: 'Advanced data visualization and business intelligence platform.',
+      icon: '📊',
+      color: 'green',
+      href: `/${locale}/products/analytics-dashboard`
+    },
+    {
+      id: 'communication-platform',
+      category: 'communication',
+      title: 'Communication Platform',
+      description: 'Unified communication solution with chat, video calls, and file sharing.',
+      icon: '💬',
+      color: 'purple',
+      href: `/${locale}/products/communication-platform`
+    },
+    {
+      id: 'automation-tools',
+      category: 'automation',
+      title: 'Automation Tools',
+      description: 'Workflow automation and AI-powered process optimization solutions.',
+      icon: '🤖',
+      color: 'orange',
+      href: `/${locale}/products/automation-tools`
+    },
+    {
+      id: 'security-suite',
+      category: 'security',
+      title: 'Security Suite',
+      description: 'Enterprise-grade security solutions with threat detection and compliance.',
+      icon: '🔐',
+      color: 'red',
+      href: `/${locale}/products/security-suite`
+    },
+    {
+      id: 'cloud-infrastructure',
+      category: 'cloud',
+      title: 'Cloud Infrastructure',
+      description: 'Scalable cloud infrastructure with automated deployment and monitoring.',
+      icon: '☁️',
+      color: 'teal',
+      href: `/${locale}/products/cloud-infrastructure`
+    },
+    {
+      id: 'code-editor',
+      category: 'development',
+      title: 'Advanced Code Editor',
+      description: 'Powerful code editing environment with AI-assisted development features.',
+      icon: '✏️',
+      color: 'indigo',
+      href: `/${locale}/products/code-editor`
+    },
+    {
+      id: 'data-warehouse',
+      category: 'analytics',
+      title: 'Data Warehouse Platform',
+      description: 'Scalable data storage and processing solution for big data analytics.',
+      icon: '🏗️',
+      color: 'cyan',
+      href: `/${locale}/products/data-warehouse`
+    },
+    {
+      id: 'video-conferencing',
+      category: 'communication',
+      title: 'Video Conferencing Suite',
+      description: 'Enterprise-grade video conferencing with screen sharing and recording.',
+      icon: '📹',
+      color: 'pink',
+      href: `/${locale}/products/video-conferencing`
+    },
+  ];
+
+  const filteredProducts = activeProductCategory === 'all'
+    ? products
+    : products.filter(product => product.category === activeProductCategory);
+
+  return (
+    <>
+      <Navbar />
+      <main className="flex min-h-screen flex-col">
+        {/* Hero Slider */}
+        <HeroSlider />
+
+        {/* Services Section */}
+        <section className="py-16 bg-gray-50 dark:bg-gray-900 relative">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-[1330px] mx-auto">
+              <div className="text-center mb-12 relative z-0">
+                <GradientHeading className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+                  Accelerate Your Growth with Our DX Services
+                </GradientHeading>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
+                {/* Service Card 1 - One-Stop Services */}
+                <Link href={`/${locale}/services/one-stop-services`} className="block group">
+                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/20 hover:-translate-y-1 transition-all duration-300 h-full relative z-10">
+                    <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">One-Stop Services</h3>
+                    <p className="text-gray-600 dark:text-gray-400 mb-4">
+                      Comprehensive end-to-end software development and deployment solutions.
+                    </p>
+                    <span className="text-blue-600 dark:text-blue-400 font-medium group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors flex items-center">
+                      Learn more
+                      <svg width="32" height="7" viewBox="0 0 32 7" fill="none" xmlns="http://www.w3.org/2000/svg" className="ml-2 group-hover:translate-x-1 transition-transform duration-300">
+                        <path d="M32 7H0V5H21V0L32 7Z" fill="currentColor"/>
+                      </svg>
+                    </span>
+                  </article>
+                </Link>
+
+                {/* Service Card 2 - System Development */}
+                <Link href={`/${locale}/services/system-development`} className="block group">
+                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/20 hover:-translate-y-1 transition-all duration-300 h-full relative z-10">
+                    <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">System Development</h3>
+                    <p className="text-gray-600 dark:text-gray-400 mb-4">
+                      Custom system and application development services.
+                    </p>
+                    <span className="text-blue-600 dark:text-blue-400 font-medium group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors flex items-center">
+                      Learn more
+                      <svg width="32" height="7" viewBox="0 0 32 7" fill="none" xmlns="http://www.w3.org/2000/svg" className="ml-2 group-hover:translate-x-1 transition-transform duration-300">
+                        <path d="M32 7H0V5H21V0L32 7Z" fill="currentColor"/>
+                      </svg>
+                    </span>
+                  </article>
+                </Link>
+
+                {/* Service Card 3 - Mobile Development */}
+                <Link href={`/${locale}/services/mobile-development`} className="block group">
+                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/20 hover:-translate-y-1 transition-all duration-300 h-full relative z-10">
+                    <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Mobile Development</h3>
+                    <p className="text-gray-600 dark:text-gray-400 mb-4">
+                      Mobile application development across various domains.
+                    </p>
+                    <span className="text-blue-600 dark:text-blue-400 font-medium group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors flex items-center">
+                      Learn more
+                      <svg width="32" height="7" viewBox="0 0 32 7" fill="none" xmlns="http://www.w3.org/2000/svg" className="ml-2 group-hover:translate-x-1 transition-transform duration-300">
+                        <path d="M32 7H0V5H21V0L32 7Z" fill="currentColor"/>
+                      </svg>
+                    </span>
+                  </article>
+                </Link>
+
+                {/* Service Card 4 - Quality Control */}
+                <Link href={`/${locale}/services/quality-control`} className="block group">
+                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/20 hover:-translate-y-1 transition-all duration-300 h-full relative z-10">
+                    <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Quality Control</h3>
+                    <p className="text-gray-600 dark:text-gray-400 mb-4">
+                      Comprehensive software testing and quality assurance.
+                    </p>
+                    <span className="text-blue-600 dark:text-blue-400 font-medium group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors flex items-center">
+                      Learn more
+                      <svg width="32" height="7" viewBox="0 0 32 7" fill="none" xmlns="http://www.w3.org/2000/svg" className="ml-2 group-hover:translate-x-1 transition-transform duration-300">
+                        <path d="M32 7H0V5H21V0L32 7Z" fill="currentColor"/>
+                      </svg>
+                    </span>
+                  </article>
+                </Link>
+
+                {/* Service Card 5 - UI/UX Design */}
+                <Link href={`/${locale}/services/ui-ux-design`} className="block group">
+                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/20 hover:-translate-y-1 transition-all duration-300 h-full relative z-10">
+                    <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">UI/UX Design</h3>
+                    <p className="text-gray-600 dark:text-gray-400 mb-4">
+                      User interface and user experience design services.
+                    </p>
+                    <span className="text-blue-600 dark:text-blue-400 font-medium group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors flex items-center">
+                      Learn more
+                      <svg width="32" height="7" viewBox="0 0 32 7" fill="none" xmlns="http://www.w3.org/2000/svg" className="ml-2 group-hover:translate-x-1 transition-transform duration-300">
+                        <path d="M32 7H0V5H21V0L32 7Z" fill="currentColor"/>
+                      </svg>
+                    </span>
+                  </article>
+                </Link>
+
+                {/* Service Card 6 - Research & Development */}
+                <Link href={`/${locale}/services/research-development`} className="block group">
+                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/20 hover:-translate-y-1 transition-all duration-300 h-full relative z-10">
+                    <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Research & Development</h3>
+                    <p className="text-gray-600 dark:text-gray-400 mb-4">
+                      Collaborative research and prototype development.
+                    </p>
+                    <span className="text-blue-600 dark:text-blue-400 font-medium group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors flex items-center">
+                      Learn more
+                      <svg width="32" height="7" viewBox="0 0 32 7" fill="none" xmlns="http://www.w3.org/2000/svg" className="ml-2 group-hover:translate-x-1 transition-transform duration-300">
+                        <path d="M32 7H0V5H21V0L32 7Z" fill="currentColor"/>
+                      </svg>
+                    </span>
+                  </article>
+                </Link>
+
+                {/* Service Card 7 - Digital Transformation */}
+                <Link href={`/${locale}/services/digital-transformation`} className="block group">
+                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/20 hover:-translate-y-1 transition-all duration-300 h-full relative z-10">
+                    <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Digital Transformation</h3>
+                    <p className="text-gray-600 dark:text-gray-400 mb-4">
+                      Digital transformation and technology integration.
+                    </p>
+                    <span className="text-blue-600 dark:text-blue-400 font-medium group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors flex items-center">
+                      Learn more
+                      <svg width="32" height="7" viewBox="0 0 32 7" fill="none" xmlns="http://www.w3.org/2000/svg" className="ml-2 group-hover:translate-x-1 transition-transform duration-300">
+                        <path d="M32 7H0V5H21V0L32 7Z" fill="currentColor"/>
+                      </svg>
+                    </span>
+                  </article>
+                </Link>
+
+                {/* Service Card 8 - BPO Services */}
+                <Link href={`/${locale}/services/bpo-services`} className="block group">
+                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/20 hover:-translate-y-1 transition-all duration-300 h-full relative z-10">
+                    <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">BPO Services</h3>
+                    <p className="text-gray-600 dark:text-gray-400 mb-4">
+                      Business process digitization and outsourcing.
+                    </p>
+                    <span className="text-blue-600 dark:text-blue-400 font-medium group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors flex items-center">
+                      Learn more
+                      <svg width="32" height="7" viewBox="0 0 32 7" fill="none" xmlns="http://www.w3.org/2000/svg" className="ml-2 group-hover:translate-x-1 transition-transform duration-300">
+                        <path d="M32 7H0V5H21V0L32 7Z" fill="currentColor"/>
+                      </svg>
+                    </span>
+                  </article>
+                </Link>
+
+                {/* Service Card 9 - System Maintenance */}
+                <Link href={`/${locale}/services/system-maintenance`} className="block group">
+                  <article className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/20 hover:-translate-y-1 transition-all duration-300 h-full relative z-10">
+                    <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">System Maintenance</h3>
+                    <p className="text-gray-600 dark:text-gray-400 mb-4">
+                      System maintenance and operational support.
+                    </p>
+                    <span className="text-blue-600 dark:text-blue-400 font-medium group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors flex items-center">
+                      Learn more
+                      <svg width="32" height="7" viewBox="0 0 32 7" fill="none" xmlns="http://www.w3.org/2000/svg" className="ml-2 group-hover:translate-x-1 transition-transform duration-300">
+                        <path d="M32 7H0V5H21V0L32 7Z" fill="currentColor"/>
+                      </svg>
+                    </span>
+                  </article>
+                </Link>
+              </div>
+
+              <div className="text-center mt-8">
+                <Link
+                  href={`/${locale}/services`}
+                  className="inline-flex items-center px-6 py-3 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                >
+                  <span>View All Services</span>
+                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* About Us Section */}
+        <section className="py-16 bg-white dark:bg-gray-800">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-[1330px] mx-auto">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                {/* Left Column - Title and Selector */}
+                <div>
+                  <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-8">
+                    Introducing our
+                    <br />
+                    <span className="relative inline-block" style={{ width: dropdownWidth }}>
+                      <select
+                        value={selectedTeam}
+                        onChange={(e) => setSelectedTeam(e.target.value as 'marketing' | 'design' | 'engineering' | 'agencies' | 'skills')}
+                        className="appearance-none bg-transparent border-2 border-blue-500 rounded-lg pl-[30px] pr-16 py-4 text-blue-600 dark:text-blue-400 font-bold cursor-pointer hover:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all my-4 w-full text-[47px]"
+                        style={{ minWidth: dropdownWidth }}
+                      >
+                        <option value="marketing">ARIS VIETNAM</option>
+                        <option value="design">CEO MESSAGES</option>
+                        <option value="engineering">LAB-BASED</option>
+                        <option value="agencies">SUSTAINABILITY</option>
+                        <option value="skills">SKILLS & ABILITIES</option>
+                      </select>
+                      <svg
+                        className="absolute right-6 top-1/2 -translate-y-1/2 w-6 h-6 text-blue-600 dark:text-blue-400 pointer-events-none"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </span>
+                    <br />
+                    with Pride
+                  </h2>
+
+                  <div className="space-y-4 mt-8">
+                  </div>
+                </div>
+
+                {/* Right Column - Features List, CEO Message, or Skills Chart */}
+                {selectedTeam === 'design' ? (
+                  <div className="relative h-96 rounded-lg overflow-hidden shadow-lg group cursor-pointer">
+                    {/* Background Image */}
+                    <img
+                      src="/ceo.jpg"
+                      alt="CEO Background"
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+
+                    {/* Dark Overlay - Strip at bottom, expands upward on hover */}
+                    <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/90 via-black/70 to-transparent group-hover:h-full transition-all duration-500 ease-in-out flex flex-col justify-center text-center text-white p-8">
+                      {/* CEO Content - Inside the dark overlay */}
+                      <div className="flex-1 flex flex-col justify-center group cursor-pointer">
+                        {/* CEO Name and Title */}
+                        <div className="mb-6 text-right">
+                          <h3 className="text-3xl font-bold mb-2">Nhat Tran</h3>
+                          <p className="text-xl opacity-90">Chief Executive Officer</p>
+                        </div>
+
+                        {/* CEO Message - Hidden by default, shown on hover */}
+                        <blockquote className="text-lg leading-relaxed max-w-2xl text-right opacity-0 group-hover:opacity-90 transition-opacity duration-300">
+                          At ARIS, we believe in delivering quality software solutions that drive real business value.
+                          With over 15 years of experience, our team is committed to building trust through innovation,
+                          excellence, and unwavering dedication to our clients&apos; success.
+                        </blockquote>
+                      </div>
+                    </div>
+                  </div>
+                ) : selectedTeam === 'skills' ? (
+                  <ResponsiveContainer width="100%" height={500}>
+                    <RadarChart data={[
+                      { skill: 'Data Science', value: 4.0, fullMark: 5 },
+                      { skill: 'Analysis', value: 4.5, fullMark: 5 },
+                      { skill: 'Design', value: 4.0, fullMark: 5 },
+                      { skill: 'FE Dev', value: 4.0, fullMark: 5 },
+                      { skill: 'BE Dev', value: 5.0, fullMark: 5 },
+                      { skill: 'Quality Control', value: 4.75, fullMark: 5 },
+                      { skill: 'Mobile', value: 5.0, fullMark: 5 },
+                      { skill: 'Server', value: 4.0, fullMark: 5 },
+                    ]}>
+                      <PolarGrid 
+                        stroke="#D1D5DB" 
+                        className="dark:stroke-gray-600"
+                      />
+                      <PolarAngleAxis 
+                        dataKey="skill" 
+                        tick={{ 
+                          fill: '#374151',
+                          fontSize: 14,
+                          fontWeight: 600
+                        }}
+                        className="dark:fill-white"
+                      />
+                      <PolarRadiusAxis 
+                        angle={90} 
+   

@@ -1,11 +1,477 @@
-[00:00:01.280] Server  LOG      ✓ Ready in 822ms
-[00:00:10.724] Browser LOG     CLS: 0.002009958919168101
-[00:00:10.724] Browser LOG     [Analytics] CLS: 0.002009958919168101
-[00:00:11.091] Server  LOG     Performance Metrics Received: {}
-[00:00:11.708] Browser LOG     Performance Budget:
-[00:00:11.708] Browser LOG     DOM Content Loaded: 0.8999999761581421ms
-[00:00:11.708] Browser LOG     Load Complete: 0ms
-[00:00:11.708] Browser LOG     Total Load Time: 4614.299999952316ms
-[00:00:11.708] Browser LOG     ✅ domContentLoaded within budget: 0.8999999761581421ms
-[00:00:11.708] Browser LOG     ✅ loadComplete within budget: 0ms
-[00:00:11.708] Browser WARN    ⚠️ totalTime exceeded budget: 4614.299999952316ms > 3000ms
+[00:00:01.148] Server  LOG      ✓ Ready in 908ms
+[00:00:05.737] Browser LOG     CLS: 0.0021407774902969957
+[00:00:05.737] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:00:05.805] Server  LOG     Performance Metrics Received: {}
+[00:00:07.203] Browser LOG     Performance Budget:
+[00:00:07.203] Browser LOG     DOM Content Loaded: 0.09999990463256836ms
+[00:00:07.203] Browser LOG     Load Complete: 0ms
+[00:00:07.203] Browser LOG     Total Load Time: 3039.7000000476837ms
+[00:00:07.203] Browser LOG     ✅ domContentLoaded within budget: 0.09999990463256836ms
+[00:00:07.203] Browser LOG     ✅ loadComplete within budget: 0ms
+[00:00:07.203] Browser WARN    ⚠️ totalTime exceeded budget: 3039.7000000476837ms > 3000ms
+[00:00:07.247] Server  LOG     Performance Metrics Received: {}
+[00:00:07.341] Browser LOG     FID: 1.899999976158142 ms
+[00:00:07.341] Browser LOG     [Analytics] FID: 1.899999976158142
+[00:00:07.462] Server  LOG     Performance Metrics Received: {}
+[00:00:07.552] Browser LOG     CLS: 0.0021407774902969957
+[00:00:07.552] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:00:26.499] Server  LOG     Performance Metrics Received: {}
+[00:00:26.506] Server  LOG     Performance Metrics Received: {}
+[00:00:26.567] Browser LOG     LCP: 448 ms
+[00:00:26.567] Browser LOG     [Analytics] LCP: 448
+[00:00:26.567] Browser LOG     CLS: 0.0021407774902969957
+[00:00:26.567] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:00:27.657] Browser LOG     Performance Budget:
+[00:00:27.658] Browser LOG     DOM Content Loaded: 0.10000002384185791ms
+[00:00:27.658] Browser LOG     Load Complete: 0ms
+[00:00:27.658] Browser LOG     Total Load Time: 608.8999999761581ms
+[00:00:27.658] Browser LOG     ✅ domContentLoaded within budget: 0.10000002384185791ms
+[00:00:27.658] Browser LOG     ✅ loadComplete within budget: 0ms
+[00:00:27.658] Browser LOG     ✅ totalTime within budget: 608.8999999761581ms
+[00:00:37.266] Server  LOG     Performance Metrics Received: {}
+[00:00:37.319] Browser LOG     FID: 9.299999952316284 ms
+[00:00:37.319] Browser LOG     [Analytics] FID: 9.299999952316284
+[00:01:39.598] Server  LOG     Performance Metrics Received: {}
+[00:01:39.669] Browser LOG     CLS: 0.0021407774902969957
+[00:01:39.669] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:39.669] Browser LOG     CLS: 0.0021407774902969957
+[00:01:39.669] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:39.745] Server  LOG     Performance Metrics Received: {}
+[00:01:40.069] Browser LOG     CLS: 0.0021407774902969957
+[00:01:40.069] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:40.069] Browser LOG     CLS: 0.0021407774902969957
+[00:01:40.069] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:40.181] Server  LOG     Performance Metrics Received: {}
+[00:01:40.197] Server  LOG     Performance Metrics Received: {}
+[00:01:40.570] Browser LOG     CLS: 0.0021407774902969957
+[00:01:40.570] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:40.570] Browser LOG     CLS: 0.0021407774902969957
+[00:01:40.570] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:40.639] Server  LOG     Performance Metrics Received: {}
+[00:01:40.647] Server  LOG     Performance Metrics Received: {}
+[00:01:41.406] Server  LOG     Performance Metrics Received: {}
+[00:01:41.413] Server  LOG     Performance Metrics Received: {}
+[00:01:41.419] Server  LOG     Performance Metrics Received: {}
+[00:01:41.420] Browser LOG     CLS: 0.0021407774902969957
+[00:01:41.420] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:41.420] Browser LOG     CLS: 0.0021407774902969957
+[00:01:41.420] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:41.420] Browser LOG     CLS: 0.0021407774902969957
+[00:01:41.420] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:42.920] Server  LOG     Performance Metrics Received: {}
+[00:01:42.926] Server  LOG     Performance Metrics Received: {}
+[00:01:42.931] Server  LOG     Performance Metrics Received: {}
+[00:01:42.937] Server  LOG     Performance Metrics Received: {}
+[00:01:42.944] Server  LOG     Performance Metrics Received: {}
+[00:01:42.952] Server  LOG     Performance Metrics Received: {}
+[00:01:42.957] Server  LOG     Performance Metrics Received: {}
+[00:01:42.963] Server  LOG     Performance Metrics Received: {}
+[00:01:42.970] Server  LOG     Performance Metrics Received: {}
+[00:01:43.020] Browser LOG     CLS: 0.0021407774902969957
+[00:01:43.020] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:43.020] Browser LOG     CLS: 0.0021407774902969957
+[00:01:43.020] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:43.020] Browser LOG     CLS: 0.0021407774902969957
+[00:01:43.020] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:43.020] Browser LOG     CLS: 0.0021407774902969957
+[00:01:43.020] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:43.020] Browser LOG     CLS: 0.0021407774902969957
+[00:01:43.020] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:43.020] Browser LOG     CLS: 0.0021407774902969957
+[00:01:43.020] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:43.020] Browser LOG     CLS: 0.0021407774902969957
+[00:01:43.020] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:43.020] Browser LOG     CLS: 0.0021407774902969957
+[00:01:43.020] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:43.020] Browser LOG     CLS: 0.0021407774902969957
+[00:01:43.020] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:43.352] Server  LOG     Performance Metrics Received: {}
+[00:01:43.357] Server  LOG     Performance Metrics Received: {}
+[00:01:43.362] Server  LOG     Performance Metrics Received: {}
+[00:01:43.368] Server  LOG     Performance Metrics Received: {}
+[00:01:43.374] Server  LOG     Performance Metrics Received: {}
+[00:01:43.381] Server  LOG     Performance Metrics Received: {}
+[00:01:43.385] Server  LOG     Performance Metrics Received: {}
+[00:01:43.393] Server  LOG     Performance Metrics Received: {}
+[00:01:43.435] Browser LOG     CLS: 0.0021407774902969957
+[00:01:43.435] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:43.435] Browser LOG     CLS: 0.0021407774902969957
+[00:01:43.435] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:43.435] Browser LOG     CLS: 0.0021407774902969957
+[00:01:43.435] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:43.435] Browser LOG     CLS: 0.0021407774902969957
+[00:01:43.435] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:43.435] Browser LOG     CLS: 0.0021407774902969957
+[00:01:43.435] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:43.435] Browser LOG     CLS: 0.0021407774902969957
+[00:01:43.435] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:43.435] Browser LOG     CLS: 0.0021407774902969957
+[00:01:43.435] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:43.435] Browser LOG     CLS: 0.0021407774902969957
+[00:01:43.435] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:44.203] Server  LOG     Performance Metrics Received: {}
+[00:01:44.211] Server  LOG     Performance Metrics Received: {}
+[00:01:44.218] Server  LOG     Performance Metrics Received: {}
+[00:01:44.296] Server  LOG     Performance Metrics Received: {}
+[00:01:44.300] Server  LOG     Performance Metrics Received: {}
+[00:01:44.306] Server  LOG     Performance Metrics Received: {}
+[00:01:44.311] Server  LOG     Performance Metrics Received: {}
+[00:01:44.315] Server  LOG     Performance Metrics Received: {}
+[00:01:44.345] Server  LOG     Performance Metrics Received: {}
+[00:01:44.350] Server  LOG     Performance Metrics Received: {}
+[00:01:44.374] Server  LOG     Performance Metrics Received: {}
+[00:01:44.469] Browser LOG     CLS: 0.0021407774902969957
+[00:01:44.469] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:44.469] Browser LOG     CLS: 0.0021407774902969957
+[00:01:44.469] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:44.469] Browser LOG     CLS: 0.0021407774902969957
+[00:01:44.469] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:44.469] Browser LOG     CLS: 0.0021407774902969957
+[00:01:44.469] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:44.469] Browser LOG     CLS: 0.0021407774902969957
+[00:01:44.469] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:44.469] Browser LOG     CLS: 0.0021407774902969957
+[00:01:44.469] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:44.469] Browser LOG     CLS: 0.0021407774902969957
+[00:01:44.469] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:44.469] Browser LOG     CLS: 0.0021407774902969957
+[00:01:44.469] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:44.469] Browser LOG     CLS: 0.0021407774902969957
+[00:01:44.469] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:44.469] Browser LOG     CLS: 0.0021407774902969957
+[00:01:44.469] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:44.469] Browser LOG     CLS: 0.0021407774902969957
+[00:01:44.469] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:44.808] Server  LOG     Performance Metrics Received: {}
+[00:01:44.814] Server  LOG     Performance Metrics Received: {}
+[00:01:44.823] Server  LOG     Performance Metrics Received: {}
+[00:01:44.829] Server  LOG     Performance Metrics Received: {}
+[00:01:44.834] Server  LOG     Performance Metrics Received: {}
+[00:01:44.840] Server  LOG     Performance Metrics Received: {}
+[00:01:44.841] Browser LOG     CLS: 0.0021407774902969957
+[00:01:44.841] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:44.841] Browser LOG     CLS: 0.0021407774902969957
+[00:01:44.841] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:44.841] Browser LOG     CLS: 0.0021407774902969957
+[00:01:44.841] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:44.841] Browser LOG     CLS: 0.0021407774902969957
+[00:01:44.841] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:44.841] Browser LOG     CLS: 0.0021407774902969957
+[00:01:44.841] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:44.841] Browser LOG     CLS: 0.0021407774902969957
+[00:01:44.841] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:44.877] Server  LOG     Performance Metrics Received: {}
+[00:01:45.044] Browser LOG     CLS: 0.0021407774902969957
+[00:01:45.045] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:45.045] Browser LOG     CLS: 0.0021407774902969957
+[00:01:45.045] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:45.135] Server  LOG     Performance Metrics Received: {}
+[00:01:45.141] Server  LOG     Performance Metrics Received: {}
+[00:01:45.393] Server  LOG     Performance Metrics Received: {}
+[00:01:45.399] Server  LOG     Performance Metrics Received: {}
+[00:01:45.405] Server  LOG     Performance Metrics Received: {}
+[00:01:45.409] Browser LOG     CLS: 0.0021407774902969957
+[00:01:45.409] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:45.409] Browser LOG     CLS: 0.0021407774902969957
+[00:01:45.409] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:45.409] Browser LOG     CLS: 0.0021407774902969957
+[00:01:45.409] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:45.409] Browser LOG     CLS: 0.0021407774902969957
+[00:01:45.409] Browser LOG     [Analytics] CLS: 0.0021407774902969957
+[00:01:53.719] Server  LOG     Performance Metrics Received: {}
+[00:01:53.765] Server  LOG     Performance Metrics Received: {}
+[00:01:53.862] Browser LOG     CLS: 0.0025446613758472554
+[00:01:53.862] Browser LOG     [Analytics] CLS: 0.0025446613758472554
+[00:01:53.862] Browser LOG     LCP: 600 ms
+[00:01:53.862] Browser LOG     [Analytics] LCP: 600
+[00:01:54.798] Browser LOG     Performance Budget:
+[00:01:54.798] Browser LOG     DOM Content Loaded: 0ms
+[00:01:54.798] Browser LOG     Load Complete: 0ms
+[00:01:54.798] Browser LOG     Total Load Time: 527.1000000238419ms
+[00:01:54.798] Browser LOG     ✅ domContentLoaded within budget: 0ms
+[00:01:54.798] Browser LOG     ✅ loadComplete within budget: 0ms
+[00:01:54.798] Browser LOG     ✅ totalTime within budget: 527.1000000238419ms
+[00:02:30.865] Server  LOG     Performance Metrics Received: {}
+[00:02:30.934] Browser LOG     FID: 7.800000071525574 ms
+[00:02:30.934] Browser LOG     [Analytics] FID: 7.800000071525574
+[00:02:31.899] Server  LOG     Performance Metrics Received: {}
+[00:02:31.917] Server  LOG     Performance Metrics Received: {}
+[00:02:31.979] Browser LOG     CLS: 0.0025446613758472554
+[00:02:31.979] Browser LOG     [Analytics] CLS: 0.0025446613758472554
+[00:02:31.979] Browser LOG     CLS: 0.0025446613758472554
+[00:02:31.979] Browser LOG     [Analytics] CLS: 0.0025446613758472554
+[00:02:32.284] Server  LOG     Performance Metrics Received: {}
+[00:02:32.298] Server  LOG     Performance Metrics Received: {}
+[00:02:32.313] Server  LOG     Performance Metrics Received: {}
+[00:02:32.328] Server  LOG     Performance Metrics Received: {}
+[00:02:32.349] Server  LOG     Performance Metrics Received: {}
+[00:02:32.372] Server  LOG     Performance Metrics Received: {}
+[00:02:32.383] Server  LOG     Performance Metrics Received: {}
+[00:02:32.395] Server  LOG     Performance Metrics Received: {}
+[00:02:32.413] Server  LOG     Performance Metrics Received: {}
+[00:02:32.430] Server  LOG     Performance Metrics Received: {}
+[00:02:32.444] Server  LOG     Performance Metrics Received: {}
+[00:02:32.459] Server  LOG     Performance Metrics Received: {}
+[00:02:32.478] Server  LOG     Performance Metrics Received: {}
+[00:02:32.494] Server  LOG     Performance Metrics Received: {}
+[00:02:32.509] Server  LOG     Performance Metrics Received: {}
+[00:02:32.532] Server  LOG     Performance Metrics Received: {}
+[00:02:32.544] Server  LOG     Performance Metrics Received: {}
+[00:02:32.559] Server  LOG     Performance Metrics Received: {}
+[00:02:32.574] Server  LOG     Performance Metrics Received: {}
+[00:02:32.593] Server  LOG     Performance Metrics Received: {}
+[00:02:32.607] Server  LOG     Performance Metrics Received: {}
+[00:02:32.626] Server  LOG     Performance Metrics Received: {}
+[00:02:32.721] Browser LOG     CLS: 0.0025446613758472554
+[00:02:32.721] Browser LOG     [Analytics] CLS: 0.0025446613758472554
+[00:02:32.721] Browser LOG     CLS: 0.0025446613758472554
+[00:02:32.721] Browser LOG     [Analytics] CLS: 0.0025446613758472554
+[00:02:32.721] Browser LOG     CLS: 0.0025446613758472554
+[00:02:32.721] Browser LOG     [Analytics] CLS: 0.0025446613758472554
+[00:02:32.721] Browser LOG     CLS: 0.0034494913325779225
+[00:02:32.721] Browser LOG     [Analytics] CLS: 0.0034494913325779225
+[00:02:32.721] Browser LOG     CLS: 0.00471788021018112
+[00:02:32.721] Browser LOG     [Analytics] CLS: 0.00471788021018112
+[00:02:32.721] Browser LOG     CLS: 0.006359578024292624
+[00:02:32.721] Browser LOG     [Analytics] CLS: 0.006359578024292624
+[00:02:32.721] Browser LOG     CLS: 0.008363071627050155
+[00:02:32.721] Browser LOG     [Analytics] CLS: 0.008363071627050155
+[00:02:32.721] Browser LOG     CLS: 0.010489725822551758
+[00:02:32.721] Browser LOG     [Analytics] CLS: 0.010489725822551758
+[00:02:32.721] Browser LOG     CLS: 0.012580209413215061
+[00:02:32.721] Browser LOG     [Analytics] CLS: 0.012580209413215061
+[00:02:32.721] Browser LOG     CLS: 0.014582557507909266
+[00:02:32.721] Browser LOG     [Analytics] CLS: 0.014582557507909266
+[00:02:32.721] Browser LOG     CLS: 0.016431998752085928
+[00:02:32.721] Browser LOG     [Analytics] CLS: 0.016431998752085928
+[00:02:32.721] Browser LOG     CLS: 0.01808678808692116
+[00:02:32.721] Browser LOG     [Analytics] CLS: 0.01808678808692116
+[00:02:32.721] Browser LOG     CLS: 0.01956974065457946
+[00:02:32.721] Browser LOG     [Analytics] CLS: 0.01956974065457946
+[00:02:32.721] Browser LOG     CLS: 0.0208821867224892
+[00:02:32.721] Browser LOG     [Analytics] CLS: 0.0208821867224892
+[00:02:32.721] Browser LOG     CLS: 0.022034810660789432
+[00:02:32.721] Browser LOG     [Analytics] CLS: 0.022034810660789432
+[00:02:32.721] Browser LOG     CLS: 0.0230393737227755
+[00:02:32.721] Browser LOG     [Analytics] CLS: 0.0230393737227755
+[00:02:32.721] Browser LOG     CLS: 0.023919535664852144
+[00:02:32.721] Browser LOG     [Analytics] CLS: 0.023919535664852144
+[00:02:32.721] Browser LOG     CLS: 0.02467968848106861
+[00:02:32.721] Browser LOG     [Analytics] CLS: 0.02467968848106861
+[00:02:32.721] Browser LOG     CLS: 0.02532130496750632
+[00:02:32.721] Browser LOG     [Analytics] CLS: 0.02532130496750632
+[00:02:32.721] Browser LOG     CLS: 0.025895537074089845
+[00:02:32.721] Browser LOG     [Analytics] CLS: 0.025895537074089845
+[00:02:32.721] Browser LOG     CLS: 0.026364160727609293
+[00:02:32.721] Browser LOG     [Analytics] CLS: 0.026364160727609293
+[00:02:32.721] Browser LOG     CLS: 0.026753190046664075
+[00:02:32.721] Browser LOG     [Analytics] CLS: 0.026753190046664075
+[00:02:32.920] Server  LOG     Performance Metrics Received: {}
+[00:02:32.936] Server  LOG     Performance Metrics Received: {}
+[00:02:32.947] Server  LOG     Performance Metrics Received: {}
+[00:02:32.960] Server  LOG     Performance Metrics Received: {}
+[00:02:32.981] Server  LOG     Performance Metrics Received: {}
+[00:02:32.995] Server  LOG     Performance Metrics Received: {}
+[00:02:33.014] Server  LOG     Performance Metrics Received: {}
+[00:02:33.028] Server  LOG     Performance Metrics Received: {}
+[00:02:33.048] Server  LOG     Performance Metrics Received: {}
+[00:02:33.060] Server  LOG     Performance Metrics Received: {}
+[00:02:33.081] Server  LOG     Performance Metrics Received: {}
+[00:02:33.124] Server  LOG     Performance Metrics Received: {}
+[00:02:33.141] Server  LOG     Performance Metrics Received: {}
+[00:02:33.157] Server  LOG     Performance Metrics Received: {}
+[00:02:33.174] Server  LOG     Performance Metrics Received: {}
+[00:02:33.192] Server  LOG     Performance Metrics Received: {}
+[00:02:33.208] Server  LOG     Performance Metrics Received: {}
+[00:02:33.226] Server  LOG     Performance Metrics Received: {}
+[00:02:33.243] Server  LOG     Performance Metrics Received: {}
+[00:02:33.258] Server  LOG     Performance Metrics Received: {}
+[00:02:33.277] Server  LOG     Performance Metrics Received: {}
+[00:02:33.292] Server  LOG     Performance Metrics Received: {}
+[00:02:33.309] Server  LOG     Performance Metrics Received: {}
+[00:02:33.325] Server  LOG     Performance Metrics Received: {}
+[00:02:33.343] Server  LOG     Performance Metrics Received: {}
+[00:02:33.360] Server  LOG     Performance Metrics Received: {}
+[00:02:33.452] Browser LOG     CLS: 0.027346505156238033
+[00:02:33.452] Browser LOG     [Analytics] CLS: 0.027346505156238033
+[00:02:33.452] Browser LOG     CLS: 0.02824960893261521
+[00:02:33.452] Browser LOG     [Analytics] CLS: 0.02824960893261521
+[00:02:33.452] Browser LOG     CLS: 0.029517686358717318
+[00:02:33.452] Browser LOG     [Analytics] CLS: 0.029517686358717318
+[00:02:33.452] Browser LOG     CLS: 0.03140141894104775
+[00:02:33.452] Browser LOG     [Analytics] CLS: 0.03140141894104775
+[00:02:33.452] Browser LOG     CLS: 0.033617644476726855
+[00:02:33.452] Browser LOG     [Analytics] CLS: 0.033617644476726855
+[00:02:33.452] Browser LOG     CLS: 0.03632853945755883
+[00:02:33.452] Browser LOG     [Analytics] CLS: 0.03632853945755883
+[00:02:33.452] Browser LOG     CLS: 0.039057546135004964
+[00:02:33.452] Browser LOG     [Analytics] CLS: 0.039057546135004964
+[00:02:33.452] Browser LOG     CLS: 0.04157601687655414
+[00:02:33.452] Browser LOG     [Analytics] CLS: 0.04157601687655414
+[00:02:33.452] Browser LOG     CLS: 0.043673774707361515
+[00:02:33.452] Browser LOG     [Analytics] CLS: 0.043673774707361515
+[00:02:33.452] Browser LOG     CLS: 0.04531510300274291
+[00:02:33.452] Browser LOG     [Analytics] CLS: 0.04531510300274291
+[00:02:33.452] Browser LOG     CLS: 0.04682136692343185
+[00:02:33.452] Browser LOG     [Analytics] CLS: 0.04682136692343185
+[00:02:33.452] Browser LOG     CLS: 0.047101340707554576
+[00:02:33.452] Browser LOG     [Analytics] CLS: 0.047101340707554576
+[00:02:33.452] Browser LOG     CLS: 0.047688986344040916
+[00:02:33.452] Browser LOG     [Analytics] CLS: 0.047688986344040916
+[00:02:33.452] Browser LOG     CLS: 0.04871417910884486
+[00:02:33.452] Browser LOG     [Analytics] CLS: 0.04871417910884486
+[00:02:33.452] Browser LOG     CLS: 0.05031629618812309
+[00:02:33.452] Browser LOG     [Analytics] CLS: 0.05031629618812309
+[00:02:33.452] Browser LOG     CLS: 0.052542277018276975
+[00:02:33.452] Browser LOG     [Analytics] CLS: 0.052542277018276975
+[00:02:33.452] Browser LOG     CLS: 0.05507814681317511
+[00:02:33.452] Browser LOG     [Analytics] CLS: 0.05507814681317511
+[00:02:33.452] Browser LOG     CLS: 0.05748380876526217
+[00:02:33.452] Browser LOG     [Analytics] CLS: 0.05748380876526217
+[00:02:33.452] Browser LOG     CLS: 0.059485021909571056
+[00:02:33.452] Browser LOG     [Analytics] CLS: 0.059485021909571056
+[00:02:33.452] Browser LOG     CLS: 0.06114555990007892
+[00:02:33.452] Browser LOG     [Analytics] CLS: 0.06114555990007892
+[00:02:33.452] Browser LOG     CLS: 0.06261886275004247
+[00:02:33.452] Browser LOG     [Analytics] CLS: 0.06261886275004247
+[00:02:33.452] Browser LOG     CLS: 0.06374770551864092
+[00:02:33.452] Browser LOG     [Analytics] CLS: 0.06374770551864092
+[00:02:33.452] Browser LOG     CLS: 0.06463351581844917
+[00:02:33.452] Browser LOG     [Analytics] CLS: 0.06463351581844917
+[00:02:33.452] Browser LOG     CLS: 0.06538548643421331
+[00:02:33.452] Browser LOG     [Analytics] CLS: 0.06538548643421331
+[00:02:33.452] Browser LOG     CLS: 0.06594372365862228
+[00:02:33.452] Browser LOG     [Analytics] CLS: 0.06594372365862228
+[00:02:33.452] Browser LOG     CLS: 0.06638470731112986
+[00:02:33.452] Browser LOG     [Analytics] CLS: 0.06638470731112986
+[00:02:33.549] Server  LOG     Performance Metrics Received: {}
+[00:02:33.559] Server  LOG     Performance Metrics Received: {}
+[00:02:33.579] Server  LOG     Performance Metrics Received: {}
+[00:02:33.591] Server  LOG     Performance Metrics Received: {}
+[00:02:33.611] Server  LOG     Performance Metrics Received: {}
+[00:02:33.625] Server  LOG     Performance Metrics Received: {}
+[00:02:33.645] Server  LOG     Performance Metrics Received: {}
+[00:02:33.657] Server  LOG     Performance Metrics Received: {}
+[00:02:33.676] Server  LOG     Performance Metrics Received: {}
+[00:02:33.694] Server  LOG     Performance Metrics Received: {}
+[00:02:33.710] Server  LOG     Performance Metrics Received: {}
+[00:02:33.731] Server  LOG     Performance Metrics Received: {}
+[00:02:33.745] Server  LOG     Performance Metrics Received: {}
+[00:02:33.763] Server  LOG     Performance Metrics Received: {}
+[00:02:33.777] Server  LOG     Performance Metrics Received: {}
+[00:02:33.797] Server  LOG     Performance Metrics Received: {}
+[00:02:33.818] Server  LOG     Performance Metrics Received: {}
+[00:02:33.826] Server  LOG     Performance Metrics Received: {}
+[00:02:33.846] Server  LOG     Performance Metrics Received: {}
+[00:02:33.861] Server  LOG     Performance Metrics Received: {}
+[00:02:33.875] Server  LOG     Performance Metrics Received: {}
+[00:02:33.892] Server  LOG     Performance Metrics Received: {}
+[00:02:33.985] Browser LOG     CLS: 0.06695187633112937
+[00:02:33.985] Browser LOG     [Analytics] CLS: 0.06695187633112937
+[00:02:33.985] Browser LOG     CLS: 0.06792444962876633
+[00:02:33.985] Browser LOG     [Analytics] CLS: 0.06792444962876633
+[00:02:33.985] Browser LOG     CLS: 0.06930564729583165
+[00:02:33.985] Browser LOG     [Analytics] CLS: 0.06930564729583165
+[00:02:33.985] Browser LOG     CLS: 0.0710563900871972
+[00:02:33.985] Browser LOG     [Analytics] CLS: 0.0710563900871972
+[00:02:33.985] Browser LOG     CLS: 0.07342652017396514
+[00:02:33.985] Browser LOG     [Analytics] CLS: 0.07342652017396514
+[00:02:33.985] Browser LOG     CLS: 0.07608838529815116
+[00:02:33.985] Browser LOG     [Analytics] CLS: 0.07608838529815116
+[00:02:33.985] Browser LOG     CLS: 0.07880197248687391
+[00:02:33.985] Browser LOG     [Analytics] CLS: 0.07880197248687391
+[00:02:33.985] Browser LOG     CLS: 0.08131976753703091
+[00:02:33.985] Browser LOG     [Analytics] CLS: 0.08131976753703091
+[00:02:33.985] Browser LOG     CLS: 0.08328110433152243
+[00:02:33.985] Browser LOG     [Analytics] CLS: 0.08328110433152243
+[00:02:33.985] Browser LOG     CLS: 0.08505778733774137
+[00:02:33.985] Browser LOG     [Analytics] CLS: 0.08505778733774137
+[00:02:33.985] Browser LOG     CLS: 0.08650366134025311
+[00:02:33.985] Browser LOG     [Analytics] CLS: 0.08650366134025311
+[00:02:33.985] Browser LOG     CLS: 0.08764990844103952
+[00:02:33.985] Browser LOG     [Analytics] CLS: 0.08764990844103952
+[00:02:33.985] Browser LOG     CLS: 0.08858400956003352
+[00:02:33.985] Browser LOG     [Analytics] CLS: 0.08858400956003352
+[00:02:33.985] Browser LOG     CLS: 0.08935706913760867
+[00:02:33.985] Browser LOG     [Analytics] CLS: 0.08935706913760867
+[00:02:33.985] Browser LOG     CLS: 0.0899646687855207
+[00:02:33.985] Browser LOG     [Analytics] CLS: 0.0899646687855207
+[00:02:33.985] Browser LOG     CLS: 0.09050082990522539
+[00:02:33.985] Browser LOG     [Analytics] CLS: 0.09050082990522539
+[00:02:33.985] Browser LOG     CLS: 0.09097022426923905
+[00:02:33.985] Browser LOG     [Analytics] CLS: 0.09097022426923905
+[00:02:33.985] Browser LOG     CLS: 0.091317698567674
+[00:02:33.985] Browser LOG     [Analytics] CLS: 0.091317698567674
+[00:02:33.985] Browser LOG     CLS: 0.09164555142154035
+[00:02:33.985] Browser LOG     [Analytics] CLS: 0.09164555142154035
+[00:02:33.985] Browser LOG     CLS: 0.09188605532644883
+[00:02:33.985] Browser LOG     [Analytics] CLS: 0.09188605532644883
+[00:02:33.985] Browser LOG     CLS: 0.09209889811498945
+[00:02:33.985] Browser LOG     [Analytics] CLS: 0.09209889811498945
+[00:02:33.985] Browser LOG     CLS: 0.09226977413346811
+[00:02:33.985] Browser LOG     [Analytics] CLS: 0.09226977413346811
+[00:02:39.005] Server  LOG      ✓ Compiled in 161ms
+[00:02:59.709] Server  LOG     Performance Metrics Received: {}
+[00:02:59.748] Server  LOG     Performance Metrics Received: {}
+[00:02:59.844] Browser LOG     CLS: 0.0025446613758472554
+[00:02:59.844] Browser LOG     [Analytics] CLS: 0.0025446613758472554
+[00:02:59.844] Browser LOG     LCP: 840 ms
+[00:02:59.844] Browser LOG     [Analytics] LCP: 840
+[00:03:00.776] Browser LOG     Performance Budget:
+[00:03:00.776] Browser LOG     DOM Content Loaded: 0.10000002384185791ms
+[00:03:00.776] Browser LOG     Load Complete: 0ms
+[00:03:00.776] Browser LOG     Total Load Time: 763.7000000476837ms
+[00:03:00.776] Browser LOG     ✅ domContentLoaded within budget: 0.10000002384185791ms
+[00:03:00.776] Browser LOG     ✅ loadComplete within budget: 0ms
+[00:03:00.776] Browser LOG     ✅ totalTime within budget: 763.7000000476837ms
+[00:03:05.090] Server  LOG     Performance Metrics Received: {}
+[00:03:05.152] Browser LOG     CLS: 0.0025446613758472554
+[00:03:05.152] Browser LOG     [Analytics] CLS: 0.0025446613758472554
+[00:03:07.377] Browser LOG     Performance Budget:
+[00:03:07.377] Browser LOG     DOM Content Loaded: 0ms
+[00:03:07.377] Browser LOG     Load Complete: 0ms
+[00:03:07.377] Browser LOG     Total Load Time: 1667.8999999761581ms
+[00:03:07.377] Browser LOG     ✅ domContentLoaded within budget: 0ms
+[00:03:07.377] Browser LOG     ✅ loadComplete within budget: 0ms
+[00:03:07.377] Browser LOG     ✅ totalTime within budget: 1667.8999999761581ms
+[00:04:05.388] Server  LOG      ✓ Compiled in 161ms
+[00:04:24.808] Server  LOG     Performance Metrics Received: {}
+[00:04:24.884] Browser LOG     FID: 6.299999952316284 ms
+[00:04:24.884] Browser LOG     [Analytics] FID: 6.299999952316284
+[00:04:44.022] Browser LOG     Performance Budget:
+[00:04:44.022] Browser LOG     DOM Content Loaded: 0ms
+[00:04:44.022] Browser LOG     Load Complete: 0ms
+[00:04:44.022] Browser LOG     Total Load Time: 1667.8999999761581ms
+[00:04:44.022] Browser LOG     ✅ domContentLoaded within budget: 0ms
+[00:04:44.022] Browser LOG     ✅ loadComplete within budget: 0ms
+[00:04:44.022] Browser LOG     ✅ totalTime within budget: 1667.8999999761581ms
+[00:04:44.022] Browser LOG     Performance Budget:
+[00:04:44.022] Browser LOG     DOM Content Loaded: 0ms
+[00:04:44.022] Browser LOG     Load Complete: 0ms
+[00:04:44.022] Browser LOG     Total Load Time: 1667.8999999761581ms
+[00:04:44.022] Browser LOG     ✅ domContentLoaded within budget: 0ms
+[00:04:44.022] Browser LOG     ✅ loadComplete within budget: 0ms
+[00:04:44.022] Browser LOG     ✅ totalTime within budget: 1667.8999999761581ms
+[00:05:32.716] Server  LOG      ✓ Compiled in 154ms
+[00:05:33.946] Browser LOG     Performance Budget:
+[00:05:33.946] Browser LOG     DOM Content Loaded: 0ms
+[00:05:33.946] Browser LOG     Load Complete: 0ms
+[00:05:33.946] Browser LOG     Total Load Time: 1667.8999999761581ms
+[00:05:33.946] Browser LOG     ✅ domContentLoaded within budget: 0ms
+[00:05:33.946] Browser LOG     ✅ loadComplete within budget: 0ms
+[00:05:33.946] Browser LOG     ✅ totalTime within budget: 1667.8999999761581ms
+[00:05:57.182] Server  LOG      ✓ Compiled in 106ms
+[00:06:30.538] Browser LOG     Performance Budget:
+[00:06:30.539] Browser LOG     DOM Content Loaded: 0ms
+[00:06:30.539] Browser LOG     Load Complete: 0ms
+[00:06:30.539] Browser LOG     Total Load Time: 1667.8999999761581ms
+[00:06:30.539] Browser LOG     ✅ domContentLoaded within budget: 0ms
+[00:06:30.539] Browser LOG     ✅ loadComplete within budget: 0ms
+[00:06:30.539] Browser LOG     ✅ totalTime within budget: 1667.8999999761581ms
+[00:06:30.539] Browser LOG     Performance Budget:
+[00:06:30.539] Browser LOG     DOM Content Loaded: 0ms
+[00:06:30.539] Browser LOG     Load Complete: 0ms
+[00:06:30.539] Browser LOG     Total Load Time: 1667.8999999761581ms
+[00:06:30.539] Browser LOG     ✅ domContentLoaded within budget: 0ms
+[00:06:30.539] Browser LOG     ✅ loadComplete within budget: 0ms
+[00:06:30.539] Browser LOG     ✅ totalTime within budget: 1667.8999999761581ms

@@ -1194,7 +1194,7 @@ export default function Home() {
                 {/* Left Column - Featured News (Large) */}
                 <Link href={`/${locale}/news/digital-transformation-trends`} className="block group">
                   <article className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 h-full">
-                    <div className="aspect-[16/10] bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-900 dark:to-blue-800 flex items-center justify-center">
+                    <div className="aspect-[2/1] bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-900 dark:to-blue-800 flex items-center justify-center">
                       <span className="text-6xl">📈</span>
                     </div>
                     <div className="p-8">
@@ -1206,15 +1206,9 @@ export default function Home() {
                       <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                         Digital Transformation Trends 2025
                       </h3>
-                      <p className="text-gray-600 dark:text-gray-400 mb-6 text-lg leading-relaxed">
-                        Explore the latest trends shaping digital transformation in businesses worldwide. From AI-powered automation to cloud-native architectures, discover what's driving innovation in the enterprise.
+                      <p className="text-gray-600 dark:text-gray-400 mb-6 text-lg leading-relaxed line-clamp-3">
+                        Explore the latest trends shaping digital transformation in businesses worldwide.
                       </p>
-                      <div className="flex items-center text-blue-600 dark:text-blue-400 font-medium group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors">
-                        <span>Read full article</span>
-                        <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                      </div>
                     </div>
                   </article>
                 </Link>

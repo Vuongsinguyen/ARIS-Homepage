@@ -62,6 +62,59 @@ export default async function AboutOverviewPage() {
         </div>
       </div>
 
+      {/* Corporate Profile */}
+      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-8">
+        <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+          Corporate Profile
+        </h3>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div>
+            <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-4">
+              Company Overview
+            </h4>
+            <p className="text-gray-600 dark:text-gray-300 mb-4">
+              ARIS Corporation is a technology solutions provider committed to delivering
+              innovative software development services and digital transformation solutions.
+              We specialize in creating scalable, high-performance applications that drive
+              business growth and operational efficiency.
+            </p>
+            <p className="text-gray-600 dark:text-gray-300 mb-6">
+              Our mission is to empower businesses with cutting-edge technology solutions
+              that adapt to their evolving needs and help them stay competitive in the
+              digital landscape.
+            </p>
+          </div>
+          <div>
+            <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-4">
+              Core Values
+            </h4>
+            <div className="space-y-3">
+              <div className="flex items-start space-x-3">
+                <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                <div>
+                  <span className="text-gray-900 dark:text-white font-medium">Innovation</span>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm">Embracing new technologies and creative solutions</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-3">
+                <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                <div>
+                  <span className="text-gray-900 dark:text-white font-medium">Quality</span>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm">Delivering excellence in every project</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-3">
+                <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
+                <div>
+                  <span className="text-gray-900 dark:text-white font-medium">Collaboration</span>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm">Working closely with clients as partners</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* What We Do */}
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-8">
         <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">

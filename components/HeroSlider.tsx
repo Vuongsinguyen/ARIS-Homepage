@@ -109,7 +109,7 @@ export default function HeroSlider() {
       </video>
 
       {/* Dark Overlay */}
-      <div className={`absolute inset-0 ${theme === 'dark' ? 'bg-black/60' : 'bg-black/40'} z-10`} />
+      <div className={`absolute inset-0 ${theme === 'dark' ? 'bg-black/80' : 'bg-black/60'} z-10`} />
 
       {/* Slider Container */}
       <div className="relative h-[400px] md:h-[500px] lg:h-[600px] z-20">

@@ -1,7 +1,8 @@
 {
+  "/[locale]/about/ceo/page": "app/[locale]/about/ceo/page.js",
+  "/[locale]/about/page": "app/[locale]/about/page.js",
+  "/[locale]/about/vision/page": "app/[locale]/about/vision/page.js",
   "/[locale]/page": "app/[locale]/page.js",
-  "/[locale]/recruitments/page": "app/[locale]/recruitments/page.js",
-  "/[locale]/use-cases/page": "app/[locale]/use-cases/page.js",
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
   "/api/performance/route": "app/api/performance/route.js"
 }

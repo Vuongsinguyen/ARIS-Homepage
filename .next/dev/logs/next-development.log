@@ -1,24 +1,23 @@
-[00:00:01.215] Server  LOG      ✓ Ready in 948ms
-[00:00:04.322] Server  LOG      ○ Compiling /[locale]/use-cases ...
-[00:00:06.172] Browser LOG     CLS: 0.0012649071795150508
-[00:00:06.172] Browser LOG     [Analytics] CLS: 0.0012649071795150508
-[00:00:06.727] Server  LOG     Performance Metrics Received: {}
-[00:00:06.933] Server  LOG     Performance Metrics Received: {}
-[00:00:07.002] Browser LOG     FID: 6.200000047683716 ms
-[00:00:07.002] Browser LOG     [Analytics] FID: 6.200000047683716
-[00:00:07.893] Server  LOG     Performance Metrics Received: {}
-[00:00:07.987] Browser LOG     CLS: 0.001735518720939577
-[00:00:07.988] Browser LOG     [Analytics] CLS: 0.001735518720939577
+[00:00:01.183] Server  LOG      ✓ Ready in 902ms
+[00:00:07.903] Browser LOG     CLS: 0.0012649071795150508
+[00:00:07.906] Browser LOG     [Analytics] CLS: 0.0012649071795150508
+[00:00:08.768] Server  LOG     Performance Metrics Received: {}
 [00:00:08.865] Browser LOG     Performance Budget:
-[00:00:08.865] Browser LOG     DOM Content Loaded: 0ms
+[00:00:08.865] Browser LOG     DOM Content Loaded: 0.10000002384185791ms
 [00:00:08.865] Browser LOG     Load Complete: 0ms
-[00:00:08.865] Browser LOG     Total Load Time: 5300.800000071526ms
-[00:00:08.865] Browser LOG     ✅ domContentLoaded within budget: 0ms
-[00:00:08.865] Browser LOG     ✅ loadComplete within budget: 0ms
-[00:00:08.865] Browser WARN    ⚠️ totalTime exceeded budget: 5300.800000071526ms > 3000ms
-[00:00:09.149] Server  LOG     Performance Metrics Received: {}
-[00:00:09.182] Server  LOG     Performance Metrics Received: {}
-[00:00:09.237] Browser LOG     CLS: 0.002254406224888845
-[00:00:09.237] Browser LOG     [Analytics] CLS: 0.002254406224888845
-[00:00:09.237] Browser LOG     CLS: 0.0035790370177040676
-[00:00:09.237] Browser LOG     [Analytics] CLS: 0.0035790370177040676
+[00:00:08.865] Browser LOG     Total Load Time: 4770.799999952316ms
+[00:00:08.866] Browser LOG     ✅ domContentLoaded within budget: 0.10000002384185791ms
+[00:00:08.866] Browser LOG     ✅ loadComplete within budget: 0ms
+[00:00:08.866] Browser WARN    ⚠️ totalTime exceeded budget: 4770.799999952316ms > 3000ms
+[00:00:09.557] Server  LOG     Performance Metrics Received: {}
+[00:00:09.648] Browser LOG     CLS: 0.001735518720939577
+[00:00:09.648] Browser LOG     [Analytics] CLS: 0.001735518720939577
+[00:00:18.817] Server  LOG     Performance Metrics Received: {}
+[00:00:18.867] Browser LOG     FID: 109.70000004768372 ms
+[00:00:18.867] Browser LOG     [Analytics] FID: 109.70000004768372
+[00:00:20.006] Server  LOG     Performance Metrics Received: {}
+[00:00:20.044] Server  LOG     Performance Metrics Received: {}
+[00:00:20.106] Browser LOG     CLS: 0.0030601495137547994
+[00:00:20.106] Browser LOG     [Analytics] CLS: 0.0030601495137547994
+[00:00:20.106] Browser LOG     CLS: 0.003579037017704067
+[00:00:20.106] Browser LOG     [Analytics] CLS: 0.003579037017704067

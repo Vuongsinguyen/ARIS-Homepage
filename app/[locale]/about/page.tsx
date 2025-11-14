@@ -18,6 +18,45 @@ export default async function AboutOverviewPage() {
 
   return (
     <div className="space-y-8">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-950 dark:to-indigo-900 py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+              About ARIS Vietnam
+            </h1>
+            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
+              Leading technology company specializing in high-performance web applications, modern design solutions, and innovative software development.
+            </p>
+            <Link
+              href={`/${locale}/contact`}
+              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
+            >
+              Get In Touch
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Breadcrumb */}
+      <nav className="bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-3">
+          <ol className="flex items-center space-x-2 text-sm">
+            <li>
+              <Link
+                href={`/${locale}`}
+                className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
+              >
+                Home
+              </Link>
+            </li>
+            <li className="flex items-center">
+              <span className="text-gray-400 mx-2">/</span>
+              <span className="text-gray-900 dark:text-white font-medium">About</span>
+            </li>
+          </ol>
+        </div>
+      </nav>
       {/* Navigation Section */}
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-8">
         <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
